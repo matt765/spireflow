@@ -100,25 +100,13 @@ export const Dash3 = () => {
   }, [selectedRegion]);
 
   return (
-    <Card maxWidth="max-w-md">
+    <Card>
       <Flex
         spaceX="space-x-8"
         justifyContent="justify-start"
         alignItems="items-center"
       >
-        <BlockTitle title="Sales" />
-        <Dropdown
-          handleSelect={(value) => setSelectedRegion(value)}
-          placeholder="Region Selection"
-        >
-          {regions.map((region) => (
-            <DropdownItem
-              key={region.key}
-              value={region.key}
-              text={region.name}
-            />
-          ))}
-        </Dropdown>
+        <BlockTitle title="Sales" />     
       </Flex>
       <Legend
         categories={filteredData.map((city) => city.name)}

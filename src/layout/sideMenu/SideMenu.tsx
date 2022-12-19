@@ -12,9 +12,9 @@ import { MenuItem } from "./MenuItem";
 
 export const SideMenu = () => {
   return (
-    <div className="flex flex-col h-screen fixed w-64 bg-white">
-      <Logo />
-      <div className="border-t border-solid border-gray-200 px-6 pt-2">
+    <div className="hidden lg:flex flex-col h-full w-[200px] min-w-[200px] xl:w-[260px] xl:min-w-[260px] bg-white pt-24">
+      
+      <div className=" px-4 xl:px-6 pt-2 fixed  w-[200px] min-w-[200px] xl:w-[260px]">
         <MenuCategory title="Main" />
         <MenuItem title="Dashboard" icon={<DashboardIcon />} path="/" />
         <MenuCategory title="E-commerce" />

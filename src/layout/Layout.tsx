@@ -12,8 +12,9 @@ export const Layout = ({ children }: Props) => {
     <>
       <div className="flex h-full w-full">
         <SideMenu />
-        <div className="flex flex-col w-full h-full ml-64">
-          <Navbar />
+        <Navbar />
+        <div className="flex flex-col w-full h-full ">
+         
           {children}   
           <Footer />     
         </div>

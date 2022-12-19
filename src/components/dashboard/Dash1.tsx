@@ -193,37 +193,35 @@ export const Dash1 = () => {
         const chartArray = chartData[index];
         return (
           <Card key={item.title}>
-            <div className="flex small-box">
-              <div className="flex flex-col w-1/2 gap-1">
-                <div className="text-[#a3aed0] font-medium text-sm tracking-tight">
-                  {item.title}
+            <div className="flex small-box max-[420px]:-ml-3">
+              <div className="flex flex-col  w-1/2 gap-1">
+                <div className="flex flex-row lg:flex-col">
+                  <div className="text-[#a3aed0] font-medium text-lg lg:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
+                    {item.title}
+                  </div>
+                  <div className="text-lg xl:text-xl font-medium text-[#1b254b] flex">
+                    {item.metric}
+                  </div>
                 </div>
 
-                <div className="text-xl font-medium text-[#1b254b] flex">
-                  {item.metric}
-                </div>
                 <div className="flex">
                   {item.increased ? (
-                    <div
-                      className="text-xs text-green-600"
-                    >
+                    <div className="text-xs text-green-600">
                       +{item.changeValue}%
                     </div>
                   ) : (
-                    <div
-                    className="text-xs text-red-500"
-                    >
+                    <div className="text-xs text-red-500">
                       -{item.changeValue}%
                     </div>
                   )}
 
-                  <div className="text-xs text-gray-400 ml-1 whitespace-nowrap">
+                  <div className="flex lg:hidden xl:flex text-xs text-gray-400 ml-1 whitespace-nowrap">
                     {item.changeText}
                   </div>
                 </div>
               </div>
 
-              <div className="w-1/2 pl-3">
+              <div className="w-1/2 pl-3 ml-2 2xl:ml-0 sm:flex hidden">
                 <Chart chartData={chartArray} color={item.color} />
               </div>
             </div>

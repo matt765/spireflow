@@ -14,15 +14,15 @@ export default function Home() {
     <Layout>
       <PageContainer title="Dashboard">
         {/* First row */}
-        <ColGrid numColsSm={2} numColsLg={4} gapX="gap-x-6" gapY="gap-y-6">
+        <ColGrid numCols={2} numColsLg={4} gapX="gap-x-4" gapY="gap-y-6">
           <Dash1 />
         </ColGrid>
 
         {/* Second row */}
         <ColGrid
           numCols={1}
-          numColsSm={3}
-          numColsMd={3}
+          numColsSm={2}
+          numColsMd={2}
           numColsLg={3}
           gapX="gap-x-6"
           gapY="gap-y-6"
@@ -38,8 +38,8 @@ export default function Home() {
         {/* Third row */}
         <ColGrid
           numCols={1}
-          numColsSm={3}
-          numColsMd={3}
+          numColsSm={2}
+          numColsMd={2}
           numColsLg={3}
           gapX="gap-x-6"
           gapY="gap-y-6"
@@ -53,7 +53,7 @@ export default function Home() {
         </ColGrid>
 
         {/* Fourth row */}
-        <Dash6 />
+         <Dash6 /> 
       </PageContainer>
     </Layout>
   );

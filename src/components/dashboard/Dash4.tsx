@@ -22,15 +22,15 @@ import { BlockTitle } from "../BlockTitle";
 const chartdata = [
   {
     name: "Amphibians",
-    "Number of threatened species": 2488,
+    "Number of species": 2488,
   },
   {
     name: "Birds",
-    "Number of threatened species": 1445,
+    "Number of species": 1445,
   },
   {
     name: "Crustaceans",
-    "Number of threatened species": 743,
+    "Number of species": 743,
   },
 ];
 
@@ -45,7 +45,7 @@ export const Dash4 = () => {
       <BarChart
         data={chartdata}
         dataKey="name"
-        categories={["Number of threatened species"]}
+        categories={["Number of species"]}
         colors={["blue"]}
         valueFormatter={dataFormatter}
         marginTop="mt-6"
