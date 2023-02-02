@@ -13,7 +13,6 @@ import { MenuItem } from "./MenuItem";
 export const SideMenu = () => {
   return (
     <div className="hidden lg:flex flex-col h-full w-[200px] min-w-[200px] xl:w-[260px] xl:min-w-[260px] bg-white pt-24">
-      
       <div className=" px-4 xl:px-6 pt-2 fixed  w-[200px] min-w-[200px] xl:w-[260px]">
         <MenuCategory title="Main" />
         <MenuItem title="Dashboard" icon={<DashboardIcon />} path="/" />
@@ -30,10 +29,10 @@ export const SideMenu = () => {
           path="/analytics"
         />
         <MenuCategory title="Charts" />
-        <MenuItem title="Donut" icon={<DonutIcon />} path="/area" />
-        <MenuItem title="Area" icon={<AreaIcon />} path="/donut" />
+        <MenuItem title="Donut" icon={<DonutIcon />} path="/donut" />
+        <MenuItem title="Area" icon={<AreaIcon />} path="/area" />
         <MenuItem title="Bars" icon={<BarsIcon />} path="/bars" />
-        <MenuItem title="Line" icon={<LineIcon />} path="/donut" />
+        <MenuItem title="Line" icon={<LineIcon />} path="/line" />
       </div>
     </div>
   );
