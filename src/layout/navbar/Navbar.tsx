@@ -1,4 +1,4 @@
-import MoonLineIcon from "remixicon-react/MoonLineIcon";
+// import MoonLineIcon from "remixicon-react/MoonLineIcon";
 import { EnglishIcon } from "../../assets/icons/EnglishIcon";
 import { Logo } from "../sideMenu/Logo";
 
@@ -9,7 +9,7 @@ export const Navbar = () => {
         <Logo />
       </div>
       <div className="flex justify-end items-center  gap-6">
-        <MoonLineIcon />
+        {/* <MoonLineIcon /> */}
         <EnglishIcon />
         <div className="border border-gray-300 rounded-xl w-40 h-10 flex justify-center text-white items-center font-medium font-['Inter'] bg-[#6F6AF8]">
          Sign In

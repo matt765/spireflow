@@ -16,7 +16,7 @@ export const Layout = ({ children }: Props) => {
         <div className="flex flex-col w-full h-full ">
          
           {children}   
-          <Footer />     
+          {/* <Footer />      */}
         </div>
       </div>
     </>

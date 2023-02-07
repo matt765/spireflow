@@ -26,7 +26,7 @@ export const MenuItem = ({ title, icon, path }: Props) => {
           {icon}
         </div>
         <div
-          className={`text-sm  font-bold font-['Inter'] ${
+          className={`text-sm tracking-wide font-bold font-['Nunito Sans'] ${
             path === router.pathname ? "text-[#6F6AF8]" : "text-gray-500"
           }`}
         >

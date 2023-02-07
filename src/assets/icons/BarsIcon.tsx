@@ -7,9 +7,9 @@ export const BarsIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="chartIconTitle"
    
-    stroke-width="1"
-    stroke-linecap="square"
-    stroke-linejoin="miter"
+    strokeWidth="1"
+    strokeLinecap="square"
+    strokeLinejoin="miter"
     fill="none"
   
   >

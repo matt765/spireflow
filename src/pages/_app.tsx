@@ -1,8 +1,11 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import "@tremor/react/dist/esm/tremor.css";
-import { Inter, DM_Sans, Poppins } from "@next/font/google";
+import { Inter, DM_Sans, Poppins, Exo } from "@next/font/google";
 import { Layout } from "../layout/Layout";
+import "@fontsource/exo"; 
+import "@fontsource/nunito-sans"; // Defaults to weight 400.
+import "@fontsource/jost"; // Defaults to weight 400.
 import Head from "next/head";
 const inter = Inter({
   weight: "400",
@@ -11,6 +14,9 @@ const dmSans = DM_Sans({
   weight: "400",
 });
 const poppins = Poppins({
+  weight: "400",
+});
+const exo = Exo({
   weight: "400",
 });
 

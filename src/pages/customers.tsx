@@ -1,61 +1,231 @@
-import { ColGrid, Col } from "@tremor/react";
+import { useMemo } from "react";
+import { Column, useFlexLayout, useTable } from "react-table";
 
 import { PageContainer } from "../components/PageContainer";
 import { Layout } from "../layout/Layout";
-import { Dash1 } from "../components/dashboard/Dash1";
-import { Dash2 } from "../components/dashboard/Dash2";
-import { Dash3 } from "../components/dashboard/Dash3";
-import { Dash4 } from "../components/dashboard/Dash4";
-import { Dash5 } from "../components/dashboard/Dash5";
-import { Dash6 } from "../components/dashboard/Dash6";
-
 
 export default function Customers() {
+  const data = useMemo(
+    () => [
+      {
+        col1: "#23423",
+        col2: "iPhone XR",
+        col3: "John Doe",
+        col4: "$799",
+        col5: "Two-day shipping",
+        col6: "Delivered",
+      },
+      {
+        col1: "#82342",
+        col2: "Macbook Pro",
+        col3: "Jane Doe",
+        col4: "$1,299",
+        col5: "Standard shipping",
+        col6: "In Transit",
+      },
+      {
+        col1: "#82423",
+        col2: "Beats Solo Pro",
+        col3: "Alex Smith",
+        col4: "$299",
+        col5: "Free shipping",
+        col6: "Shipped",
+      },
+      {
+        col1: "#23423",
+        col2: "iPad Pro",
+        col3: "Emily Davis",
+        col4: "$799",
+        col5: "Express shipping",
+        col6: "Delivered",
+      },
+      {
+        col1: "#82423",
+        col2: "Apple Watch Series 6",
+        col3: "Daniel Lee",
+        col4: "$399",
+        col5: "Standard shipping",
+        col6: "In Transit",
+      },
+      {
+        col1: "#82343",
+        col2: "AirPods Pro",
+        col3: "Sarah Johnson",
+        col4: "$249",
+        col5: "Two-day shipping",
+        col6: "Shipped",
+      },
+      {
+        col1: "#23423",
+        col2: "iMac Pro",
+        col3: "Michael Brown",
+        col4: "$1,999",
+        col5: "Express shipping",
+        col6: "Delivered",
+      },
+      {
+        col1: "#23423",
+        col2: "Apple TV 4K",
+        col3: "Emily Davis",
+        col4: "$199",
+        col5: "Two-day shipping",
+        col6: "In Transit",
+      },
+      {
+        col1: "#83423",
+        col2: "Mac Mini",
+        col3: "Alex Smith",
+        col4: "$699",
+        col5: "Free shipping",
+        col6: "Shipped",
+      },
+      {
+        col1: "#82342",
+        col2: "Macbook Pro",
+        col3: "Jane Doe",
+        col4: "$1,299",
+        col5: "Standard shipping",
+        col6: "In Transit",
+      },
+      {
+        col1: "#82423",
+        col2: "Beats Solo Pro",
+        col3: "Alex Smith",
+        col4: "$299",
+        col5: "Free shipping",
+        col6: "Shipped",
+      },
+      {
+        col1: "#23423",
+        col2: "iPad Pro",
+        col3: "Emily Davis",
+        col4: "$799",
+        col5: "Express shipping",
+        col6: "Delivered",
+      },
+      {
+        col1: "#82423",
+        col2: "Apple Watch Series 6",
+        col3: "Daniel Lee",
+        col4: "$399",
+        col5: "Standard shipping",
+        col6: "In Transit",
+      },
+      {
+        col1: "#82343",
+        col2: "AirPods Pro",
+        col3: "Sarah Johnson",
+        col4: "$249",
+        col5: "Two-day shipping",
+        col6: "Shipped",
+      },
+      {
+        col1: "#23423",
+        col2: "iMac Pro",
+        col3: "Michael Brown",
+        col4: "$1,999",
+        col5: "Express shipping",
+        col6: "Delivered",
+      },
+      {
+        col1: "#23423",
+        col2: "Apple TV 4K",
+        col3: "Emily Davis",
+        col4: "$199",
+        col5: "Two-day shipping",
+        col6: "In Transit",
+      },
+    ],
+    []
+  );
+
+  const columns: Array<
+    Column<{
+      col1: string;
+      col2: string;
+      col3: string;
+      col4: string;
+      col5: string;
+      col6: string;
+    }>
+  > = useMemo(
+    () => [
+      {
+        Header: "ID",
+        accessor: "col1", 
+        maxWidth: 100,
+      },
+      {
+        Header: "Product name",
+        accessor: "col2",
+        width: 200,
+      },
+      {
+        Header: "User",
+        accessor: "col3",
+        width: 200,
+      },
+      {
+        Header: "Price",
+        accessor: "col4",
+      },
+      {
+        Header: "Delivery type",
+        accessor: "col5",
+      },
+      {
+        Header: "Status",
+        accessor: "col6",
+      },
+    ],
+    []
+  );
+  const tableInstance = useTable({ columns, data }, useFlexLayout);
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    tableInstance;
+
   return (
     <Layout>
-    <PageContainer title="Dashboard">
-      {/* First row */}
-      <ColGrid numColsSm={2} numColsLg={4} gapX="gap-x-6" gapY="gap-y-6">
-        <Dash1 />
-      </ColGrid>
-
-      {/* Second row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={3}
-        numColsMd={3}
-        numColsLg={3}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
-      >
-        <Col numColSpan={1} numColSpanLg={2}>
-          <Dash5 />
-        </Col>
-        <Col numColSpan={1} numColSpanLg={1}>
-          <Dash3 />
-        </Col>
-      </ColGrid>
-
-      {/* Third row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={3}
-        numColsMd={3}
-        numColsLg={3}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
-      >
-        <Col numColSpan={1} numColSpanLg={1}>
-          <Dash4 />
-        </Col>
-        <Col numColSpan={1} numColSpanLg={2}>
-          <Dash2 />
-        </Col>
-      </ColGrid>
-
-      {/* Fourth row */}
-      <Dash6 />
-    </PageContainer>
-  </Layout>
+      <PageContainer title="Dashboard">
+        <div className="flex w-full p-10 paper text-lg" >
+          <table {...getTableProps()} className="w-full">
+            <thead >
+              {headerGroups.map((headerGroup, index) => (
+                <tr {...headerGroup.getHeaderGroupProps()} key={index} >
+                  {headerGroup.headers.map((column) => (
+                    <th
+                      {...column.getHeaderProps()}
+                      key={index}
+                      className="text-gray-700 font-medium text-left pl-4 py-4 border"
+                    >
+                      {column.render("Header")}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {rows.map((row, index) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()} key={index} className="">
+                    {row.cells.map((cell, index) => (
+                      <td
+                        {...cell.getCellProps()}
+                        key={index}
+                        className="text-gray-500 font-medium p-4 border"
+                      >
+                        {cell.render("Cell")}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </PageContainer>
+    </Layout>
   );
 }

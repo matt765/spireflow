@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@fontsource/exo": "^4.5.11",
+    "@fontsource/jost": "^4.5.13",
+    "@fontsource/nunito-sans": "^4.5.10",
     "@next/font": "^13.0.3",
-    "@tremor/react": "^1.1.4",
+    "@tremor/react": "^1.7.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
@@ -22,10 +23,12 @@
     "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-table": "^7.8.0",
     "remixicon-react": "^1.0.0",
     "typescript": "4.8.4"
   },
   "devDependencies": {
+    "@types/react-table": "^7.7.14",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.2"

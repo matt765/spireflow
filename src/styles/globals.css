@@ -26,3 +26,7 @@ a {
 .small-box .recharts-cartesian-grid-horizontal {
   display: none
 }
+.paper {
+  @apply bg-white rounded-[12px] shadow-lg
+}
+

@@ -9,9 +9,9 @@ export const OrdersIcon = () => (
     <path
       fill="red"
    
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="32"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="32"
       d="M160 144h288M160 256h288M160 368h288"
     />
     <circle
@@ -20,9 +20,9 @@ export const OrdersIcon = () => (
       r="16"
       fill="none"
     
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="32"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="32"
     />
     <circle
       cx="80"
@@ -30,9 +30,9 @@ export const OrdersIcon = () => (
       r="16"
       fill="none"
     
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="32"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="32"
     />
     <circle
       cx="80"
@@ -40,9 +40,9 @@ export const OrdersIcon = () => (
       r="16"
       fill="none"
  
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="32"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="32"
     />
   </svg>
 );
