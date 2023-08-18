@@ -7,7 +7,7 @@ export const Logo = () => {
         text-center flex justify-center items-center text-2xl font-inter font-bold font-['Inter']"
     >
       <LogoIcon />
-      <div className="ml-3">Flow </div>
+      <div className="ml-3">Dash </div>
       <div className="text-[#6F6AF8]"> board</div>
     </div>
   );

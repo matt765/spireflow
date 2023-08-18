@@ -13,6 +13,7 @@
     "@fontsource/jost": "^4.5.13",
     "@fontsource/nunito-sans": "^4.5.10",
     "@next/font": "^13.0.3",
+    "@tanstack/react-table": "^8.9.3",
     "@tremor/react": "^1.7.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
@@ -23,14 +24,12 @@
     "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-table": "^7.8.0",
     "remixicon-react": "^1.0.0",
     "typescript": "4.8.4"
   },
   "devDependencies": {
-    "@types/react-table": "^7.7.14",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.2"
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28",
+    "tailwindcss": "^3.3.3"
   }
 }
