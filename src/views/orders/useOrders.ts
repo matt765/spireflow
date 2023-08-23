@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   getCoreRowModel,
   getSortedRowModel,
-  SortingState,
   useReactTable,
   createColumnHelper,
 } from "@tanstack/react-table";
@@ -15,6 +14,7 @@ import {
   PriceRange,
   SelectFilters,
 } from "./types";
+import { useTable } from "../../hooks/useTable";
 
 const columnHelper = createColumnHelper<Order>();
 
@@ -44,11 +44,6 @@ const columns = [
 ];
 
 export const useOrders = () => {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(10); 
-
   const initialFilters = {
     startDate: null,
     endDate: null,
@@ -58,7 +53,23 @@ export const useOrders = () => {
     deliveryType: "",
     status: "",
   };
-  const [filters, setFilters] = useState(initialFilters);
+
+  const {
+    sorting,
+    setSorting,
+    searchQuery,
+    setSearchQuery,
+    currentPage,
+    setCurrentPage,
+    itemsPerPage,
+    setItemsPerPage,
+    filters,
+    setFilters,
+    resetFilters,
+    nextPage,
+    prevPage,
+    goToPage,
+  } = useTable(initialFilters);
 
   const setFilter = (filterType: keyof Filters, value: FilterValues) => {
     setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
@@ -161,30 +172,6 @@ export const useOrders = () => {
     getSortedRowModel: getSortedRowModel(),
     debugTable: true,
   });
-  const nextPage = () => {
-    if (currentPage < Math.ceil(filteredData.length / itemsPerPage) - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const goToPage = (page: number) => {
-    if (page >= 0 && page < Math.ceil(filteredData.length / itemsPerPage)) {
-      setCurrentPage(page);
-    }
-  };
-
-  const resetFilters = () => {
-    setFilters(initialFilters);
-    setSearchQuery("");
-    setCurrentPage(0);
-    setSorting([]);
-  };
 
   return {
     table,
