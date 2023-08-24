@@ -28,6 +28,11 @@ export const SideMenu = () => {
           icon={<AnalyticsIcon />}
           path="/analytics"
         />
+         <MenuItem
+          title="Calendar"
+          icon={<AnalyticsIcon />}
+          path="/calendar"
+        />
         <MenuCategory title="Charts" />
         <MenuItem title="Donut" icon={<DonutIcon />} path="/donut" />
         <MenuItem title="Area" icon={<AreaIcon />} path="/area" />

@@ -29,4 +29,6 @@ a {
 .paper {
   @apply bg-white rounded-[12px] shadow-lg
 }
-
+.fc-scrollgrid-sync-table tbody tr:nth-child(6) {
+  @apply hidden;
+}
