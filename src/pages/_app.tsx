@@ -1,12 +1,21 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { NextComponentType } from "next";
+import { useEffect } from "react";
+import { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
+import "dotenv/config";
+import Head from "next/head";
+
 import "@tremor/react/dist/esm/tremor.css";
 import { Inter, DM_Sans, Poppins, Exo } from "@next/font/google";
-import { Layout } from "../layout/Layout";
-import "@fontsource/exo"; 
+import "@fontsource/exo";
 import "@fontsource/nunito-sans"; // Defaults to weight 400.
 import "@fontsource/jost"; // Defaults to weight 400.
-import Head from "next/head";
+
+import { useLoginStore } from "../store/loginStore";
+import { Layout } from "../layout/Layout";
+
 const inter = Inter({
   weight: "400",
 });
@@ -20,9 +29,21 @@ const exo = Exo({
   weight: "400",
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps & {
+  Component: NextComponentType;
+  pageProps: { session: Session | null };
+}) {
+  const { initializeUser } = useLoginStore();
+
+  useEffect(() => {
+    initializeUser();
+  }, []);
+
   return (
-    <>
+    <SessionProvider session={session}>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -48,8 +69,9 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-
-      <Component {...pageProps} />
-    </>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 }

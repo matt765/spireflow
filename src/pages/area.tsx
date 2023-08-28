@@ -9,10 +9,8 @@ import { Dash4 } from "../components/dashboard/Dash4";
 import { Dash5 } from "../components/dashboard/Dash5";
 import { Dash6 } from "../components/dashboard/Dash6";
 
-
 export default function Area() {
   return (
-    <Layout>
     <PageContainer title="Dashboard">
       {/* First row */}
       <ColGrid numColsSm={2} numColsLg={4} gapX="gap-x-6" gapY="gap-y-6">
@@ -56,6 +54,5 @@ export default function Area() {
       {/* Fourth row */}
       <Dash6 />
     </PageContainer>
-  </Layout>
   );
 }

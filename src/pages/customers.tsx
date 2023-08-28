@@ -7,10 +7,8 @@ import { CustomersView } from "../views/customers/CustomersView";
 
 export default function Customers() {
   return (
-    <Layout>
-      <PageContainer title="Dashboard">
-        <CustomersView />
-      </PageContainer>
-    </Layout>
+    <PageContainer title="Dashboard">
+      <CustomersView />
+    </PageContainer>
   );
 }
