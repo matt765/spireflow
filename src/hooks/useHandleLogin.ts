@@ -3,15 +3,26 @@ import { useRouter } from "next/router";
 
 import { auth } from "../services/firebaseClient";
 import { useLoginStore } from "../store/loginStore";
+import { LoginData } from "../components/auth/LoginForm";
+
+export interface HandleLoginProps extends LoginData {
+  isDemo?: boolean;
+}
 
 export const useHandleLogin = (isModal: boolean, closeModal: () => void) => {
   const [authError, setAuthError] = useState<string>("");
   const { setUser, setLoading } = useLoginStore();
   const router = useRouter();
 
-  const handleLogin = async (data: { username: string; password: string }) => {
+  const handleLogin = async (
+    data: { username: string; password: string },
+    isDemo?: boolean
+  ) => {
     setLoading(true);
-    const { username: email, password } = data;
+
+    const email = isDemo ? "user@test.com" : data.username;
+    const password = isDemo ? "user@test.com" : data.password;
+
     try {
       const userCredential = await auth.signInWithEmailAndPassword(
         email,
@@ -29,6 +40,7 @@ export const useHandleLogin = (isModal: boolean, closeModal: () => void) => {
     } catch (error) {
       setAuthError("Invalid email or password.");
     }
+
     setLoading(false);
   };
 

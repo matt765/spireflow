@@ -1,18 +1,13 @@
 # ecommerce-dashboard
 todo:
-- filters for customers
 - single charts
-- calendar
 - i18n
-- dark theme
-- authentication
-- basic rbac
+- dark theme + redesign
+- styles for resolution below 1600px
 - nodejs/express backend for all the data (graphql?)
-- updating packages
-- redesign
 - adding MIT license
 - readme / documentation
 
 work in progress...
 
-live: https://ecommerce-dashboard-two.vercel.app/
+live: https://ecommerce-dashboard-2.vercel.app/

@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 
 import { EnglishIcon } from "../../assets/icons/EnglishIcon";
-import { LoginModal } from "../../components/loginForm/LoginModal";
+import { LoginModal } from "../../components/auth/LoginModal";
 import { useLoginStore } from "../../store/loginStore";
 import { Logo } from "../sideMenu/Logo";
-import { SignUpModal } from "../../components/loginForm/SignUpModal";
+import { SignUpModal } from "../../components/auth/SignUpModal";
 import { useSession, signOut } from "next-auth/react";
 import { SpinnerIcon } from "../../assets/icons/Spinner";
 import { UserIcon } from "../../assets/icons/UserIcon";

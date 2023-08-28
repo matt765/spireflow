@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"; 
+import React, { useEffect, useRef } from "react";
 
 import { useHandleLogin } from "../../hooks/useHandleLogin";
 import { LoginForm } from "./LoginForm";
@@ -44,7 +44,7 @@ export const LoginModal = ({ closeModal, switchToSignUp }: LoginModalProps) => {
           </button>
           <h1 className="text-4xl font-bold mb-8">Sign In</h1>
           <LoginForm
-            handleLogin={handleLogin}
+            handleLogin={async (data) => handleLogin(data)}
             authError={authError}
             switchToSignUp={switchToSignUp}
           />

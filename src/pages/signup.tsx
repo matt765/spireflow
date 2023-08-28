@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import { SignUpForm } from "../components/loginForm/SignUpForm";
+import { SignUpForm } from "../components/auth/SignUpForm";
 import { useHandleSignUp } from "../hooks/useHandleSignUp";
 
 export default function SignUp() {

@@ -3,14 +3,15 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 
 import { SpinnerIcon } from "../../assets/icons/Spinner";
+import { HandleLoginProps } from "../../hooks/useHandleLogin";
 
-interface LoginData {
+export interface LoginData {
   username: string;
   password: string;
 }
 
 interface LoginFormProps {
-  handleLogin: SubmitHandler<LoginData>;
+  handleLogin: SubmitHandler<HandleLoginProps>;
   authError: string;
   switchToSignUp: () => void;
 }
@@ -85,8 +86,13 @@ export const LoginForm = ({
           )}
         </button>
         <button
-          type="submit"
+          type="button"
           disabled={loading}
+          onClick={() => {
+            handleLogin({ username: "user@test.com", password: "user@test.com", isDemo: true })
+            setLoading(true)
+          }         
+          }
           className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-4 w-4/5 bg-[#5c9aff] text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"
         >
           {loading ? (
