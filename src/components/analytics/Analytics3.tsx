@@ -13,7 +13,6 @@ const data = [
     "Successful Payments": 1398,
     Customers: 2938,
   },
-  // ...
   {
     Month: "Jan 22",
     "Gross Volume": 3890,
@@ -31,15 +30,14 @@ export const Analytics3 = () => {
       <Text>Gross Volume</Text>
       <Metric>$ 12,699</Metric>
       <AreaChart
-        marginTop="mt-8"
+        className="mt-8 h-44"
         data={data}
         categories={["Gross Volume"]}
-        dataKey="Month"
+        index="Month"
         colors={["indigo"]}
         valueFormatter={valueFormatter}
         showYAxis={false}
         showLegend={false}
-        height="h-44"
       />
 
       <Divider />
@@ -47,15 +45,14 @@ export const Analytics3 = () => {
       <Text>Successful Payments</Text>
       <Metric>$ 10,300</Metric>
       <AreaChart
-        marginTop="mt-8"
+        className="mt-8 h-44"
         data={data}
         categories={["Successful Payments"]}
-        dataKey="Month"
+        index="Month"
         colors={["indigo"]}
         valueFormatter={valueFormatter}
         showYAxis={false}
         showLegend={false}
-        height="h-44"
       />
 
       <Divider />
@@ -63,15 +60,14 @@ export const Analytics3 = () => {
       <Text>Customers</Text>
       <Metric>645</Metric>
       <AreaChart
-        marginTop="mt-8"
+        className="mt-8 h-44"
         data={data}
         categories={["Customers"]}
-        dataKey="Month"
+        index="Month"
         colors={["indigo"]}
         valueFormatter={valueFormatter}
         showYAxis={false}
         showLegend={false}
-        height="h-44"
       />
     </Card>
   );

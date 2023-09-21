@@ -5,11 +5,13 @@ import {
   Text,
   Tab,
   TabList,
-  Footer,
-  ButtonInline,
+  TabGroup,
+  TabPanels,
+  TabPanel,
+  Button,
+  Flex,
   BarList,
-  ColGrid,
-  Block,
+  Grid,
 } from "@tremor/react";
 
 // import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
@@ -122,76 +124,179 @@ const valueFormatter = (number: number) =>
   Intl.NumberFormat("us").format(number).toString();
 
 export const Analytics10 = () => {
-  const [selectedRunner, setSelectedRunner] = useState(Runners.Chris);
+  const [activeRunner, setActiveRunner] = useState(Runners.Chris);
+
+  const selectedData = data.find((runner) => runner.name === activeRunner);
+
   return (
     <Card>
       <Title> Activity Overview</Title>
-      <TabList
-        defaultValue={selectedRunner}
-        handleSelect={(value) => setSelectedRunner(value)}
-        marginTop="mt-8"
-      >
-        <Tab value={Runners.Chris} text="Chris" />
-        <Tab value={Runners.Severin} text="Severin" />
-        <Tab value={Runners.Achilleas} text="Achilleas" />
-      </TabList>
 
-      {data
-        .filter((item) => item.name === selectedRunner)
-        .map((item) => (
-          <ColGrid key={item.name} numColsMd={2} gapX="gap-x-8" gapY="gap-y-2">
-            <Block>
-              <Text marginTop="mt-8">
-                <Bold>Activity by session (#)</Bold>
-              </Text>
-              <BarList
-                marginTop="mt-4"
-                data={item.session}
-                valueFormatter={valueFormatter}
-              />
-            </Block>
-            <Block>
-              <Text marginTop="mt-8">
-                <Bold>Activity by time (h)</Bold>
-              </Text>
-              <BarList
-                marginTop="mt-4"
-                data={item.time}
-                valueFormatter={valueFormatter}
-              />
-            </Block>
-            <Block>
-              <Text marginTop="mt-8">
-                <Bold>Activity by heart rate (bpm)</Bold>
-              </Text>
-              <BarList
-                marginTop="mt-4"
-                data={item.bpm}
-                valueFormatter={valueFormatter}
-              />
-            </Block>
-            <Block>
-              <Text marginTop="mt-8">
-                <Bold>Activity by distance (km)</Bold>
-              </Text>
-              <BarList
-                marginTop="mt-4"
-                data={item.km}
-                valueFormatter={valueFormatter}
-              />
-            </Block>
-          </ColGrid>
-        ))}
-
-      <Footer>
-        <ButtonInline
-          size="sm"
-          text="View details"
-          icon={LogoIcon}
-          iconPosition="right"
-          onClick={() => null}
-        />
-      </Footer>
+      <TabGroup className="mt-8">
+        <TabList variant="solid">
+          <Tab>Chris</Tab>
+          <Tab>Severin</Tab>
+          <Tab>Achilleas</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            {data
+              .filter((item) => item.name === "Chris")
+              .map((item) => (
+                <Grid
+                  key={item.name}
+                  numItemsMd={2}
+                  className="gap-x-8 gap-y-2 mt-6"
+                >
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by session (#)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.session}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by time (h)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.time}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by heart rate (bpm)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.bpm}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by distance (km)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.km}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                </Grid>
+              ))}
+          </TabPanel>
+          <TabPanel>
+            {data
+              .filter((item) => item.name === "Severin")
+              .map((item) => (
+                <Grid
+                  key={item.name}
+                  numItemsMd={2}
+                  className="gap-x-8 gap-y-2 mt-6"
+                >
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by session (#)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.session}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by time (h)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.time}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by heart rate (bpm)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.bpm}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by distance (km)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.km}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                </Grid>
+              ))}
+          </TabPanel>
+          <TabPanel>
+            {data
+              .filter((item) => item.name === "Achilleas")
+              .map((item) => (
+                <Grid
+                  key={item.name}
+                  numItemsMd={2}
+                  className="gap-x-8 gap-y-2 mt-6"
+                >
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by session (#)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.session}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by time (h)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.time}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by heart rate (bpm)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.bpm}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                  <div>
+                    <Text className="mt-8">
+                      <Bold>Activity by distance (km)</Bold>
+                    </Text>
+                    <BarList
+                      className="mt-4"
+                      data={item.km}
+                      valueFormatter={valueFormatter}
+                    />
+                  </div>
+                </Grid>
+              ))}
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
     </Card>
   );
 };

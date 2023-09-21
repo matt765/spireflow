@@ -1,8 +1,6 @@
 import {
-  ButtonInline,
   Card,
   Callout,
-  Footer,
   Flex,
   Tab,
   TabList,
@@ -10,6 +8,9 @@ import {
   Metric,
   Legend,
   LineChart,
+  TabPanels,
+  TabPanel,
+  TabGroup,
 } from "@tremor/react";
 
 import { useState } from "react";
@@ -108,70 +109,57 @@ const valueFormatter = (number: number) =>
 export const Analytics2 = () => {
   const [selectedComparison, setSelectedComparison] = useState("today");
   return (
-    <Card maxWidth="max-w-lg">
+    <Card className="max-w-lg">
       <Text>Today&apos;s Sales</Text>
-      <Metric marginTop="mt-1">$ 276</Metric>
-      <TabList
-        defaultValue="average"
-        handleSelect={(value) => setSelectedComparison(value)}
-        marginTop="mt-6"
-      >
-        <Tab value="average" text="Today vs. peer average" />
-        <Tab value="yesterday" text="Today vs. yesterday" />
-      </TabList>
-      {selectedComparison === "yesterday" ? (
-        <>
-          <LineChart
-            data={sales}
-            dataKey="hour"
-            categories={["today", "yesterday"]}
-            colors={["blue", "slate"]}
-            showYAxis={false}
-            showLegend={false}
-            valueFormatter={valueFormatter}
-            height="h-56"
-            marginTop="mt-4"
-            showAnimation={true}
-          />
-          <Flex justifyContent="justify-end">
-            <Legend
-              categories={["Today", "Yesterday"]}
+      <Metric className="mt-1">$ 276</Metric>
+      <TabGroup>
+        <TabList defaultValue="average" className="mt-6">
+          <Tab value="average">Today vs. peer average</Tab>
+          <Tab value="yesterday">Today vs. yesterday</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <LineChart
+              data={sales}
+              categories={["today", "yesterday"]}
+              index="year"
               colors={["blue", "slate"]}
-              marginTop="mt-3"
+              showYAxis={false}
+              showLegend={false}
+              valueFormatter={valueFormatter}
+              className="mt-4 h-56"
+              showAnimation={true}
             />
-          </Flex>
-          <Callout
-            title="-14.8% below yesterday"
-            text="Today's sales underperform the sales yesterday."
-            // icon={TrendingDownIcon}
-            height="h-12"
-            color="rose"
-            marginTop="mt-4"
-          />
-        </>
-      ) : (
-        <>
-          <LineChart
-            data={sales}
-            dataKey="hour"
-            categories={["today", "average"]}
-            colors={["blue", "slate"]}
-            showYAxis={false}
-            showLegend={false}
-            valueFormatter={valueFormatter}
-            height="h-56"
-            marginTop="mt-4"
-            showAnimation={true}
-          />
-          <Flex justifyContent="justify-end">
-            <Legend
-              categories={["Today", "Peer average"]}
+            <Flex justifyContent="end">
+              <Legend
+                categories={["Today", "Yesterday"]}
+                colors={["blue", "slate"]}
+                className="mt-3"
+              />
+            </Flex>
+          </TabPanel>
+          <TabPanel>
+            <LineChart
+              data={sales}
+              categories={["today", "average"]}
               colors={["blue", "slate"]}
-              marginTop="mt-3"
+              index="year"
+              showYAxis={false}
+              showLegend={false}
+              valueFormatter={valueFormatter}
+              className="mt-4 h-56"
+              showAnimation={true}
             />
-          </Flex>
-        </>
-      )}
+            <Flex justifyContent="end">
+              <Legend
+                categories={["Today", "Peer average"]}
+                colors={["blue", "slate"]}
+                className="mt-3"
+              />
+            </Flex>
+          </TabPanel>{" "}
+        </TabPanels>
+      </TabGroup>
     </Card>
   );
 };

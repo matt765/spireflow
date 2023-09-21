@@ -1,13 +1,12 @@
 import {
   Card,
   Text,
-  Footer,
   Flex,
-  ButtonInline,
   Metric,
   CategoryBar,
   BadgeDelta,
-  ColGrid,
+  Grid,
+  Button,
 } from "@tremor/react";
 
 // import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
@@ -33,46 +32,40 @@ const categories = [
 
 export const Analytics7 = () => {
   return (
-    <Card maxWidth="max-w-xl">
-      <Card shadow={false}>
+    <Card className="max-w-xl">
+      <Card>
         <Flex>
-          <Text truncate={true}>Overall Performance Score</Text>
-          <BadgeDelta text="13.1%" deltaType="moderateIncrease" />
+          <Text>Overall Performance Score</Text>
+          <BadgeDelta deltaType="moderateIncrease">13.1%</BadgeDelta>
         </Flex>
         <Flex
-          justifyContent="justify-start"
-          alignItems="items-baseline"
-          spaceX="space-x-1"
+          justifyContent="start"
+          alignItems="baseline"
+          className="space-x-1"
         >
           <Metric>65</Metric>
           <Text>/100</Text>
         </Flex>
         <CategoryBar
-          categoryPercentageValues={[10, 25, 45, 20]}
+          values={[10, 25, 45, 20]}
           colors={["emerald", "yellow", "orange", "red"]}
-          percentageValue={65}
+          markerValue={65}
           tooltip="65%"
-          marginTop="mt-2"
+          className="mt-2"
         />
       </Card>
-      <ColGrid numColsSm={2} gapX="gap-x-4" gapY="gap-y-4" marginTop="mt-4">
+      <Grid numItemsSm={2} className="gap-x-4 gap-y-4 mt-4">
         {categories.map((item) => (
-          <Card key={item.title} shadow={false}>
-            <Metric marginTop="mt-2" truncate={true}>
-              {item.metric}
-            </Metric>
+          <Card key={item.title}>
+            <Metric className="mt-2">{item.metric}</Metric>
             <Text>{item.title}</Text>
           </Card>
         ))}
-      </ColGrid>
-      <Footer>
-        <ButtonInline
-          size="sm"
-          text="View details"
-          icon={LogoIcon}
-          iconPosition="right"
-        />
-      </Footer>
+      </Grid>
+
+      <Button size="sm" icon={LogoIcon} iconPosition="right">
+        View details
+      </Button>
     </Card>
   );
 };

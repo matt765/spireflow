@@ -7,7 +7,6 @@ import { SessionProvider } from "next-auth/react";
 import "dotenv/config";
 import Head from "next/head";
 
-import "@tremor/react/dist/esm/tremor.css";
 import { Inter, DM_Sans, Poppins, Exo } from "@next/font/google";
 import "@fontsource/exo";
 import "@fontsource/nunito-sans"; // Defaults to weight 400.

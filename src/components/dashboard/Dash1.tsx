@@ -5,7 +5,6 @@ import {
   Flex,
   BadgeDelta,
   DeltaType,
-  ColGrid,
   BarChart,
   Color,
 } from "@tremor/react";
@@ -192,7 +191,7 @@ export const Dash1 = () => {
       {categories.map((item, index) => {
         const chartArray = chartData[index];
         return (
-          <Card key={item.title}>
+          <Card key={`${item.title}-${index}`} className="h-32">
             <div className="flex small-box max-[420px]:-ml-3">
               <div className="flex flex-col  w-1/2 gap-1">
                 <div className="flex flex-row lg:flex-col">
@@ -240,11 +239,11 @@ interface ChartProps {
 const Chart = ({ color, chartData }: ChartProps) => (
   <BarChart
     data={chartData}
-    dataKey="name"
+    index="name"
     categories={["Number of threatened species"]}
     colors={[color]}
     showLegend={false}
-    height="h-16"
+    className="h-16"
     showTooltip={false}
     showXAxis={false}
     showYAxis={false}

@@ -33,10 +33,10 @@ export const SideMenu = () => {
           icon={<AnalyticsIcon />}
           path="/calendar"
         />
-        <MenuCategory title="Charts" />
-        <MenuItem title="Donut" icon={<DonutIcon />} path="/donut" />
+        <MenuCategory title="Single charts" />      
         <MenuItem title="Area" icon={<AreaIcon />} path="/area" />
         <MenuItem title="Bars" icon={<BarsIcon />} path="/bars" />
+        <MenuItem title="Scatter" icon={<DonutIcon />} path="/scatter" />
         <MenuItem title="Line" icon={<LineIcon />} path="/line" />
       </div>
     </div>

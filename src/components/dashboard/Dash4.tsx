@@ -4,14 +4,11 @@ import {
   Card,
   DeltaType,
   DonutChart,
-  Dropdown,
-  DropdownItem,
   Flex,
   Legend,
   List,
   ListItem,
   Title,
-  ColGrid,
   Col,
   BarChart,
   Subtitle,
@@ -40,16 +37,15 @@ const dataFormatter = (number: number) => {
 
 export const Dash4 = () => {
   return (
-    <Card>
+    <Card className="h-full">
       <BlockTitle title="Number of species" />
       <BarChart
         data={chartdata}
-        dataKey="name"
+        index="name"
         categories={["Number of species"]}
         colors={["blue"]}
         valueFormatter={dataFormatter}
-        marginTop="mt-6"
-        yAxisWidth="w-12"
+        className="mt-6"
       />
     </Card>
   );

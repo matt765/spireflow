@@ -12,10 +12,10 @@ import {
   Text,
   Card,
   Flex,
-  Dropdown,
-  DropdownItem,
   Bold,
   BarList,
+  Select,
+  SelectItem,
 } from "@tremor/react";
 
 import { JSXElementConstructor, useEffect, useState } from "react";
@@ -79,14 +79,14 @@ const visits: VisitsData[] = [
     icon: LogoIcon,
   },
   {
-    name: "DEV.to",
-    value: 21,
+    name: "Developers",
+    value: 42,
     category: "blogs",
     icon: LogoIcon,
   },
   {
-    name: "Medium",
-    value: 42,
+    name: "DEV.to",
+    value: 21,
     category: "blogs",
     icon: LogoIcon,
   },
@@ -104,23 +104,12 @@ export const Analytics4 = () => {
   }, [selectedCategory]);
 
   return (
-    <Card maxWidth="max-w-full">
+    <Card className="max-w-full">
       <div className="min-h-[505px]">
-        <Flex spaceX="space-x-8">
+        <Flex className="space-x-8">
           <Title>Sources</Title>
-          <Dropdown
-            handleSelect={(value) => setSelectedCategory(value)}
-            placeholder="Source Selection"
-            maxWidth="max-w-xs"
-          >
-            {categories.map((category) => (
-              <div className="mb-4" key={category.key}>
-                <DropdownItem value={category.key} text={category.name} />
-              </div>
-            ))}
-          </Dropdown>
         </Flex>
-        <Flex marginTop="mt-8">
+        <Flex className="mt-8">
           <Text>
             <Bold>Source</Bold>
           </Text>
@@ -128,7 +117,7 @@ export const Analytics4 = () => {
             <Bold>Visits</Bold>
           </Text>
         </Flex>
-        <BarList data={filteredData} showAnimation={false} marginTop="mt-4" />
+        <BarList data={filteredData} showAnimation={false} className="mt-4" />
       </div>
     </Card>
   );

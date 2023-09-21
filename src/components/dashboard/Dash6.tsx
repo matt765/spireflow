@@ -8,8 +8,8 @@ import {
   TableBody,
   BadgeDelta,
   DeltaType,
-  MultiSelectBox,
-  MultiSelectBoxItem,
+  MultiSelect,
+  MultiSelectItem,
 } from "@tremor/react";
 import { useState } from "react";
 
@@ -105,35 +105,27 @@ export const Dash6 = () => {
 
   return (
     <Card>
-      <MultiSelectBox
-        handleSelect={(value) => setSelectedNames(value)}
+      <MultiSelect
+        onValueChange={setSelectedNames}
         placeholder="Select Salespeople..."
-        maxWidth="max-w-xs"
+        className="max-w-xs"
       >
         {salesPeople.map((item) => (
-          <MultiSelectBoxItem
-            key={item.name}
-            value={item.name}
-            text={item.name}
-          />
+          <MultiSelectItem key={item.name} value={item.name}>
+            {item.name}
+          </MultiSelectItem>
         ))}
-      </MultiSelectBox>
-      <Table marginTop="mt-6">
+      </MultiSelect>
+      <Table className="mt-6">
         <TableHead>
           <TableRow>
             <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell textAlignment="text-right">Leads</TableHeaderCell>
-            <TableHeaderCell textAlignment="text-right">
-              Sales ($)
-            </TableHeaderCell>
-            <TableHeaderCell textAlignment="text-right">
-              Quota ($)
-            </TableHeaderCell>
-            <TableHeaderCell textAlignment="text-right">
-              Variance
-            </TableHeaderCell>
-            <TableHeaderCell textAlignment="text-right">Region</TableHeaderCell>
-            <TableHeaderCell textAlignment="text-right">Status</TableHeaderCell>
+            <TableHeaderCell className="text-right">Leads</TableHeaderCell>
+            <TableHeaderCell className="text-right">Sales ($)</TableHeaderCell>
+            <TableHeaderCell className="text-right">Quota ($)</TableHeaderCell>
+            <TableHeaderCell className="text-right">Variance</TableHeaderCell>
+            <TableHeaderCell className="text-right">Region</TableHeaderCell>
+            <TableHeaderCell className="text-right">Status</TableHeaderCell>
           </TableRow>
         </TableHead>
 
@@ -143,19 +135,15 @@ export const Dash6 = () => {
             .map((item) => (
               <TableRow key={item.name}>
                 <TableCell>{item.name}</TableCell>
-                <TableCell textAlignment="text-right">{item.leads}</TableCell>
-                <TableCell textAlignment="text-right">{item.sales}</TableCell>
-                <TableCell textAlignment="text-right">{item.quota}</TableCell>
-                <TableCell textAlignment="text-right">
-                  {item.variance}
-                </TableCell>
-                <TableCell textAlignment="text-right">{item.region}</TableCell>
-                <TableCell textAlignment="text-right">
-                  <BadgeDelta
-                    deltaType={item.deltaType}
-                    text={item.status}
-                    size="xs"
-                  />
+                <TableCell className="text-right">{item.leads}</TableCell>
+                <TableCell className="text-right">{item.sales}</TableCell>
+                <TableCell className="text-right">{item.quota}</TableCell>
+                <TableCell className="text-right">{item.variance}</TableCell>
+                <TableCell className="text-right">{item.region}</TableCell>
+                <TableCell className="text-right">
+                  <BadgeDelta deltaType={item.deltaType} size="xs">
+                    {item.status}
+                  </BadgeDelta>
                 </TableCell>
               </TableRow>
             ))}

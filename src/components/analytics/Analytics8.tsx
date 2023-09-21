@@ -58,14 +58,13 @@ export const Analytics8 = () => {
       <Title>Performance</Title>
       <Text>Comparison between Sales and Profit</Text>
       <BarChart
-        marginTop="mt-4"
+        className="mt-4 h-80"
         data={data}
-        dataKey="Month"
+        index="Month"
         categories={["Sales", "Profit"]}
         colors={["indigo", "fuchsia"]}
         stack={false}
         valueFormatter={valueFormatter}
-        height="h-80"
       />
     </Card>
   );

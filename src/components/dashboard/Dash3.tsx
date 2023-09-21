@@ -4,14 +4,11 @@ import {
   Card,
   DeltaType,
   DonutChart,
-  Dropdown,
-  DropdownItem,
   Flex,
   Legend,
   List,
   ListItem,
   Title,
-  ColGrid,
   Col,
 } from "@tremor/react";
 import { useEffect, useState } from "react";
@@ -101,33 +98,27 @@ export const Dash3 = () => {
 
   return (
     <Card>
-      <Flex
-        spaceX="space-x-8"
-        justifyContent="justify-start"
-        alignItems="items-center"
-      >
-        <BlockTitle title="Sales" />     
+      <Flex className="space-x-8" justifyContent="start" alignItems="center">
+        <BlockTitle title="Sales" />
       </Flex>
       <Legend
         categories={filteredData.map((city) => city.name)}
-        marginTop="mt-6"
+        className="mt-6"
       />
       <DonutChart
         data={filteredData}
         category="sales"
-        dataKey="name"
+        index="name"
         valueFormatter={valueFormatter}
-        marginTop="mt-6"
+        className="mt-6"
       />
-      <List marginTop="mt-6">
+      <List className="mt-6">
         {filteredData.map((city) => (
           <ListItem key={city.name}>
             {city.name}
-            <BadgeDelta
-              deltaType={city.deltaType}
-              text={city.delta}
-              size="xs"
-            />
+            <BadgeDelta deltaType={city.deltaType} size="xs">
+              {city.delta}
+            </BadgeDelta>
           </ListItem>
         ))}
       </List>

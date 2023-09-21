@@ -1,20 +1,18 @@
-/* This code snippet uses tailwind css for for additional layout optimizations */
-
 import {
   Card,
   Col,
   DeltaType,
   DeltaBar,
   DonutChart,
-  Dropdown,
-  DropdownItem,
+  Select,
+  SelectItem,
   Flex,
   List,
   ListItem,
   Text,
   Title,
   Bold,
-  ColGrid,
+  Grid,
   Color,
 } from "@tremor/react";
 import { useEffect, useState } from "react";
@@ -45,7 +43,7 @@ const cities: AssetData[] = [
     status: "emerald",
   },
   {
-    name: "Black Swan Holding",
+    name: "Swan Holding",
     industry: "health",
     sales: 456700,
     delta: 32.8,
@@ -118,61 +116,37 @@ export const Analytics1 = () => {
   }, [selectedindustry]);
 
   return (
-    <Card maxWidth="max-w-5xl">
+    <Card className="max-w-5xl h-full">
       <div className="hidden sm:block">
-        <Flex
-          spaceX="space-x-4"
-          justifyContent="justify-start"
-          alignItems="items-center"
-        >
-          <Title truncate={true}>Asset Performance</Title>
-          <Dropdown
-            handleSelect={(value) => setSelectedindustry(value)}
-            placeholder="Industry Selection"
-            maxWidth="max-w-xs"
-          >
-            {industries.map((industry) => (
-              <DropdownItem
-                key={industry.key}
-                value={industry.key}
-                text={industry.name}
-              />
-            ))}
-          </Dropdown>
+        <Flex className="space-x-4" justifyContent="start" alignItems="center">
+          <Title>Asset Performance</Title>
         </Flex>
       </div>
-      {/* --- Same code snippet as above but with no flex to optmize mobile view --- */}
       <div className="sm:hidden">
-        <Title truncate={true}>Asset Performance</Title>
-        <Dropdown
-          handleSelect={(value) => setSelectedindustry(value)}
+        <Title>Asset Performance</Title>
+        <Select
+          onValueChange={setSelectedindustry}
           placeholder="Industry Selection"
-          maxWidth="max-w-full"
-          marginTop="mt-2"
+          className="mt-2 max-w-full"
         >
-          {industries.map((industry) => (
-            <DropdownItem
-              key={industry.key}
-              value={industry.key}
-              text={industry.name}
-            />
+          {industries.map((industry, index) => (
+            <SelectItem key={`${industry.key}-${index}`} value={industry.key} />
           ))}
-        </Dropdown>
+        </Select>
       </div>
-      <ColGrid numColsLg={3} marginTop="mt-8" gapX="gap-x-14" gapY="gap-y-10">
+      <Grid numItemsLg={3} className="mt-8 gap-x-14 gap-y-10">
         <Flex>
           <DonutChart
             data={filteredData}
             category="sales"
-            dataKey="name"
             variant="donut"
             valueFormatter={valueFormatter}
-            height="h-52"
+            className="h-52"
           />
         </Flex>
         <Col numColSpan={1} numColSpanLg={2}>
           <Flex>
-            <Text truncate={true}>
+            <Text>
               <Bold>Asset</Bold>
             </Text>
             <Text>
@@ -180,18 +154,16 @@ export const Analytics1 = () => {
             </Text>
           </Flex>
           <div className="hidden sm:block">
-            <List marginTop="mt-2">
+            <List className="mt-2">
               {filteredData.map((city) => (
                 <ListItem key={city.name}>
-                  <Text truncate={true}> {city.name} </Text>
+                  <Text> {city.name} </Text>
                   <div>
-                    <Flex justifyContent="justify-end" spaceX="space-x-4">
-                      <Text color={city.status} truncate={true}>
-                        {city.delta}%{" "}
-                      </Text>
+                    <Flex justifyContent="end" className="space-x-4">
+                      <Text color={city.status}>{city.delta}% </Text>
                       <div className="w-44">
                         <DeltaBar
-                          percentageValue={city.delta}
+                          value={city.delta}
                           isIncreasePositive={true}
                           tooltip=""
                           showAnimation={true}
@@ -203,20 +175,17 @@ export const Analytics1 = () => {
               ))}
             </List>
           </div>
-          {/* --- Same code snippet as above but with less width for data bars to optmize mobile view --- */}
           <div className="sm:hidden">
-            <List marginTop="mt-2">
+            <List className="mt-2">
               {filteredData.map((city) => (
                 <ListItem key={city.name}>
-                  <Text truncate={true}> {city.name} </Text>
+                  <Text> {city.name} </Text>
                   <div>
-                    <Flex justifyContent="justify-end" spaceX="space-x-4">
-                      <Text color={city.status} truncate={true}>
-                        {city.delta}%{" "}
-                      </Text>
+                    <Flex justifyContent="end" className="space-x-4">
+                      <Text color={city.status}>{city.delta}% </Text>
                       <div className="w-20">
                         <DeltaBar
-                          percentageValue={city.delta}
+                          value={city.delta}
                           isIncreasePositive={true}
                           tooltip=""
                           showAnimation={true}
@@ -229,7 +198,7 @@ export const Analytics1 = () => {
             </List>
           </div>
         </Col>
-      </ColGrid>
+      </Grid>
     </Card>
   );
 };

@@ -1,4 +1,4 @@
-import { ColGrid, Col } from "@tremor/react";
+import { Grid, Col } from "@tremor/react";
 
 import { PageContainer } from "../components/PageContainer";
 import { Layout } from "../layout/Layout";
@@ -13,18 +13,17 @@ export default function Home() {
   return (
     <PageContainer title="Dashboard">
       {/* First row */}
-      <ColGrid numCols={2} numColsLg={4} gapX="gap-x-4" gapY="gap-y-6">
+      <Grid numItems={2} numItemsLg={4} className="gap-x-4 gap-y-6">
         <Dash1 />
-      </ColGrid>
+      </Grid>
 
       {/* Second row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={2}
-        numColsMd={2}
-        numColsLg={3}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
+      <Grid
+        numItems={1}
+        numItemsSm={2}
+        numItemsMd={2}
+        numItemsLg={3}
+        className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={2}>
           <Dash5 />
@@ -32,16 +31,15 @@ export default function Home() {
         <Col numColSpan={1} numColSpanLg={1}>
           <Dash3 />
         </Col>
-      </ColGrid>
+      </Grid>
 
       {/* Third row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={2}
-        numColsMd={2}
-        numColsLg={3}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
+      <Grid
+        numItems={1}
+        numItemsSm={2}
+        numItemsMd={2}
+        numItemsLg={3}
+        className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
           <Dash4 />
@@ -49,7 +47,7 @@ export default function Home() {
         <Col numColSpan={1} numColSpanLg={2}>
           <Dash2 />
         </Col>
-      </ColGrid>
+      </Grid>
       {/* Fourth row */}
       <Dash6 />
     </PageContainer>

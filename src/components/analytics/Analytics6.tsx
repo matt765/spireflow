@@ -4,18 +4,53 @@ import {
   Tab,
   ProgressBar,
   Text,
-  Footer,
   Flex,
-  ButtonInline,
+  Button,
   Metric,
   BadgeDelta,
   AreaChart,
-  Block,
+  TabGroup,
 } from "@tremor/react";
-
-// import { ArrowNarrowRightIcon } from '@heroicons/react/solid';
-import { LogoIcon } from "../../assets/icons/LogoIcon";
 import { useState } from "react";
+
+const products = [
+  {
+    title: "Product A",
+    value: 38,
+    metric: "$ 100,838",
+    location: "A",
+  },
+  {
+    title: "Product B",
+    value: 34,
+    metric: "$ 90,224",
+    location: "A",
+  },
+  {
+    title: "Product C",
+    value: 28,
+    metric: "$ 74,301",
+    location: "A",
+  },
+  {
+    title: "Product Z",
+    value: 82,
+    metric: "$ 108,799",
+    location: "B",
+  },
+  {
+    title: "Product E",
+    value: 10,
+    metric: "$ 13,268",
+    location: "B",
+  },
+  {
+    title: "Product N",
+    value: 8,
+    metric: "$ 10,614",
+    location: "B",
+  },
+];
 
 const sales = [
   {
@@ -24,43 +59,43 @@ const sales = [
   },
   {
     Month: "Feb 21",
-    Sales: 1890,
+    Sales: 2009,
   },
   {
     Month: "Mar 21",
-    Sales: 2190,
+    Sales: 2200,
   },
   {
     Month: "Apr 21",
-    Sales: 3470,
+    Sales: 2550,
   },
   {
     Month: "May 21",
-    Sales: 2170,
+    Sales: 2800,
   },
   {
     Month: "Jun 21",
-    Sales: 3170,
+    Sales: 3050,
   },
   {
     Month: "Jul 21",
-    Sales: 3490,
+    Sales: 2000,
   },
   {
     Month: "Aug 21",
-    Sales: 2680,
+    Sales: 3100,
   },
   {
     Month: "Sep 21",
-    Sales: 1290,
+    Sales: 3000,
   },
   {
     Month: "Oct 21",
-    Sales: 1010,
+    Sales: 3150,
   },
   {
     Month: "Nov 21",
-    Sales: 2350,
+    Sales: 2800,
   },
   {
     Month: "Dec 21",
@@ -68,97 +103,59 @@ const sales = [
   },
 ];
 
-const products: { [key: string]: any } = [
-  {
-    title: "Product A",
-    percentageValue: 38,
-    metric: "$ 100,838",
-    location: "A",
-  },
-  {
-    title: "Product B",
-    percentageValue: 34,
-    metric: "$ 90,224",
-    location: "A",
-  },
-  {
-    title: "Product C",
-    percentageValue: 28,
-    metric: "$ 74,301",
-    location: "A",
-  },
-  {
-    title: "Product Z",
-    percentageValue: 82,
-    metric: "$ 108,799",
-    location: "B",
-  },
-  {
-    title: "Product E",
-    percentageValue: 10,
-    metric: "$ 13,268",
-    location: "B",
-  },
-  {
-    title: "Product N",
-    percentageValue: 8,
-    metric: "$ 10,614",
-    location: "B",
-  },
-];
-
-export const valueFormatter = (number: number) =>
+const valueFormatter = (number: number) =>
   `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
 export const Analytics6 = () => {
-  const [selectedLocation, setSelectedLocation] = useState("A");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedLocation = selectedIndex === 0 ? "A" : "B";
+
   return (
-    <Card maxWidth="max-w-full">
-      <Flex alignItems="items-start">
+    <Card className="w-full mx-auto ">
+      <Flex alignItems="start">
         <Text>Total Sales</Text>
-        <BadgeDelta text="23.1%" deltaType="moderateIncrease" />
+        <BadgeDelta deltaType="moderateIncrease">23.1%</BadgeDelta>
       </Flex>
       <Flex
-        justifyContent="justify-start"
-        alignItems="items-baseline"
-        spaceX="space-x-3"
-        truncate={true}
+        justifyContent="start"
+        alignItems="baseline"
+        className="space-x-3 truncate"
       >
         <Metric>$ 442,276</Metric>
         <Text>from $ 382,482</Text>
       </Flex>
       <AreaChart
+        className="mt-10 h-48"
         data={sales}
-        dataKey="Month"
+        index="Month"
         categories={["Sales"]}
         colors={["blue"]}
         showYAxis={false}
         showLegend={false}
         startEndOnly={true}
         valueFormatter={valueFormatter}
-        height="h-48"
-        marginTop="mt-10"
       />
-      <TabList
-        marginTop="mt-4"
-        defaultValue="A"
-        handleSelect={(value) => setSelectedLocation(value)}
+      <TabGroup
+        className="mt-4"
+        index={selectedIndex}
+        onIndexChange={setSelectedIndex}
       >
-        <Tab value="A" text="Location A" />
-        <Tab value="B" text="Location B" />
-      </TabList>
+        <TabList>
+          <Tab>Location A</Tab>
+          <Tab>Location B</Tab>
+        </TabList>
+      </TabGroup>
       {products
         .filter((item: any) => item.location === selectedLocation)
         .map((item: any) => (
-          <Block key={item.title} marginTop="mt-4" spaceY="space-y-2">
+          <div key={item.title} className="mt-4 space-y-2">
             <Flex>
               <Text>{item.title}</Text>
-              <Text>{`${item.percentageValue}% (${item.metric})`}</Text>
+              <Text>{`${item.value}% (${item.metric})`}</Text>
             </Flex>
-            <ProgressBar percentageValue={item.percentageValue} />
-          </Block>
+            <ProgressBar value={item.value} />
+          </div>
         ))}
-   
     </Card>
   );
 };

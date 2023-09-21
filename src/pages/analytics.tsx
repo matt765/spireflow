@@ -1,4 +1,4 @@
-import { ColGrid, Col } from "@tremor/react";
+import { Grid, Col } from "@tremor/react";
 
 import { PageContainer } from "../components/PageContainer";
 import { Layout } from "../layout/Layout";
@@ -21,13 +21,12 @@ export default function Analytics() {
   return (
     <PageContainer title="Dashboard">
       {/* First row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={3}
-        numColsMd={3}
-        numColsLg={3}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
+      <Grid
+        numItems={1}
+        numItemsSm={3}
+        numItemsMd={3}
+        numItemsLg={3}
+        className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={2}>
           <Analytics1 />
@@ -35,16 +34,15 @@ export default function Analytics() {
         <Col numColSpan={1} numColSpanLg={1}>
           <Analytics2 />
         </Col>
-      </ColGrid>
+      </Grid>
 
       {/* Second row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={2}
-        numColsMd={2}
-        numColsLg={2}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
+      <Grid
+        numItems={1}
+        numItemsSm={2}
+        numItemsMd={2}
+        numItemsLg={2}
+        className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
           <Analytics6 />
@@ -52,24 +50,20 @@ export default function Analytics() {
         <Col numColSpan={1} numColSpanLg={1}>
           <Analytics4 />
         </Col>
-        {/* <Col numColSpan={1} numColSpanLg={1}>
-            <Analytics5 />
-          </Col> */}
-      </ColGrid>
+      </Grid>
 
       {/* Third row */}
-      <ColGrid
-        numCols={1}
-        numColsSm={1}
-        numColsMd={1}
-        numColsLg={1}
-        gapX="gap-x-6"
-        gapY="gap-y-6"
+      <Grid
+        numItems={1}
+        numItemsSm={1}
+        numItemsMd={1}
+        numItemsLg={1}
+        className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
           <Analytics8 />
         </Col>
-      </ColGrid>
+      </Grid>
 
       {/* Fourth row */}
       <Analytics10 />

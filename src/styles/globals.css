@@ -32,3 +32,11 @@ a {
 .fc-scrollgrid-sync-table tbody tr:nth-child(6) {
   @apply hidden;
 }
+
+.single-chart-wrapper {
+  @apply w-3/4 h-[50vh] max-w-full m-auto mt-28 mb-36;
+}
+
+.single-chart-title {
+  @apply text-2xl w-full text-left mb-6
+}
