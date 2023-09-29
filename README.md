@@ -1,6 +1,5 @@
 # ecommerce-dashboard
 todo:
-- dark theme + redesign
 - styles for resolutions below 1600px
 - data refactor
 - code refactor + update all packages

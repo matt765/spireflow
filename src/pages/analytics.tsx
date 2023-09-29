@@ -35,14 +35,13 @@ export default function Analytics() {
           <Analytics2 />
         </Col>
       </Grid>
-
       {/* Second row */}
       <Grid
         numItems={1}
         numItemsSm={2}
         numItemsMd={2}
         numItemsLg={2}
-        className="gap-x-6 gap-y-6"
+        className="gap-x-6 gap-y-6 max-h-[35rem]"
       >
         <Col numColSpan={1} numColSpanLg={1}>
           <Analytics6 />

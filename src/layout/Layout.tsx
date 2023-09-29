@@ -10,10 +10,10 @@ interface Props {
 export const Layout = ({ children }: Props) => {
   return (
     <>
-      <div className="flex h-full w-full">
+      <div className="flex h-full w-full  bg-primaryBg dark:bg-primaryBgDark">
         <SideMenu />
         <Navbar />
-        <div className="flex flex-col w-full h-full ">
+        <div className="flex flex-col w-full h-full  ">
          
           {children}   
           {/* <Footer />      */}

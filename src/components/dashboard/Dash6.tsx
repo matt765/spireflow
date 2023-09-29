@@ -10,7 +10,7 @@ import {
   DeltaType,
   MultiSelect,
   MultiSelectItem,
-} from "@tremor/react";
+  } from "@tremor/react";
 import { useState } from "react";
 
 type SalesPerson = {
@@ -98,17 +98,17 @@ const salesPeople: SalesPerson[] = [
 ];
 
 export const Dash6 = () => {
-  const [selectedNames, setSelectedNames] = useState<string[]>([]);
+const [selectedNames, setSelectedNames] = useState<string[]>([]);
 
   const isSalesPersonSelected = (salesPerson: SalesPerson) =>
     selectedNames.includes(salesPerson.name) || selectedNames.length === 0;
 
   return (
-    <Card>
+    <Card className="min-h-[30rem]">
       <MultiSelect
         onValueChange={setSelectedNames}
         placeholder="Select Salespeople..."
-        className="max-w-xs"
+        className="max-w-xs "
       >
         {salesPeople.map((item) => (
           <MultiSelectItem key={item.name} value={item.name}>

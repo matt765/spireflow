@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
+import { SortIcon } from "../../assets/icons/SortIcon";
+
 interface SortDropdownProps {
   options: { value: string; label: string }[];
   setSorting: (value: Array<{ id: string; desc: boolean }>) => void;
@@ -59,21 +61,25 @@ export const CustomersSortDropdown = ({
     <div className="relative inline-block">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="border px-4 py-2 rounded flex"
+        className="border px-4 py-2 rounded flex form-element-styled items-center pl-3"
       >
+        <div className="mr-2 stroke-grayIcon dark:stroke-grayIconDark">
+          <SortIcon />
+        </div>
         <div className="">Sort By </div>
       </button>
       {isOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-56 bg-white border rounded shadow"
+          className="absolute right-0 z-10 mt-2 w-56 bg-white border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
           ref={dropdownRef}
         >
           {options.map((option) => (
             <div
               key={option.value}
-              className={`px-4 py-2 ${
-                selectedSort === option.value ? "bg-gray-300" : ""
-              } hover:bg-gray-100 cursor-pointer`}
+              className={`cursor-pointer px-4 hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark px-4 py-2 ${
+                selectedSort === option.value &&
+                "bg-inputBgHover dark:bg-inputBgHoverDark"
+              } `}
               onClick={() => handleSortClick(option.value)}
             >
               {option.label}
@@ -92,10 +98,10 @@ export const CustomersSortDropdown = ({
             Descending
           </div>
           <div
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="px-4 py-2  hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark cursor-pointer"
             onClick={() => {
-              setSelectedSort(null); // Clear the selected sort
-              setSorting([]); // Clear the sorting criteria
+              setSelectedSort(null);
+              setSorting([]);
               setIsOpen(false);
             }}
           >

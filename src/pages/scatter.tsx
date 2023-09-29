@@ -122,7 +122,6 @@ export default function Scatter() {
           <div className="single-chart-title">
             Life expectancy vs. GDP per capita
           </div>
-
           <Text>As of 2015. Source: Our World in Data </Text>
           <ScatterChart
             className="h-80 mt-6 -ml-2"

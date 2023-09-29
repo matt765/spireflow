@@ -13,7 +13,6 @@ export const AreaIcon = () => (
       <g>
         <path
          fill="none"
-
          strokeLinecap="round"
          strokeLinejoin="round"
          strokeWidth="32"

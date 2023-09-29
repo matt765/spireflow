@@ -198,7 +198,7 @@ export const Dash1 = () => {
                   <div className="text-[#a3aed0] font-medium text-lg lg:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
                     {item.title}
                   </div>
-                  <div className="text-lg xl:text-xl font-medium text-[#1b254b] flex">
+                  <div className="text-lg xl:text-xl font-medium text-primaryText dark:text-primaryTextDark flex">
                     {item.metric}
                   </div>
                 </div>

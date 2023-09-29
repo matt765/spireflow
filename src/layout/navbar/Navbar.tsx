@@ -1,22 +1,29 @@
 // import MoonLineIcon from "remixicon-react/MoonLineIcon";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { useSession, signOut } from "next-auth/react";
 
 import { EnglishIcon } from "../../assets/icons/EnglishIcon";
 import { LoginModal } from "../../components/auth/LoginModal";
 import { useLoginStore } from "../../store/loginStore";
 import { Logo } from "../sideMenu/Logo";
 import { SignUpModal } from "../../components/auth/SignUpModal";
-import { useSession, signOut } from "next-auth/react";
 import { SpinnerIcon } from "../../assets/icons/Spinner";
 import { UserIcon } from "../../assets/icons/UserIcon";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { LogoutIcon } from "../../assets/icons/LogoutIcon";
+import { MoonIcon } from "../../assets/icons/MoonIcon";
 
 export const Navbar = () => {
   const { user, setUser, loading, initializeUser } = useLoginStore();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const { data: session } = useSession();
   useEffect(() => {
@@ -76,11 +83,14 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-between fixed h-20 bg-white w-full z-30 border-b border-solid border-gray-200 pr-12">
-      <div className="w-[200px] xl:w-[260px] pr-4 border-r ml-[1px]">
+    <div className="flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-12">
+      <div className="w-[200px] xl:w-[260px] pr-4  border-r border-mainBorder dark:border-mainBorderDark">
         <Logo />
       </div>
       <div className="flex justify-end items-center gap-6 relative">
+        <button onClick={toggleTheme}>
+          {theme === "dark" ? <MoonIcon /> : <MoonIcon />}
+        </button>
         <EnglishIcon />
         {loading ? (
           <SpinnerIcon />
@@ -89,34 +99,37 @@ export const Navbar = () => {
             {user || session?.user?.name ? (
               <button
                 onClick={handleDropdownClick}
-                className="w-10 h-10 rounded-full border border-neutral-300 p-2"
+                className="w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark form-element-styled"
               >
                 <UserIcon />
               </button>
             ) : (
               <button
                 onClick={handleLoginButton}
-                className="border border-gray-300 rounded-xl w-40 h-10 flex justify-center text-white items-center font-medium font-['Inter'] bg-[#6F6AF8]"
+                className="rounded-xl w-40 h-10 flex justify-center items-center font-medium font-['Inter'] border border-mainColor dark:border-mainColorDark text-primaryText dark:text-primaryTextDark bg-[rgb(255,255,255,0.02)] dark:hover:bg-[rgb(255,255,255,0.06)]"
               >
                 Sign In
               </button>
             )}
             {isDropdownOpen && (
               <div
-                className="absolute right-0 top-full mt-2 w-76 px-2 bg-white border rounded shadow"
+                className="absolute right-0 top-full mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow"
                 id="navbar-dropdown"
               >
-                <div className="pr-2 py-2 flex">
-                  <div className="w-6 flex justify-center items-center mr-3 ">
+                <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-inputBgHover">
+                  <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <MailIcon />
                   </div>
                   {user?.email || session?.user?.email || "Email"}
                 </div>
-                <div className="pr-2 py-2 flex pl-1">
-                  <div className="w-6 flex justify-center items-center mr-2 ">
+                <div
+                  className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-inputBgHover cursor-pointer"
+                  onClick={handleSignOut}
+                >
+                  <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <LogoutIcon />
                   </div>
-                  <button onClick={handleSignOut}>Sign Out</button>
+                  <button>Sign Out</button>
                 </div>
               </div>
             )}

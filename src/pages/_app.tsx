@@ -6,6 +6,7 @@ import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import "dotenv/config";
 import Head from "next/head";
+import { ThemeProvider } from "next-themes";
 
 import { Inter, DM_Sans, Poppins, Exo } from "@next/font/google";
 import "@fontsource/exo";
@@ -64,13 +65,15 @@ export default function App({
             --dmSans-font: ${dmSans.style.fontFamily};
           }
           html {
-            font-family: Inter;
+            font-family: Inter;           
           }
         `}
       </style>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider attribute="class">
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </SessionProvider>
   );
 }

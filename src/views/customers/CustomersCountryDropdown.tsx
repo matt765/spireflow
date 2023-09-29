@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+
 import { CustomerFilters } from "./useCustomers";
+import { FilterIcon } from "../../assets/icons/FilterIcon";
 
 interface CustomersDropdownProps {
   options: string[];
@@ -7,7 +9,7 @@ interface CustomersDropdownProps {
   setFilter: (key: keyof CustomerFilters, value: string | undefined) => void;
 }
 
-export const CustomersDropdown = ({
+export const CustomersCountryDropdown = ({
   options,
   filterKey,
   setFilter,
@@ -39,21 +41,25 @@ export const CustomersDropdown = ({
     <div className="relative inline-block">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="border px-4 py-2 rounded"
+        className="border px-4 py-2 rounded form-element-styled flex items-center"
       >
+        <div className="mr-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+          <FilterIcon />
+        </div>
         Filter by {filterKey.charAt(0).toUpperCase() + filterKey.slice(1)}
       </button>
       {isOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-56 bg-white border rounded shadow"
+          className="absolute right-0 z-10 mt-2 w-56 bg-white border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
           ref={dropdownRef}
         >
           {options.map((option) => (
             <div
               key={option}
-              className={`px-4 py-2 ${
-                activeFilter === option ? "bg-gray-300" : ""
-              } hover:bg-gray-100 cursor-pointer`}
+              className={`cursor-pointer px-4 hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark py-2 ${
+                activeFilter === option &&
+                "bg-inputBgHover dark:bg-inputBgHoverDark"
+              }  `}
               onClick={() => {
                 setFilter(filterKey, option);
                 setActiveFilter(option);
@@ -64,7 +70,7 @@ export const CustomersDropdown = ({
             </div>
           ))}
           <div
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="px-4 py-2 cursor-pointer hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark"
             onClick={() => {
               setFilter(filterKey, undefined);
               setIsOpen(false);

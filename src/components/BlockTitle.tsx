@@ -2,5 +2,5 @@ interface Props {
   title: string;
 }
 export const BlockTitle = ({ title }: Props) => (
-  <div className="text-xl font-semibold font-['Inter'] text-[#18214e]">{title}</div>
+  <div className="text-lg font-medium font-['Inter'] text-primaryText dark:text-primaryTextDark">{title}</div>
 );

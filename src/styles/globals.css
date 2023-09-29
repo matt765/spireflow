@@ -1,9 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
- 
 }
+
 #__next {
   height: 100%;
 }
@@ -15,28 +19,101 @@ a {
 * {
   box-sizing: border-box;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .tr-shadow {
   box-shadow: rgba(58, 53, 65, 0.1) 0px 2px 10px 0px !important;
   border-radius: 12px !important;
 }
 .small-box .recharts-cartesian-grid-horizontal {
-  display: none
+  display: none;
 }
 .paper {
-  @apply bg-white rounded-[12px] shadow-lg
+  @apply bg-primaryBg rounded-[12px] shadow-lg dark:bg-primaryBgDark;
 }
+
+/* Calendar  */
+
 .fc-scrollgrid-sync-table tbody tr:nth-child(6) {
   @apply hidden;
 }
+.fc-button {
+  @apply form-element-styled bg-inputBg dark:!bg-inputBgDark !border-inputBorder dark:!border-inputBorderDark;
+}
+.fc th,
+.fc td,
+.fc table {
+  @apply border-calendarBorder dark:!border-calendarBorderDark;
+}
+.fc-daygrid-day {
+  @apply hover:dark:!bg-[rgb(255,255,255,0.02)] transition;
+}
+
+.fc-day-disabled {
+  @apply dark:bg-[rgb(0,0,0,0)];
+}
+.fc-daygrid-day-number {
+  font-size: 1.5rem;
+}
+.fc-daygrid-block-event {
+  @apply dark:bg-calendarMainColorDark border-none;
+}
+.fc-daygrid-event-dot {
+  @apply dark:border-calendarMainColorDark;
+}
+.fc-v-event {
+  @apply dark:bg-calendarMainColorDark border-none;
+}
+.fc-list-day-cushion,
+.fc-list-day {
+  @apply dark:bg-inputBgDark dark:!border-calendarBorderDark;
+}
+.fc-list {
+  @apply dark:!border-calendarBorderDark;
+}
+.fc {
+  --fc-page-bg-color: calendarBorderDark !important;
+  --fc-list-event-hover-bg-color: rgb(255, 255, 255, 0.02);
+}
+.fc-day-today {
+  @apply dark:!bg-inputBgDark dark:hover:!bg-inputBgDark;
+}
+
+/* Single charts */
 
 .single-chart-wrapper {
   @apply w-3/4 h-[50vh] max-w-full m-auto mt-28 mb-36;
 }
 
 .single-chart-title {
-  @apply text-2xl w-full text-left mb-6
+  @apply text-2xl w-full text-left mb-6;
+}
+
+/* Overwrite of some Tremor colors */
+
+.fill-purple-500 {
+  @apply dark:!fill-[#7376f2] !fill-[#d4a8ff];
+}
+.bg-emerald-100 {
+  @apply bg-emerald-200;
+}
+.bg-rose-100 {
+  @apply bg-rose-200;
+}
+.tremor-Card-root {
+  @apply border border-primaryBg dark:!border-mainBorderDark;
+}
+
+/* Forms & buttons */
+
+.form-element-styled {
+  @apply !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark;
+}
+:focus-visible {
+  outline: none !important;
+}
+.button-outlined {
+  @apply form-element-styled active:bg-buttonActiveBg dark:active:bg-buttonActiveBgDark;
+}
+.button-contained {
+  @apply bg-mainColorSecondary dark:bg-mainColorSecondaryDark dark:hover:bg-mainColorSecondaryHoverDark hover:bg-mainColorSecondaryHover text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200
 }

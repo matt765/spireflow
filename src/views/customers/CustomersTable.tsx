@@ -6,6 +6,17 @@ export interface CustomersTableProps {
   table: Table<Customer>;
 }
 
+const columnWidths = {
+  col0: '50px',
+  col1: '150px', 
+  col2: '150px',
+  col3: '150px',
+  col4: '100px',
+  col5: '150px',
+  col6: '150px',
+
+};
+
 export const CustomersTable = ({ table }: CustomersTableProps) => {
   return (
     <table className="w-full mt-8">
@@ -18,10 +29,12 @@ export const CustomersTable = ({ table }: CustomersTableProps) => {
                 colSpan={header.colSpan}
                 className={
                   header.column.getCanSort()
-                    ? "text-gray-700 font-medium text-left pl-4 py-4 border cursor-pointer select-none bg-gray-50"
-                    : "text-gray-700 font-medium text-left pl-4 py-4 border"
+                    ? "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
+                    : "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                 }
                 onClick={header.column.getToggleSortingHandler()}
+                style={{ width: columnWidths[header.id as keyof typeof columnWidths] }}
+
               >
                 {header.isPlaceholder
                   ? null
@@ -44,7 +57,7 @@ export const CustomersTable = ({ table }: CustomersTableProps) => {
             {row.getVisibleCells().map((cell) => (
               <td
                 key={cell.id}
-                className="text-gray-500 font-medium p-4 border"
+                className="text-primaryText dark:text-primaryTextDark font-medium text-base p-4 border  border-inputBorder dark:border-inputBorderDark"
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>

@@ -1,91 +1,83 @@
-import React from "react";
-
+import React, { ChangeEvent } from "react";
 import { ordersData } from "./OrdersData";
 import { OrdersSelectsProps } from "./types";
+import { Select } from "../../components/Select";
 
-export const OrderSelects = ({ filters, setFilter }: OrdersSelectsProps) => {
+export const OrderSelects: React.FC<OrdersSelectsProps> = ({
+  filters,
+  setFilter,
+}) => {
+  const selectsConfig = [
+    {
+      value: filters.productName,
+      setFilterKey: "productName",
+      placeholder: "All Products",
+      options: Array.from(new Set(ordersData.map((item) => item.col2))),
+    },
+    {
+      value: filters.user,
+      setFilterKey: "user",
+      placeholder: "All Users",
+      options: Array.from(new Set(ordersData.map((item) => item.col3))),
+    },
+    {
+      value:
+        filters.priceRange.min === 0 && filters.priceRange.max === 5000
+          ? ""
+          : `${filters.priceRange.min}-${filters.priceRange.max}`,
+      setFilterKey: "priceRange",
+      placeholder: "Any Price",
+      options: ["0-5000", "0-100", "100-500", "500-1000", "1000-5000"],
+      specialHandler: (e: ChangeEvent<HTMLSelectElement>) => {
+        const [min, max] = e.target.value.split("-").map(Number);
+        setFilter("priceRange", { min, max });
+      },
+    },
+    {
+      value: filters.deliveryType,
+      setFilterKey: "deliveryType",
+      placeholder: "Any Delivery Type",
+      options: Array.from(new Set(ordersData.map((item) => item.col5))),
+    },
+    {
+      value: filters.status,
+      setFilterKey: "status",
+      placeholder: "Any Status",
+      options: Array.from(new Set(ordersData.map((item) => item.col7))),
+    },
+  ];
+
   return (
     <div className="flex w-full gap-4">
-      <div className="w-1/3 mb-4">
-        <select
-          value={filters.productName}
-          onChange={(e) => setFilter("productName", e.target.value)}
-          className="border p-2 w-full bg-white"
-        >
-          <option value="">All Products</option>
-          {Array.from(new Set(ordersData.map((item) => item.col2))).map(
-            (productName) => (
-              <option key={productName} value={productName}>
-                {productName}
-              </option>
-            )
-          )}
-        </select>
-      </div>
-      <div className="w-1/3 mb-4">
-        <select
-          value={filters.user}
-          onChange={(e) => setFilter("user", e.target.value)}
-          className="border p-2 w-full bg-white"
-        >
-          <option value="">All Users</option>
-          {Array.from(new Set(ordersData.map((item) => item.col3))).map(
-            (user) => (
-              <option key={user} value={user}>
-                {user}
-              </option>
-            )
-          )}
-        </select>
-      </div>
-      <div className="w-1/3 mb-4">
-        <select
-          value={`${filters.priceRange.min}-${filters.priceRange.max}`}
-          onChange={(e) => {
-            const [min, max] = e.target.value.split("-").map(Number);
-            setFilter("priceRange", { min, max });
-          }}
-          className="border p-2 w-full bg-white"
-        >
-          <option value="0-5000">Any Price</option>
-          <option value="0-100">0-100</option>
-          <option value="100-500">100-500</option>
-          <option value="500-1000">500-1000</option>
-          <option value="1000-5000">1000+</option>
-        </select>
-      </div>
-      <div className="w-1/3 mb-4">
-        <select
-          value={filters.deliveryType}
-          onChange={(e) => setFilter("deliveryType", e.target.value)}
-          className="border p-2 w-full bg-white"
-        >
-          <option value="">Any Delivery Type</option>
-          {Array.from(new Set(ordersData.map((item) => item.col5))).map(
-            (deliveryType) => (
-              <option key={deliveryType} value={deliveryType}>
-                {deliveryType}
-              </option>
-            )
-          )}
-        </select>
-      </div>
-      <div className="w-1/3 mb-4">
-        <select
-          value={filters.status}
-          onChange={(e) => setFilter("status", e.target.value)}
-          className="border p-2 w-full bg-white"
-        >
-          <option value="">Any Status</option>
-          {Array.from(new Set(ordersData.map((item) => item.col7))).map(
-            (status) => (
-              <option key={status} value={status}>
-                {status}
-              </option>
-            )
-          )}
-        </select>
-      </div>
+      {selectsConfig.map(
+        (
+          { value, setFilterKey, placeholder, options, specialHandler },
+          index
+        ) => (
+          <div key={index} className="w-1/3 mb-4">
+            <Select
+              value={value}
+              onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+                if (specialHandler) {
+                  specialHandler(e);
+                } else {
+                  setFilter(
+                    setFilterKey as keyof typeof filters,
+                    e.target.value
+                  );
+                }
+              }}
+              placeholder={placeholder}
+            >
+              {options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </Select>
+          </div>
+        )
+      )}
     </div>
   );
 };

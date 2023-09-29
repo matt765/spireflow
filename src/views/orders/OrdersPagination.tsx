@@ -17,7 +17,7 @@ export const OrdersPagination = ({
       onChange={(e) => {
         setItemsPerPage(Number(e.target.value));
       }}
-      className="ml-4 border p-1 bg-white mr-4 cursor-pointer"
+      className="ml-4 border p-1 bg-white mr-4 cursor-pointer form-element-styled"
     >
       <option value={10}>10</option>
       <option value={50}>50</option>
@@ -35,7 +35,7 @@ export const OrdersPagination = ({
         <button
           key={page}
           onClick={() => goToPage(page)}
-          className={currentPage === page ? "bg-gray-300" : undefined}
+          className={currentPage === page ? "bg-inputBg dark:bg-inputBgDark px-1" : "px-1"}
           disabled={currentPage === page}
         >
           {page + 1}

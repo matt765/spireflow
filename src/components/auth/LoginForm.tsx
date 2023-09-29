@@ -4,6 +4,10 @@ import { signIn } from "next-auth/react";
 
 import { SpinnerIcon } from "../../assets/icons/Spinner";
 import { HandleLoginProps } from "../../hooks/useHandleLogin";
+import { MailIcon } from "../../assets/icons/MailIcon";
+import { PasswordIcon } from "../../assets/icons/PasswordIcon";
+import { GoogleIcon } from "../../assets/icons/GoogleIcon";
+import { GithubIcon } from "../../assets/icons/GithubIcon";
 
 export interface LoginData {
   username: string;
@@ -39,25 +43,31 @@ export const LoginForm = ({
       className="w-full flex flex-col gap-3"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mb-2 w-full">
+      <div className="mb-2 w-full relative">
+        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[1rem] left-3">
+          <MailIcon />
+        </div>
         <input
           type="email"
           {...register("username", {
             required: true,
             pattern: /^\S+@\S+$/i,
           })}
-          className="mt-1 p-2 w-full border rounded-md bg-[#f4f4f4] border-[#e1e1e1]"
+          className="mt-1 p-2 w-full border rounded-md form-element-styled pl-11"
           placeholder="Your e-mail"
         />
         {errors.username && (
           <p className="text-red-500">Please enter a valid email.</p>
         )}
       </div>
-      <div className="mb-2">
+      <div className="mb-2 relative">
+        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.95rem] left-3">
+          <PasswordIcon />
+        </div>
         <input
           type="password"
           {...register("password", { required: true })}
-          className="mt-1 p-2 w-full border rounded-md bg-[#f4f4f4] border-[#e1e1e1]"
+          className="mt-1 p-2 w-full border rounded-md form-element-styled pl-11"
           placeholder="Your password"
         />
       </div>
@@ -65,7 +75,7 @@ export const LoginForm = ({
         <div className="">Don&apos;t have an account yet?</div>
         <div
           onClick={switchToSignUp}
-          className="text-[#5c9aff] text-semibold cursor-pointer"
+          className="text-mainColor dark:text-mainColorDark text-semibold cursor-pointer"
         >
           Register here...
         </div>
@@ -75,7 +85,7 @@ export const LoginForm = ({
         <button
           type="submit"
           disabled={loading}
-          className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-6 w-4/5 bg-[#5c9aff] text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"
+          className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-4 w-4/5 button-contained"
         >
           {loading ? (
             <div className="w-12 h-12 pb-1">
@@ -89,11 +99,14 @@ export const LoginForm = ({
           type="button"
           disabled={loading}
           onClick={() => {
-            handleLogin({ username: "user@test.com", password: "user@test.com", isDemo: true })
-            setLoading(true)
-          }         
-          }
-          className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-4 w-4/5 bg-[#5c9aff] text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"
+            handleLogin({
+              username: "user@test.com",
+              password: "user@test.com",
+              isDemo: true,
+            });
+            setLoading(true);
+          }}
+          className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-4 w-4/5 button-contained"
         >
           {loading ? (
             <div className="w-12 h-12 pb-1">
@@ -105,24 +118,28 @@ export const LoginForm = ({
         </button>
       </div>
 
-      <div className="flex items-center justify-center mt-4">
+      <div className="flex items-center justify-center mt-6">
         <hr className="w-8 border-neutral-400 mt-1 mx-4" />
-        <div className="text-neutral-600">Login with social media</div>
+        <div className="text-primaryText dark:text-primaryTextDark">
+          Login with social media
+        </div>
         <hr className="w-8 border-neutral-400 mt-1 mx-4" />
       </div>
       <div className="flex gap-4 justify-center">
         <button
           type="button"
           onClick={() => signIn("google")}
-          className="mt-2 w-1/3 text-black border border-[#5c9aff] black p-2 rounded-md hover:bg-white focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"
+          className="mt-2 w-32 k p-2 pl-5 form-element-styled rounded-md flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
         >
+          <GoogleIcon />
           Google
         </button>
         <button
           type="button"
           onClick={() => signIn("github")}
-          className="mt-2 w-1/3 text-black border  border-[#5c9aff] p-2 rounded-md hover:bg-white focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"
+          className="mt-2 w-32 p-2 pl-5 rounded-md form-element-styled flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
         >
+          <GithubIcon />
           GitHub
         </button>
       </div>

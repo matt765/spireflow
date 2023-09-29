@@ -1,6 +1,7 @@
+import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { Chip } from "../../components/Chip";
 import { customersData } from "./CustomersData";
-import { CustomersDropdown } from "./CustomersDropdown";
+import { CustomersCountryDropdown } from "./CustomersCountryDropdown";
 import { CustomersPagination } from "./CustomersPagination";
 import { CustomersSortDropdown } from "./CustomersSortDropdown";
 import { CustomersTable } from "./CustomersTable";
@@ -41,15 +42,21 @@ export const CustomersView = () => {
   return (
     <div className="flex w-full p-10 paper text-lg flex-col">
       <div className="flex justify-between">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search customers..."
-          className="mb-4 px-3 py-2 border rounded"
-        />
+        <div className="w-1/4 relative flex">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search customers..."
+            className="border p-2 w-full rounded-lg form-element-styled pl-10 h-11"
+          />
+          <div className="stroke-grayIcon dark:stroke-grayIconDark absolute top-[0.8rem] left-3">
+            <SearchIcon />
+          </div>
+        </div>
+
         <div className="flex gap-6">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-2">
             {filters.country && (
               <Chip
                 label={`Country: ${filters.country}`}
@@ -66,7 +73,7 @@ export const CustomersView = () => {
               />
             )}
           </div>
-          <CustomersDropdown
+          <CustomersCountryDropdown
             options={countryOptions}
             filterKey="country"
             setFilter={setFilter}
