@@ -53,7 +53,7 @@ export const LoginForm = ({
             required: true,
             pattern: /^\S+@\S+$/i,
           })}
-          className="mt-1 p-2 w-full border rounded-md form-element-styled pl-11"
+          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark"
           placeholder="Your e-mail"
         />
         {errors.username && (
@@ -67,7 +67,7 @@ export const LoginForm = ({
         <input
           type="password"
           {...register("password", { required: true })}
-          className="mt-1 p-2 w-full border rounded-md form-element-styled pl-11"
+          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark"
           placeholder="Your password"
         />
       </div>

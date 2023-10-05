@@ -13,6 +13,8 @@ import { UserIcon } from "../../assets/icons/UserIcon";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { LogoutIcon } from "../../assets/icons/LogoutIcon";
 import { MoonIcon } from "../../assets/icons/MoonIcon";
+import { SideMenuMobile } from "../sideMenu/SideMenuMobile";
+import { useAppStore } from "../../store/appStore";
 
 export const Navbar = () => {
   const { user, setUser, loading, initializeUser } = useLoginStore();
@@ -20,6 +22,7 @@ export const Navbar = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -82,16 +85,20 @@ export const Navbar = () => {
     };
   }, []);
 
+
+
   return (
-    <div className="flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-12">
-      <div className="w-[200px] xl:w-[260px] pr-4  border-r border-mainBorder dark:border-mainBorderDark">
+    <div className="flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-6 lg:pr-12 lg:pl-0 pl-4">
+      <div className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${!isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"}`}>
         <Logo />
       </div>
-      <div className="flex justify-end items-center gap-6 relative">
-        <button onClick={toggleTheme}>
+      <div className="flex justify-end items-center gap-4 lg:gap-6 relative">
+        <button onClick={toggleTheme} className="">
           {theme === "dark" ? <MoonIcon /> : <MoonIcon />}
         </button>
-        <EnglishIcon />
+        <div className="hidden xl:flex">
+          <EnglishIcon />
+        </div>
         {loading ? (
           <SpinnerIcon />
         ) : (
@@ -99,14 +106,14 @@ export const Navbar = () => {
             {user || session?.user?.name ? (
               <button
                 onClick={handleDropdownClick}
-                className="w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark form-element-styled"
+                className="hidden xl:block w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark form-element-styled"
               >
                 <UserIcon />
               </button>
             ) : (
               <button
                 onClick={handleLoginButton}
-                className="rounded-xl w-40 h-10 flex justify-center items-center font-medium font-['Inter'] border border-mainColor dark:border-mainColorDark text-primaryText dark:text-primaryTextDark bg-[rgb(255,255,255,0.02)] dark:hover:bg-[rgb(255,255,255,0.06)]"
+                className="hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium font-['Inter'] border border-mainColor dark:border-mainColorDark text-primaryText dark:text-primaryTextDark bg-[rgb(255,255,255,0.02)] dark:hover:bg-[rgb(255,255,255,0.06)]"
               >
                 Sign In
               </button>
@@ -135,6 +142,43 @@ export const Navbar = () => {
             )}
           </>
         )}
+        <button className="relative block xl:hidden" onClick={toggleMobileMenu}>
+          <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all  duration-200">
+            <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
+              <div
+                className={`bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
+                  isMobileMenuOpen ? "translate-x-10" : ""
+                }`}
+              ></div>
+              <div
+                className={`bg-white h-[2px] w-7 rounded transform transition-all duration-300 ${
+                  isMobileMenuOpen ? "translate-x-10 delay-75" : ""
+                }`}
+              ></div>
+              <div
+                className={`bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
+                  isMobileMenuOpen ? "translate-x-10 delay-150" : ""
+                }`}
+              ></div>
+              <div
+                className={`absolute items-center justify-between transform transition-all duration-500 top-2.5 ${
+                  isMobileMenuOpen ? "translate-x-0" : "-translate-x-10"
+                } flex w-0 ${isMobileMenuOpen ? "w-12" : ""}`}
+              >
+                <div
+                  className={`absolute bg-white h-[2px] w-5 transform transition-all duration-500 ${
+                    isMobileMenuOpen ? "rotate-45 delay-300" : "rotate-0"
+                  }`}
+                ></div>
+                <div
+                  className={`absolute bg-white h-[2px] w-5 transform transition-all duration-500 ${
+                    isMobileMenuOpen ? "-rotate-45 delay-300" : "-rotate-0"
+                  }`}
+                ></div>
+              </div>
+            </div>
+          </div>
+        </button>
       </div>
       {isLoginModalOpen && (
         <LoginModal
@@ -148,6 +192,10 @@ export const Navbar = () => {
           switchToSignIn={switchToSignIn}
         />
       )}
+      <SideMenuMobile
+        isMobileMenuOpen={isMobileMenuOpen}
+        onLoginButtonClick={handleLoginButton}
+      />
     </div>
   );
 };

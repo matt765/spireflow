@@ -48,13 +48,13 @@ export const OrderSelects: React.FC<OrdersSelectsProps> = ({
   ];
 
   return (
-    <div className="flex w-full gap-4">
+    <div className="flex flex-col md:flex-row w-full md:gap-4">
       {selectsConfig.map(
         (
           { value, setFilterKey, placeholder, options, specialHandler },
           index
         ) => (
-          <div key={index} className="w-1/3 mb-4">
+          <div key={index} className="w-full md:w-1/3 mb-4">
             <Select
               value={value}
               onChange={(e: ChangeEvent<HTMLSelectElement>) => {

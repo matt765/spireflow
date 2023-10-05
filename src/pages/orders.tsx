@@ -4,7 +4,7 @@ import { OrdersView } from "../views/orders/OrdersView";
 
 export default function Orders() {
   return (
-    <PageContainer title="Dashboard">
+    <PageContainer title="Dashboard" className="px-0">
       <OrdersView />
     </PageContainer>
   );

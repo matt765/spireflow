@@ -286,10 +286,9 @@ export const Dash2 = () => {
       <TabGroup>
         <div className="block sm:flex sm:justify-between">
           <div>
-            <Title>Churn Rate</Title>
-            <Text>Lost customers per day</Text>
+            <Title>Churn Rate</Title>           
           </div>
-          <div className="mt-4 sm:mt-0">
+          <div className="mt-4 sm:mt-0 hidden md:block">
             <TabList variant="solid">
               <Tab>relative</Tab>
               <Tab>absolute</Tab>

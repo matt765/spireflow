@@ -25,9 +25,9 @@ export const OrdersView = () => {
   } = useOrders();
 
   return (
-    <div className="flex w-full p-10 paper text-lg flex-col">
-      <div className="w-full flex justify-between">
-        <div className="w-1/3 mb-4 relative">
+    <div className="flex w-full p-4 pt-8 md:p-10 paper text-lg flex-col min-h-[100vh] xl:min-h-unset">
+      <div className="w-full flex justify-between flex-wrap md:flex-nowrap">
+        <div className="w-full md:w-1/3 mb-4 relative">
           <input
             type="text"
             value={searchQuery}
@@ -36,7 +36,7 @@ export const OrdersView = () => {
               setCurrentPage(0);
             }}
             placeholder="Search..."
-            className="border p-2 w-full rounded-lg form-element-styled pl-10"
+            className="border p-2 w-full rounded-lg form-element-styled pl-10 h-10 lg:h-11"
           />
           <div className="stroke-grayIcon dark:stroke-grayIconDark absolute top-[0.8rem] left-3">
             <SearchIcon />
@@ -52,18 +52,23 @@ export const OrdersView = () => {
       <div className="flex w-full gap-4 mt-2">
         <OrderSelects filters={filtersForSelectFields} setFilter={setFilter} />
       </div>
-      <OrdersTable
-        table={table}
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-      />
-      <div className="flex justify-between">
-        <button
-          onClick={resetFilters}
-          className="button-outlined mt-6 bg-white py-2 px-6 rounded-lg hover:bg-gray-100 border border-slate-400 text-gray-500 font-medium form-element-styled "
-        >
-          Clear Filters
-        </button>
+      <div className="w-full overflow-auto">
+        <OrdersTable
+          table={table}
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+        />
+      </div>
+      <div className="flex justify-between flex-wrap pb-4">
+        <div className="w-full mb-4 sm:mb-0 sm:w-1/3">        
+          <button
+            onClick={resetFilters}
+            className="button-outlined mt-6 bg-white py-2 px-6 rounded-lg hover:bg-gray-100 border border-slate-400 text-gray-500 font-medium form-element-styled "
+          >
+            Clear Filters
+          </button>
+        </div>
+
         <OrdersPagination
           itemsPerPage={itemsPerPage}
           currentPage={currentPage}

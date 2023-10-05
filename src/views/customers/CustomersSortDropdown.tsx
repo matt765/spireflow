@@ -58,15 +58,15 @@ export const CustomersSortDropdown = ({
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block w-1/2">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="border px-4 py-2 rounded flex form-element-styled items-center pl-3"
+        className="border px-4 py-2 rounded flex form-element-styled items-center pl-3 w-full md:w-auto flex justify-center"
       >
         <div className="mr-2 stroke-grayIcon dark:stroke-grayIconDark">
           <SortIcon />
         </div>
-        <div className="">Sort By </div>
+        <div className="text-sm md:text-md">Sort By </div>
       </button>
       {isOpen && (
         <div

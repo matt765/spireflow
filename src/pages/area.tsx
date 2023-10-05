@@ -41,7 +41,7 @@ const dataFormatter = (number: number) => {
 
 export default function Area() {
   return (
-    <PageContainer title="Area">
+    <PageContainer title="Area" className="h-full">
       <div className="w-full h-full paper max-w-full">
         <div className="single-chart-wrapper">
           <div className="single-chart-title">

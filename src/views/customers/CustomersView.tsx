@@ -40,9 +40,9 @@ export const CustomersView = () => {
   );
 
   return (
-    <div className="flex w-full p-10 paper text-lg flex-col">
-      <div className="flex justify-between">
-        <div className="w-1/4 relative flex">
+    <div className="flex w-full p-4 pt-8 md:p-10 paper text-lg flex-col min-h-screen">
+      <div className="flex justify-between flex-wrap md:flex-wrap w-full">
+        <div className="w-full md:w-1/3 lg:w-1/4 relative flex">
           <input
             type="text"
             value={searchQuery}
@@ -55,38 +55,46 @@ export const CustomersView = () => {
           </div>
         </div>
 
-        <div className="flex gap-6">
-          <div className="flex items-center justify-center pt-2">
-            {filters.country && (
-              <Chip
-                label={`Country: ${filters.country}`}
-                onDelete={() => clearFilter("country")}
-              />
-            )}
-            {sorting[0] && (
-              <Chip
-                label={`Sorted by ${
-                  sortOptions.find((option) => option.value === sorting[0].id)
-                    ?.label || sorting[0].id
-                } ${sorting[0].desc ? "Descending" : "Ascending"}`}
-                onDelete={() => setSorting([])}
-              />
-            )}
+        <div className="flex gap-6 flex-wrap w-full md:w-auto mt-6 md:mt-0">
+          <div className="flex w-full md:w-auto justify-between gap-4 md:gap-8">
+            <CustomersCountryDropdown
+              options={countryOptions}
+              filterKey="country"
+              setFilter={setFilter}
+            />
+            <CustomersSortDropdown
+              options={sortOptions}
+              setSorting={setSorting}
+              currentSort={sorting[0]?.id || null}
+              currentDirection={sorting[0]?.desc || false}
+            />
           </div>
-          <CustomersCountryDropdown
-            options={countryOptions}
-            filterKey="country"
-            setFilter={setFilter}
-          />
-          <CustomersSortDropdown
-            options={sortOptions}
-            setSorting={setSorting}
-            currentSort={sorting[0]?.id || null}
-            currentDirection={sorting[0]?.desc || false}
-          />
         </div>
       </div>
-      <CustomersTable table={table} />
+      <div
+        className={`flex md:items-start flex-wrap md:flex-nowrap justify-start md:justify-start items-start  flex-col sm:flex-row gap-2 md:gap-0 mt-0 ${
+          (filters.country || sorting[0]) && "!mt-6"
+        }`}
+      >
+        {filters.country && (
+          <Chip
+            label={`Country: ${filters.country}`}
+            onDelete={() => clearFilter("country")}
+          />
+        )}
+        {sorting[0] && (
+          <Chip
+            label={`Sorted by ${
+              sortOptions.find((option) => option.value === sorting[0].id)
+                ?.label || sorting[0].id
+            } ${sorting[0].desc ? "Descending" : "Ascending"}`}
+            onDelete={() => setSorting([])}
+          />
+        )}
+      </div>
+      <div className="w-full overflow-auto">
+        <CustomersTable table={table} />
+      </div>
       <CustomersPagination
         itemsPerPage={itemsPerPage}
         currentPage={currentPage}

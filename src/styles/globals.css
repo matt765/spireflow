@@ -28,9 +28,11 @@ a {
   display: none;
 }
 .paper {
-  @apply bg-primaryBg rounded-[12px] shadow-lg dark:bg-primaryBgDark;
+  @apply bg-primaryBg xl:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder 
 }
-
+.tremor-Legend-root {
+  @apply mb-4 lg:mb-0
+}
 /* Calendar  */
 
 .fc-scrollgrid-sync-table tbody tr:nth-child(6) {
@@ -43,6 +45,9 @@ a {
 .fc td,
 .fc table {
   @apply border-calendarBorder dark:!border-calendarBorderDark;
+}
+.fc td {
+  @apply max-h-12
 }
 .fc-daygrid-day {
   @apply hover:dark:!bg-[rgb(255,255,255,0.02)] transition;
@@ -77,11 +82,65 @@ a {
 .fc-day-today {
   @apply dark:!bg-inputBgDark dark:hover:!bg-inputBgDark;
 }
-
+.fc-view-harness, .fc-scrollgrid-sync-table {
+  @apply max-h-[35rem] md:max-h-[55rem]
+}
+@media (max-width: 768px) {
+  .fc-media-screen {
+    max-height: 100vh !important;
+  
+  }
+}
+@media (max-width: 768px) {
+  .fc-media-screen {
+    height: 90rem;
+    padding-inline: 1rem;
+  }
+  .fc-toolbar-chunk {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+  }
+  .fc-today-button {
+    display: none !important;
+  }
+  .fc-toolbar-title {
+    font-size: 1.1rem !important;
+  }
+}
+@media (max-width: 650px) {
+  .fc-media-screen {
+  }
+  .fc-toolbar-chunk {
+    width: 49%;
+  }
+  .fc-header-toolbar {
+    max-width: 19.5rem;
+    margin-inline: auto;
+  }
+  .fc-list-event .fc-list-event-time {
+    min-width: 100%;
+  }
+  .fc-list-event {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 /* Single charts */
 
 .single-chart-wrapper {
-  @apply w-3/4 h-[50vh] max-w-full m-auto mt-28 mb-36;
+  @apply w-3/4 h-[70vh] xl:h-[50vh] max-w-full m-auto mt-14  lg:mt-16 xl:mt-24 2xl:mt-28 mb-36;
+}
+.single-chart-wrapper .tremor-Legend-root {
+  @apply mb-8
 }
 
 .single-chart-title {
@@ -108,12 +167,17 @@ a {
 .form-element-styled {
   @apply !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark;
 }
+
 :focus-visible {
   outline: none !important;
 }
+
 .button-outlined {
   @apply form-element-styled active:bg-buttonActiveBg dark:active:bg-buttonActiveBgDark;
 }
 .button-contained {
-  @apply bg-mainColorSecondary dark:bg-mainColorSecondaryDark dark:hover:bg-mainColorSecondaryHoverDark hover:bg-mainColorSecondaryHover text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200
+  @apply bg-mainColorSecondary dark:bg-mainColorSecondaryDark dark:hover:bg-mainColorSecondaryHoverDark hover:bg-mainColorSecondaryHover text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200;
+}
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
 }

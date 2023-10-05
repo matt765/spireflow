@@ -19,7 +19,7 @@ export const OrdersTable = ({
   itemsPerPage,
 }: OrdersTableProps) => {
   return (
-    <table className="w-full mt-8">
+    <table className="w-full mt-8 overflow-scroll">
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>

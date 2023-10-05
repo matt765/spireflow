@@ -54,7 +54,7 @@ export const CalendarView: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full p-16 paper text-lg flex-col">
+    <div className="flex w-full pt-8 px-4 md:p-10 lg:p-16 paper text-lg flex-col h-full  pb-16 h-auto">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin]}
         initialView="dayGridMonth"

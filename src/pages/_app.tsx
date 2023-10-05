@@ -10,23 +10,28 @@ import { ThemeProvider } from "next-themes";
 
 import { Inter, DM_Sans, Poppins, Exo } from "@next/font/google";
 import "@fontsource/exo";
-import "@fontsource/nunito-sans"; // Defaults to weight 400.
-import "@fontsource/jost"; // Defaults to weight 400.
+import "@fontsource/nunito-sans"; 
+import "@fontsource/jost"; 
+import "@fontsource/nunito"; 
 
 import { useLoginStore } from "../store/loginStore";
 import { Layout } from "../layout/Layout";
 
 const inter = Inter({
   weight: "400",
+  subsets: ['latin'],
 });
 const dmSans = DM_Sans({
   weight: "400",
+  subsets: ['latin'],
 });
 const poppins = Poppins({
   weight: "400",
+  subsets: ['latin'],
 });
 const exo = Exo({
   weight: "400",
+  subsets: ['latin'],
 });
 
 export default function App({

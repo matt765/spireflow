@@ -46,8 +46,8 @@ module.exports = {
         grayIcon: "rgb(0,0,0,0.6)",
 
         // Dark mode
-        primaryBgDark: "rgb(61, 68, 83)",
-        secondaryBgDark: "rgb(47, 55, 70)",
+        primaryBgDark: "rgb(63, 70, 85)",
+        secondaryBgDark: "rgb(52, 60, 74)",
         primaryTextDark: "white",
         secondaryTextDark: "rgb(255,255,255,0.6)",
         mainColorDark: "#06b6d4",
@@ -113,7 +113,7 @@ module.exports = {
           background: {
             muted: "rgb(47, 55, 70, 0.8)", // custom
             subtle: "rgb(47, 55, 70)", // gray-800
-            DEFAULT: "rgb(61, 68, 83)", // gray-900
+            DEFAULT: "rgb(63, 70, 85)", // gray-900
             emphasis: "#d1d5db", // gray-300
           },
           border: {
@@ -156,8 +156,21 @@ module.exports = {
         'html': 'red !important',
         'body': 'red !important',
       },
+
+    },
+    screens: {
+      'xsm': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '1xl': '1400px',
+      '2xl': '1536px',
+      '5xl': "2000px"
     },
   },
+
+
   safelist: [
     {
       pattern:

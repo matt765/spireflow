@@ -1,7 +1,6 @@
 import { Grid, Col } from "@tremor/react";
 
 import { PageContainer } from "../components/PageContainer";
-import { Layout } from "../layout/Layout";
 import { Dash1 } from "../components/dashboard/Dash1";
 import { Dash2 } from "../components/dashboard/Dash2";
 import { Dash3 } from "../components/dashboard/Dash3";
@@ -11,7 +10,7 @@ import { Dash6 } from "../components/dashboard/Dash6";
 
 export default function Home() {
   return (
-    <PageContainer title="Dashboard">
+    <PageContainer title="Dashboard" className="pt-28 px-4 pb-6">
       {/* First row */}
       <Grid numItems={2} numItemsLg={4} className="gap-x-4 gap-y-6">
         <Dash1 />

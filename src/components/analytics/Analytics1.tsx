@@ -116,7 +116,7 @@ export const Analytics1 = () => {
   }, [selectedindustry]);
 
   return (
-    <Card className="max-w-5xl h-full">
+    <Card className=" h-full">
       <div className="hidden sm:block">
         <Flex className="space-x-4" justifyContent="start" alignItems="center">
           <Title>Asset Performance</Title>
@@ -134,7 +134,7 @@ export const Analytics1 = () => {
           ))}
         </Select>
       </div>
-      <Grid numItemsLg={3} className="mt-8 gap-x-14 gap-y-10">
+      <Grid numItemsLg={3} className="mt-8 gap-x-10 gap-y-10">
         <Flex>
           <DonutChart
             data={filteredData}
@@ -145,15 +145,15 @@ export const Analytics1 = () => {
           />
         </Flex>
         <Col numColSpan={1} numColSpanLg={2}>
-          <Flex>
-            <Text>
+          <Flex className="block sm:hidden lg:block">
+            <Text className="pb-1">
               <Bold>Asset</Bold>
             </Text>
             <Text>
               <Bold>+/-% since transaction </Bold>
             </Text>
           </Flex>
-          <div className="hidden sm:block">
+          <div className="sm:max-h-32 lg:max-h-full overflow-auto pr-2 ">
             <List className="mt-2">
               {filteredData.map((city) => (
                 <ListItem key={city.name}>
@@ -175,28 +175,7 @@ export const Analytics1 = () => {
               ))}
             </List>
           </div>
-          <div className="sm:hidden">
-            <List className="mt-2">
-              {filteredData.map((city) => (
-                <ListItem key={city.name}>
-                  <Text> {city.name} </Text>
-                  <div>
-                    <Flex justifyContent="end" className="space-x-4">
-                      <Text color={city.status}>{city.delta}% </Text>
-                      <div className="w-20">
-                        <DeltaBar
-                          value={city.delta}
-                          isIncreasePositive={true}
-                          tooltip=""
-                          showAnimation={true}
-                        />
-                      </div>
-                    </Flex>
-                  </div>
-                </ListItem>
-              ))}
-            </List>
-          </div>
+         
         </Col>
       </Grid>
     </Card>

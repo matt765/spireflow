@@ -109,12 +109,12 @@ const valueFormatter = (number: number) =>
 export const Analytics2 = () => {
   const [selectedComparison, setSelectedComparison] = useState("today");
   return (
-    <Card className="max-w-lg">
+    <Card className="w-full h-full">
       <Text>Today&apos;s Sales</Text>
       <Metric className="mt-1">$ 276</Metric>
       <TabGroup>
         <TabList defaultValue="average" className="mt-6">
-          <Tab value="average">Today vs. peer average</Tab>
+          <Tab value="average">Today vs. average</Tab>
           <Tab value="yesterday">Today vs. yesterday</Tab>
         </TabList>
         <TabPanels>
