@@ -1,4 +1,5 @@
 // import MoonLineIcon from "remixicon-react/MoonLineIcon";
+import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { useSession, signOut } from "next-auth/react";
@@ -85,13 +86,16 @@ export const Navbar = () => {
     };
   }, []);
 
-
-
   return (
     <div className="flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-6 lg:pr-12 lg:pl-0 pl-4">
-      <div className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${!isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"}`}>
+      <NextLink
+        href="/"
+        className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${
+          !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
+        }`}
+      >
         <Logo />
-      </div>
+      </NextLink>
       <div className="flex justify-end items-center gap-4 lg:gap-6 relative">
         <button onClick={toggleTheme} className="">
           {theme === "dark" ? <MoonIcon /> : <MoonIcon />}
@@ -106,7 +110,7 @@ export const Navbar = () => {
             {user || session?.user?.name ? (
               <button
                 onClick={handleDropdownClick}
-                className="hidden xl:block w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark form-element-styled"
+                className=" w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] mr-[-0.5rem] ml-2 xl:ml-0 xl:mr-0 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark form-element-styled"
               >
                 <UserIcon />
               </button>

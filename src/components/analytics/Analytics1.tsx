@@ -160,7 +160,7 @@ export const Analytics1 = () => {
                   <Text> {city.name} </Text>
                   <div>
                     <Flex justifyContent="end" className="space-x-4">
-                      <Text color={city.status}>{city.delta}% </Text>
+                      <Text color={city.status} className="ml-2">{city.delta}% </Text>
                       <div className="w-44">
                         <DeltaBar
                           value={city.delta}

@@ -120,7 +120,7 @@ module.exports = {
             DEFAULT: "rgb(255,255,255,0.1)", // gray-800
           },
           ring: {
-            DEFAULT: "#1f2937", // gray-800
+            DEFAULT: "rgb(0,0,0,0)", // gray-800
           },
           content: {
             subtle: "#4b5563", // gray-600

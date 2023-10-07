@@ -70,7 +70,7 @@ a {
 }
 .fc-list-day-cushion,
 .fc-list-day {
-  @apply dark:bg-inputBgDark dark:!border-calendarBorderDark;
+  @apply dark:bg-secondaryBgDark dark:!border-calendarBorderDark;
 }
 .fc-list {
   @apply dark:!border-calendarBorderDark;
@@ -105,7 +105,7 @@ a {
   .fc-header-toolbar {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 1rem;
+    padding-left: 0rem;
     padding-top: 1rem;
     width: 100%;
   }
@@ -115,6 +115,10 @@ a {
   .fc-toolbar-title {
     font-size: 1.1rem !important;
   }
+  .fc-list-event-title, .fc-list-event-graphic {
+    border-width: 0 !important;
+  }
+
 }
 @media (max-width: 650px) {
   .fc-media-screen {
@@ -124,7 +128,8 @@ a {
   }
   .fc-header-toolbar {
     max-width: 19.5rem;
-    margin-inline: auto;
+    margin-left: 0rem;
+  
   }
   .fc-list-event .fc-list-event-time {
     min-width: 100%;
@@ -133,6 +138,12 @@ a {
     display: flex;
     flex-wrap: wrap;
   }
+  .fc-list-day-cushion {
+    
+  }
+}
+.fc .fc-list-sticky .fc-list-day > * {
+  position: relative;
 }
 /* Single charts */
 

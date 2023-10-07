@@ -1,3 +1,5 @@
+import { useSession } from "next-auth/react";
+
 import { AnalyticsIcon } from "../../assets/icons/AnalyticsIcon";
 import { AreaIcon } from "../../assets/icons/AreaIcon";
 import { BarsIcon } from "../../assets/icons/BarsIcon";
@@ -9,6 +11,7 @@ import { LineIcon } from "../../assets/icons/LineIcon";
 import { OrdersIcon } from "../../assets/icons/OrdersIcon";
 import { ScatterIcon } from "../../assets/icons/ScatterIcon";
 import { useAppStore } from "../../store/appStore";
+import { useLoginStore } from "../../store/loginStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
 
@@ -22,6 +25,9 @@ export const SideMenuMobile = ({
   onLoginButtonClick,
 }: SideMenuMobileProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
+  const { user } = useLoginStore();
+  const { data: session } = useSession();
+
   return (
     <div
       className={` overflow-auto flex fixed xl:hidden flex-col bg-primaryBg  border-r-[1px] border-mainBorder dark:border-mainBorderDark dark:bg-primaryBgDark white top-[5rem] mb-[5rem] left-0 items-center transform transition-transform ease-in-out pb-4 ${
@@ -52,7 +58,7 @@ export const SideMenuMobile = ({
         <MenuItem title="Line" icon={<LineIcon />} path="/line" />
       </div>
       <div className="w-full border-t-0 dark:border-mainBorderDark px-4 pt-8 mb-2">
-        <button
+        {!(user || session?.user?.name) && <button
           onClick={() => {
             onLoginButtonClick();
             toggleMobileMenu();
@@ -60,7 +66,7 @@ export const SideMenuMobile = ({
           className="block xl:hidden mt-auto mb-8 rounded-xl w-full h-10 flex justify-center items-center font-medium font-['Inter'] border border-mainColor dark:border-mainColorDark text-primaryText dark:text-primaryTextDark bg-[rgb(255,255,255,0.02)] dark:hover:bg-[rgb(255,255,255,0.06)] mt-12"
         >
           Sign In
-        </button>
+        </button>}
         <div className="flex xl:hidden justify-center gap-2 items-center">
           <label htmlFor="language-select" className="mr-2">
             Language:
@@ -74,10 +80,15 @@ export const SideMenuMobile = ({
           </select>
         </div>
       </div>
-      <div className="cursor-pointer max-h-[8rem] w-full border-t-2 dark:border-mainBorderDark px-4 pt-4 mt-4 text-center flex justify-center items-center gap-2 stroke-grayIconDark fill-grayIconDark ">
+      <a
+        href="https://github.com/matt765/spireflow"
+        target="_blank"
+        rel="noreferrer"
+        className="cursor-pointer max-h-[8rem] w-full border-t-2 dark:border-mainBorderDark px-4 pt-4 mt-4 text-center flex justify-center items-center gap-2 stroke-grayIconDark fill-grayIconDark "
+      >
         <GithubIcon />
         <div>GitHub Repository</div>
-      </div>
+      </a>
     </div>
   );
 };

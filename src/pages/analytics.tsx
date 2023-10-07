@@ -32,7 +32,7 @@ export default function Analytics() {
         numItemsSm={2}
         numItemsMd={2}
         numItemsLg={2}
-        className="gap-x-6 gap-y-6 max-h-[35rem]"
+        className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
           <Analytics6 />

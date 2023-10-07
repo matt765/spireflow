@@ -7,7 +7,7 @@ export interface CustomersTableProps {
 }
 
 const columnWidths = {
-  col0: '50px',
+  col0: '180px',
   col1: '150px', 
   col2: '150px',
   col3: '150px',
@@ -29,7 +29,7 @@ export const CustomersTable = ({ table }: CustomersTableProps) => {
                 colSpan={header.colSpan}
                 className={
                   header.column.getCanSort()
-                    ? "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
+                    ? " text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                     : "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                 }
                 onClick={header.column.getToggleSortingHandler()}

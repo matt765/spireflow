@@ -153,10 +153,10 @@ const filterByCategory = (category: string, data: VisitsData[]) =>
 
 export const Analytics4 = () => {
   return (
-    <Card className="max-w-full h-full max-h-full flex flex-col">
+    <Card className="max-w-full h-full max-h-full flex flex-col ">
       <BlockTitle title="Total revenue" />
       <ScatterChart
-        className="h-5/6 mt-8"
+        className="h-72 md:h-full mt-8"
         yAxisWidth={50}
         data={chartdata}
         category="Country"
