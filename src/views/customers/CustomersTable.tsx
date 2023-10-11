@@ -7,19 +7,19 @@ export interface CustomersTableProps {
 }
 
 const columnWidths = {
-  col0: '180px',
-  col1: '150px', 
-  col2: '150px',
-  col3: '150px',
-  col4: '100px',
-  col5: '150px',
-  col6: '150px',
+  col0: '7%',
+  col1: '14%', 
+  col2: '14%',
+  col3: '17%',
+  col4: '15%',
+  col5: '19%',
+  col6: '15%',
 
 };
 
 export const CustomersTable = ({ table }: CustomersTableProps) => {
   return (
-    <table className="w-full mt-8">
+    <table className="w-full mt-8 min-w-[60rem]">
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
@@ -30,10 +30,14 @@ export const CustomersTable = ({ table }: CustomersTableProps) => {
                 className={
                   header.column.getCanSort()
                     ? " text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
-                    : "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
+                    : "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                 }
                 onClick={header.column.getToggleSortingHandler()}
-                style={{ width: columnWidths[header.id as keyof typeof columnWidths] }}
+                style={{ 
+                  width: columnWidths[header.id as keyof typeof columnWidths],
+                   maxWidth: columnWidths[header.id as keyof typeof columnWidths],
+                   minWidth: columnWidths[header.id as keyof typeof columnWidths] 
+                  }}
 
               >
                 {header.isPlaceholder

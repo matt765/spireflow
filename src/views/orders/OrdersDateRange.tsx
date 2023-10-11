@@ -15,9 +15,11 @@ export const OrdersDateRange = ({
     setDate: (value: string) => void,
     date: string | null
   ) => {
-    if (!date) {
-      e.currentTarget.type = "text";
-      setDate("");
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      if (!date) {
+        e.currentTarget.type = "text";
+        setDate("");
+      }
     }
   };
 

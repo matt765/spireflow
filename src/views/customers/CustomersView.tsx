@@ -40,7 +40,7 @@ export const CustomersView = () => {
   );
 
   return (
-    <div className="flex w-full p-4 pt-8 md:p-10 paper text-lg flex-col min-h-screen">
+    <div className="flex w-full p-4 pt-8 md:p-10 paper text-lg flex-col min-h-screen pb-8">
       <div className="flex justify-between flex-wrap md:flex-wrap w-full">
         <div className="w-full md:w-1/3 lg:w-1/4 relative flex">
           <input
@@ -92,7 +92,7 @@ export const CustomersView = () => {
           />
         )}
       </div>
-      <div className="w-full overflow-auto">
+      <div className="w-full overflow-auto ">
         <CustomersTable table={table} />
       </div>
       <CustomersPagination

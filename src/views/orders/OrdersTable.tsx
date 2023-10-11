@@ -19,7 +19,7 @@ export const OrdersTable = ({
   itemsPerPage,
 }: OrdersTableProps) => {
   return (
-    <table className="w-full mt-8 overflow-scroll">
+    <table className="w-full mt-8 overflow-scroll min-w-[60rem]">
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
@@ -33,7 +33,12 @@ export const OrdersTable = ({
                     : "text-secondaryText dark:text-secondaryTextDark font-medium text-left pl-4 py-3 border"
                 }
                 onClick={header.column.getToggleSortingHandler()}
-                style={{ width: columnWidths[header.id as keyof typeof columnWidths] }}
+                style={{ 
+                  width: columnWidths[header.id as keyof typeof columnWidths],
+                  maxWidth: columnWidths[header.id as keyof typeof columnWidths],
+                  minWidth: columnWidths[header.id as keyof typeof columnWidths] 
+                
+                }}
 
               >
                 {header.isPlaceholder

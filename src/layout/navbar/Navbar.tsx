@@ -40,6 +40,14 @@ export const Navbar = () => {
     }
   }, [session]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 1024 && isMobileMenuOpen) {
+        toggleMobileMenu(); 
+      }
+    }
+  }, []);
+
   const handleDropdownClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };

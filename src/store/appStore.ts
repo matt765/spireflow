@@ -1,5 +1,4 @@
 import create from "zustand";
-import { persist } from "zustand/middleware";
 
 interface AppStore {
   isMobileMenuOpen: boolean;
@@ -8,23 +7,36 @@ interface AppStore {
   toggleSideMenu: () => void;
 }
 
-const isClient = typeof window !== "undefined";
-
-const persistedStore = persist<AppStore>(
-  (set) => ({
-    isMobileMenuOpen:
-      isClient && localStorage.getItem("app-store")
-        ? JSON.parse(localStorage.getItem("app-store")!).isMobileMenuOpen
-        : false,
-    toggleMobileMenu: () =>
-      set((state) => ({ isMobileMenuOpen: !state.isMobileMenuOpen })),
-    isSideMenuOpen: true,
-    toggleSideMenu: () =>
-      set((state) => ({ isSideMenuOpen: !state.isSideMenuOpen })),
-  }),
-  {
-    name: "app-store",
+const determineInitialState = () => {
+  if (typeof window !== "undefined") {
+    return {
+      isMobileMenuOpen: window.innerWidth < 1024,
+      isSideMenuOpen: window.innerWidth >= 1024,
+    };
   }
-);
+  return {
+    isMobileMenuOpen: false,
+    isSideMenuOpen: true,
+  };
+};
 
-export const useAppStore = create(persistedStore);
+export const useAppStore = create<AppStore>((set) => ({
+  isMobileMenuOpen: false, 
+  isSideMenuOpen: true, 
+  toggleMobileMenu: () => {
+    set((state: AppStore) => ({
+      ...state,
+      isMobileMenuOpen: state.isMobileMenuOpen
+        ? false
+        : determineInitialState().isMobileMenuOpen,
+    }));
+  },
+  toggleSideMenu: () => {
+    set((state: AppStore) => ({
+      ...state,
+      isSideMenuOpen: state.isSideMenuOpen
+        ? false
+        : determineInitialState().isSideMenuOpen,
+    }));
+  },
+}));
