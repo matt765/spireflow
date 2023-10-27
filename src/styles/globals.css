@@ -39,12 +39,15 @@ a {
   @apply hidden;
 }
 .fc-button {
-  @apply form-element-styled bg-inputBg dark:!bg-inputBgDark !border-inputBorder dark:!border-inputBorderDark;
+   @apply !outline-0 border border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark !bg-inputBg dark:!bg-inputBgDark !border-inputBorder dark:!border-inputBorderDark ;
+}
+.fc-button-primary {
+  @apply !text-primaryText dark:!text-primaryTextDark
 }
 .fc th,
 .fc td,
 .fc table {
-  @apply border-calendarBorder dark:!border-calendarBorderDark;
+  @apply border-calendarBorder dark:!border-calendarBorderDark ;
 }
 .fc td {
   @apply max-h-12
@@ -60,13 +63,16 @@ a {
   font-size: 1.5rem;
 }
 .fc-daygrid-block-event {
-  @apply dark:bg-calendarMainColorDark border-none;
+  @apply dark:bg-calendarMainColorDark bg-calendarMainColor border-none;
 }
 .fc-daygrid-event-dot {
-  @apply dark:border-calendarMainColorDark;
+  @apply dark:border-calendarMainColorDark  border-calendarMainColor;
+}
+.fc-list-event-dot {
+  @apply dark:!border-calendarMainColorDark  !border-calendarMainColor;
 }
 .fc-v-event {
-  @apply dark:bg-calendarMainColorDark border-none;
+  @apply dark:bg-calendarMainColorDark bg-calendarMainColor  border-none;
 }
 .fc-list-day-cushion,
 .fc-list-day {
@@ -80,7 +86,7 @@ a {
   --fc-list-event-hover-bg-color: rgb(255, 255, 255, 0.02);
 }
 .fc-day-today {
-  @apply dark:!bg-inputBgDark dark:hover:!bg-inputBgDark;
+  @apply dark:!bg-inputBgDark dark:hover:!bg-inputBgDark !bg-calendarTodayBg;
 }
 .fc-view-harness, .fc-scrollgrid-sync-table {
   @apply max-h-[35rem] md:max-h-[55rem]
@@ -184,10 +190,10 @@ a {
 }
 
 .button-outlined {
-  @apply form-element-styled active:bg-buttonActiveBg dark:active:bg-buttonActiveBgDark;
+  @apply !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  bg-inputBg dark:bg-inputBgDark hover:bg-outlinedButtonBgHover hover:dark:bg-outlinedButtonBgHoverDark;
 }
 .button-contained {
-  @apply bg-mainColorSecondary dark:bg-mainColorSecondaryDark dark:hover:bg-mainColorSecondaryHoverDark hover:bg-mainColorSecondaryHover text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200;
+  @apply bg-mainColorSecondary dark:bg-mainColorSecondaryDark dark:hover:bg-mainColorSecondaryHoverDark hover:bg-mainColorSecondaryHover text-white p-2 rounded-md  focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200;
 }
 .transition-transform {
   transition: transform 0.3s ease-in-out;

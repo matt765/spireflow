@@ -44,7 +44,7 @@ export const SignUpModal = ({
           >
             X
           </button>
-          <h1 className="text-4xl font-bold mb-8 mt-4">Sign Up</h1>
+          <h1 className="text-4xl font-bold mb-8 mt-0">Sign Up</h1>
           <SignUpForm
             handleSignUp={handleSignUp}
             switchToSignIn={switchToSignIn}

@@ -68,7 +68,7 @@ export const OrdersTable = ({
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className="text-primaryText dark:text-primaryTextDark font-medium text-base p-4 border  border-inputBorder dark:border-inputBorderDark"
+                  className="text-tableCellText dark:text-primaryTextDark font-medium text-base p-4 border  border-inputBorder dark:border-inputBorderDark"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

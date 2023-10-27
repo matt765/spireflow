@@ -61,14 +61,14 @@ export const SideMenu = () => {
               href="https://github.com/matt765/spireflow"
               target="_blank"
               rel="noreferrer"
-              className="flex w-full p-2 form-element-styled rounded-md justify-center items-center gap-2 dark:stroke-grayIconDark dark:fill-grayIconDark !bg-[rgb(255,255,255,0.03)] hover:!bg-[rgb(255,255,255,0.10)] transition"
+              className="flex w-full p-2 form-element-styled rounded-md justify-center items-center gap-2 dark:stroke-grayIconDark dark:fill-grayIconDark transition button-outlined"
             >
               <GithubIcon /> <div>GitHub</div>
             </a>
           )}
           <button
             onClick={toggleSideMenu}
-            className="form-element-styled p-2 rounded-md !bg-[rgb(255,255,255,0.03)] hover:!bg-[rgb(255,255,255,0.10)] transition stroke-secondaryText fill-secondaryText dark:fill-secondaryTextDark dark:stroke-secondaryTextDark"
+            className="button-outlined p-2 rounded-md  transition stroke-secondaryText fill-secondaryText dark:fill-secondaryTextDark dark:stroke-secondaryTextDark"
           >
             {isSideMenuOpen ? (
               <ArrowLeftDoubleIcon />

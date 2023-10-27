@@ -15,7 +15,7 @@ export const Logo = () => {
   return (
     <div
       className={`h-20  
-        text-center flex justify-center items-center text-[1.4rem] font-inter font-bold ${nunito.className}`}
+        fill-mainColor dark:fill-mainColorDark text-center flex justify-center items-center text-[1.4rem] font-inter font-bold ${nunito.className}`}
     >
       <LogoIcon />
       {(isSideMenuOpen || !isDesktop) && (

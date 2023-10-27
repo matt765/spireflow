@@ -18,7 +18,7 @@ export const Layout = ({ children }: Props) => {
         <Navbar />
         {/* Variety of fixed max width is present here because otherwise Tremor graphs rerender on width change,
         causing flickering effect when SideMenu is hidden */}
-        <div className="flex flex-col w-full xl:max-w-[71rem] 1xl:max-w-[75rem] 2xl:max-w-[85vw] 5xl:max-w-[102rem] h-full mx-auto">
+        <div className="flex flex-col w-full xl:max-w-[71rem] 1xl:max-w-[75rem] 2xl:max-w-[85vw] 5xl:max-w-[102rem] h-full mx-auto ">
           <div className="w-full "> {children}</div>
         </div>
         {isMobileMenuOpen && (

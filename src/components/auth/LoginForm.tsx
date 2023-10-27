@@ -53,7 +53,7 @@ export const LoginForm = ({
             required: true,
             pattern: /^\S+@\S+$/i,
           })}
-          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark"
+          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark hover:border-mainColor"
           placeholder="Your e-mail"
         />
         {errors.username && (
@@ -67,7 +67,7 @@ export const LoginForm = ({
         <input
           type="password"
           {...register("password", { required: true })}
-          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark"
+          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark hover:border-mainColor"
           placeholder="Your password"
         />
       </div>
@@ -129,7 +129,7 @@ export const LoginForm = ({
         <button
           type="button"
           onClick={() => signIn("google")}
-          className="mt-2 w-32 k p-2 pl-5 form-element-styled rounded-md flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
+          className="mt-2 w-32 k p-2 pl-5 button-outlined rounded-md flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
         >
           <GoogleIcon />
           Google
@@ -137,7 +137,7 @@ export const LoginForm = ({
         <button
           type="button"
           onClick={() => signIn("github")}
-          className="mt-2 w-32 p-2 pl-5 rounded-md form-element-styled flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
+          className="mt-2 w-32 p-2 pl-5 rounded-md button-outlined flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
         >
           <GithubIcon />
           GitHub

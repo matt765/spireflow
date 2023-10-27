@@ -5,7 +5,7 @@ interface ChipProps {
 
 export const Chip = ({ label, onDelete }: ChipProps) => {
     return (
-      <div className="inline-flex items-center bg-gray-200 rounded-full px-2 pl-4 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 h-8 pb-2 pt-1.5 form-element-styled">
+      <div className="inline-flex items-center bg-gray-200 rounded-full px-2 pl-4 py-1 text-sm font-semibold !text-tableCellText dark:!text-secondaryTextDark mr-2 mb-2 h-8 pb-2 pt-1.5 form-element-styled">
         {label}
         <button onClick={onDelete} className="ml-2 pt-0.5">
           <svg

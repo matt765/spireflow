@@ -118,14 +118,14 @@ const [selectedNames, setSelectedNames] = useState<string[]>([]);
       </MultiSelect>
       <Table className="mt-6">
         <TableHead>
-          <TableRow>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell className="text-right">Leads</TableHeaderCell>
-            <TableHeaderCell className="text-right">Sales ($)</TableHeaderCell>
-            <TableHeaderCell className="text-right">Quota ($)</TableHeaderCell>
-            <TableHeaderCell className="text-right">Variance</TableHeaderCell>
-            <TableHeaderCell className="text-right">Region</TableHeaderCell>
-            <TableHeaderCell className="text-right">Status</TableHeaderCell>
+          <TableRow className="text-primaryText">
+            <TableHeaderCell className=" text-secondaryText">Name</TableHeaderCell>
+            <TableHeaderCell className="text-right text-secondaryText">Leads</TableHeaderCell>
+            <TableHeaderCell className="text-right text-secondaryText">Sales ($)</TableHeaderCell>
+            <TableHeaderCell className="text-right text-secondaryText">Quota ($)</TableHeaderCell>
+            <TableHeaderCell className="text-right text-secondaryText">Variance</TableHeaderCell>
+            <TableHeaderCell className="text-right text-secondaryText">Region</TableHeaderCell>
+            <TableHeaderCell className="text-right text-secondaryText">Status</TableHeaderCell>
           </TableRow>
         </TableHead>
 
@@ -135,7 +135,7 @@ const [selectedNames, setSelectedNames] = useState<string[]>([]);
             .map((item) => (
               <TableRow key={item.name}>
                 <TableCell>{item.name}</TableCell>
-                <TableCell className="text-right">{item.leads}</TableCell>
+                <TableCell className="text-right ">{item.leads}</TableCell>
                 <TableCell className="text-right">{item.sales}</TableCell>
                 <TableCell className="text-right">{item.quota}</TableCell>
                 <TableCell className="text-right">{item.variance}</TableCell>

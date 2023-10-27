@@ -27,7 +27,7 @@ export const OrderSelects: React.FC<OrdersSelectsProps> = ({
           : `${filters.priceRange.min}-${filters.priceRange.max}`,
       setFilterKey: "priceRange",
       placeholder: "Any Price",
-      options: ["0-5000", "0-100", "100-500", "500-1000", "1000-5000"],
+      options: ["0-100", "100-500", "500-1000", "1000-5000"],
       specialHandler: (e: ChangeEvent<HTMLSelectElement>) => {
         const [min, max] = e.target.value.split("-").map(Number);
         setFilter("priceRange", { min, max });
