@@ -1,42 +1,42 @@
 import { Col, Card, Title, AreaChart } from "@tremor/react";
 
-import { PageContainer } from "../components/PageContainer";
+import { PageContainer } from "../components/common/PageContainer";
 
 const chartdata = [
   {
     date: "Jan 22",
-    SemiAnalysis: 2890,
-    "The Pragmatic Engineer": 2338,
+    "Views": 1983,
+    "Unique visitors": 1654,
   },
   {
     date: "Feb 22",
-    SemiAnalysis: 2756,
-    "The Pragmatic Engineer": 2103,
+    "Views": 2543,
+    "Unique visitors": 1320,
   },
   {
     date: "Mar 22",
-    SemiAnalysis: 3322,
-    "The Pragmatic Engineer": 2194,
+    "Views": 3221,
+    "Unique visitors": 1845,
   },
   {
     date: "Apr 22",
-    SemiAnalysis: 3470,
-    "The Pragmatic Engineer": 2108,
+    "Views": 2896,
+    "Unique visitors": 1990,
   },
   {
     date: "May 22",
-    SemiAnalysis: 3475,
-    "The Pragmatic Engineer": 1812,
+    "Views": 3577,
+    "Unique visitors": 1530,
   },
   {
     date: "Jun 22",
-    SemiAnalysis: 3129,
-    "The Pragmatic Engineer": 1726,
+    "Views": 3188,
+    "Unique visitors": 2421,
   },
 ];
 
 const dataFormatter = (number: number) => {
-  return "$ " + Intl.NumberFormat("us").format(number).toString();
+  return Intl.NumberFormat("us").format(number).toString();
 };
 
 export default function Area() {
@@ -44,14 +44,14 @@ export default function Area() {
     <PageContainer title="Area" className="h-full">
       <div className="w-full h-full paper max-w-full">
         <div className="single-chart-wrapper">
-          <div className="single-chart-title">
-            Newsletter revenue over time (USD)
+        <div className="single-chart-title">
+           Online store traffic
           </div>
           <AreaChart
             className="h-96 mt-4"
             data={chartdata}
             index="date"
-            categories={["SemiAnalysis", "The Pragmatic Engineer"]}
+            categories={["Views", "Unique visitors"]}
             colors={["indigo", "cyan"]}
             valueFormatter={dataFormatter}
           />

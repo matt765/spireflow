@@ -1,19 +1,19 @@
 import { Grid, Col } from "@tremor/react";
 
-import { PageContainer } from "../components/PageContainer";
-import { Dash1 } from "../components/dashboard/Dash1";
-import { Dash2 } from "../components/dashboard/Dash2";
-import { Dash3 } from "../components/dashboard/Dash3";
-import { Dash4 } from "../components/dashboard/Dash4";
-import { Dash5 } from "../components/dashboard/Dash5";
-import { Dash6 } from "../components/dashboard/Dash6";
+import { PageContainer } from "../components/common/PageContainer";
+import { HomeSmallCards } from "../components/dashboard/HomeSmallCards";
+import { CustomerSatisfaction } from "../components/dashboard/CustomerSatisfaction";
+import { Regions } from "../components/dashboard/Regions";
+import { BestSellingProducts } from "../components/dashboard/BestSellingProducts";
+import { RevenueOverTime } from "../components/dashboard/RevenueOverTime";
+import { TradersTable } from "../components/dashboard/TradersTable";
 
 export default function Home() {
   return (
     <PageContainer title="Dashboard" className="pt-28 px-4 pb-6">
       {/* First row */}
       <Grid numItems={2} numItemsLg={4} className="gap-x-4 gap-y-6">
-        <Dash1 />
+        <HomeSmallCards />
       </Grid>
 
       {/* Second row */}
@@ -25,10 +25,10 @@ export default function Home() {
         className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={2}>
-          <Dash5 />
+          <RevenueOverTime />
         </Col>
         <Col numColSpan={1} numColSpanLg={1}>
-          <Dash3 />
+          <Regions />
         </Col>
       </Grid>
 
@@ -41,14 +41,14 @@ export default function Home() {
         className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
-          <Dash4 />
+          <BestSellingProducts />
         </Col>
         <Col numColSpan={1} numColSpanLg={2}>
-          <Dash2 />
+          <CustomerSatisfaction />
         </Col>
       </Grid>
       {/* Fourth row */}
-      <Dash6 />
+      <TradersTable />
     </PageContainer>
   );
 }

@@ -26,6 +26,7 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
+    "@types/react-tooltip": "^4.2.4",
     "aws-sdk": "^2.1444.0",
     "dotenv": "^16.3.1",
     "eslint": "8.27.0",
@@ -35,15 +36,19 @@
     "next": "^13.5.4",
     "next-auth": "^4.23.1",
     "next-themes": "^0.2.1",
+    "rc-tooltip": "^6.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
+    "react-simple-maps": "^3.0.0",
+    "react-tooltip": "^5.22.0",
     "remixicon-react": "^1.0.0",
     "typescript": "4.8.4",
     "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/next-auth": "^3.15.0",
+    "@types/react-simple-maps": "^3.0.2",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.28",
     "tailwindcss": "^3.3.3"

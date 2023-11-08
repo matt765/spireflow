@@ -1,6 +1,6 @@
 import { Text } from "@tremor/react";
 
-import { PageContainer } from "../components/PageContainer";
+import { PageContainer } from "../components/common/PageContainer";
 import { ScatterChart } from "@tremor/react";
 
 const chartdata = [

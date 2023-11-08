@@ -14,20 +14,20 @@ import {
   Subtitle,
   AreaChart,
 } from "@tremor/react";
-import { BlockTitle } from "../BlockTitle";
+import { BlockTitle } from "../common/BlockTitle";
 
 const chartdata = [
   {
-    name: "Amphibians",
-    "Number of species": 2488,
+    name: "iPad Pro",
+    "Profit from last week": 7800,
   },
   {
-    name: "Birds",
-    "Number of species": 1445,
+    name: "Apple TV 4K",
+    "Profit from last week": 6445,
   },
   {
-    name: "Crustaceans",
-    "Number of species": 743,
+    name: "Macbook Pro",
+    "Profit from last week": 3743,
   },
 ];
 
@@ -35,14 +35,14 @@ const dataFormatter = (number: number) => {
   return "$ " + Intl.NumberFormat("us").format(number).toString();
 };
 
-export const Dash4 = () => {
+export const BestSellingProducts = () => {
   return (
     <Card className="h-full">
-      <BlockTitle title="Number of species" />
+      <BlockTitle title="Best selling products" />
       <BarChart
         data={chartdata}
         index="name"
-        categories={["Number of species"]}
+        categories={["Profit from last week"]}
         colors={["blue"]}
         valueFormatter={dataFormatter}
         className="mt-6"

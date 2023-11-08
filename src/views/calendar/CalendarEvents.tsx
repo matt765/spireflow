@@ -6,7 +6,7 @@ const currentMonth = new Date().getMonth();
 export const initialEvents = [
   {
     id: createEventId(),
-    title: "Meeting",
+    title: "Market strategy",
     start: new Date(currentYear, currentMonth, 3).toISOString(),
   },
   {
@@ -16,7 +16,7 @@ export const initialEvents = [
   },
   {
     id: createEventId(),
-    title: "Doctor appointment",
+    title: "Product review",
     start: new Date(currentYear, currentMonth, 6).toISOString(),
   },
 
@@ -50,11 +50,6 @@ export const initialEvents = [
     title: "Sales Promotion Planning",
     start: new Date(currentYear, currentMonth, 27, 11, 0).toISOString(),
     end: new Date(currentYear, currentMonth, 27, 13, 0).toISOString(),
-  },
-  {
-    id: createEventId(),
-    title: "Dentist Appointment",
-    start: new Date(currentYear, currentMonth, 27, 15, 0).toISOString(),
   },
   {
     id: createEventId(),

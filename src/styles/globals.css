@@ -178,6 +178,12 @@ a {
 .tremor-Card-root {
   @apply border border-primaryBg dark:!border-mainBorderDark;
 }
+.text-rose-500 {
+  @apply text-rose-300
+}
+.text-orange-500 {
+  @apply text-orange-300
+}
 
 /* Forms & buttons */
 

@@ -1,38 +1,48 @@
 import { Card, Title, BarChart, Subtitle, LineChart } from "@tremor/react";
 
-import { PageContainer } from "../components/PageContainer";
+import { PageContainer } from "../components/common/PageContainer";
 
-const chartdata = [
+const dragonPopulationInWesteros = [
   {
-    year: 1970,
-    "Export Growth Rate": 2.04,
-    "Import Growth Rate": 1.53,
+    year: "0 AC",
+    title: "Aegon's Conquest",
+    "House Targaryen": 5,
+    "House Velaryon": 0,
   },
   {
-    year: 1971,
-    "Export Growth Rate": 1.96,
-    "Import Growth Rate": 1.58,
+    year: "60 AC",
+    title: "The long reign of Jaehaerys I",
+    "House Targaryen": 19,
+    "House Velaryon": 2,
   },
   {
-    year: 1972,
-    "Export Growth Rate": 1.96,
-    "Import Growth Rate": 1.61,
+    year: "120 AC",
+    title: "House of the Dragon series",
+    "House Targaryen": 15,
+    "House Velaryon": 3,
   },
   {
-    year: 1973,
-    "Export Growth Rate": 1.93,
-    "Import Growth Rate": 1.61,
+    year: "180 AC",
+    title: "The conquest of Dorne",
+    "House Targaryen": 4,
+    "House Velaryon": 0,
   },
   {
-    year: 1974,
-    "Export Growth Rate": 1.88,
-    "Import Growth Rate": 1.67,
+    year: "240 AC",
+    title: "The Blackfyre Rebellions",
+    "House Targaryen": 0,
+    "House Velaryon": 0,
   },
-  //...
+  {
+    year: "300 AC",
+    title: "Time of the show/books start",
+    "House Targaryen": 3,
+    "House Velaryon": 0,
+  },
 ];
 
 const dataFormatter = (number: number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}%`;
+  `${Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function Line() {
   return (
@@ -40,18 +50,24 @@ export default function Line() {
       <div className="w-full h-full paper max-w-full">
         <div className="single-chart-wrapper">
           <div className="single-chart-title">
-            Newsletter revenue over time (USD)
+            Population of dragons in Westeros
           </div>
           <LineChart
             className="mt-6"
-            data={chartdata}
+            data={dragonPopulationInWesteros}
             index="year"
-            categories={["Export Growth Rate", "Import Growth Rate"]}
+            categories={["House Targaryen", "House Velaryon"]}
             colors={["emerald", "gray"]}
             valueFormatter={dataFormatter}
             yAxisWidth={40}
           />
+           <div className="w-full flex justify-between mx-auto mt-8 ml-8">
+          {dragonPopulationInWesteros.map((item, index) => (
+            <div key={index} className="text-xs">{item.title}</div>
+          ))}
         </div>
+        </div>
+       
       </div>
     </PageContainer>
   );

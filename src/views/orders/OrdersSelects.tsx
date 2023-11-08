@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { ordersData } from "./OrdersData";
 import { OrdersSelectsProps } from "./types";
-import { Select } from "../../components/Select";
+import { Select } from "../../components/forms/Select";
 
 export const OrderSelects: React.FC<OrdersSelectsProps> = ({
   filters,

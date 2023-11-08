@@ -113,7 +113,7 @@ module.exports = {
           brand: {
             faint: "rgb(47, 55, 70)", // custom
             muted: "rgb(79, 87, 104)", // blue-950
-            subtle: "rgb(79, 87, 104)", // blue-800
+            subtle: "rgba(79, 87, 104, 0.84)", // blue-800
             DEFAULT: "rgb(90, 150, 249)", // blue-500
             emphasis: "#60a5fa", // blue-400
             inverted: "#030712", // gray-950

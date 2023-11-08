@@ -14,38 +14,38 @@ import {
   Subtitle,
   AreaChart,
 } from "@tremor/react";
-import { BlockTitle } from "../BlockTitle";
+import { BlockTitle } from "../common/BlockTitle";
 
 const chartdata2 = [
   {
-    date: "Jan 22",
-    SemiAnalysis: 2890,
-    "The Pragmatic Engineer": 2338,
+    date: "Apr 23",
+    "Website Sales": 2200,
+    "In-Store Sales": 3700,
   },
   {
-    date: "Feb 22",
-    SemiAnalysis: 2756,
-    "The Pragmatic Engineer": 2103,
+    date: "May 23",
+    "Website Sales": 5400,
+    "In-Store Sales": 2000,
   },
   {
-    date: "Mar 22",
-    SemiAnalysis: 3322,
-    "The Pragmatic Engineer": 2194,
+    date: "Jun 23",
+    "Website Sales": 2000,
+    "In-Store Sales": 4600,
   },
   {
-    date: "Apr 22",
-    SemiAnalysis: 3470,
-    "The Pragmatic Engineer": 2108,
+    date: "Jul 23",
+    "Website Sales": 7200,
+    "In-Store Sales": 4900,
   },
   {
-    date: "May 22",
-    SemiAnalysis: 3475,
-    "The Pragmatic Engineer": 1812,
+    date: "Aug 23",
+    "Website Sales": 5500,
+    "In-Store Sales": 2100,
   },
   {
-    date: "Jun 22",
-    SemiAnalysis: 3129,
-    "The Pragmatic Engineer": 1726,
+    date: "Sep 23",
+    "Website Sales": 6900,
+    "In-Store Sales": 5300,
   },
 ];
 
@@ -53,7 +53,7 @@ const dataFormatter = (number: number) => {
   return "$ " + Intl.NumberFormat("us").format(number).toString();
 };
 
-export const Dash5 = () => {
+export const RevenueOverTime = () => {
   return (
     <Card className="h-full">
       <div className="p-1">
@@ -61,7 +61,7 @@ export const Dash5 = () => {
       </div>
       <AreaChart
         data={chartdata2}
-        categories={["SemiAnalysis", "The Pragmatic Engineer"]}
+        categories={["Website Sales", "In-Store Sales"]}
         index="date"
         colors={["indigo", "cyan"]}
         valueFormatter={dataFormatter}

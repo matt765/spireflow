@@ -1,4 +1,4 @@
-import { PageContainer } from "../components/PageContainer";
+import { PageContainer } from "../components/common/PageContainer";
 import { Layout } from "../layout/Layout";
 import { CalendarView } from "../views/calendar/CalendarView";
 

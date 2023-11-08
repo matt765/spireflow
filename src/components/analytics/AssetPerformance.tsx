@@ -106,7 +106,7 @@ const valueFormatter = (number: number) =>
 const filterByindustry = (industry: string, data: AssetData[]) =>
   industry === "all" ? data : data.filter((city) => city.industry === industry);
 
-export const Analytics1 = () => {
+export const AssetPerformance = () => {
   const [selectedindustry, setSelectedindustry] = useState("all");
   const [filteredData, setFilteredData] = useState(cities);
 

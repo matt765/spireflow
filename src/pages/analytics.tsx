@@ -1,12 +1,12 @@
 import { Grid, Col } from "@tremor/react";
 
-import { PageContainer } from "../components/PageContainer";
-import { Analytics1 } from "../components/analytics/Analytics1";
-import { Analytics2 } from "../components/analytics/Analytics2";
-import { Analytics4 } from "../components/analytics/Analytics4";
-import { Analytics6 } from "../components/analytics/Analytics6";
-import { Analytics10 } from "../components/analytics/Analytics10";
-import { Analytics8 } from "../components/analytics/Analytics8";
+import { PageContainer } from "../components/common/PageContainer";
+import { AssetPerformance } from "../components/analytics/AssetPerformance";
+import { TodaySales } from "../components/analytics/TodaySales";
+import { RevenuePerCountry } from "../components/analytics/RevenuePerCountry";
+import { TotalProfit } from "../components/analytics/TotalProfit";
+import { YearOverview } from "../components/analytics/YearOverview";
+import { Performance } from "../components/analytics/Performance";
 
 export default function Analytics() {
   return (
@@ -20,10 +20,10 @@ export default function Analytics() {
         className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanSm={1} numColSpanLg={2}>
-          <Analytics1 />
+          <AssetPerformance />
         </Col>
         <Col numColSpan={1} numColSpanSm={1}>
-          <Analytics2 />
+          <TodaySales />
         </Col>
       </Grid>
       {/* Second row */}
@@ -31,14 +31,14 @@ export default function Analytics() {
         numItems={1}
         numItemsSm={2}
         numItemsMd={2}
-        numItemsLg={2}
+        numItemsLg={3}
         className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
-          <Analytics6 />
+          <TotalProfit />
         </Col>
-        <Col numColSpan={1} numColSpanLg={1}>
-          <Analytics4 />
+        <Col numColSpan={1} numColSpanLg={2}>
+          <RevenuePerCountry />
         </Col>
       </Grid>
 
@@ -51,12 +51,12 @@ export default function Analytics() {
         className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanLg={1}>
-          <Analytics8 />
+          <Performance />
         </Col>
       </Grid>
 
       {/* Fourth row */}
-      <Analytics10 />
+      <YearOverview />
     </PageContainer>
   );
 }

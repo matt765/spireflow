@@ -1,6 +1,5 @@
 import {
   Card,
-  Callout,
   Flex,
   Tab,
   TabList,
@@ -106,12 +105,11 @@ const sales: Data[] = [
 const valueFormatter = (number: number) =>
   `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
-export const Analytics2 = () => {
-  const [selectedComparison, setSelectedComparison] = useState("today");
+export const TodaySales = () => {
   return (
     <Card className="w-full h-full">
       <Text>Today&apos;s Sales</Text>
-      <Metric className="mt-1">$ 276</Metric>
+      <Metric className="mt-1">$ 2276</Metric>
       <TabGroup>
         <TabList defaultValue="average" className="mt-6">
           <Tab value="average">Today vs. average</Tab>
@@ -157,7 +155,7 @@ export const Analytics2 = () => {
                 className="mt-3"
               />
             </Flex>
-          </TabPanel>{" "}
+          </TabPanel>
         </TabPanels>
       </TabGroup>
     </Card>

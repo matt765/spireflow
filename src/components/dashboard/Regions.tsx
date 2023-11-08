@@ -12,14 +12,7 @@ import {
   Col,
 } from "@tremor/react";
 import { useEffect, useState } from "react";
-import { BlockTitle } from "../BlockTitle";
-
-const regions = [
-  { key: "all", name: "All Regions" },
-  { key: "us", name: "United States" },
-  { key: "europe", name: "Europe" },
-  { key: "asia", name: "Asia" },
-];
+import { BlockTitle } from "../common/BlockTitle";
 
 interface CityData {
   name: string;
@@ -29,56 +22,22 @@ interface CityData {
   deltaType: DeltaType;
 }
 
-const cities: CityData[] = [
+const conversions: CityData[] = [
   {
-    name: "New York",
+    name: "North America",
     region: "us",
-    sales: 984888,
-    delta: "6.1%",
+    sales: 875000,
+    delta: "5.7%",
     deltaType: "increase",
   },
   {
-    name: "London",
+    name: "Europe",
     region: "europe",
-    sales: 456700,
-    delta: "1.2%",
+    sales: 560000,
+    delta: "2.8%",
     deltaType: "moderateDecrease",
   },
-  {
-    name: "San Francisco",
-    region: "us",
-    sales: 240000,
-    delta: "2.3%",
-    deltaType: "moderateIncrease",
-  },
-  {
-    name: "Hong Kong",
-    region: "asia",
-    sales: 390800,
-    delta: "0.5%",
-    deltaType: "moderateDecrease",
-  },
-  {
-    name: "Singapore",
-    region: "asia",
-    sales: 190800,
-    delta: "1.8%",
-    deltaType: "moderateIncrease",
-  },
-  {
-    name: "Zurich",
-    region: "europe",
-    sales: 164400,
-    delta: "3.4%",
-    deltaType: "decrease",
-  },
-  {
-    name: "Vienna",
-    region: "europe",
-    sales: 139800,
-    delta: "3.1%",
-    deltaType: "moderateIncrease",
-  },
+ 
 ];
 
 const valueFormatter = (number: number) =>
@@ -87,33 +46,33 @@ const valueFormatter = (number: number) =>
 const filterByRegion = (region: string, data: CityData[]) =>
   region === "all" ? data : data.filter((city) => city.region === region);
 
-export const Dash3 = () => {
+export const Regions = () => {
   const [selectedRegion, setSelectedRegion] = useState("asia");
-  const [filteredData, setFilteredData] = useState(cities);
+  const [filteredData, setFilteredData] = useState(conversions);
 
   useEffect(() => {
-    const data = cities;
+    const data = conversions;
     setFilteredData(filterByRegion(selectedRegion, data));
   }, [selectedRegion]);
 
   return (
     <Card>
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
-        <BlockTitle title="Sales" />
+        <BlockTitle title="Regions" />
       </Flex>
       <Legend
-        categories={filteredData.map((city) => city.name)}
+        categories={conversions.map((city) => city.name)}
         className="mt-6"
       />
       <DonutChart
-        data={filteredData}
+        data={conversions}
         category="sales"
         index="name"
         valueFormatter={valueFormatter}
         className="mt-6"
       />
       <List className="mt-6">
-        {filteredData.map((city) => (
+        {conversions.map((city) => (
           <ListItem key={city.name}>
             {city.name}
             <BadgeDelta deltaType={city.deltaType} size="xs">

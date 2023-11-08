@@ -52,7 +52,7 @@ const data = [
 const valueFormatter = (number: number) =>
   `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
-export const Analytics8 = () => {
+export const Performance = () => {
   return (
     <Card>
       <Title>Performance</Title>

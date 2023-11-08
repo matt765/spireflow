@@ -9,123 +9,56 @@ import {
   Color,
 } from "@tremor/react";
 
-const chartData: {}[][] = [
+const chartData = [
+  // Data for Daily Sales (Last 3 weeks)
   [
-    {
-      "Number of threatened species": 445,
-    },
-    {
-      "Number of threatened species": 743,
-    },
-    {
-      "Number of threatened species": 488,
-    },
-    {
-      "Number of threatened species": 788,
-    },
-    {
-      "Number of threatened species": 1488,
-    },
-    {
-      "Number of threatened species": 2088,
-    },
-    {
-      "Number of threatened species": 1188,
-    },
-    {
-      "Number of threatened species": 1445,
-    },
-    {
-      "Number of threatened species": 743,
-    },
+    { date: "08.10.23", Metric: 445 },
+    { date: "11.10.23", Metric: 743 },
+    { date: "14.10.23", Metric: 488 },
+    { date: "17.10.23", Metric: 788 },
+    { date: "20.10.23", Metric: 1488 },
+    { date: "23.10.23", Metric: 2088 },
+    { date: "26.10.23", Metric: 1188 },
+    { date: "29.10.23", Metric: 420 },
+    { date: "01.11.23", Metric: 650 },
   ],
+  // Data for Monthly Product Profit (Total profit for the last month across specific days)
   [
-    {
-      "Number of threatened species": 145,
-    },
-    {
-      "Number of threatened species": 343,
-    },
-    {
-      "Number of threatened species": 988,
-    },
-    {
-      "Number of threatened species": 788,
-    },
-    {
-      "Number of threatened species": 488,
-    },
-    {
-      "Number of threatened species": 288,
-    },
-    {
-      "Number of threatened species": 188,
-    },
-    {
-      "Number of threatened species": 144,
-    },
-    {
-      "Number of threatened species": 443,
-    },
+    { date: "02.10.23", Metric: 2850 },
+    { date: "06.10.23", Metric: 4150 },
+    { date: "10.10.23", Metric: 2350 },
+    { date: "14.10.23", Metric: 1950 },
+    { date: "18.10.23", Metric: 3150 },
+    { date: "22.10.23", Metric: 2550 },
+    { date: "26.10.23", Metric: 4350 },
+    { date: "30.10.23", Metric: 3450 },
+    { date: "01.11.23", Metric: 4850 },
   ],
+  // Data for Traffic (Yesterday segmented every few hours)
   [
-    {
-      "Number of threatened species": 45,
-    },
-    {
-      "Number of threatened species": 143,
-    },
-    {
-      "Number of threatened species": 488,
-    },
-    {
-      "Number of threatened species": 588,
-    },
-    {
-      "Number of threatened species": 188,
-    },
-    {
-      "Number of threatened species": 188,
-    },
-    {
-      "Number of threatened species": 688,
-    },
-    {
-      "Number of threatened species": 145,
-    },
-    {
-      "Number of threatened species": 243,
-    },
+    { date: "26.10.23 00:00", Metric: 3100 },
+    { date: "26.10.23 03:00", Metric: 3900 },
+    { date: "26.10.23 06:00", Metric: 2700 },
+    { date: "26.10.23 09:00", Metric: 4300 },
+    { date: "26.10.23 12:00", Metric: 4500 },
+    { date: "26.10.23 15:00", Metric: 1800 },
+    { date: "26.10.23 18:00", Metric: 2600 },
+    { date: "26.10.23 21:00", Metric: 3200 },
+    { date: "26.10.23 23:59", Metric: 2300 },
   ],
+  // Data for Customers (Last month's data)
   [
-    {
-      "Number of threatened species": 545,
-    },
-    {
-      "Number of threatened species": 643,
-    },
-    {
-      "Number of threatened species": 488,
-    },
-    {
-      "Number of threatened species": 188,
-    },
-    {
-      "Number of threatened species": 488,
-    },
-    {
-      "Number of threatened species": 208,
-    },
-    {
-      "Number of threatened species": 188,
-    },
-    {
-      "Number of threatened species": 445,
-    },
-    {
-      "Number of threatened species": 743,
-    },
-  ],
+    { date: "02.10.23", Metric: 1050 },
+    { date: "06.10.23", Metric: 1780 },
+    { date: "10.10.23", Metric: 890 },
+    { date: "14.10.23", Metric: 1520 },
+    { date: "18.10.23", Metric: 980 },
+    { date: "22.10.23", Metric: 1210 },
+    { date: "26.10.23", Metric: 440 },
+    { date: "30.10.23", Metric: 730 },
+    { date: "01.11.23", Metric: 1390 },
+]
+
 ];
 
 const categories: {
@@ -162,7 +95,7 @@ const categories: {
     changeText: "Last month",
   },
   {
-    title: "Customers",
+    title: "Traffic",
     metric: "1,072",
     metricPrev: "856",
     delta: "25.3%",
@@ -185,7 +118,7 @@ const categories: {
   },
 ];
 
-export const Dash1 = () => {
+export const HomeSmallCards = () => {
   return (
     <>
       {categories.map((item, index) => {
@@ -239,8 +172,8 @@ interface ChartProps {
 const Chart = ({ color, chartData }: ChartProps) => (
   <BarChart
     data={chartData}
-    index="name"
-    categories={["Number of threatened species"]}
+    index={Object.keys(chartData[0])[0]}
+    categories={["Metric"]}
     colors={[color]}
     showLegend={false}
     className="h-16"

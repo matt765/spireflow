@@ -31,7 +31,7 @@ const salesPeople: SalesPerson[] = [
     sales: "1,000,000",
     quota: "1,200,000",
     variance: "low",
-    region: "Region A",
+    region: "North America",
     status: "overperforming",
     deltaType: "moderateIncrease",
   },
@@ -41,7 +41,7 @@ const salesPeople: SalesPerson[] = [
     sales: "900,000",
     quota: "1,000,000",
     variance: "low",
-    region: "Region B",
+    region: "Europe",
     status: "average",
     deltaType: "unchanged",
   },
@@ -51,7 +51,7 @@ const salesPeople: SalesPerson[] = [
     sales: "930,000",
     quota: "1,000,000",
     variance: "medium",
-    region: "Region C",
+    region: "Europe",
     status: "underperforming",
     deltaType: "moderateDecrease",
   },
@@ -61,7 +61,7 @@ const salesPeople: SalesPerson[] = [
     sales: "390,000",
     quota: "250,000",
     variance: "low",
-    region: "Region A",
+    region: "North America",
     status: "overperforming",
     deltaType: "increase",
   },
@@ -71,7 +71,7 @@ const salesPeople: SalesPerson[] = [
     sales: "860,000",
     quota: "750,000",
     variance: "low",
-    region: "Region B",
+    region: "Europe",
     status: "overperforming",
     deltaType: "increase",
   },
@@ -81,7 +81,7 @@ const salesPeople: SalesPerson[] = [
     sales: "1,460,000",
     quota: "1,500,000",
     variance: "low",
-    region: "Region A",
+    region: "North America",
     status: "average",
     deltaType: "unchanged",
   },
@@ -91,13 +91,13 @@ const salesPeople: SalesPerson[] = [
     sales: "1,230,000",
     quota: "1,800,000",
     variance: "medium",
-    region: "Region B",
+    region: "Europe",
     status: "underperforming",
     deltaType: "moderateDecrease",
   },
 ];
 
-export const Dash6 = () => {
+export const TradersTable = () => {
 const [selectedNames, setSelectedNames] = useState<string[]>([]);
 
   const isSalesPersonSelected = (salesPerson: SalesPerson) =>
