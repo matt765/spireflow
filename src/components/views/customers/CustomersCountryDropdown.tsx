@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { CustomerFilters } from "./useCustomers";
-import { FilterIcon } from "../../assets/icons/FilterIcon";
+import { FilterIcon } from "../../../assets/icons/FilterIcon";
 
 interface CustomersDropdownProps {
   options: string[];

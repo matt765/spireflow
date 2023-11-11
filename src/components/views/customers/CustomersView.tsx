@@ -1,5 +1,5 @@
-import { SearchIcon } from "../../assets/icons/SearchIcon";
-import { Chip } from "../../components/forms/Chip";
+import { SearchIcon } from "../../../assets/icons/SearchIcon";
+import { Chip } from "../../forms/Chip";
 import { customersData } from "./CustomersData";
 import { CustomersCountryDropdown } from "./CustomersCountryDropdown";
 import { CustomersPagination } from "./CustomersPagination";

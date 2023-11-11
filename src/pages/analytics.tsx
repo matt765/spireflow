@@ -1,12 +1,12 @@
 import { Grid, Col } from "@tremor/react";
 
 import { PageContainer } from "../components/common/PageContainer";
-import { AssetPerformance } from "../components/analytics/AssetPerformance";
-import { TodaySales } from "../components/analytics/TodaySales";
-import { RevenuePerCountry } from "../components/analytics/RevenuePerCountry";
-import { TotalProfit } from "../components/analytics/TotalProfit";
-import { YearOverview } from "../components/analytics/YearOverview";
-import { Performance } from "../components/analytics/Performance";
+import { AssetPerformance } from "../components/views/analytics/AssetPerformance";
+import { TodaySales } from "../components/views/analytics/TodaySales";
+import { RevenuePerCountry } from "../components/views/analytics/RevenuePerCountry";
+import { TotalProfit } from "../components/views/analytics/TotalProfit";
+import { YearOverview } from "../components/views/analytics/YearOverview";
+import { Performance } from "../components/views/analytics/Performance";
 
 export default function Analytics() {
   return (

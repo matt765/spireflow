@@ -3,7 +3,7 @@ import { OrdersDateRange } from "./OrdersDateRange";
 import { OrderSelects } from "./OrdersSelects";
 import { OrdersTable } from "./OrdersTable";
 import { OrdersPagination } from "./OrdersPagination";
-import { SearchIcon } from "../../assets/icons/SearchIcon";
+import { SearchIcon } from "../../../assets/icons/SearchIcon";
 
 export const OrdersView = () => {
   const {

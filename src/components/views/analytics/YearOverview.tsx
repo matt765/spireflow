@@ -15,7 +15,7 @@ import {
 } from "@tremor/react";
 
 // import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
-import { LogoIcon } from "../../assets/icons/LogoIcon";
+import { LogoIcon } from "../../../assets/icons/LogoIcon";
 import React, { useState } from "react";
 
 type Bar = { name: string; value: number };

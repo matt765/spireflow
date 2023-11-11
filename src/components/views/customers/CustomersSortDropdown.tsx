@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-import { SortIcon } from "../../assets/icons/SortIcon";
+import { SortIcon } from "../../../assets/icons/SortIcon";
 
 interface SortDropdownProps {
   options: { value: string; label: string }[];

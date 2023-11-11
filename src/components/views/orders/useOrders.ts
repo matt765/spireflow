@@ -14,7 +14,7 @@ import {
   PriceRange,
   SelectFilters,
 } from "./types";
-import { useTable } from "../../hooks/useTable";
+import { useTable } from "../../../hooks/useTable";
 
 const columnHelper = createColumnHelper<Order>();
 

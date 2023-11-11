@@ -1,9 +1,9 @@
 import { Customer } from "./types";
-import user1 from "../../assets/images/userAvatars/user1.png";
-import user2 from "../../assets/images/userAvatars/user2.png";
-import user3 from "../../assets/images/userAvatars/user3.png";
-import user4 from "../../assets/images/userAvatars/user4.png";
-import user5 from "../../assets/images/userAvatars/user5.png";
+import user1 from "../../../assets/images/userAvatars/user1.png";
+import user2 from "../../../assets/images/userAvatars/user2.png";
+import user3 from "../../../assets/images/userAvatars/user3.png";
+import user4 from "../../../assets/images/userAvatars/user4.png";
+import user5 from "../../../assets/images/userAvatars/user5.png";
 
 export const customersData: Customer[] = [
   {

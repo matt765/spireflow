@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-table";
 import { Customer } from "./types";
 import { customersData } from "./CustomersData";
-import { useTable } from "../../hooks/useTable";
+import { useTable } from "../../../hooks/useTable";
 import Image from "next/image";
 
 const columnHelper = createColumnHelper<Customer>();

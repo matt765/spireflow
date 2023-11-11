@@ -6,13 +6,13 @@ import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 
 import "react-tooltip/dist/react-tooltip.css";
-import { BlockTitle } from "../common/BlockTitle";
-import { EnglishIcon } from "../../assets/icons/EnglishIcon";
-import { PolishIcon } from "../../assets/icons/PolishIcon";
-import { UnitedStatesIcon } from "../../assets/icons/UnitedStatesIcon";
-import { FranceIcon } from "../../assets/icons/FranceIcon";
-import { NorwayIcon } from "../../assets/icons/NorwayIcon";
-import { AustraliaIcon } from "../../assets/icons/AustraliaIcon";
+import { BlockTitle } from "../../common/BlockTitle";
+import { EnglishIcon } from "../../../assets/icons/EnglishIcon";
+import { PolishIcon } from "../../../assets/icons/PolishIcon";
+import { UnitedStatesIcon } from "../../../assets/icons/UnitedStatesIcon";
+import { FranceIcon } from "../../../assets/icons/FranceIcon";
+import { NorwayIcon } from "../../../assets/icons/NorwayIcon";
+import { AustraliaIcon } from "../../../assets/icons/AustraliaIcon";
 
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
