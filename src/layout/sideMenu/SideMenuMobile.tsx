@@ -14,6 +14,7 @@ import { useAppStore } from "../../store/appStore";
 import { useLoginStore } from "../../store/loginStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
+import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 
 interface SideMenuMobileProps {
   isMobileMenuOpen: boolean;
@@ -45,6 +46,7 @@ export const SideMenuMobile = ({
           icon={<CustomersIcon />}
           path="/customers"
         />
+        <MenuItem title="Products" icon={<ProductsIcon />} path="/products" />
         <MenuItem
           title="Analytics"
           icon={<AnalyticsIcon />}
@@ -58,15 +60,17 @@ export const SideMenuMobile = ({
         <MenuItem title="Line" icon={<LineIcon />} path="/line" />
       </div>
       <div className="w-full border-t-0 dark:border-mainBorderDark px-4 pt-8 mb-2">
-        {!(user || session?.user?.name) && <button
-          onClick={() => {
-            onLoginButtonClick();
-            toggleMobileMenu();
-          }}
-          className="block xl:hidden mt-auto mb-8 rounded-xl w-full h-10 flex justify-center items-center font-medium font-['Inter'] border border-mainColor dark:border-mainColorDark text-primaryText dark:text-primaryTextDark bg-[rgb(255,255,255,0.02)] dark:hover:bg-[rgb(255,255,255,0.06)] mt-12"
-        >
-          Sign In
-        </button>}
+        {!(user || session?.user?.name) && (
+          <button
+            onClick={() => {
+              onLoginButtonClick();
+              toggleMobileMenu();
+            }}
+            className="block xl:hidden mt-auto mb-8 rounded-xl w-full h-10 flex justify-center items-center font-medium font-['Inter'] border border-mainColor dark:border-mainColorDark text-primaryText dark:text-primaryTextDark bg-[rgb(255,255,255,0.02)] dark:hover:bg-[rgb(255,255,255,0.06)] mt-12"
+          >
+            Sign In
+          </button>
+        )}
         <div className="flex xl:hidden justify-center gap-2 items-center">
           <label htmlFor="language-select" className="mr-2">
             Language:

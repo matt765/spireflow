@@ -14,7 +14,7 @@ import {
   Subtitle,
   AreaChart,
 } from "@tremor/react";
-import { BlockTitle } from "../common/BlockTitle";
+import { BlockTitle } from "../../common/BlockTitle";
 
 const chartdata = [
   {

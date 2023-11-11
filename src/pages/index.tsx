@@ -1,12 +1,12 @@
 import { Grid, Col } from "@tremor/react";
 
 import { PageContainer } from "../components/common/PageContainer";
-import { HomeSmallCards } from "../components/dashboard/HomeSmallCards";
-import { CustomerSatisfaction } from "../components/dashboard/CustomerSatisfaction";
-import { Regions } from "../components/dashboard/Regions";
-import { BestSellingProducts } from "../components/dashboard/BestSellingProducts";
-import { RevenueOverTime } from "../components/dashboard/RevenueOverTime";
-import { TradersTable } from "../components/dashboard/TradersTable";
+import { HomeSmallCards } from "../components/views/dashboard/HomeSmallCards";
+import { CustomerSatisfaction } from "../components/views/dashboard/CustomerSatisfaction";
+import { Regions } from "../components/views/dashboard/Regions";
+import { BestSellingProducts } from "../components/views/dashboard/BestSellingProducts";
+import { RevenueOverTime } from "../components/views/dashboard/RevenueOverTime";
+import { TradersTable } from "../components/views/dashboard/TradersTable";
 
 export default function Home() {
   return (

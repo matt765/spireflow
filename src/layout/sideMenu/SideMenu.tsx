@@ -10,6 +10,7 @@ import { DonutIcon } from "../../assets/icons/DonutIcon";
 import { GithubIcon } from "../../assets/icons/GithubIcon";
 import { LineIcon } from "../../assets/icons/LineIcon";
 import { OrdersIcon } from "../../assets/icons/OrdersIcon";
+import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 import { ScatterIcon } from "../../assets/icons/ScatterIcon";
 import { useAppStore } from "../../store/appStore";
 import { Logo } from "./Logo";
@@ -39,6 +40,11 @@ export const SideMenu = () => {
           title="Customers"
           icon={<CustomersIcon />}
           path="/customers"
+        />
+         <MenuItem
+          title="Products"
+          icon={<ProductsIcon />}
+          path="/products"
         />
         <MenuItem
           title="Analytics"

@@ -1,5 +1,5 @@
 import { ScatterChart } from "@tremor/react";
-import { LogoIcon } from "../../assets/icons/LogoIcon";
+import { LogoIcon } from "../../../assets/icons/LogoIcon";
 import {
   Title,
   Text,
@@ -12,7 +12,7 @@ import {
 } from "@tremor/react";
 
 import { JSXElementConstructor, useEffect, useState } from "react";
-import { BlockTitle } from "../common/BlockTitle";
+import { BlockTitle } from "../../common/BlockTitle";
 
 
 

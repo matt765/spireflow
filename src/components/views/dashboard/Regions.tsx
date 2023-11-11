@@ -12,7 +12,7 @@ import {
   Col,
 } from "@tremor/react";
 import { useEffect, useState } from "react";
-import { BlockTitle } from "../common/BlockTitle";
+import { BlockTitle } from "../../common/BlockTitle";
 
 interface CityData {
   name: string;
