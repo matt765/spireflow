@@ -1,67 +1,30 @@
+"use client";
+
 import { Card, BarChart, Title, Text } from "@tremor/react";
 
-const data = [
-  {
-    Month: "Jan 21",
-    Sales: 2890,
-    Profit: 2400,
-  },
-  {
-    Month: "Feb 21",
-    Sales: 1890,
-    Profit: 1398,
-  },
-  {
-    Month: "Jan 21",
-    Sales: 2890,
-    Profit: 2400,
-  },
-  {
-    Month: "Feb 21",
-    Sales: 1890,
-    Profit: 1398,
-  },
-  {
-    Month: "Jan 21",
-    Sales: 2890,
-    Profit: 2400,
-  },
-  {
-    Month: "Feb 21",
-    Sales: 1890,
-    Profit: 1398,
-  },
-  {
-    Month: "Jan 21",
-    Sales: 2890,
-    Profit: 2400,
-  },
-  {
-    Month: "Feb 21",
-    Sales: 1890,
-    Profit: 1398,
-  },
-  // ...
-  {
-    Month: "Jan 22",
-    Sales: 3890,
-    Profit: 2980,
-  },
-];
+interface MonthPerformance {
+  month: string;
+  sales: number;
+  profit: number;
+}
 
-const valueFormatter = (number: number) =>
-  `$ ${Intl.NumberFormat("us").format(number).toString()}`;
+interface PerformanceProps {
+  performanceData: MonthPerformance[];
+}
 
-export const Performance = () => {
+export const Performance = ({ performanceData }: PerformanceProps) => {
+  const valueFormatter = (number: number) =>
+    `$ ${Intl.NumberFormat("us").format(number).toString()}`;
+
   return (
     <Card>
       <Title>Performance</Title>
       <Text>Comparison between Sales and Profit</Text>
       <BarChart
         className="mt-4 h-80"
-        data={data}
-        index="Month"
-        categories={["Sales", "Profit"]}
+        data={performanceData}
+        index="month"
+        categories={["sales", "profit"]}
         colors={["indigo", "fuchsia"]}
         stack={false}
         valueFormatter={valueFormatter}

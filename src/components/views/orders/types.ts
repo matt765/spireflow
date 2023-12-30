@@ -1,7 +1,8 @@
 import { Table } from "@tanstack/react-table";
+import { OrderColumns } from "./useOrders";
 
 export interface Order {
-  col1: string;
+  col1: number;
   col2: string;
   col3: string;
   col4: number;
@@ -40,12 +41,14 @@ export interface Filters extends SelectFilters {
 export interface OrdersSelectsProps {
   filters: SelectFilters;
   setFilter: (filterType: keyof Filters, value: FilterValues) => void;
+  ordersData: OrderColumns[];
 }
 
 export interface OrdersTableProps {
   table: Table<Order>;
   currentPage: number;
   itemsPerPage: number;
+  loading?: boolean;
 }
 
 export interface OrdersPaginationProps {

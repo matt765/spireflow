@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+.circle {
+  @apply w-4 h-4 my-12 mx-1 bg-mainColor dark:bg-loaderCircleBgDark rounded-full;
+}
+
 html,
 body {
   padding: 0;
@@ -28,10 +41,10 @@ a {
   display: none;
 }
 .paper {
-  @apply bg-primaryBg xl:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder 
+  @apply bg-primaryBg xl:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder;
 }
 .tremor-Legend-root {
-  @apply mb-4 lg:mb-0
+  @apply mb-4 lg:mb-0;
 }
 /* Calendar  */
 
@@ -39,18 +52,18 @@ a {
   @apply hidden;
 }
 .fc-button {
-   @apply !outline-0 border border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark !bg-inputBg dark:!bg-inputBgDark !border-inputBorder dark:!border-inputBorderDark ;
+  @apply !outline-0 border border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark !bg-inputBg dark:!bg-inputBgDark !border-inputBorder dark:!border-inputBorderDark;
 }
 .fc-button-primary {
-  @apply !text-primaryText dark:!text-primaryTextDark
+  @apply !text-primaryText dark:!text-primaryTextDark;
 }
 .fc th,
 .fc td,
 .fc table {
-  @apply border-calendarBorder dark:!border-calendarBorderDark ;
+  @apply border-calendarBorder dark:!border-calendarBorderDark;
 }
 .fc td {
-  @apply max-h-12
+  @apply max-h-12;
 }
 .fc-daygrid-day {
   @apply hover:dark:!bg-[rgb(255,255,255,0.02)] transition;
@@ -88,13 +101,13 @@ a {
 .fc-day-today {
   @apply dark:!bg-inputBgDark dark:hover:!bg-inputBgDark !bg-calendarTodayBg;
 }
-.fc-view-harness, .fc-scrollgrid-sync-table {
-  @apply max-h-[35rem] md:max-h-[55rem]
+.fc-view-harness,
+.fc-scrollgrid-sync-table {
+  @apply max-h-[35rem] md:max-h-[55rem];
 }
 @media (max-width: 768px) {
   .fc-media-screen {
     max-height: 100vh !important;
-  
   }
 }
 @media (max-width: 768px) {
@@ -121,10 +134,10 @@ a {
   .fc-toolbar-title {
     font-size: 1.1rem !important;
   }
-  .fc-list-event-title, .fc-list-event-graphic {
+  .fc-list-event-title,
+  .fc-list-event-graphic {
     border-width: 0 !important;
   }
-
 }
 @media (max-width: 650px) {
   .fc-media-screen {
@@ -135,7 +148,6 @@ a {
   .fc-header-toolbar {
     max-width: 19.5rem;
     margin-left: 0rem;
-  
   }
   .fc-list-event .fc-list-event-time {
     min-width: 100%;
@@ -145,7 +157,6 @@ a {
     flex-wrap: wrap;
   }
   .fc-list-day-cushion {
-    
   }
 }
 .fc .fc-list-sticky .fc-list-day > * {
@@ -154,10 +165,10 @@ a {
 /* Single charts */
 
 .single-chart-wrapper {
-  @apply w-3/4 h-[70vh] xl:h-[50vh] max-w-full m-auto mt-14  lg:mt-16 xl:mt-24 2xl:mt-28 mb-36;
+  @apply w-3/4   max-w-full m-auto mt-14  lg:mt-16 xl:mt-24 2xl:mt-28 mb-36;
 }
 .single-chart-wrapper .tremor-Legend-root {
-  @apply mb-8
+  @apply mb-8;
 }
 
 .single-chart-title {
@@ -179,10 +190,10 @@ a {
   @apply border border-primaryBg dark:!border-mainBorderDark;
 }
 .text-rose-500 {
-  @apply text-rose-300
+  @apply text-rose-300;
 }
 .text-orange-500 {
-  @apply text-orange-300
+  @apply text-orange-300;
 }
 
 /* Forms & buttons */
@@ -203,4 +214,18 @@ a {
 }
 .transition-transform {
   transition: transform 0.3s ease-in-out;
+}
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  /* Centering */
+  top: 45vh !important;
+  left: 50% !important;
+}
+#nprogress .spinner-icon {
+  width: 50px !important;
+  height: 50px !important;
+  border-top-color: #06b6d4 !important;
+  border-left-color: #06b6d4 !important;
 }

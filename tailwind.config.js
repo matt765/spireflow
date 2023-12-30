@@ -5,7 +5,7 @@ module.exports = {
   darkMode: "class",
   content: [
     "./src/layout/**/*.{js,ts,jsx,tsx}",
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
     './public/**/*.html',
@@ -17,7 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ["var(--inter-font)", ...fontFamily.sans],
-        dmSans: ["var(--dmSans-font)", ...fontFamily.sans],
+        nunito: ["var(--nunito-font)", ...fontFamily.sans],
       },
       colors: {
         // Light Mode
@@ -48,6 +48,7 @@ module.exports = {
         grayIcon: "rgb(0,0,0,0.6)",
         tableCellText: "rgb(68, 68, 68)",
         dropdownBgHover: "rgb(68, 68, 68, 0.02)",
+        loaderCircleBg: "#7376f2",
 
         // Dark mode
         primaryBgDark: "rgb(63, 70, 85)",
@@ -77,6 +78,7 @@ module.exports = {
         tableCellTextDark: "rgb(68, 68, 68)",
         outlinedButtonBgHoverDark: "rgb(86, 92, 108)",
         dropdownBgHoverDark: "white",
+        loaderCircleBgDark: "rgb(81, 137, 147)",
 
         // light mode for graphs
         tremor: {
@@ -164,7 +166,17 @@ module.exports = {
         'html': 'red !important',
         'body': 'red !important',
       },
-
+      animation: {
+        loader: 'loader 0.6s infinite alternate'
+      },
+      keyframes: {
+        loader: {
+          to: {
+            opacity: 0.1,
+            transform: 'translate3d(0, -1rem, 0)'
+          }
+        }
+      }
     },
     screens: {
       'xsm': '480px',

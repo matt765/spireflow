@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.7",
     "@fontsource/exo": "^4.5.11",
     "@fontsource/jost": "^4.5.13",
     "@fontsource/nunito": "^5.0.12",
@@ -33,7 +34,8 @@
     "eslint-config-next": "13.0.2",
     "firebase": "^10.3.0",
     "framer-motion": "^6.5.1",
-    "next": "^13.5.4",
+    "graphql": "^16.8.1",
+    "next": "^14.0.3",
     "next-auth": "^4.23.1",
     "next-themes": "^0.2.1",
     "rc-tooltip": "^6.1.2",
@@ -50,6 +52,7 @@
     "@types/next-auth": "^3.15.0",
     "@types/react-simple-maps": "^3.0.2",
     "autoprefixer": "^10.4.15",
+    "encoding": "^0.1.13",
     "postcss": "^8.4.28",
     "tailwindcss": "^3.3.3"
   }

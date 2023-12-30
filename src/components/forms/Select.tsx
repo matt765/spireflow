@@ -18,7 +18,9 @@ export const Select = ({
     onChange={onChange}
     className="text-base  rounded-md p-2 pl-3 pr-3 w-full !cursor-pointer form-element-styled transition "
   >
-    <option value="">{placeholder}</option>
+    <option value="">
+      {placeholder}
+    </option>
     {children}
   </select>
 );

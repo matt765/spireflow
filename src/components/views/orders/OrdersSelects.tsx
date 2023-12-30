@@ -1,24 +1,28 @@
 import React, { ChangeEvent } from "react";
-import { ordersData } from "./OrdersData";
+
 import { OrdersSelectsProps } from "./types";
 import { Select } from "../../forms/Select";
+import { OrderColumns, OrderType } from "./useOrders";
 
-export const OrderSelects: React.FC<OrdersSelectsProps> = ({
+export const OrderSelects = ({
   filters,
   setFilter,
-}) => {
+  ordersData,
+}: OrdersSelectsProps) => {
+
   const selectsConfig = [
     {
       value: filters.productName,
       setFilterKey: "productName",
       placeholder: "All Products",
-      options: Array.from(new Set(ordersData.map((item) => item.col2))),
+      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).productName))),
+
     },
     {
       value: filters.user,
       setFilterKey: "user",
-      placeholder: "All Users",
-      options: Array.from(new Set(ordersData.map((item) => item.col3))),
+      placeholder: "All Users",   
+      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).user))),
     },
     {
       value:
@@ -36,14 +40,14 @@ export const OrderSelects: React.FC<OrdersSelectsProps> = ({
     {
       value: filters.deliveryType,
       setFilterKey: "deliveryType",
-      placeholder: "Any Delivery Type",
-      options: Array.from(new Set(ordersData.map((item) => item.col5))),
+      placeholder: "Any Delivery Type",   
+      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).deliveryType))),
     },
     {
       value: filters.status,
       setFilterKey: "status",
       placeholder: "Any Status",
-      options: Array.from(new Set(ordersData.map((item) => item.col7))),
+      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).status))),     
     },
   ];
 
@@ -68,7 +72,7 @@ export const OrderSelects: React.FC<OrdersSelectsProps> = ({
                 }
               }}
               placeholder={placeholder}
-            >
+            >           
               {options.map((option) => (
                 <option key={option} value={option}>
                   {option}

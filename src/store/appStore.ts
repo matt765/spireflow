@@ -5,6 +5,8 @@ interface AppStore {
   isSideMenuOpen: boolean;
   toggleMobileMenu: () => void;
   toggleSideMenu: () => void;
+  isLoading: boolean;
+  setLoading: (loading: boolean) => void;
 }
 
 const determineInitialState = () => {
@@ -21,8 +23,8 @@ const determineInitialState = () => {
 };
 
 export const useAppStore = create<AppStore>((set) => ({
-  isMobileMenuOpen: false, 
-  isSideMenuOpen: true, 
+  isMobileMenuOpen: false,
+  isSideMenuOpen: true,
   toggleMobileMenu: () => {
     set((state: AppStore) => ({
       ...state,
@@ -39,4 +41,11 @@ export const useAppStore = create<AppStore>((set) => ({
         : determineInitialState().isSideMenuOpen,
     }));
   },
+  isLoading: true,
+  setLoading: (loading) => set(() => ({ isLoading: loading })),
 }));
+
+export const initializeLoadingState = () => {
+  useAppStore.getState().setLoading(true);
+  setTimeout(() => useAppStore.getState().setLoading(false), 400);
+};

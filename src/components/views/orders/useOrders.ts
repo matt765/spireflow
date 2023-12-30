@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
+import { useQuery } from "@apollo/client";
 import {
   getCoreRowModel,
   getSortedRowModel,
@@ -6,7 +7,6 @@ import {
   createColumnHelper,
 } from "@tanstack/react-table";
 
-import { ordersData } from "./OrdersData";
 import {
   FilterValues,
   Filters,
@@ -15,6 +15,7 @@ import {
   SelectFilters,
 } from "./types";
 import { useTable } from "../../../hooks/useTable";
+import { ORDERS_QUERY } from "../../../queries/OrdersQuery";
 
 const columnHelper = createColumnHelper<Order>();
 
@@ -43,7 +44,30 @@ const columns = [
   }),
 ];
 
-export const useOrders = () => {
+export interface OrderColumns {
+  col1: number; // ID
+  col2: string; // productName
+  col3: string; // user
+  col4: number; // price
+  col5: string; // deliveryType
+  col6: string; // date
+  col7: string; // status
+}
+export interface OrderType extends OrderColumns {
+  orderId: number;
+  productName: string;
+  user: string;
+  price: number;
+  deliveryType: string;
+  date: string;
+  status: string;
+}
+
+interface useOrdersProps {
+  orders: OrderType[];
+}
+
+export const useOrders = ({ orders }: useOrdersProps) => {
   const initialFilters = {
     startDate: null,
     endDate: null,
@@ -53,6 +77,22 @@ export const useOrders = () => {
     deliveryType: "",
     status: "",
   };
+  const [ordersData, setOrdersData] = useState<OrderColumns[]>(orders);
+
+  useEffect(() => {
+    if (orders) {
+      const mappedData = orders.map((order: OrderType) => ({
+        col1: order.orderId,
+        col2: order.productName,
+        col3: order.user,
+        col4: order.price,
+        col5: order.deliveryType,
+        col6: order.date,
+        col7: order.status,
+      }));
+      setOrdersData(mappedData);
+    }
+  }, [orders]);
 
   const {
     sorting,
@@ -73,7 +113,8 @@ export const useOrders = () => {
 
   const setFilter = (filterType: keyof Filters, value: FilterValues) => {
     setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
-    setCurrentPage(0); // Reset the currentPage whenever a filter changes
+    // Reset the currentPage whenever a filter changes
+    setCurrentPage(0);
   };
   const getFilter = (filterType: keyof Filters): FilterValues => {
     const value = filters[filterType];
@@ -159,7 +200,7 @@ export const useOrders = () => {
     }
 
     return result;
-  }, [searchQuery, filters]);
+  }, [searchQuery, filters, ordersData]);
 
   const table = useReactTable({
     data: filteredData,

@@ -10,7 +10,7 @@ export const MenuCategory = ({ title }: Props) => {
   const isDesktop = useMediaQuery("(min-width: 1280px)");
 
   return (
-    <div className="uppercase text-gray-400 text-sm mb-4 mt-4 font-['Inter']">
+    <div className="uppercase text-gray-400 text-sm mb-4 mt-4">
       {(isSideMenuOpen || !isDesktop) ? title : <div className="h-[0rem]" />}
     </div>
   );

@@ -9,50 +9,50 @@ export const AustraliaIcon = () => (
     <path d="M480 96H32V416H480V96Z" fill="#2A2FAF" />
     <path d="M32 96H256V256H32V96Z" fill="#2A2FAF" />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M33.2978 96L256 251.022V256H248.648L32 105.192V96H33.2978Z"
       fill="#E92B2B"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M241.397 256L32 110.24V105.192L248.648 256H241.397ZM40.5496 96L256 245.974V251.022L33.2978 96H40.5496Z"
       fill="#FBFBFB"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M32 251.022V256H39.3516L256 105.192V96H254.702L32 251.022Z"
       fill="#E92B2B"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M256 110.24V105.192L39.3516 256H46.6033L256 110.24ZM32 245.974V251.022L254.702 96H247.45L32 245.974Z"
       fill="#FBFBFB"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M44.568 96L256 243.116V253.21L32 97.3493V96H44.568Z"
       fill="#FBFBFB"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M32 243.116V253.21L256 97.3493V96H243.432L32 243.116Z"
       fill="#FBFBFB"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M156 96H132V163.368H32V188.632H132V256H156V188.632H256V163.368H156V96Z"
       fill="#E92B2B"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M32 159.158H128V96H136V163.368V167.579H132H32V159.158ZM128 256V192.842H32V184.421H132H136V188.632V256H128ZM256 192.842H160V256H152V188.632V184.421H156H256V192.842ZM160 96V159.158H256V167.579H156H152V163.368V96H160Z"
       fill="#FBFBFB"
     />

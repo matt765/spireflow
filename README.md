@@ -1,9 +1,9 @@
 # ecommerce-dashboard
 todo:
 - code refactor + update all packages
-- nodejs/express/graphql backend for all the data
 - i18n
 - dnd
+- yup
 - rtl
 - readme / documentation
 

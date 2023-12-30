@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { Card } from "@tremor/react";
@@ -18,20 +20,33 @@ const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
 const HIGHLIGHT_COLOR = "rgb(59, 130, 246)";
 
-const mockedData = [
-  {
-    name: "United States of America",
-    price: 9155,
-    FlagIcon: UnitedStatesIcon,
-  },
-  { name: "France", price: 4140, FlagIcon: FranceIcon },
-  { name: "United Kingdom", price: 7134, FlagIcon: EnglishIcon },
-  { name: "Norway", price: 2122, FlagIcon: NorwayIcon },
-  { name: "Australia", price: 2411, FlagIcon: AustraliaIcon },
-  { name: "Poland", price: 1620, FlagIcon: PolishIcon },
-];
+const countryIconMap: {
+  [key: string]: React.FC<React.SVGProps<SVGSVGElement>> | undefined;
+} = {
+  "United States of America": UnitedStatesIcon,
+  France: FranceIcon,
+  "United Kingdom": EnglishIcon,
+  Norway: NorwayIcon,
+  Australia: AustraliaIcon,
+  Poland: PolishIcon,
+};
 
-export const RevenuePerCountry = () => {
+interface Country {
+  name: string;
+  price: number;
+}
+
+interface RevenuePerCountryProps {
+  revenuePerCountryData: Country[];
+}
+export const RevenuePerCountry = ({
+  revenuePerCountryData,
+}: RevenuePerCountryProps) => {
+  const dataWithIcons = revenuePerCountryData.map((country) => ({
+    ...country,
+    FlagIcon: countryIconMap[country.name],
+  }));
+
   return (
     <Card className="h-full relative overflow-hidden">
       <BlockTitle title="Revenue per country" />
@@ -44,7 +59,7 @@ export const RevenuePerCountry = () => {
                 if (countryName === "Antarctica") {
                   return null;
                 }
-                const countryData = mockedData.find(
+                const countryData = revenuePerCountryData.find(
                   (s) => s.name === countryName
                 );
                 const tooltipContent = countryData
@@ -77,14 +92,14 @@ export const RevenuePerCountry = () => {
             <h3 className="font-semibold">Country</h3>
             <h3 className="font-semibold">Sales</h3>
           </div>
-          {mockedData.map((data, index) => (
+          {dataWithIcons.map((data, index) => (
             <div
               key={index}
               className="flex justify-between items-center py-1 border-t dark:border-mainBorderDark border-mainBorder pt-4"
             >
               <div className="flex items-center space-x-3">
                 <div className="flex ">
-                  <data.FlagIcon />
+                  {data.FlagIcon && <data.FlagIcon />}
                 </div>
                 <span className="text-sm">
                   {data.name === "United States of America"

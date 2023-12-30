@@ -1,11 +1,12 @@
+"use client";
+
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
 import { Chip } from "../../forms/Chip";
-import { customersData } from "./CustomersData";
 import { CustomersCountryDropdown } from "./CustomersCountryDropdown";
 import { CustomersPagination } from "./CustomersPagination";
 import { CustomersSortDropdown } from "./CustomersSortDropdown";
 import { CustomersTable } from "./CustomersTable";
-import { useCustomers } from "./useCustomers";
+import { useCustomers, Customer } from "./useCustomers";
 
 const sortOptions = [
   { value: "col1", label: "First Name" },
@@ -16,7 +17,11 @@ const sortOptions = [
   { value: "col6", label: "Total Buys" },
 ];
 
-export const CustomersView = () => {
+interface CustomersViewProps {
+  customers: Customer[];
+}
+
+export const CustomersView = ({ customers }: CustomersViewProps) => {
   const {
     table,
     searchQuery,
@@ -32,15 +37,16 @@ export const CustomersView = () => {
     totalPages,
     setSorting,
     sorting,
-    filters,
-  } = useCustomers();
+    filters,   
+    customersData,
+  } = useCustomers(customers);
 
   const countryOptions = Array.from(
-    new Set(customersData.map((customer) => customer.col4))
+    new Set(customersData?.map((customer) => customer.country))
   );
 
   return (
-    <div className="flex w-full p-4 pt-8 md:p-10 paper text-lg flex-col min-h-screen pb-8">
+    <div className="flex flex-col w-full h-full">
       <div className="flex justify-between flex-wrap md:flex-wrap w-full">
         <div className="w-full md:w-1/3 lg:w-1/4 relative flex">
           <input
@@ -54,7 +60,6 @@ export const CustomersView = () => {
             <SearchIcon />
           </div>
         </div>
-
         <div className="flex gap-6 flex-wrap w-full md:w-auto mt-6 md:mt-0">
           <div className="flex w-full md:w-auto justify-between gap-4 md:gap-8">
             <CustomersCountryDropdown

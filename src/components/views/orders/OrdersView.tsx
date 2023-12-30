@@ -1,11 +1,18 @@
-import { useOrders } from "./useOrders";
+"use client";
+
+import { OrderType, useOrders } from "./useOrders";
 import { OrdersDateRange } from "./OrdersDateRange";
 import { OrderSelects } from "./OrdersSelects";
 import { OrdersTable } from "./OrdersTable";
 import { OrdersPagination } from "./OrdersPagination";
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
+import { useState } from "react";
 
-export const OrdersView = () => {
+interface OrdersViewProps {
+  ordersData: OrderType[];
+}
+
+export const OrdersView = ({ ordersData }: OrdersViewProps) => {
   const {
     table,
     searchQuery,
@@ -22,10 +29,10 @@ export const OrdersView = () => {
     itemsPerPage,
     setCurrentPage,
     resetFilters,
-  } = useOrders();
+  } = useOrders({ orders: ordersData });
 
   return (
-    <div className="flex w-full p-4 pt-8 md:p-10 paper text-lg flex-col min-h-[100vh] xl:min-h-unset">
+    <div className="flex flex-col w-full h-full">
       <div className="w-full flex justify-between flex-wrap md:flex-nowrap">
         <div className="w-full md:w-1/3 mb-4 relative">
           <input
@@ -50,17 +57,21 @@ export const OrdersView = () => {
         />
       </div>
       <div className="flex w-full gap-4 mt-2">
-        <OrderSelects filters={filtersForSelectFields} setFilter={setFilter} />
+        <OrderSelects
+          filters={filtersForSelectFields}
+          setFilter={setFilter}
+          ordersData={ordersData}
+        />
       </div>
       <div className="w-full overflow-auto">
         <OrdersTable
           table={table}
           currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
+          itemsPerPage={itemsPerPage}        
         />
       </div>
       <div className="flex justify-between flex-wrap pb-4">
-        <div className="w-full mb-4 sm:mb-0 sm:w-1/3">        
+        <div className="w-full mb-4 sm:mb-0 sm:w-1/3">
           <button
             onClick={resetFilters}
             className="button-outlined mt-6 bg-white py-2 px-6 rounded-lg hover:bg-gray-100 border border-slate-400 text-gray-500 font-medium form-element-styled "
@@ -68,7 +79,6 @@ export const OrdersView = () => {
             Clear Filters
           </button>
         </div>
-
         <OrdersPagination
           itemsPerPage={itemsPerPage}
           currentPage={currentPage}

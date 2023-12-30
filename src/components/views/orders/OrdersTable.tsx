@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 
 import { OrdersTableProps } from "./types";
+import { Loader } from "../../common/Loader";
 
 const columnWidths = {
-  col1: '100px', 
-  col2: '150px',
-  col3: '150px',
-  col4: '100px',
-  col5: '150px',
-  col6: '150px',
-  col7: '150px',
+  col1: "100px",
+  col2: "150px",
+  col3: "150px",
+  col4: "100px",
+  col5: "150px",
+  col6: "150px",
+  col7: "150px",
 };
 
 export const OrdersTable = ({
   table,
   currentPage,
   itemsPerPage,
+  loading,
 }: OrdersTableProps) => {
+  if (loading) {
+    return (
+      <div className="w-full min-h-[50vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <table className="w-full mt-8 overflow-scroll min-w-[60rem]">
       <thead>
@@ -33,13 +43,13 @@ export const OrdersTable = ({
                     : "text-secondaryText dark:text-secondaryTextDark font-medium text-left pl-4 py-3 border"
                 }
                 onClick={header.column.getToggleSortingHandler()}
-                style={{ 
+                style={{
                   width: columnWidths[header.id as keyof typeof columnWidths],
-                  maxWidth: columnWidths[header.id as keyof typeof columnWidths],
-                  minWidth: columnWidths[header.id as keyof typeof columnWidths] 
-                
+                  maxWidth:
+                    columnWidths[header.id as keyof typeof columnWidths],
+                  minWidth:
+                    columnWidths[header.id as keyof typeof columnWidths],
                 }}
-
               >
                 {header.isPlaceholder
                   ? null

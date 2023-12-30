@@ -1,4 +1,3 @@
-// import MoonLineIcon from "remixicon-react/MoonLineIcon";
 import NextLink from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
@@ -146,7 +145,7 @@ export const Navbar = () => {
             ) : (
               <button
                 onClick={handleLoginButton}
-                className="hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium font-['Inter'] border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-[rgb(255,255,255,0.06)] bg-mainColor text-white dark:bg-[rgb(255,255,255,0.02)] hover:bg-mainColorSecondaryHover"
+                className="hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-[rgb(255,255,255,0.06)] bg-mainColor text-white dark:bg-[rgb(255,255,255,0.02)] hover:bg-mainColorSecondaryHover"
               >
                 Sign In
               </button>

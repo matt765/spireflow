@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   Flex,
@@ -14,98 +16,20 @@ import {
 
 import { useState } from "react";
 
-interface Data {
+interface TodaySalesDataUnit {
   hour: string;
   today: number;
   average: number;
   yesterday: number;
 }
 
-const sales: Data[] = [
-  {
-    hour: "00:00",
-    today: 90,
-    average: 66,
-    yesterday: 23,
-  },
-  {
-    hour: "02:00",
-    today: 45,
-    average: 40,
-    yesterday: 32,
-  },
-  {
-    hour: "04:00",
-    today: 68,
-    average: 55,
-    yesterday: 29,
-  },
-  {
-    hour: "06:00",
-    today: 73,
-    average: 83,
-    yesterday: 68,
-  },
-  {
-    hour: "08:00",
-    today: 79,
-    average: 102,
-    yesterday: 43,
-  },
-  {
-    hour: "10:00",
-    today: 70,
-    average: 75,
-    yesterday: 39,
-  },
-  {
-    hour: "12:00",
-    today: 50,
-    average: 20,
-    yesterday: 34,
-  },
-  {
-    hour: "14:00",
-    today: 81,
-    average: 66,
-    yesterday: 59,
-  },
-  {
-    hour: "16:00",
-    today: 90,
-    average: 92,
-    yesterday: 78,
-  },
-  {
-    hour: "18:00",
-    today: 101,
-    average: 88,
-    yesterday: 65,
-  },
-  {
-    hour: "20:00",
-    today: 50,
-    average: 63,
-    yesterday: 34,
-  },
-  {
-    hour: "22:00",
-    today: 35,
-    average: 25,
-    yesterday: 21,
-  },
-  {
-    hour: "23:59",
-    today: 43,
-    average: 23,
-    yesterday: 12,
-  },
-];
+interface TodaySalesProps {
+  todaySalesData: TodaySalesDataUnit[]
+}
+export const TodaySales = ({ todaySalesData }: TodaySalesProps ) => {
+  const valueFormatter = (number: number) =>
+    `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
-const valueFormatter = (number: number) =>
-  `$ ${Intl.NumberFormat("us").format(number).toString()}`;
-
-export const TodaySales = () => {
   return (
     <Card className="w-full h-full">
       <Text>Today&apos;s Sales</Text>
@@ -118,7 +42,7 @@ export const TodaySales = () => {
         <TabPanels>
           <TabPanel>
             <LineChart
-              data={sales}
+              data={todaySalesData}
               categories={["today", "yesterday"]}
               index="year"
               colors={["blue", "slate"]}
@@ -138,7 +62,7 @@ export const TodaySales = () => {
           </TabPanel>
           <TabPanel>
             <LineChart
-              data={sales}
+              data={todaySalesData}
               categories={["today", "average"]}
               colors={["blue", "slate"]}
               index="year"

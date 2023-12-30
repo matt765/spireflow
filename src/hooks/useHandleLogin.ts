@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation'
 
 import { auth } from "../services/firebaseClient";
 import { useLoginStore } from "../store/loginStore";
