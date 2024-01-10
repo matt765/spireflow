@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, Title, BarChart, Subtitle, LineChart } from "@tremor/react";
+import { LineChart } from "@tremor/react";
 
-import { PageContainer } from "../../components/common/PageContainer";
 import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
+import { useTheme } from "next-themes";
 
 const dragonPopulationInWesteros = [
   {
@@ -48,6 +48,20 @@ export default function Line() {
   const dataFormatter = (number: number) =>
     `${Intl.NumberFormat("us").format(number).toString()}`;
 
+  const { theme } = useTheme();
+
+  const colorSchemes: { [key: string]: string[] } = {
+    sandstone: ["yellow", "gray"],
+    midnight: ["purple", "gray"],
+    oceanic: ["emerald", "gray"],
+    charcoal: ["green", "gray"],
+    sapphire: ["purple", "gray"],
+  };
+
+  const defaultTheme = "oceanic";
+
+  const selectedColors = colorSchemes[theme || defaultTheme];
+
   return (
     <CenteredPageWrapper>
       <div className="single-chart-title">
@@ -58,13 +72,16 @@ export default function Line() {
         data={dragonPopulationInWesteros}
         index="year"
         categories={["House Targaryen", "House Velaryon"]}
-        colors={["emerald", "gray"]}
+        colors={selectedColors}
         valueFormatter={dataFormatter}
         yAxisWidth={40}
       />
       <div className="w-full flex justify-between mx-auto mt-8 ml-8">
         {dragonPopulationInWesteros.map((item, index) => (
-          <div key={index} className="text-xs">
+          <div
+            key={index}
+            className="text-xs text-primaryText dark:text-primaryTextDark"
+          >
             {item.title}
           </div>
         ))}

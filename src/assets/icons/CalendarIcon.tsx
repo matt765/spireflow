@@ -7,7 +7,6 @@ export const CalendarIcon = () => (
   >
     <rect
       fill="none"
-
       strokeLinejoin="round"
       strokeWidth="32"
       x="48"
@@ -27,18 +26,11 @@ export const CalendarIcon = () => (
     <circle cx="296" cy="392" r="24" />
     <path
       fill="none"
-     
       strokeLinejoin="round"
       strokeWidth="32"
       strokeLinecap="round"
       d="M128 48v32M384 48v32"
     />
-    <path
-      fill="none"
-     
-      strokeLinejoin="round"
-      strokeWidth="32"
-      d="M464 160H48"
-    />
+    <path fill="none" strokeLinejoin="round" strokeWidth="32" d="M464 160H48" />
   </svg>
 );

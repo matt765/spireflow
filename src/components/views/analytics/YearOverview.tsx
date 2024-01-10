@@ -61,7 +61,7 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
   return (
     <Card>
       <Title>Year Overview</Title>
-      <TabGroup className="mt-8">
+      <TabGroup className="mt-6 yearOverview">
         <TabList variant="solid">
           <Tab onClick={() => setActiveCategory("Phones")}>Phones</Tab>
           <Tab onClick={() => setActiveCategory("Tablets")}>Tablets</Tab>
@@ -71,7 +71,7 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
           {yearOverviewData.map((categoryData) => {
             return (
               <TabPanel key={categoryData.name}>
-                <Grid numItemsMd={2} className="gap-x-8 gap-y-2 mt-6">
+                <Grid numItemsMd={2} className="gap-x-8 gap-y-2 mt-4">
                   {Object.entries(categoryData).map(([key, value]) => {
                     if (key !== "name") {
                       const formattedKey = formatKey(key);

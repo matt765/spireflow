@@ -3,6 +3,7 @@
 import { Card, AreaChart } from "@tremor/react";
 
 import { BlockTitle } from "../../common/BlockTitle";
+import { useTheme } from "next-themes";
 
 interface Revenue {
   date: string;
@@ -37,6 +38,19 @@ export const RevenueOverTime = ({
   };
 
   const transformedData = transformDataKeys(revenueOverTimeData);
+  const { theme } = useTheme();
+
+  const colorSchemes: { [key: string]: string[] } = {
+    sandstone: ["gray", "yellow"],
+    midnight: ["indigo", "cyan"],
+    oceanic: ["gray", "blue"],
+    charcoal: ["gray", "green"],
+    sapphire: ["gray", "purple"]
+  };
+
+  const defaultTheme = "midnight";
+
+  const selectedColors = colorSchemes[theme || defaultTheme];
 
   return (
     <Card className="h-full">
@@ -47,7 +61,7 @@ export const RevenueOverTime = ({
         data={transformedData}
         categories={["Website sales", "In store sales"]}
         index="date"
-        colors={["indigo", "cyan"]}
+        colors={selectedColors}
         valueFormatter={dataFormatter}
         className="mt-4 h-72"
       />

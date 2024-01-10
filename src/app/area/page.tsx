@@ -1,9 +1,9 @@
 "use client";
 
-import { Col, Card, Title, AreaChart } from "@tremor/react";
+import { AreaChart } from "@tremor/react";
 
-import { PageContainer } from "../../components/common/PageContainer";
 import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
+import { useTheme } from "next-themes";
 
 const chartdata = [
   {
@@ -43,6 +43,20 @@ export default function Area() {
     return Intl.NumberFormat("us").format(number).toString();
   };
 
+  const { theme } = useTheme();
+
+  const colorSchemes: { [key: string]: string[] } = {
+    sandstone: ["gray", "yellow"],
+    midnight: ["indigo", "cyan"],
+    oceanic: ["gray", "blue"],
+    charcoal: ["gray", "green"],
+    sapphire: ["gray", "purple"],
+  };
+
+  const defaultTheme = "midnight";
+
+  const selectedColors = colorSchemes[theme || defaultTheme];
+  
   return (
     <CenteredPageWrapper>
       <>
@@ -52,7 +66,7 @@ export default function Area() {
           data={chartdata}
           index="date"
           categories={["Views", "Unique visitors"]}
-          colors={["indigo", "cyan"]}
+          colors={selectedColors}
           valueFormatter={dataFormatter}
         />
       </>

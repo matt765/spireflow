@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { client } from "../services/apolloClient";
 import { ORDERS_QUERY } from "../queries/OrdersQuery";
@@ -41,7 +41,6 @@ export const useGetData = (pageName: string) => {
       setLoading(true);
       try {
         const { data: fetchedData } = await client.query({ query });
-        console.log(fetchedData);
         setData(
           pageName === "homepage" || pageName === "analytics"
             ? fetchedData

@@ -1,11 +1,10 @@
 "use client";
 
-import { Col, Card, Title, AreaChart, BarChart } from "@tremor/react";
+import { BarChart } from "@tremor/react";
 
-import { PageContainer } from "../../components/common/PageContainer";
 import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
 
-const chartdata2 = [
+const barChartData = [
   {
     name: "Q1 2023",
     Widgets: 745,
@@ -55,7 +54,7 @@ export default function Bars() {
         <div className="single-chart-title">Product Sales Over Time (USD)</div>
         <BarChart
           className="mt-6"
-          data={chartdata2}
+          data={barChartData}
           index="name"
           categories={[
             "Widgets",

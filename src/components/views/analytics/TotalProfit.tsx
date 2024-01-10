@@ -34,7 +34,7 @@ export const TotalProfit = ({
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
   return (
-    <Card className="w-full mx-auto ">
+    <Card className="w-full mx-auto  recharts-tooltip-stable">
       <Flex alignItems="start">
         <Text>Total Profit</Text>
         <BadgeDelta deltaType="moderateIncrease">23.1%</BadgeDelta>

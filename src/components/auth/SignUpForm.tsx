@@ -52,7 +52,7 @@ export const SignUpForm = ({
         Create account
       </button>
       <div className="w-full text-sm flex justify-center gap-2 mt-4">
-        <div className="">Already have an account?</div>
+        <div className="text-primaryText dark:text-primaryTextDark">Already have an account?</div>
         <div
           onClick={switchToSignIn}
           className="text-mainColor dark:text-mainColorDark text-semibold cursor-pointer"

@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useSession, signOut } from "next-auth/react";
 
@@ -12,9 +12,13 @@ import { SpinnerIcon } from "../../assets/icons/Spinner";
 import { UserIcon } from "../../assets/icons/UserIcon";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { LogoutIcon } from "../../assets/icons/LogoutIcon";
-import { MoonIcon } from "../../assets/icons/MoonIcon";
 import { SideMenuMobile } from "../sideMenu/SideMenuMobile";
 import { useAppStore } from "../../store/appStore";
+import { PaletteIcon } from "../../assets/icons/PaletteIcon";
+import { CheckIcon } from "../../assets/icons/CheckIcon";
+import useModal from "../../hooks/useModal";
+import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
+import { ArrowUpIcon } from "../../assets/icons/ArrowUpIcon";
 
 export const Navbar = () => {
   const { user, setUser, loading, initializeUser } = useLoginStore();
@@ -24,9 +28,24 @@ export const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  const themes = [
+    "light",
+    "dark",
+    "charcoal",
+    "sapphire",
+    "oceanic",
+    "sandstone",
+    "prismatic",
+  ];
+  const themesDisplayNames = [
+    "Snowlight",
+    "Midnight",
+    "Charcoal",
+    "Sapphire",
+    "Oceanic",
+    "Sandstone",
+    "Prismatic",
+  ];
 
   const { data: session } = useSession();
   useEffect(() => {
@@ -93,7 +112,7 @@ export const Navbar = () => {
 
       if (iconClicked) {
         setIconClicked(false);
-        return; 
+        return;
       }
 
       if (
@@ -113,8 +132,45 @@ export const Navbar = () => {
     };
   }, []);
 
+  const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
+
+  const toggleThemeDropdown = () => {
+    setIsThemeDropdownOpen(!isThemeDropdownOpen);
+  };
+
+  const themeDropdown = useModal();
+  const userDropdown = useModal();
+
+  const selectTheme = (themeName: string) => {
+    setTheme(themeName);
+  };
+
+  const cycleThemeUp = () => {
+    if (typeof theme === "string") {
+      let currentThemeIndex = themes.indexOf(theme);
+      let previousThemeIndex =
+        (currentThemeIndex - 1 + themes.length) % themes.length;
+      setTheme(themes[previousThemeIndex]);
+    }
+  };
+
+  const cycleThemeDown = () => {
+    if (typeof theme === "string") {
+      let currentThemeIndex = themes.indexOf(theme);
+      let nextThemeIndex = (currentThemeIndex + 1) % themes.length;
+      setTheme(themes[nextThemeIndex]);
+    }
+  };
+
   return (
-    <div className="flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 md:pr-8 lg:pr-12 lg:pl-0 pl-4">
+    <div
+      className={`${
+        theme === "prismatic" && ""
+      } flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 md:pr-8 lg:pr-12 lg:pl-0 pl-4`}
+    >
+      {theme === "prismatic" && (
+        <div className="backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-1]"></div>
+      )}
       <NextLink
         href="/"
         className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${
@@ -124,33 +180,79 @@ export const Navbar = () => {
         <Logo />
       </NextLink>
       <div className="flex justify-end items-center gap-4 lg:gap-6 relative">
-        <button onClick={toggleTheme} className="">
-          {theme === "dark" ? <MoonIcon /> : <MoonIcon />}
-        </button>
+        <div className="relative" ref={themeDropdown.ref}>
+          <div
+            className="text-white fill-white stroke-secondaryText dark:stroke-secondaryTextDark cursor-pointer hover:stroke-primaryText hover:dark:stroke-primaryTextDark transition"
+            onClick={themeDropdown.toggle}
+          >
+            <PaletteIcon />
+          </div>
+          {themeDropdown.isOpen && (
+            <div
+              className={`${
+                theme === "prismatic" && "backdrop-blur-xl"
+              } absolute  top-9 z-10 mt-2 right-0 w-42 md:w-44  border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark`}
+            >
+              {themes.map((themeName, index) => (
+                <div
+                  key={themeName}
+                  className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+                  onClick={() => selectTheme(themeName)}
+                >
+                  {themesDisplayNames[index]}
+                  {theme === themeName && (
+                    <div className="text-secondaryText dark:text-secondaryTextDark">
+                      <CheckIcon />
+                    </div>
+                  )}
+                </div>
+              ))}
+              <div className="h-10 flex w-full border-t border-mainBorder dark:border-mainBorderDark">
+                <div
+                  onClick={cycleThemeDown}
+                  className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
+                >
+                  <ArrowDownIcon />
+                </div>
+                <div
+                  onClick={cycleThemeUp}
+                  className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
+                >
+                  <ArrowUpIcon />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="hidden xl:flex">
           <EnglishIcon />
         </div>
         {loading ? (
           <SpinnerIcon />
         ) : (
-          <>
+          <div ref={userDropdown.ref}>
             {user || session?.user?.name ? (
               <button
                 ref={userIconBtnRef}
-                onClick={handleDropdownClick}
-                className=" w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] mr-[-0.5rem] ml-2 xl:ml-0 xl:mr-0 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark shadow-sm bg-white hover:bg-[rgb(0,0,0,0.02)] dark:bg-inputBgDark hover:dark:bg-inputBgHoverDark"
+                onClick={userDropdown.toggle}
+                className=" w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] mr-[-0.5rem] ml-2 xl:ml-0 xl:mr-0 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark fill-grayIcon shadow-sm bg-userButtonBg hover:bg-[rgb(0,0,0,0.02)] dark:bg-inputBgDark hover:dark:bg-inputBgHoverDark"
               >
                 <UserIcon />
               </button>
             ) : (
               <button
                 onClick={handleLoginButton}
-                className="hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-[rgb(255,255,255,0.06)] bg-mainColor text-white dark:bg-[rgb(255,255,255,0.02)] hover:bg-mainColorSecondaryHover"
+                className={`hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-[rgb(255,255,255,0.06)]  text-white dark:bg-[rgb(255,255,255,0.02)] hover:bg-mainColorSecondaryHover
+                ${
+                  theme === "light" &&
+                  "bg-mainColor hover:bg-mainColorSecondaryHover"
+                }
+                `}
               >
                 Sign In
               </button>
             )}
-            {isDropdownOpen && (
+            {userDropdown.isOpen && (
               <div
                 className="absolute right-0 top-full mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-white dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow"
                 id="navbar-dropdown"
@@ -172,7 +274,7 @@ export const Navbar = () => {
                 </div>
               </div>
             )}
-          </>
+          </div>
         )}
         <button className="relative block xl:hidden" onClick={toggleMobileMenu}>
           <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all  duration-200">

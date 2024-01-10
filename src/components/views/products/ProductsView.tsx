@@ -91,38 +91,48 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               )}
             </div>
             <div>
-              <h2 className="text-4xl mb-4">{activeProduct.name}</h2>
+              <h2 className="text-4xl mb-4 text-secondaryText dark:text-secondaryTextDark">
+                {activeProduct.name}
+              </h2>
               <div className="flex gap-1">
                 <p className="text-secondaryText dark:text-secondaryTextDark">
                   Type:
                 </p>
-                <p>{activeProduct.type}</p>
+                <p className="text-primaryText dark:text-primaryTextDark">
+                  {activeProduct.type}
+                </p>
               </div>
               <div className="flex text-xl gap-8 mt-4">
                 <div className="flex gap-2">
                   <p className="text-secondaryText dark:text-secondaryTextDark">
                     Price:
                   </p>
-                  <p>${activeProduct.price.toFixed(2)}</p>
+                  <p className="text-primaryText dark:text-primaryTextDark">
+                    ${activeProduct.price.toFixed(2)}
+                  </p>
                 </div>
                 <div className="flex gap-2">
                   <p className="text-secondaryText dark:text-secondaryTextDark">
                     Markup:
                   </p>
-                  <p>12%</p>
+                  <p className="text-primaryText dark:text-primaryTextDark">
+                    12%
+                  </p>
                 </div>
                 <div className="flex gap-2">
                   <p className="text-secondaryText dark:text-secondaryTextDark">
                     Profit:
                   </p>
-                  <p>${profit.toFixed(2)}</p>
+                  <p className="text-primaryText dark:text-primaryTextDark">
+                    ${profit.toFixed(2)}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-8">
             {activeProduct.parameters.map((param, index) => (
-              <div key={index}>
+              <div key={index} className="text-primaryText dark:text-primaryTextDark">
                 {productParameter(param.title, param.value)}
               </div>
             ))}
@@ -143,8 +153,8 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                   onClick={() => handleProductClick(product)}
                   className={`p-2 pl-6 cursor-pointer rounded-md ${
                     activeProduct.name === product.name
-                      ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark "
-                      : "hover:bg-navItemBgHover hover:dark:bg-navItemBgHoverDark"
+                      ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark text-primaryText dark:text-primaryTextDark"
+                      : "hover:bg-navItemBgHover hover:dark:bg-navItemBgHoverDark text-primaryText dark:text-primaryTextDark"
                   }`}
                 >
                   {product.name}

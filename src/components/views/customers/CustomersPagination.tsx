@@ -34,10 +34,10 @@ export const CustomersPagination = ({
         <option value={50}>50</option>
         <option value={100}>100</option>
       </select>
-      <button onClick={() => goToPage(0)} disabled={currentPage === 0}>
+      <button onClick={() => goToPage(0)} disabled={currentPage === 0} className="text-primaryText dark:text-primaryTextDark">
         &lt;&lt; {/* << */}
       </button>
-      <button onClick={() => prevPage()} disabled={currentPage === 0}>
+      <button onClick={() => prevPage()} disabled={currentPage === 0} className="text-primaryText dark:text-primaryTextDark">
         &lt; {/* < */}
       </button>
       {Array.from(Array(totalPage).keys())
@@ -48,8 +48,8 @@ export const CustomersPagination = ({
             onClick={() => goToPage(page)}
             className={
               currentPage === page
-                ? "bg-inputBg dark:bg-inputBgDark px-1"
-                : "px-1"
+                ? "bg-inputBg dark:bg-inputBgDark px-1 text-primaryText dark:text-primaryTextDark"
+                : "px-1 text-primaryText dark:text-primaryTextDark"
             }
             disabled={currentPage === page}
           >
@@ -59,12 +59,14 @@ export const CustomersPagination = ({
       <button
         onClick={() => nextPage()}
         disabled={currentPage === totalPage - 1}
+        className="text-primaryText dark:text-primaryTextDark"
       >
         &gt; {/* > */}
       </button>
       <button
         onClick={() => goToPage(totalPage - 1)}
         disabled={currentPage === totalPage - 1}
+        className="text-primaryText dark:text-primaryTextDark"
       >
         &gt;&gt; {/* >> */}
       </button>

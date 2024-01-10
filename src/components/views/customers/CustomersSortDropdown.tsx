@@ -70,7 +70,7 @@ export const CustomersSortDropdown = ({
       </button>
       {isOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-56 bg-white border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
+          className="absolute right-0 z-10 mt-2 w-56 bg-outlinedButtonBg border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
           ref={dropdownRef}
         >
           {options.map((option) => (

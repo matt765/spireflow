@@ -1,7 +1,7 @@
-import "../styles/globals.css";
 import "dotenv/config";
 
-import { inter } from '../styles/fonts';
+import "../styles/globals.css";
+import { inter } from "../styles/fonts";
 import { Providers } from "../services/providers";
 
 export default function RootLayout({
@@ -9,10 +9,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>     
+      <body className={`${inter.className}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

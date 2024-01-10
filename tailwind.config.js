@@ -1,4 +1,12 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
+const { createThemes } = require('tw-colors');
+const { sandstoneTheme } = require('./src/styles/themes/sandstone')
+const { midnightTheme } = require('./src/styles/themes/midnight')
+const { charcoalTheme } = require('./src/styles/themes/charcoal')
+const { oceanicTheme } = require('./src/styles/themes/oceanic')
+const { prismaticTheme } = require('./src/styles/themes/prismatic')
+const { snowlightTheme } = require('./src/styles/themes/snowlight')
+const { sapphireTheme } = require('./src/styles/themes/sapphire')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,131 +23,10 @@ module.exports = {
     transparent: "transparent",
     current: "currentColor",
     extend: {
+      colors: midnightTheme,
       fontFamily: {
         inter: ["var(--inter-font)", ...fontFamily.sans],
         nunito: ["var(--nunito-font)", ...fontFamily.sans],
-      },
-      colors: {
-        // Light Mode
-        primaryBg: "white",
-        secondaryBg: "rgb(240, 240, 245, 0.4)",
-        primaryText: "black",
-        secondaryText: "rgb(0,0,0,0.6)",
-        mainColor: "#7376f2",
-        mainColorSecondary: "#7376f2",
-        mainColorSecondaryHover: "rgb(140, 142, 232)",
-        navItemBg: "rgb(0,0,0,0)",
-        navItemBgHover: "rgba(196, 194, 255, 0.2)",
-        navItemActiveBg: "rgba(196, 194, 255, 0.2)",
-        navItemActiveBgHover: "rgba(196, 194, 255, 0.4)",
-        navSectionTitleText: "black",
-        navItemText: "rgb(0,0,0,0.6)",
-        navItemTextActive: "rgb(111, 106, 248)",
-        mainBorder: "rgb(0,0,0,0.1)",
-        inputBg: "rgb(240, 240, 245, 0.5)",
-        inputBgHover: "white",
-        inputBorder: "rgb(0,0,0,0.15)",
-        inputBorderHover: "rgb(0,0,0,0.1)",
-        buttonActiveBg: "rgb(0,0,0,0.1)",
-        outlinedButtonBgHover: "rgba(210, 210, 210, 0.4)",
-        calendarBorder: "rgb(0,0,0,0.1)",
-        calendarMainColor: "#9c8fdd",
-        calendarTodayBg: "rgb(222, 194, 242, 0.15)",
-        grayIcon: "rgb(0,0,0,0.6)",
-        tableCellText: "rgb(68, 68, 68)",
-        dropdownBgHover: "rgb(68, 68, 68, 0.02)",
-        loaderCircleBg: "#7376f2",
-
-        // Dark mode
-        primaryBgDark: "rgb(63, 70, 85)",
-        secondaryBgDark: "rgb(52, 60, 74)",
-        primaryTextDark: "white",
-        secondaryTextDark: "rgb(255,255,255,0.6)",
-        mainColorDark: "#06b6d4",
-        mainColorSecondaryDark: "rgb(17, 159, 183)",
-        mainColorSecondaryHoverDark: "rgb(92, 186, 202)",
-        navItemBgDark: "rgb(26, 36, 53, 0)",
-        navItemBgHoverDark: "rgb(255,255,255,0.05)",
-        navItemActiveBgDark: "rgb(80, 87, 102)",
-        navItemActiveBgHoverDark: "rgb(95, 102, 115)",
-        navSectionTitleDark: "black",
-        navItemTextDark: "rgb(255,255,255,0.85)",
-        navItemTextActiveDark: "white",
-        mainBorderDark: "rgb(255,255,255,0.1)",
-        inputBgDark: "rgb(75, 81, 96)",
-        inputBgHoverDark: "rgb(82, 89, 106)",
-        inputBorderDark: "rgb(255,255,255,0.1)",
-        inputBorderHoverDark: "rgb(255,255,255,0.2)",
-        buttonActiveBgDark: "rgb(90, 95, 108)",
-        calendarBorderDark: "rgb(255,255,255,0.2)",
-        calendarMainColorDark: "rgb(35,125,140)",
-        calendarTodayBgDark: "rgb(222, 194, 242, 0.15)",
-        grayIconDark: "rgb(255,255,255,0.6)",
-        tableCellTextDark: "rgb(68, 68, 68)",
-        outlinedButtonBgHoverDark: "rgb(86, 92, 108)",
-        dropdownBgHoverDark: "white",
-        loaderCircleBgDark: "rgb(81, 137, 147)",
-
-        // light mode for graphs
-        tremor: {
-          brand: {
-            faint: "#eff6ff", // blue-50
-            muted: "#bfdbfe", // blue-200
-            subtle: "#60a5fa", // blue-400
-            DEFAULT: "#3b82f6", // blue-500
-            emphasis: "#1d4ed8", // blue-700
-            inverted: "#ffffff", // white
-          },
-          background: {
-            muted: "#f9fafb", // gray-50
-            subtle: "#f3f4f6", // gray-100
-            DEFAULT: "#ffffff", // white
-            emphasis: "#374151", // gray-700
-          },
-          border: {
-            DEFAULT: "#e5e7eb", // gray-200
-          },
-          ring: {
-            DEFAULT: "#e5e7eb", // gray-200
-          },
-          content: {
-            subtle: "#9ca3af", // gray-400
-            DEFAULT: "#6b7280", // gray-500
-            emphasis: "#374151", // gray-700
-            strong: "#111827", // gray-900
-            inverted: "#ffffff", // white
-          },
-        },
-        // dark mode for graphs
-        "dark-tremor": {
-          brand: {
-            faint: "rgb(47, 55, 70)", // custom
-            muted: "rgb(79, 87, 104)", // blue-950
-            subtle: "rgba(79, 87, 104, 0.84)", // blue-800
-            DEFAULT: "rgb(90, 150, 249)", // blue-500
-            emphasis: "#60a5fa", // blue-400
-            inverted: "#030712", // gray-950
-          },
-          background: {
-            muted: "rgb(47, 55, 70, 0.8)", // custom
-            subtle: "rgb(47, 55, 70)", // gray-800
-            DEFAULT: "rgb(63, 70, 85)", // gray-900
-            emphasis: "#d1d5db", // gray-300
-          },
-          border: {
-            DEFAULT: "rgb(255,255,255,0.1)", // gray-800
-          },
-          ring: {
-            DEFAULT: "rgb(0,0,0,0)", // gray-800
-          },
-          content: {
-            subtle: "#4b5563", // gray-600
-            DEFAULT: "#e1e1e1", // gray-600
-            emphasis: "#e5e7eb", // gray-200
-            strong: "#f9fafb", // gray-50
-            inverted: "#000000", // black
-          },
-        },
       },
       boxShadow: {
         // light
@@ -161,10 +48,6 @@ module.exports = {
         "tremor-default": ["0.875rem", { lineHeight: "1.25rem" }],
         "tremor-title": ["1.125rem", { lineHeight: "1.75rem" }],
         "tremor-metric": ["1.875rem", { lineHeight: "2.25rem" }],
-      },
-      backgroundColor: {
-        'html': 'red !important',
-        'body': 'red !important',
       },
       animation: {
         loader: 'loader 0.6s infinite alternate'
@@ -220,5 +103,14 @@ module.exports = {
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  plugins: [require("@headlessui/tailwindcss")],
+  plugins: [require("@headlessui/tailwindcss"),
+  createThemes({
+    light: snowlightTheme,
+    charcoal: charcoalTheme,
+    prismatic: prismaticTheme,
+    oceanic: oceanicTheme,
+    sapphire: sapphireTheme,
+    sandstone: sandstoneTheme
+  })
+  ],
 };

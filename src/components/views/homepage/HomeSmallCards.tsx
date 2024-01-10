@@ -29,8 +29,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
   return (
     <>
       {homeSmallCardsData.map((item, index) => {
-        const chartArray = item.chartData;
-        console.log(chartArray)
+        const chartArray = item.chartData;  
         return (
           <Card key={`${item.title}-${index}`} className="h-46 sm:h-28 lg:h-32">
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">

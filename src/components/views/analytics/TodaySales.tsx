@@ -31,7 +31,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps ) => {
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
   return (
-    <Card className="w-full h-full">
+    <Card className="w-full h-full recharts-tooltip-stable">
       <Text>Today&apos;s Sales</Text>
       <Metric className="mt-1">$ 2276</Metric>
       <TabGroup>

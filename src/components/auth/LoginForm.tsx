@@ -72,7 +72,7 @@ export const LoginForm = ({
         />
       </div>
       <div className="w-full text-sm flex justify-start gap-2 mt-4">
-        <div className="">Don&apos;t have an account yet?</div>
+        <div className="text-primaryText dark:text-primaryTextDark">Don&apos;t have an account yet?</div>
         <div
           onClick={switchToSignUp}
           className="text-mainColor dark:text-mainColorDark text-semibold cursor-pointer"
@@ -129,7 +129,7 @@ export const LoginForm = ({
         <button
           type="button"
           onClick={() => signIn("google")}
-          className="mt-2 w-32 k p-2 pl-5 button-outlined rounded-md flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
+          className="mt-2 w-32 k p-2 pl-5 button-outlined rounded-md flex items-center gap-2 stroke-grayIcon fill-grayIcon  dark:stroke-grayIconDark dark:fill-grayIconDark"
         >
           <GoogleIcon />
           Google
@@ -137,7 +137,7 @@ export const LoginForm = ({
         <button
           type="button"
           onClick={() => signIn("github")}
-          className="mt-2 w-32 p-2 pl-5 rounded-md button-outlined flex items-center gap-2 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
+          className="mt-2 w-32 p-2 pl-5 rounded-md button-outlined flex items-center gap-2 stroke-grayIcon  fill-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
         >
           <GithubIcon />
           GitHub

@@ -10,7 +10,20 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <SessionProvider>
       <ApolloProvider client={client}>
-        <ThemeProvider attribute="class">         
+        <ThemeProvider
+          enableSystem={false}
+          attribute="class"
+          themes={[
+            "charcoal",
+            "prismatic",
+            "light",
+            "dark",
+            "oceanic",
+            "sapphire",
+            "sandstone",
+          ]}
+          disableTransitionOnChange
+        >
           <Layout>{children}</Layout>
         </ThemeProvider>
       </ApolloProvider>

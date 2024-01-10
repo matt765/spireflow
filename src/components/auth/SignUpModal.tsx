@@ -40,11 +40,11 @@ export const SignUpModal = ({
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-6 text-xl"
+            className="absolute top-4 right-6 text-xl text-primaryText dark:text-primaryTextDark"
           >
             X
           </button>
-          <h1 className="text-4xl font-bold mb-8 mt-0">Sign Up</h1>
+          <h1 className="text-4xl font-bold mb-8 mt-0 text-primaryText dark:text-primaryTextDark">Sign Up</h1>
           <SignUpForm
             handleSignUp={handleSignUp}
             switchToSignIn={switchToSignIn}

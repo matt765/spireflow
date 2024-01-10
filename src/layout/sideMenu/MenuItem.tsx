@@ -34,8 +34,7 @@ export const MenuItem = ({ title, icon, path }: Props) => {
     >
       <div
         onClick={handleMenuItemClick}
-        className={`
-     
+        className={`     
         flex items-center py-2 rounded-xl pl-4 mb-1 2xl:mb-2 w-full pr-2  transition ${
           path === currentPathname
             ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark"
@@ -51,7 +50,7 @@ export const MenuItem = ({ title, icon, path }: Props) => {
         <div
           className={`pr-3 ${
             path === currentPathname
-              ? "stroke-navItemTextActive dark:stroke-mainColorDark dark:fill-mainColorDark"
+              ? "stroke-navItemIconActive dark:stroke-mainColorDark dark:fill-mainColorDark"
               : "stroke-gray-400 fill-gray-400"
           }
           ${!isSideMenuOpen && isDesktop && "pl-4"}

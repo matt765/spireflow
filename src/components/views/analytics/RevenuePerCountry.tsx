@@ -89,8 +89,8 @@ export const RevenuePerCountry = ({
         </ComposableMap>
         <div className="flex flex-col p-0 overflow-auto min-w-[18rem] gap-3 overflow-hidden -mt-8 px-2">
           <div className="w-full flex justify-between">
-            <h3 className="font-semibold">Country</h3>
-            <h3 className="font-semibold">Sales</h3>
+            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">Country</h3>
+            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">Sales</h3>
           </div>
           {dataWithIcons.map((data, index) => (
             <div
@@ -101,13 +101,13 @@ export const RevenuePerCountry = ({
                 <div className="flex ">
                   {data.FlagIcon && <data.FlagIcon />}
                 </div>
-                <span className="text-sm">
+                <span className="text-sm text-primaryText dark:text-primaryTextDark">
                   {data.name === "United States of America"
                     ? "United States"
                     : data.name}
                 </span>
               </div>
-              <span className="font-semibold text-sm">${data.price}</span>
+              <span className="font-semibold text-sm text-primaryText dark:text-primaryTextDark">${data.price}</span>
             </div>
           ))}
         </div>
