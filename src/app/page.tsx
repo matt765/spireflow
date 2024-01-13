@@ -1,6 +1,6 @@
 import { Grid, Col } from "@tremor/react";
 
-import { PageContainer } from "../components/common/PageContainer";
+import { PageWrapper } from "../components/common/PageWrapper";
 import { HomeSmallCards } from "../components/views/homepage/HomeSmallCards";
 import { CustomerSatisfaction } from "../components/views/homepage/CustomerSatisfaction";
 import { Regions } from "../components/views/homepage/Regions";
@@ -8,12 +8,13 @@ import { BestSellingProducts } from "../components/views/homepage/BestSellingPro
 import { RevenueOverTime } from "../components/views/homepage/RevenueOverTime";
 import { TradersTable } from "../components/views/homepage/TradersTable";
 import { getData } from "../services/getData";
+import { Metadata } from "next";
 
 const Home = async () => {
   const homepageData = await getData("homepage");
 
   return (
-    <PageContainer title="Dashboard" className="pt-28 px-4 pb-6" hidePaper>
+    <PageWrapper className="pt-28 px-4 pb-6" hidePaper>
       {/* First row */}
       <Grid numItems={2} numItemsLg={4} className="gap-x-4 gap-y-6">
         {homepageData?.homeSmallCards && (
@@ -69,7 +70,7 @@ const Home = async () => {
       {homepageData?.traders && (
         <TradersTable tradersTableData={homepageData?.traders} />
       )}
-    </PageContainer>
+    </PageWrapper>
   );
 };
 

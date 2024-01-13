@@ -5,11 +5,11 @@ export const SpinnerIcon = () => (
       margin: "auto",
       display: "block",
       shapeRendering: "auto",
-    }}
- 
-   
-    viewBox="0 0 100 100"
+    }} 
+    viewBox="0 0 110 110"
     preserveAspectRatio="xMidYMid"
+    width="45"
+    height="45"
   >
     <g transform="rotate(0 50 50)">
       <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">

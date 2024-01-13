@@ -2,6 +2,7 @@
 
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
 import { Chip } from "../../forms/Chip";
+import { Input } from "../../forms/Input";
 import { CustomersCountryDropdown } from "./CustomersCountryDropdown";
 import { CustomersPagination } from "./CustomersPagination";
 import { CustomersSortDropdown } from "./CustomersSortDropdown";
@@ -37,7 +38,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
     totalPages,
     setSorting,
     sorting,
-    filters,   
+    filters,
     customersData,
   } = useCustomers(customers);
 
@@ -48,20 +49,17 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="flex justify-between flex-wrap md:flex-wrap w-full">
-        <div className="w-full md:w-1/3 lg:w-1/4 relative flex">
-          <input
+        <div className="w-full md:w-1/3 lg:w-1/4 relative flex h-10">
+          <Input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search customers..."
-            className="border p-2 w-full rounded-lg form-element-styled pl-10 h-11"
+            icon={<SearchIcon />}
           />
-          <div className="stroke-grayIcon dark:stroke-grayIconDark absolute top-[0.8rem] left-3">
-            <SearchIcon />
-          </div>
         </div>
         <div className="flex gap-6 flex-wrap w-full md:w-auto mt-6 md:mt-0">
-          <div className="flex w-full md:w-auto justify-between gap-4 md:gap-8">
+          <div className="flex w-full md:w-auto justify-between gap-4 md:gap-4 h-10">
             <CustomersCountryDropdown
               options={countryOptions}
               filterKey="country"

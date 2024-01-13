@@ -15,6 +15,7 @@ import { useLoginStore } from "../../store/loginStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
+import { Select } from "../../components/forms/Select";
 
 interface SideMenuMobileProps {
   isMobileMenuOpen: boolean;
@@ -72,16 +73,11 @@ export const SideMenuMobile = ({
           </button>
         )}
         <div className="flex xl:hidden justify-center gap-2 items-center">
-          <label htmlFor="language-select" className="mr-2">
-            Language:
-          </label>
-          <select
-            id="language-select"
-            className="form-element-styled px-3 py-2 rounded-md"
-          >
+          <label className="mr-2">Language:</label>
+          <Select>
             <option value="english">English</option>
             <option value="polish">Polish</option>
-          </select>
+          </Select>
         </div>
       </div>
       <a

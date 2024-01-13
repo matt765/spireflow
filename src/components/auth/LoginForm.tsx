@@ -8,6 +8,9 @@ import { MailIcon } from "../../assets/icons/MailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
 import { GoogleIcon } from "../../assets/icons/GoogleIcon";
 import { GithubIcon } from "../../assets/icons/GithubIcon";
+import { OutlinedButton } from "../common/OutlinedButton";
+import { ContainedButton } from "../common/ContainedButton";
+import { Input } from "../forms/Input";
 
 export interface LoginData {
   username: string;
@@ -44,35 +47,32 @@ export const LoginForm = ({
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="mb-2 w-full relative">
-        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[1rem] left-3">
-          <MailIcon />
-        </div>
-        <input
+        <Input
           type="email"
           {...register("username", {
             required: true,
             pattern: /^\S+@\S+$/i,
           })}
-          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark hover:border-mainColor"
+          // className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark hover:border-mainColor"
           placeholder="Your e-mail"
+          icon={<MailIcon />}
         />
         {errors.username && (
           <p className="text-red-500">Please enter a valid email.</p>
         )}
       </div>
       <div className="mb-2 relative">
-        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.95rem] left-3">
-          <PasswordIcon />
-        </div>
-        <input
+        <Input
           type="password"
           {...register("password", { required: true })}
-          className="mt-1 p-2 w-full border rounded-md !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark  transition  pl-11 hover:dark:border-mainColorDark hover:border-mainColor"
           placeholder="Your password"
+          icon={<PasswordIcon />}
         />
       </div>
       <div className="w-full text-sm flex justify-start gap-2 mt-4">
-        <div className="text-primaryText dark:text-primaryTextDark">Don&apos;t have an account yet?</div>
+        <div className="text-primaryText dark:text-primaryTextDark">
+          Don&apos;t have an account yet?
+        </div>
         <div
           onClick={switchToSignUp}
           className="text-mainColor dark:text-mainColorDark text-semibold cursor-pointer"
@@ -81,41 +81,42 @@ export const LoginForm = ({
         </div>
       </div>
       {authError && <p className="text-red-500">{authError}</p>}
-      <div className="w-full flex justify-center flex-col items-center">
-        <button
-          type="submit"
-          disabled={loading}
-          className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-4 w-4/5 button-contained"
-        >
-          {loading ? (
-            <div className="w-12 h-12 pb-1">
-              <SpinnerIcon />
-            </div>
-          ) : (
-            "Login"
-          )}
-        </button>
-        <button
-          type="button"
-          disabled={loading}
-          onClick={() => {
-            handleLogin({
-              username: "user@test.com",
-              password: "user@test.com",
-              isDemo: true,
-            });
-            setLoading(true);
-          }}
-          className="disabled:opacity-75 pt-0 pt-2 flex items-center justify-center h-10 max-h-10 transition mt-4 w-4/5 button-contained"
-        >
-          {loading ? (
-            <div className="w-12 h-12 pb-1">
-              <SpinnerIcon />
-            </div>
-          ) : (
-            "Demo Account"
-          )}
-        </button>
+      <div className="w-10/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
+        <div className="w-full h-10 max-h-10">
+          <ContainedButton
+            handleClick={handleSubmit(onSubmit)}
+            disabled={loading}
+          >
+            {loading ? (
+              <div className="w-6 h-6 -mt-4 -ml-5">
+                <SpinnerIcon />
+              </div>
+            ) : (
+              "Login"
+            )}
+          </ContainedButton>
+        </div>
+        <div className="w-full h-10 max-h-10">
+          <ContainedButton
+            disabled={loading}
+            handleClick={() => {
+              handleLogin({
+                username: "user@test.com",
+                password: "user@test.com",
+                isDemo: true,
+              });
+              setLoading(true);
+            }}
+          >
+            {loading ? (
+              <div className="w-6 h-6 -mt-4 -ml-5">
+                <SpinnerIcon />
+              </div>
+            ) : (
+              "Demo Account"
+            )}
+          </ContainedButton>
+        </div>
       </div>
 
       <div className="flex items-center justify-center mt-6">
@@ -125,23 +126,17 @@ export const LoginForm = ({
         </div>
         <hr className="w-8 border-neutral-400 mt-1 mx-4" />
       </div>
-      <div className="flex gap-4 justify-center">
-        <button
-          type="button"
-          onClick={() => signIn("google")}
-          className="mt-2 w-32 k p-2 pl-5 button-outlined rounded-md flex items-center gap-2 stroke-grayIcon fill-grayIcon  dark:stroke-grayIconDark dark:fill-grayIconDark"
-        >
-          <GoogleIcon />
-          Google
-        </button>
-        <button
-          type="button"
-          onClick={() => signIn("github")}
-          className="mt-2 w-32 p-2 pl-5 rounded-md button-outlined flex items-center gap-2 stroke-grayIcon  fill-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark"
-        >
-          <GithubIcon />
-          GitHub
-        </button>
+      <div className="flex gap-4 justify-center px-8">
+        <OutlinedButton
+          handleClick={() => signIn("google")}
+          icon={<GoogleIcon />}
+          text="Google"
+        />
+        <OutlinedButton
+          handleClick={() => signIn("github")}
+          icon={<GithubIcon />}
+          text="GitHub"
+        />
       </div>
     </form>
   );

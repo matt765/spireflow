@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useSession, signOut } from "next-auth/react";
 
@@ -16,15 +16,15 @@ import { SideMenuMobile } from "../sideMenu/SideMenuMobile";
 import { useAppStore } from "../../store/appStore";
 import { PaletteIcon } from "../../assets/icons/PaletteIcon";
 import { CheckIcon } from "../../assets/icons/CheckIcon";
-import useModal from "../../hooks/useModal";
 import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../assets/icons/ArrowUpIcon";
+import { OutlinedButton } from "../../components/common/OutlinedButton";
+import { useDropdown } from "../../hooks/useDropdown";
 
 export const Navbar = () => {
   const { user, setUser, loading, initializeUser } = useLoginStore();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
 
@@ -66,10 +66,6 @@ export const Navbar = () => {
     }
   }, []);
 
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
-  };
-
   const userIconBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const handleSignOut = async () => {
@@ -95,51 +91,8 @@ export const Navbar = () => {
     setIsLoginModalOpen(true);
   };
 
-  const [iconClicked, setIconClicked] = useState(false);
-
-  const handleDropdownClick = () => {
-    setIconClicked(true);
-    setIsDropdownOpen((prevState) => !prevState);
-
-    if (isMobileMenuOpen) {
-      toggleMobileMenu();
-    }
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const dropdownElement = document.getElementById("navbar-dropdown");
-
-      if (iconClicked) {
-        setIconClicked(false);
-        return;
-      }
-
-      if (
-        dropdownElement &&
-        !dropdownElement.contains(event.target as Node) &&
-        userIconBtnRef.current &&
-        !userIconBtnRef.current.contains(event.target as Node)
-      ) {
-        closeDropdown();
-      }
-    };
-
-    document.addEventListener("mouseup", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
-    };
-  }, []);
-
-  const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
-
-  const toggleThemeDropdown = () => {
-    setIsThemeDropdownOpen(!isThemeDropdownOpen);
-  };
-
-  const themeDropdown = useModal();
-  const userDropdown = useModal();
+  const themeDropdown = useDropdown();
+  const userDropdown = useDropdown();
 
   const selectTheme = (themeName: string) => {
     setTheme(themeName);
@@ -169,13 +122,14 @@ export const Navbar = () => {
       } flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 md:pr-8 lg:pr-12 lg:pl-0 pl-4`}
     >
       {theme === "prismatic" && (
-        <div className="backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-1]"></div>
+        <div className="backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-1] border-b border-solid border-mainBorder dark:border-mainBorderDark"></div>
       )}
       <NextLink
         href="/"
         className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${
           !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
-        }`}
+        }     
+        `}
       >
         <Logo />
       </NextLink>
@@ -232,31 +186,22 @@ export const Navbar = () => {
         ) : (
           <div ref={userDropdown.ref}>
             {user || session?.user?.name ? (
-              <button
+              <OutlinedButton
                 ref={userIconBtnRef}
-                onClick={userDropdown.toggle}
-                className=" w-10 h-10 rounded-full border border-mainBorder dark:border-[rgb(255,255,255,0.3)] p-2 pl-[0.55rem] mr-[-0.5rem] ml-2 xl:ml-0 xl:mr-0 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark fill-grayIcon shadow-sm bg-userButtonBg hover:bg-[rgb(0,0,0,0.02)] dark:bg-inputBgDark hover:dark:bg-inputBgHoverDark"
-              >
-                <UserIcon />
-              </button>
+                handleClick={userDropdown.toggle}
+                className="!rounded-full"
+                icon={<UserIcon />}
+              />
             ) : (
               <button
                 onClick={handleLoginButton}
-                className={`hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-[rgb(255,255,255,0.06)]  text-white dark:bg-[rgb(255,255,255,0.02)] hover:bg-mainColorSecondaryHover
-                ${
-                  theme === "light" &&
-                  "bg-mainColor hover:bg-mainColorSecondaryHover"
-                }
-                `}
+                className="transition hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
               >
                 Sign In
               </button>
             )}
             {userDropdown.isOpen && (
-              <div
-                className="absolute right-0 top-full mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-white dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow"
-                id="navbar-dropdown"
-              >
+              <div className="absolute right-0 top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow">
                 <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
                   <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <MailIcon />

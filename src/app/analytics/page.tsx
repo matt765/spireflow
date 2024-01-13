@@ -1,6 +1,6 @@
 import { Grid, Col } from "@tremor/react";
 
-import { PageContainer } from "../../components/common/PageContainer";
+import { PageWrapper } from "../../components/common/PageWrapper";
 import { AssetPerformance } from "../../components/views/analytics/AssetPerformance";
 import { TodaySales } from "../../components/views/analytics/TodaySales";
 import { RevenuePerCountry } from "../../components/views/analytics/RevenuePerCountry";
@@ -13,7 +13,7 @@ const Analytics = async () => {
   const analyticsData = await getData("analytics");
 
   return (
-    <PageContainer title="Dashboard" className="px-4 pt-28 pb-4 xl:p-0" hidePaper>
+    <PageWrapper className="px-4 pt-28 pb-4 xl:p-0" hidePaper>
       {/* First row */}
       <Grid
         numItems={1}
@@ -79,7 +79,7 @@ const Analytics = async () => {
       {analyticsData?.yearOverview && (
         <YearOverview yearOverviewData={analyticsData.yearOverview} />
       )}
-    </PageContainer>
+    </PageWrapper>
   );
 };
 

@@ -4,8 +4,8 @@ export const snowlightTheme = {
   primaryText: "black",
   secondaryText: "rgb(0,0,0,0.6)",
   mainColor: "rgb(118, 167, 247)",
-  mainColorSecondary: "rgb(118, 167, 247)",
-  mainColorSecondaryHover: "rgb(79, 142, 247)",
+  containedButtonBg: "rgb(118, 167, 247)",
+  containedButtonBgHover: "rgb(79, 142, 247)",
   navItemBg: "rgb(0,0,0,0)",
   navItemBgHover: "rgb(101, 150, 231, 0.08)",
   navItemActiveBg: "rgb(101, 150, 231, 0.1)",
@@ -25,6 +25,7 @@ export const snowlightTheme = {
   calendarBorder: "rgb(0,0,0,0.1)",
   calendarMainColor: "rgb(118, 167, 247)",
   calendarTodayBg: "rgb(222, 194, 242, 0.15)",
+  calendarListDayHeaderBg: "rgb(0,0,0,0.03)",
   grayIcon: "rgb(0,0,0,0.6)",
   tableCellText: "rgb(68, 68, 68)",
   dropdownBgHover: "rgb(240, 240, 245, 0.9)",
@@ -37,6 +38,11 @@ export const snowlightTheme = {
   greenBadgeText: "rgb(35, 140, 99)",
   redBadgeText: "rgb(213, 61, 79)",
   orangeBadgeText: "rgb(151, 96, 39)",
+  selectBg: "rgb(247,247,250)",
+  selectBgHover: "rgb(237, 237, 237)",
+  loginModalBg: "white",
+  navbarButtonBg: "rgb(118, 167, 247)",
+  navbarButtonBgHover: "rgb(79, 142, 247)",
 
   tremor: {
     brand: {

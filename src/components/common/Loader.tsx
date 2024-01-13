@@ -1,5 +1,3 @@
-import { useTheme } from "next-themes";
-
 export const Loader = () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center fixed top-0 left-0 z-50 bg-loaderBg dark:bg-loaderBgDark">

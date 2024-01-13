@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image, { StaticImageData } from "next/image";
-
-import { PageContainer } from "../../../components/common/PageContainer";
-import phoneImage from "../../../assets/images/phone2.png";
+import Image from "next/image";
 
 type Parameter = {
   title: string;
@@ -132,7 +129,10 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
           </div>
           <div className="grid grid-cols-3 gap-8">
             {activeProduct.parameters.map((param, index) => (
-              <div key={index} className="text-primaryText dark:text-primaryTextDark">
+              <div
+                key={index}
+                className="text-primaryText dark:text-primaryTextDark"
+              >
                 {productParameter(param.title, param.value)}
               </div>
             ))}

@@ -56,11 +56,13 @@ export default function Area() {
   const defaultTheme = "midnight";
 
   const selectedColors = colorSchemes[theme || defaultTheme];
-  
+
   return (
     <CenteredPageWrapper>
       <>
-        <div className="single-chart-title">Online store traffic</div>
+        <div className="text-2xl w-full text-left mb-6 text-primaryText dark:text-primaryTextDark">
+          Online store traffic
+        </div>
         <AreaChart
           className="h-96 mt-4"
           data={chartdata}

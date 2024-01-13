@@ -1,6 +1,8 @@
 import React, { FormEvent } from "react";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
+import { Input } from "../forms/Input";
+import { ContainedButton } from "../common/ContainedButton";
 
 interface SignUpFormProps {
   handleSignUp: (e: FormEvent<HTMLFormElement>) => Promise<void>;
@@ -22,37 +24,33 @@ export const SignUpForm = ({
       onSubmit={demoSignupHandler}
     >
       <div className="mb-1 w-full relative">
-        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[1rem] left-3">
-          <MailIcon />
-        </div>
-        <input
+        <Input
           type="text"
           id="username"
           name="username"
-          className="mt-1 p-2 w-full border rounded-md form-element-styled pl-11"
           placeholder="Your e-mail"
+          icon={<MailIcon />}
         />
       </div>
       <div className="mb-1 w-full relative">
-        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.95rem] left-3">
-          <PasswordIcon />
-        </div>
-        <input
+        <Input
           type="password"
           id="password"
           name="password"
-          className="mt-1 p-2 w-full border rounded-md form-element-styled pl-11"
           placeholder="Your password"
+          icon={<PasswordIcon />}
         />
       </div>
-      <button
-        type="submit"
-        className="transition  mt-8 w-4/5 b p-2 rounded-md button-contained"
-      >
-        Create account
-      </button>
+      <div className="flex justify-center items-center w-4/5 mt-6">       
+        <ContainedButton handleClick={() => demoSignupHandler}>
+          Create account
+        </ContainedButton>
+      </div>
+
       <div className="w-full text-sm flex justify-center gap-2 mt-4">
-        <div className="text-primaryText dark:text-primaryTextDark">Already have an account?</div>
+        <div className="text-primaryText dark:text-primaryTextDark">
+          Already have an account?
+        </div>
         <div
           onClick={switchToSignIn}
           className="text-mainColor dark:text-mainColorDark text-semibold cursor-pointer"

@@ -1,4 +1,4 @@
-import { PageContainer } from "../../components/common/PageContainer";
+import { PageWrapper } from "../../components/common/PageWrapper";
 import { CalendarView } from "../../components/views/calendar/CalendarView";
 import { getData } from "../../services/getData";
 
@@ -8,9 +8,9 @@ export const Calendar = async () => {
   const eventsData = await getData("events");
 
   return (
-    <PageContainer title="Dashboard" hidePaper>
+    <PageWrapper hidePaper>
       <CalendarView calendarEvents={eventsData} />
-    </PageContainer>
+    </PageWrapper>
   );
 };
 

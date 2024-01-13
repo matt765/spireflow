@@ -3,7 +3,6 @@
 import { Text } from "@tremor/react";
 import { ScatterChart } from "@tremor/react";
 
-import { PageContainer } from "../../components/common/PageContainer";
 import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
 
 const chartdata = [
@@ -120,7 +119,7 @@ const chartdata = [
 export default function Scatter() {
   return (
     <CenteredPageWrapper>
-      <div className="single-chart-title">
+      <div className="text-2xl w-full text-left mb-6 text-primaryText dark:text-primaryTextDark">
         Life expectancy vs. GDP per capita
       </div>
       <Text>As of 2015. Source: Our World in Data </Text>

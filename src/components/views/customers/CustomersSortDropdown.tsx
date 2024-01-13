@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SortIcon } from "../../../assets/icons/SortIcon";
+import { OutlinedButton } from "../../common/OutlinedButton";
 
 interface SortDropdownProps {
   options: { value: string; label: string }[];
@@ -58,27 +59,24 @@ export const CustomersSortDropdown = ({
   };
 
   return (
-    <div className="relative inline-block w-1/2">
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="border px-4 py-2 rounded flex form-element-styled items-center pl-3 w-full md:w-auto flex justify-center"
-      >
-        <div className="mr-2 stroke-grayIcon dark:stroke-grayIconDark">
-          <SortIcon />
-        </div>
-        <div className="text-sm md:text-md">Sort By </div>
-      </button>
+    <div className="relative inline-block w-[7.5rem]">
+      <OutlinedButton
+        handleClick={() => setIsOpen((prev) => !prev)}
+        text="Sort By"
+        icon={<SortIcon />}
+        className="text-sm pr-4"
+      />
       {isOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-56 bg-outlinedButtonBg border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
+          className="absolute right-0 z-10 mt-2 w-56 bg-dropdownBg border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
           ref={dropdownRef}
         >
           {options.map((option) => (
             <div
               key={option.value}
-              className={`cursor-pointer px-4 hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark px-4 py-2 ${
+              className={`cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark px-4 py-2 ${
                 selectedSort === option.value &&
-                "bg-inputBgHover dark:bg-inputBgHoverDark"
+                "bg-dropdownBgHover dark:bg-dropdownBgHoverDark"
               } `}
               onClick={() => handleSortClick(option.value)}
             >
@@ -86,19 +84,19 @@ export const CustomersSortDropdown = ({
             </div>
           ))}
           <div
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => handleDirectionClick(false)}
           >
             Ascending
           </div>
           <div
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => handleDirectionClick(true)}
           >
             Descending
           </div>
           <div
-            className="px-4 py-2  hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark cursor-pointer"
+            className="px-4 py-2  hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark cursor-pointer"
             onClick={() => {
               setSelectedSort(null);
               setSorting([]);

@@ -7,6 +7,8 @@ import { OrdersTable } from "./OrdersTable";
 import { OrdersPagination } from "./OrdersPagination";
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
 import { useState } from "react";
+import { OutlinedButton } from "../../common/OutlinedButton";
+import { Input } from "../../forms/Input";
 
 interface OrdersViewProps {
   ordersData: OrderType[];
@@ -34,20 +36,17 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="w-full flex justify-between flex-wrap md:flex-nowrap">
-        <div className="w-full md:w-1/3 mb-4 relative">
-          <input
+        <div className="w-full md:w-1/4 mb-4 relative">
+          <Input
             type="text"
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
               setCurrentPage(0);
             }}
-            placeholder="Search..."
-            className="border p-2 w-full rounded-lg form-element-styled pl-10 h-10 lg:h-11"
+            placeholder="Search orders..."
+            icon={<SearchIcon />}
           />
-          <div className="stroke-grayIcon dark:stroke-grayIconDark absolute top-[0.8rem] left-3">
-            <SearchIcon />
-          </div>
         </div>
         <OrdersDateRange
           startDate={getFilter("startDate") as string | null}
@@ -67,17 +66,12 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
         <OrdersTable
           table={table}
           currentPage={currentPage}
-          itemsPerPage={itemsPerPage}        
+          itemsPerPage={itemsPerPage}
         />
       </div>
       <div className="flex justify-between flex-wrap pb-4">
-        <div className="w-full mb-4 sm:mb-0 sm:w-1/3">
-          <button
-            onClick={resetFilters}
-            className="button-outlined mt-6 bg-white py-2 px-6 rounded-lg hover:bg-gray-100 border border-slate-400 text-gray-500 font-medium form-element-styled "
-          >
-            Clear Filters
-          </button>
+        <div className="w-36 mt-6 mb-4 sm:mb-0">
+          <OutlinedButton handleClick={resetFilters} text="Clear Filters" />
         </div>
         <OrdersPagination
           itemsPerPage={itemsPerPage}

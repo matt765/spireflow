@@ -51,7 +51,9 @@ export default function Bars() {
   return (
     <CenteredPageWrapper>
       <>
-        <div className="single-chart-title">Product Sales Over Time (USD)</div>
+        <div className="text-2xl w-full text-left mb-6 text-primaryText dark:text-primaryTextDark">
+          Product Sales Over Time (USD)
+        </div>
         <BarChart
           className="mt-6"
           data={barChartData}

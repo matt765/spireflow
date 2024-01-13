@@ -3,13 +3,12 @@
 import { LineChart } from "@tremor/react";
 
 import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
-import { useTheme } from "next-themes";
 
 const dragonPopulationInWesteros = [
   {
     year: "0 AC",
     title: "Aegon's Conquest",
-    "House Targaryen": 5,
+    "House Targaryen": 3,
     "House Velaryon": 0,
   },
   {
@@ -48,23 +47,9 @@ export default function Line() {
   const dataFormatter = (number: number) =>
     `${Intl.NumberFormat("us").format(number).toString()}`;
 
-  const { theme } = useTheme();
-
-  const colorSchemes: { [key: string]: string[] } = {
-    sandstone: ["yellow", "gray"],
-    midnight: ["purple", "gray"],
-    oceanic: ["emerald", "gray"],
-    charcoal: ["green", "gray"],
-    sapphire: ["purple", "gray"],
-  };
-
-  const defaultTheme = "oceanic";
-
-  const selectedColors = colorSchemes[theme || defaultTheme];
-
   return (
     <CenteredPageWrapper>
-      <div className="single-chart-title">
+      <div className="text-2xl w-full text-left mb-6 text-primaryText dark:text-primaryTextDark">
         Population of dragons in Westeros
       </div>
       <LineChart
@@ -72,7 +57,7 @@ export default function Line() {
         data={dragonPopulationInWesteros}
         index="year"
         categories={["House Targaryen", "House Velaryon"]}
-        colors={selectedColors}
+        colors={["emerald", "slate"]}
         valueFormatter={dataFormatter}
         yAxisWidth={40}
       />

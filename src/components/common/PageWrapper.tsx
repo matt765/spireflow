@@ -3,14 +3,12 @@
 import { ReactNode } from "react";
 
 interface Props {
-  title: string;
   children: ReactNode;
   className?: string;
   hidePaper?: boolean;
 }
 
-export const PageContainer = ({
-  title,
+export const PageWrapper = ({
   className,
   children,
   hidePaper = false,
@@ -20,7 +18,7 @@ export const PageContainer = ({
       <div className="flex flex-col gap-y-6 max-w-full w-full min-h-full lg:h-unset ">
         {!hidePaper ? (
           <div
-            className={`flex w-full p-4 pt-8 md:p-10 paper min-h-[100vh] xl:min-h-unset
+            className={`flex w-full p-4 pt-8 md:p-10 bg-primaryBg xl:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder min-h-[100vh] xl:min-h-unset
            ${
              !hidePaper &&
              "bg-primaryBg xl:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder"

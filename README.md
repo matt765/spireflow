@@ -4,6 +4,9 @@ todo:
 - i18n
 - dnd
 - yup
+- products actions
+- csv
+- db mock
 - rtl
 - readme / documentation
 

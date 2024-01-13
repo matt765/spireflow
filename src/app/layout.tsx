@@ -3,6 +3,7 @@ import "dotenv/config";
 import "../styles/globals.css";
 import { inter } from "../styles/fonts";
 import { Providers } from "../services/providers";
+import { Metadata } from "next";
 
 export default function RootLayout({
   children,
@@ -16,4 +17,9 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+export const metadata: Metadata = {
+  title: 'Spireflow',
+  description: 'Open-source e-commerce dashboard built with Next.js and TypeScript.',
 }

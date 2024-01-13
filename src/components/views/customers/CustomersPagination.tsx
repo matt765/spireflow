@@ -1,4 +1,5 @@
 import React from "react";
+import { Select } from "../../forms/Select";
 
 export interface CustomersPaginationProps {
   itemsPerPage: number;
@@ -19,25 +20,32 @@ export const CustomersPagination = ({
   prevPage,
   nextPage,
 }: CustomersPaginationProps) => {
- 
-
   return (
     <div className="flex items-center mt-4 gap-4 justify-end">
-      <select
-        value={itemsPerPage}
-        onChange={(e) => {
-          setItemsPerPage(Number(e.target.value));
-        }}
-        className="ml-4 border p-1 bg-white mr-4 cursor-pointer form-element-styled"
+      <div className="w-16 mr-8">
+        <Select
+          value={itemsPerPage}
+          onChange={(e) => {
+            setItemsPerPage(Number(e.target.value));
+          }}
+        >
+          <option value={10}>10</option>
+          <option value={50}>50</option>
+          <option value={100}>100</option>
+        </Select>
+      </div>
+      <button
+        onClick={() => goToPage(0)}
+        disabled={currentPage === 0}
+        className="text-primaryText dark:text-primaryTextDark"
       >
-        <option value={10}>10</option>
-        <option value={50}>50</option>
-        <option value={100}>100</option>
-      </select>
-      <button onClick={() => goToPage(0)} disabled={currentPage === 0} className="text-primaryText dark:text-primaryTextDark">
         &lt;&lt; {/* << */}
       </button>
-      <button onClick={() => prevPage()} disabled={currentPage === 0} className="text-primaryText dark:text-primaryTextDark">
+      <button
+        onClick={() => prevPage()}
+        disabled={currentPage === 0}
+        className="text-primaryText dark:text-primaryTextDark"
+      >
         &lt; {/* < */}
       </button>
       {Array.from(Array(totalPage).keys())

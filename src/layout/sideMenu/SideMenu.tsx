@@ -12,6 +12,7 @@ import { LineIcon } from "../../assets/icons/LineIcon";
 import { OrdersIcon } from "../../assets/icons/OrdersIcon";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 import { ScatterIcon } from "../../assets/icons/ScatterIcon";
+import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { useAppStore } from "../../store/appStore";
 import { Logo } from "./Logo";
 import { MenuCategory } from "./MenuCategory";
@@ -63,21 +64,23 @@ export const SideMenu = () => {
               href="https://github.com/matt765/spireflow"
               target="_blank"
               rel="noreferrer"
-              className="flex w-full p-2 form-element-styled rounded-md justify-center items-center gap-2 dark:stroke-grayIconDark dark:fill-grayIconDark transition button-outlined bg-outlinedButtonBg dark:bg-outlinedButtonBgDark hover:bg-outlinedButtonBgHover dark:hover:bg-outlinedButtonBgHoverDark fill-grayIcon stroke-grayIcon"
+              className="w-full"
             >
-              <GithubIcon /> <div>GitHub</div>
+              <OutlinedButton text="GitHub" icon={<GithubIcon />} />
             </a>
           )}
-          <button
-            onClick={toggleSideMenu}
-            className="button-outlined p-2 rounded-md  transition stroke-secondaryText fill-secondaryText dark:fill-secondaryTextDark dark:stroke-secondaryTextDark"
-          >
-            {isSideMenuOpen ? (
-              <ArrowLeftDoubleIcon />
-            ) : (
-              <ArrowRightDoubleIcon />
-            )}
-          </button>
+          <div>
+            <OutlinedButton
+              handleClick={toggleSideMenu}
+              icon={
+                isSideMenuOpen ? (
+                  <ArrowLeftDoubleIcon />
+                ) : (
+                  <ArrowRightDoubleIcon />
+                )
+              }
+            />
+          </div>
         </div>
       </div>
     </div>

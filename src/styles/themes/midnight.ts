@@ -5,8 +5,8 @@ export const midnightTheme = {
   primaryTextDark: "white",
   secondaryTextDark: "rgb(255,255,255,0.6)",
   mainColorDark: "#06b6d4",
-  mainColorSecondaryDark: "rgb(17, 159, 183)",
-  mainColorSecondaryHoverDark: "rgb(92, 186, 202)",
+  containedButtonBgDark: "rgb(17, 159, 183)",
+  containedButtonBgHoverDark: "rgb(92, 186, 202)",
   navItemBgDark: "rgb(26, 36, 53, 0)",
   navItemBgHoverDark: "rgb(255,255,255,0.05)",
   navItemActiveBgDark: "rgb(80, 87, 102)",
@@ -24,6 +24,7 @@ export const midnightTheme = {
   calendarBorderDark: "rgb(255,255,255,0.2)",
   calendarMainColorDark: "rgb(35,125,140)",
   calendarTodayBgDark: "rgb(222, 194, 242, 0.15)",
+  calendarListDayHeaderBgDark: "rgb(255,255,255,0.05)",
   grayIconDark: "rgb(255,255,255,0.6)",
   tableCellTextDark: "rgb(68, 68, 68)",
   outlinedButtonBgHoverDark: "rgb(86, 92, 108)",
@@ -38,6 +39,11 @@ export const midnightTheme = {
   greenBadgeTextDark: "rgb(110, 231, 183)",
   redBadgeTextDark: "rgb(253, 164, 175)",
   orangeBadgeTextDark: "rgb(253, 186, 116)",
+  selectBgDark: "rgb(75, 81, 96)",
+  selectBgHoverDark: "rgb(82, 89, 106)",
+  loginModalBgDark: "rgb(63, 70, 85)",
+  navbarButtonBgDark: "rgb(255, 255, 255, 0)",
+  navbarButtonBgHoverDark: "rgb(255, 255, 255, 0.08)",
 
   // Primary dark mode for graphs
   "dark-tremor": {

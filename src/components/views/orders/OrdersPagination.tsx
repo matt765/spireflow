@@ -1,6 +1,7 @@
 import React from "react";
 
 import { OrdersPaginationProps } from "./types";
+import { Select } from "../../forms/Select";
 
 export const OrdersPagination = ({
   itemsPerPage,
@@ -12,17 +13,16 @@ export const OrdersPagination = ({
   nextPage,
 }: OrdersPaginationProps) => (
   <div className="flex items-center mt-4 gap-4 justify-end text-primaryText dark:text-primaryTextDark">
-    <select
+    <Select
       value={itemsPerPage}
       onChange={(e) => {
         setItemsPerPage(Number(e.target.value));
       }}
-      className="ml-4 border p-1 bg-white mr-4 cursor-pointer form-element-styled"
     >
       <option value={10}>10</option>
       <option value={50}>50</option>
       <option value={100}>100</option>
-    </select>
+    </Select>
     <button onClick={() => goToPage(0)} disabled={currentPage === 0}>
       &lt;&lt; {/* << */}
     </button>
@@ -35,7 +35,11 @@ export const OrdersPagination = ({
         <button
           key={page}
           onClick={() => goToPage(page)}
-          className={currentPage === page ? "bg-inputBg dark:bg-inputBgDark px-1 text-primaryText dark:text-primaryTextDark" : "px-1 text-primaryText dark:text-primaryTextDark"}
+          className={
+            currentPage === page
+              ? "bg-inputBg dark:bg-inputBgDark px-1 text-primaryText dark:text-primaryTextDark"
+              : "px-1 text-primaryText dark:text-primaryTextDark"
+          }
           disabled={currentPage === page}
         >
           {page + 1}
@@ -46,7 +50,7 @@ export const OrdersPagination = ({
     </button>
     <button
       onClick={() => goToPage(totalPage - 1)}
-      disabled={currentPage === totalPage - 1}      
+      disabled={currentPage === totalPage - 1}
     >
       &gt;&gt; {/* >> */}
     </button>
