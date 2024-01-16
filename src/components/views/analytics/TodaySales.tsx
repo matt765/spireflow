@@ -24,9 +24,9 @@ interface TodaySalesDataUnit {
 }
 
 interface TodaySalesProps {
-  todaySalesData: TodaySalesDataUnit[]
+  todaySalesData: TodaySalesDataUnit[];
 }
-export const TodaySales = ({ todaySalesData }: TodaySalesProps ) => {
+export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
   const valueFormatter = (number: number) =>
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
@@ -36,8 +36,12 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps ) => {
       <Metric className="mt-1">$ 2276</Metric>
       <TabGroup>
         <TabList defaultValue="average" className="mt-6">
-          <Tab value="average">Today vs. average</Tab>
-          <Tab value="yesterday">Today vs. yesterday</Tab>
+          <Tab value="average" className="!text-[12px] 1xl:!text-sm">
+            Today vs. average
+          </Tab>
+          <Tab value="yesterday" className="!text-[12px] 1xl:!text-sm">
+            Today vs. yesterday
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -50,7 +54,6 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps ) => {
               showLegend={false}
               valueFormatter={valueFormatter}
               className="mt-4 h-56"
-              showAnimation={true}
             />
             <Flex justifyContent="end">
               <Legend
@@ -69,8 +72,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps ) => {
               showYAxis={false}
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-4 h-56"
-              showAnimation={true}
+              className="mt-4 h-56"             
             />
             <Flex justifyContent="end">
               <Legend

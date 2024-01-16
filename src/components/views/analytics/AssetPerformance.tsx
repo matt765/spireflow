@@ -52,7 +52,7 @@ export const AssetPerformance = ({
 
   return (
     <Card className=" h-full">
-      <div className="hidden sm:block">
+      <div>
         <Flex className="space-x-4" justifyContent="start" alignItems="center">
           <Title>Asset Performance</Title>
         </Flex>
@@ -90,8 +90,7 @@ export const AssetPerformance = ({
                         <DeltaBar
                           value={asset.delta}
                           isIncreasePositive={true}
-                          tooltip=""
-                          showAnimation={true}
+                          tooltip=""                       
                         />
                       </div>
                     </Flex>

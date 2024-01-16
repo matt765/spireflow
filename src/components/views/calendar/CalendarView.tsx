@@ -20,7 +20,7 @@ export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
   } = useCalendar({ calendarEvents });
 
   return (
-    <div className="flex w-full pt-8 px-4 md:p-10 lg:p-16 bg-primaryBg xl:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder text-lg flex-col h-full  pb-16 h-auto">
+    <div className="w-full h-full lg:p-6 lg:pt-5">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin]}
         initialView="dayGridMonth"

@@ -12,8 +12,8 @@ interface AppStore {
 const determineInitialState = () => {
   if (typeof window !== "undefined") {
     return {
-      isMobileMenuOpen: window.innerWidth < 1024,
-      isSideMenuOpen: window.innerWidth >= 1024,
+      isMobileMenuOpen: window.innerWidth < 1280,
+      isSideMenuOpen: window.innerWidth >= 1280,
     };
   }
   return {

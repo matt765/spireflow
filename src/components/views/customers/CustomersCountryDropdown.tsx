@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { CustomerFilters } from "./useCustomers";
 import { FilterIcon } from "../../../assets/icons/FilterIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
+import { Dropdown } from "../../common/Dropdown";
+import { useDropdown } from "../../../hooks/useDropdown";
 
 interface CustomersDropdownProps {
   options: string[];
@@ -15,42 +17,19 @@ export const CustomersCountryDropdown = ({
   filterKey,
   setFilter,
 }: CustomersDropdownProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { isOpen, toggle, close, ref } = useDropdown();
   const [activeFilter, setActiveFilter] = useState<string | undefined>();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          dropdownRef.current &&
-          !dropdownRef.current.contains(event.target as Node)
-        ) {
-          setIsOpen(false);
-        }
-      };
-
-      document.addEventListener("mousedown", handleClickOutside);
-
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }
-  }, [isOpen]);
 
   return (
-    <div className="relative inline-block w-44">
+    <div className="relative inline-block w-44" ref={ref}>
       <OutlinedButton
-        handleClick={() => setIsOpen((prev) => !prev)}
+        handleClick={toggle}
         icon={<FilterIcon />}
         text="Filter by Country"
         className="text-sm"
       />
       {isOpen && (
-        <div
-          className="absolute right-0 z-10 mt-2 right-0 w-52 md:w-56 bg-dropdownBg border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
-          ref={dropdownRef}
-        >
+        <Dropdown className="-right-8 sm:right-0 w-[12rem] top-12">
           {options.map((option) => (
             <div
               key={option}
@@ -61,22 +40,22 @@ export const CustomersCountryDropdown = ({
               onClick={() => {
                 setFilter(filterKey, option);
                 setActiveFilter(option);
-                setIsOpen(false);
+                close();
               }}
             >
               {option}
             </div>
           ))}
           <div
-            className="px-4 py-2 cursor-pointer hover:bg-inputBgHover hover:dark:bg-inputBgHoverDark"
+            className="px-4 py-2 cursor-pointer hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
             onClick={() => {
               setFilter(filterKey, undefined);
-              setIsOpen(false);
+              close();
             }}
           >
             Clear Filter
           </div>
-        </div>
+        </Dropdown>
       )}
     </div>
   );

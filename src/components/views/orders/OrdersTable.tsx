@@ -29,7 +29,7 @@ export const OrdersTable = ({
   }
 
   return (
-    <table className="w-full mt-8 overflow-scroll min-w-[60rem]">
+    <table className="w-full mt-8 overflow-scroll min-w-[55rem]">
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>

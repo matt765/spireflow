@@ -25,7 +25,7 @@ export const Input = ({
         {icon}
       </div>
       <input
-        className={`p-2 w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark hover:bg-outlinedButtonBgHover
+        className={`p-2 text-sm 1xl:text-base w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark bg-inputBg dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark hover:bg-outlinedButtonBgHover
         ${icon ? "pl-11" : "pl-3"}        
         `}
         type={type}

@@ -28,8 +28,8 @@ export const Layout = ({ children }: Props) => {
         {isLoading && <Loader />}
         <SideMenu />
         <Navbar />
-        <div className="flex flex-col w-full xl:max-w-[71rem] 1xl:max-w-[75rem] 2xl:max-w-[85vw] 5xl:max-w-[102rem] h-full mx-auto">
-          <div className="w-full ">{children}</div>
+        <div className="flex flex-col w-full xl:max-w-[80%] 1xl:max-w-[82%] 2xl:max-w-[85vw] 5xl:max-w-[102rem] h-full mx-auto">
+          <div className="w-full flex justify-center max-w-full">{children}</div>
         </div>
         {isMobileMenuOpen && (
           <div

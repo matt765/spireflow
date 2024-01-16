@@ -48,9 +48,9 @@ export const RevenuePerCountry = ({
   }));
 
   return (
-    <Card className="h-full relative overflow-hidden">
+    <Card className="h-full relative overflow-hidden flex flex-col">
       <BlockTitle title="Revenue per country" />
-      <div className="flex -ml-12 gap-16 max-h-[25rem] pt-8 mt-4 ">
+      <div className="flex -ml-8 2xl:-ml-10 gap-16 max-h-[25rem] pt-8 mt-4 ">
         <ComposableMap width={800} height={440}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>

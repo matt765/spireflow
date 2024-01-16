@@ -1,6 +1,7 @@
 "use client";
 
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
+import { OutlinedButton } from "../../common/OutlinedButton";
 import { Chip } from "../../forms/Chip";
 import { Input } from "../../forms/Input";
 import { CustomersCountryDropdown } from "./CustomersCountryDropdown";
@@ -40,6 +41,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
     sorting,
     filters,
     customersData,
+    clearFilters, 
   } = useCustomers(customers);
 
   const countryOptions = Array.from(
@@ -98,15 +100,20 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
       <div className="w-full overflow-auto ">
         <CustomersTable table={table} />
       </div>
-      <CustomersPagination
-        itemsPerPage={itemsPerPage}
-        currentPage={currentPage}
-        totalPage={totalPages}
-        setItemsPerPage={setItemsPerPage}
-        goToPage={goToPage}
-        prevPage={prevPage}
-        nextPage={nextPage}
-      />
+      <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap pb-4">
+        <div className="w-36 mt-8 mb-0 self-start sm:self-unset">
+          <OutlinedButton handleClick={clearFilters} text="Clear Filters" />
+        </div>
+        <CustomersPagination
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          totalPage={totalPages}
+          setItemsPerPage={setItemsPerPage}
+          goToPage={goToPage}
+          prevPage={prevPage}
+          nextPage={nextPage}
+        />
+      </div>
     </div>
   );
 };

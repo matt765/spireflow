@@ -15,15 +15,15 @@ export const CalendarIcon = () => (
       height="384"
       rx="48"
     />
-    <circle cx="296" cy="232" r="24" />
-    <circle cx="376" cy="232" r="24" />
-    <circle cx="296" cy="312" r="24" />
-    <circle cx="376" cy="312" r="24" />
-    <circle cx="136" cy="312" r="24" />
-    <circle cx="216" cy="312" r="24" />
-    <circle cx="136" cy="392" r="24" />
-    <circle cx="216" cy="392" r="24" />
-    <circle cx="296" cy="392" r="24" />
+    <circle cx="296" cy="232" r="24"  fill="currentColor" />
+    <circle cx="376" cy="232" r="24"  fill="currentColor" />
+    <circle cx="296" cy="312" r="24"  fill="currentColor" />
+    <circle cx="376" cy="312" r="24"  fill="currentColor" />
+    <circle cx="136" cy="312" r="24"  fill="currentColor" />
+    <circle cx="216" cy="312" r="24"  fill="currentColor" />
+    <circle cx="136" cy="392" r="24"  fill="currentColor" />
+    <circle cx="216" cy="392" r="24"  fill="currentColor" />
+    <circle cx="296" cy="392" r="24"  fill="currentColor" />
     <path
       fill="none"
       strokeLinejoin="round"

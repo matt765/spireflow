@@ -9,7 +9,7 @@ export default async function Orders() {
   const orders = await getData("orders");
 
   return (
-    <PageWrapper className="px-0">
+    <PageWrapper>
       <OrdersView ordersData={orders} />
     </PageWrapper>
   );

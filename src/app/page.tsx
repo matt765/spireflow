@@ -14,7 +14,7 @@ const Home = async () => {
   const homepageData = await getData("homepage");
 
   return (
-    <PageWrapper className="pt-28 px-4 pb-6" hidePaper>
+    <PageWrapper hidePaper className="pt-32">
       {/* First row */}
       <Grid numItems={2} numItemsLg={4} className="gap-x-4 gap-y-6">
         {homepageData?.homeSmallCards && (

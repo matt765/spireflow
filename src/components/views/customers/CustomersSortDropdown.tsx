@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 
 import { SortIcon } from "../../../assets/icons/SortIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
+import { Dropdown } from "../../common/Dropdown";
+import { useDropdown } from "../../../hooks/useDropdown";
 
 interface SortDropdownProps {
   options: { value: string; label: string }[];
@@ -18,59 +20,37 @@ export const CustomersSortDropdown = ({
 }: SortDropdownProps) => {
   const [selectedSort, setSelectedSort] = useState<string | null>(currentSort);
   const [sortDirection, setSortDirection] = useState<boolean>(currentDirection); // false for Ascending, true for Descending
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const { isOpen, toggle, close, ref } = useDropdown();
 
   useEffect(() => {
     setSelectedSort(currentSort);
     setSortDirection(currentDirection);
   }, [currentSort, currentDirection]);
-  useEffect(() => {
-    if (isOpen) {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          dropdownRef.current &&
-          !dropdownRef.current.contains(event.target as Node)
-        ) {
-          setIsOpen(false);
-        }
-      };
-
-      document.addEventListener("mousedown", handleClickOutside);
-
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }
-  }, [isOpen]);
 
   const handleSortClick = (optionValue: string) => {
     setSelectedSort(optionValue);
     setSorting([{ id: optionValue, desc: sortDirection }]);
-    setIsOpen(false);
+    close();
   };
 
   const handleDirectionClick = (desc: boolean) => {
     setSortDirection(desc);
     if (selectedSort) {
       setSorting([{ id: selectedSort, desc }]);
-      setIsOpen(false);
+      close();
     }
   };
 
   return (
-    <div className="relative inline-block w-[7.5rem]">
+    <div className="relative inline-block w-[7.5rem]" ref={ref}>
       <OutlinedButton
-        handleClick={() => setIsOpen((prev) => !prev)}
+        handleClick={toggle}
         text="Sort By"
         icon={<SortIcon />}
         className="text-sm pr-4"
       />
       {isOpen && (
-        <div
-          className="absolute right-0 z-10 mt-2 w-56 bg-dropdownBg border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark dark:bg-inputBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark"
-          ref={dropdownRef}
-        >
+        <Dropdown className="right-0 top-12 min-w-[11rem]">
           {options.map((option) => (
             <div
               key={option.value}
@@ -100,12 +80,12 @@ export const CustomersSortDropdown = ({
             onClick={() => {
               setSelectedSort(null);
               setSorting([]);
-              setIsOpen(false);
+              close();
             }}
           >
             Clear Sorting
           </div>
-        </div>
+        </Dropdown>
       )}
     </div>
   );

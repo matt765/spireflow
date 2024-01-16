@@ -23,7 +23,7 @@ export const SideMenu = () => {
 
   return (
     <div
-      className={`mt-20   hidden xl:flex flex-col h-screen xl:w-[220px] xl:min-w-[220px] 2xl:min-w-[260px]  white pt-0 2xl:pt-0  ${
+      className={`mt-[3.9rem] 2xl:mt-20   hidden xl:flex flex-col h-screen xl:w-[220px] xl:min-w-[220px] 2xl:min-w-[260px]  white pt-0 2xl:pt-0  ${
         !isSideMenuOpen && "xl:!max-w-[3rem] !w-[3rem] xl:!min-w-[4.5rem] pr-0"
       } `}
     >
@@ -55,7 +55,7 @@ export const SideMenu = () => {
         <MenuItem title="Scatter" icon={<ScatterIcon />} path="/scatter" />
         <MenuItem title="Line" icon={<LineIcon />} path="/line" />
         <div
-          className={`z-50 fixed  xl:w-[205px] xl:min-w-[205px] 2xl:min-w-[245px]  flex gap-4 bottom-0 left-0 justify-center items-center flex items-center justify-center pb-6 pl-4
+          className={`z-50 fixed  xl:w-[205px] xl:min-w-[205px] 2xl:min-w-[245px]  flex gap-4 bottom-0 left-0 justify-center items-center flex items-center justify-center pb-4 2xl:pb-6 pl-4
           ${!isSideMenuOpen && "!max-w-[3.5rem] !min-w-[3.5rem]"}
           `}
         >
@@ -66,10 +66,10 @@ export const SideMenu = () => {
               rel="noreferrer"
               className="w-full"
             >
-              <OutlinedButton text="GitHub" icon={<GithubIcon />} />
+              <OutlinedButton text="GitHub" icon={<GithubIcon />} className="text-sm 2xl:text-base" />
             </a>
           )}
-          <div>
+          <div className="h-[2.45rem] 2xl:h-[2.7rem]">
             <OutlinedButton
               handleClick={toggleSideMenu}
               icon={
@@ -78,7 +78,8 @@ export const SideMenu = () => {
                 ) : (
                   <ArrowRightDoubleIcon />
                 )
-              }
+              }   
+              className="text-sm 2xl:text-base"           
             />
           </div>
         </div>

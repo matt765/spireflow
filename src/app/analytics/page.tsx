@@ -17,16 +17,14 @@ const Analytics = async () => {
       {/* First row */}
       <Grid
         numItems={1}
-        numItemsSm={2}
+        numItemsSm={1}
         numItemsMd={2}
         numItemsLg={3}
         className="gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanSm={1} numColSpanLg={2}>
           {analyticsData?.assets && (
-            <AssetPerformance
-              assetPerformanceData={analyticsData.assets}
-            />
+            <AssetPerformance assetPerformanceData={analyticsData.assets} />
           )}
         </Col>
         <Col numColSpan={1} numColSpanSm={1}>
@@ -36,14 +34,8 @@ const Analytics = async () => {
         </Col>
       </Grid>
       {/* Second row */}
-      <Grid
-        numItems={1}
-        numItemsSm={2}
-        numItemsMd={2}
-        numItemsLg={3}
-        className="gap-x-6 gap-y-6"
-      >
-        <Col numColSpan={1} numColSpanLg={1}>
+      <div className="w-full flex flex-col 1xl:flex-row justify-between gap-6">
+        <div className="w-full 1xl:w-1/3">
           {analyticsData?.totalProfitProducts &&
             analyticsData?.totalProfitMonths && (
               <TotalProfit
@@ -51,16 +43,15 @@ const Analytics = async () => {
                 totalProfitSales={analyticsData.totalProfitMonths}
               />
             )}
-        </Col>
-        <Col numColSpan={1} numColSpanLg={2}>
+        </div>
+        <div className="hidden md:flex w-full 1xl:w-2/3">
           {analyticsData?.revenuePerCountry && (
             <RevenuePerCountry
               revenuePerCountryData={analyticsData.revenuePerCountry}
             />
           )}
-        </Col>
-      </Grid>
-
+        </div>
+      </div>
       {/* Third row */}
       <Grid
         numItems={1}

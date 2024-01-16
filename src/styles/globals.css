@@ -214,16 +214,9 @@ a {
   @apply fill-amber-200;
 }
 
-/* .bg-emerald-100 {
-  @apply bg-emerald-200;
-} */
-/* .bg-rose-100 {
-  @apply bg-rose-200;
-} */
-
 /* Main Tremor card component */
 .tremor-Card-root {
-  @apply border border-mainBorder dark:!border-mainBorderDark bg-primaryBg dark:bg-primaryBgDark shadow-md;
+  @apply border border-mainBorder dark:!border-mainBorderDark bg-primaryBg dark:bg-primaryBgDark;
 }
 
 /* Better contrast for Tremor reddish badge */
@@ -289,18 +282,21 @@ a {
   @apply text-mainColor dark:text-mainColorDark;
 }
 
-/* .tremor-Legend-root {
-  @apply mb-4 lg:mb-0;
-} */
-/* .tr-shadow {
-  box-shadow: rgba(58, 53, 65, 0.1) 0px 2px 10px 0px !important;
-  border-radius: 12px !important;
-} */
-
 /* Hide unnecessary grid lines in Tremor bar charts */
 .small-box .recharts-cartesian-grid-horizontal {
   display: none;
 }
+
+/* Hide colored bar on mobile in Analytics/Assset Performance component */
+.text-tremor-default .w-44 {
+  @apply hidden sm:flex
+}
+
+/* Add margin for mobile resolution of legend section im bars single chart page */
+.single-chart-bars .tremor-Legend-root {
+ @apply mb-6 sm:mb-2;
+}
+
 /* Hide outline until better solution for styling input borders on multiple themes is developed */
 /* Accessibility issue */
 :focus-visible {

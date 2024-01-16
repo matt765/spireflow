@@ -158,6 +158,14 @@ export const useCustomers = (customers: Customer[]) => {
 
   const totalPages = Math.ceil((filteredData?.length ?? 0) / itemsPerPage);
 
+  const clearFilters = () => {
+    setSorting([]);
+    setSearchQuery("");
+    setCurrentPage(0);
+    clearFilter("country");
+    setFilter("country", undefined);
+  };
+
   const table = useReactTable({
     columns: customerColumns,
     data: paginatedData,
@@ -185,5 +193,6 @@ export const useCustomers = (customers: Customer[]) => {
     sorting,
     filters,
     customersData,
+    clearFilters,
   };
 };

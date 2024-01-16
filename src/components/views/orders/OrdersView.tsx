@@ -36,7 +36,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="w-full flex justify-between flex-wrap md:flex-nowrap">
-        <div className="w-full md:w-1/4 mb-4 relative">
+        <div className="w-full md:w-1/4 mb-4 relative min-w-[15rem]">
           <Input
             type="text"
             value={searchQuery}
@@ -70,7 +70,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
         />
       </div>
       <div className="flex justify-between flex-wrap pb-4">
-        <div className="w-36 mt-6 mb-4 sm:mb-0">
+        <div className="w-36 mt-8 sm:mb-0">
           <OutlinedButton handleClick={resetFilters} text="Clear Filters" />
         </div>
         <OrdersPagination

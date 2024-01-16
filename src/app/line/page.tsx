@@ -61,7 +61,7 @@ export default function Line() {
         valueFormatter={dataFormatter}
         yAxisWidth={40}
       />
-      <div className="w-full flex justify-between mx-auto mt-8 ml-8">
+      <div className="w-full hidden sm:flex justify-between mx-auto mt-8 ml-8">
         {dragonPopulationInWesteros.map((item, index) => (
           <div
             key={index}

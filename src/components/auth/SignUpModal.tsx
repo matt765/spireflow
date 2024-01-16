@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import { SignUpForm } from "./SignUpForm";
 import { useHandleSignUp } from "../../hooks/useHandleSignUp";
+import { CloseIcon } from "../../assets/icons/CloseIcon";
 
 interface SignUpModalProps {
   closeModal: () => void;
@@ -40,9 +41,9 @@ export const SignUpModal = ({
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-6 text-xl text-primaryText dark:text-primaryTextDark"
+            className="absolute top-4 right-6 text-xl text-primaryText dark:text-primaryTextDark stroke-secondaryText dark:stroke-secondaryTextDark fill-secondaryText dark:fill-secondaryTextDark"
           >
-            X
+            <CloseIcon />
           </button>
           <h1 className="text-4xl font-bold mb-10 mt-0 text-primaryText dark:text-primaryTextDark">Sign Up</h1>
           <SignUpForm

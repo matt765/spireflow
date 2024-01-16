@@ -50,8 +50,8 @@ export const MenuItem = ({ title, icon, path }: Props) => {
         <div
           className={`pr-3 ${
             path === currentPathname
-              ? "stroke-navItemIconActive dark:stroke-mainColorDark dark:fill-mainColorDark"
-              : "stroke-gray-400 fill-gray-400"
+              ? "stroke-navItemIconActive dark:stroke-mainColorDark dark:fill-mainColorDark text-navItemIconActive dark:text-mainColorDark"
+              : "stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400"
           }
           ${!isSideMenuOpen && isDesktop && "pl-4"}
           `}
@@ -60,7 +60,7 @@ export const MenuItem = ({ title, icon, path }: Props) => {
         </div>
         {(isSideMenuOpen || !isDesktop) && (
           <div
-            className={`text-sm tracking-wide font-bold  ${
+            className={`text-sm xl:text-[12px] 2xl:text-sm tracking-wide font-bold  ${
               path === currentPathname
                 ? "text-navItemTextActive dark:text-navItemTextActiveDark"
                 : "text-navItemText dark:text-navItemTextDark"

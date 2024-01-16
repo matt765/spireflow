@@ -20,6 +20,7 @@ import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../assets/icons/ArrowUpIcon";
 import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { useDropdown } from "../../hooks/useDropdown";
+import { Dropdown } from "../../components/common/Dropdown";
 
 export const Navbar = () => {
   const { user, setUser, loading, initializeUser } = useLoginStore();
@@ -27,6 +28,12 @@ export const Navbar = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
+
+  const closeMobileMenu = () => {
+    if (isMobileMenuOpen) {
+      toggleMobileMenu();
+    }
+  };
 
   const themes = [
     "light",
@@ -60,7 +67,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth < 1024 && isMobileMenuOpen) {
+      if (window.innerWidth < 1280 && isMobileMenuOpen) {
         toggleMobileMenu();
       }
     }
@@ -119,7 +126,7 @@ export const Navbar = () => {
     <div
       className={`${
         theme === "prismatic" && ""
-      } flex items-center justify-between fixed h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 md:pr-8 lg:pr-12 lg:pl-0 pl-4`}
+      } flex items-center justify-between fixed h-[5rem] xl:h-[4rem] 2xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
     >
       {theme === "prismatic" && (
         <div className="backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-1] border-b border-solid border-mainBorder dark:border-mainBorderDark"></div>
@@ -133,20 +140,19 @@ export const Navbar = () => {
       >
         <Logo />
       </NextLink>
-      <div className="flex justify-end items-center gap-4 lg:gap-6 relative">
+      <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
         <div className="relative" ref={themeDropdown.ref}>
           <div
             className="text-white fill-white stroke-secondaryText dark:stroke-secondaryTextDark cursor-pointer hover:stroke-primaryText hover:dark:stroke-primaryTextDark transition"
-            onClick={themeDropdown.toggle}
+            onClick={() => {
+              themeDropdown.toggle();
+              closeMobileMenu();
+            }}
           >
             <PaletteIcon />
           </div>
           {themeDropdown.isOpen && (
-            <div
-              className={`${
-                theme === "prismatic" && "backdrop-blur-xl"
-              } absolute  top-9 z-10 mt-2 right-0 w-42 md:w-44  border rounded shadow !outline-0 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark`}
-            >
+            <Dropdown className="w-[11rem] min-w-[11rem] right-0 top-11">
               {themes.map((themeName, index) => (
                 <div
                   key={themeName}
@@ -175,7 +181,7 @@ export const Navbar = () => {
                   <ArrowUpIcon />
                 </div>
               </div>
-            </div>
+            </Dropdown>
           )}
         </div>
         <div className="hidden xl:flex">
@@ -184,24 +190,33 @@ export const Navbar = () => {
         {loading ? (
           <SpinnerIcon />
         ) : (
-          <div ref={userDropdown.ref}>
+          <div ref={userDropdown.ref} className="-mr-2 xl:-mr-unset">
             {user || session?.user?.name ? (
               <OutlinedButton
                 ref={userIconBtnRef}
-                handleClick={userDropdown.toggle}
+                handleClick={() => {
+                  closeMobileMenu();
+                  userDropdown.toggle();
+                }}
                 className="!rounded-full"
                 icon={<UserIcon />}
               />
             ) : (
               <button
                 onClick={handleLoginButton}
-                className="transition hidden xl:block rounded-xl w-40 h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
+                className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
               >
                 Sign In
               </button>
             )}
             {userDropdown.isOpen && (
-              <div className="absolute right-0 top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow">
+              <div
+                className={`${
+                  theme === "prismatic" &&
+                  "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
+                }              
+                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
+              >
                 <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
                   <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <MailIcon />
@@ -210,7 +225,10 @@ export const Navbar = () => {
                 </div>
                 <div
                   className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                  onClick={handleSignOut}
+                  onClick={() => {
+                    handleSignOut();
+                    userDropdown.toggle();
+                  }}
                 >
                   <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <LogoutIcon />

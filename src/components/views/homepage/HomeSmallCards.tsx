@@ -31,7 +31,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
       {homeSmallCardsData.map((item, index) => {
         const chartArray = item.chartData;  
         return (
-          <Card key={`${item.title}-${index}`} className="h-46 sm:h-28 lg:h-32">
+          <Card key={`${item.title}-${index}`} className="h-46 sm:h-28 lg:h-32  !pr-[0.7rem] 2xl:!pr-[1.3rem]">
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">
               <div className="flex flex-col  w-full sm:w-1/2 gap-1 pl-1 sm:pl-0">
                 <div className="flex flex-row lg:flex-col">
@@ -57,7 +57,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
                   </div>
                 </div>
               </div>
-              <div className="w-full sm:w-1/2 sm:pl-3 ml-2 2xl:ml-0 sm:flex mt-4 sm:mt-0 pr-2 sm:pr-0">
+              <div className="w-full sm:w-1/2 md:pl-3 md:ml-2 2xl:ml-0 sm:flex mt-4 sm:mt-0 pr-0 2xl:pr-2 sm:pr-0">
                 <Chart chartData={chartArray} color={item.color} />
               </div>
             </div>
