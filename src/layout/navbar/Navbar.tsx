@@ -1,9 +1,10 @@
-import NextLink from "next/link";
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 
-import { EnglishIcon } from "../../assets/icons/EnglishIcon";
 import { LoginModal } from "../../components/auth/LoginModal";
 import { useLoginStore } from "../../store/loginStore";
 import { Logo } from "../sideMenu/Logo";
@@ -21,13 +22,17 @@ import { ArrowUpIcon } from "../../assets/icons/ArrowUpIcon";
 import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { useDropdown } from "../../hooks/useDropdown";
 import { Dropdown } from "../../components/common/Dropdown";
+import { Link } from "../../i18n/navigation";
+import { LanguageIcon } from "../../assets/icons/LanguageIcon";
 
 export const Navbar = () => {
   const { user, setUser, loading, initializeUser } = useLoginStore();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [currentLanguage, setCurrentLanguage] = useState("en");
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
+  const t = useTranslations("navbar");
 
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
@@ -55,6 +60,7 @@ export const Navbar = () => {
   ];
 
   const { data: session } = useSession();
+
   useEffect(() => {
     initializeUser();
   }, []);
@@ -76,11 +82,12 @@ export const Navbar = () => {
   const userIconBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const handleSignOut = async () => {
-    await signOut();
+    // await signOut();
 
     localStorage.removeItem("user");
     setUser(null);
   };
+
   const closeLoginModal = () => setIsLoginModalOpen(false);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
 
@@ -100,6 +107,19 @@ export const Navbar = () => {
 
   const themeDropdown = useDropdown();
   const userDropdown = useDropdown();
+  const languageDropdown = useDropdown();
+
+  useEffect(() => {
+    const getCurrentLanguage = () => {
+      if (typeof window !== "undefined") {
+        const pathname = window.location.pathname;
+        return pathname.startsWith("/pl") ? "pl" : "en";
+      }
+      return "en";
+    };
+
+    setCurrentLanguage(getCurrentLanguage());
+  }, []);
 
   const selectTheme = (themeName: string) => {
     setTheme(themeName);
@@ -131,7 +151,7 @@ export const Navbar = () => {
       {theme === "prismatic" && (
         <div className="backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-1] border-b border-solid border-mainBorder dark:border-mainBorderDark"></div>
       )}
-      <NextLink
+      <Link
         href="/"
         className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${
           !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
@@ -139,7 +159,7 @@ export const Navbar = () => {
         `}
       >
         <Logo />
-      </NextLink>
+      </Link>
       <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
         <div className="relative" ref={themeDropdown.ref}>
           <div
@@ -185,13 +205,48 @@ export const Navbar = () => {
           )}
         </div>
         <div className="hidden xl:flex">
-          <EnglishIcon />
+          <div className="relative" ref={languageDropdown.ref}>
+            <button
+              onClick={() => languageDropdown.toggle()}
+              className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
+            >
+              <LanguageIcon />
+            </button>
+            {languageDropdown.isOpen && (
+              <Dropdown className="flex flex-col right-0 top-11 w-36">
+                <Link
+                  href="/"
+                  locale="en"
+                  className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+                >
+                  {t("english")}
+                  {currentLanguage === "en" && (
+                    <div className="text-secondaryText dark:text-secondaryTextDark">
+                      <CheckIcon />
+                    </div>
+                  )}
+                </Link>
+                <Link
+                  href="/"
+                  locale="pl"
+                  className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+                >
+                  {t("polish")}
+                  {currentLanguage === "pl" && (
+                    <div className="text-secondaryText dark:text-secondaryTextDark">
+                      <CheckIcon />
+                    </div>
+                  )}
+                </Link>
+              </Dropdown>
+            )}
+          </div>
         </div>
         {loading ? (
           <SpinnerIcon />
         ) : (
           <div ref={userDropdown.ref} className="-mr-2 xl:-mr-unset">
-            {user || session?.user?.name ? (
+            {user ? (
               <OutlinedButton
                 ref={userIconBtnRef}
                 handleClick={() => {
@@ -206,7 +261,7 @@ export const Navbar = () => {
                 onClick={handleLoginButton}
                 className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
               >
-                Sign In
+                {t("signIn")}
               </button>
             )}
             {userDropdown.isOpen && (
@@ -221,7 +276,7 @@ export const Navbar = () => {
                   <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <MailIcon />
                   </div>
-                  {user?.email || session?.user?.email || "Email"}
+                  {user?.email || "Email"}
                 </div>
                 <div
                   className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
@@ -233,7 +288,7 @@ export const Navbar = () => {
                   <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                     <LogoutIcon />
                   </div>
-                  <button>Sign Out</button>
+                  <button>{t("signOut")}</button>
                 </div>
               </div>
             )}

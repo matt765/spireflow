@@ -1,7 +1,10 @@
 "use client";
 
 import { Card, BarChart, Title, Text } from "@tremor/react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface MonthPerformance {
   month: string;
@@ -14,6 +17,10 @@ interface PerformanceProps {
 }
 
 export const Performance = ({ performanceData }: PerformanceProps) => {
+  const t = useTranslations("analytics.performance");
+  const backendTranslations = useBackendTranslations("analytics.performance");
+  const translatedData = useTranslateData(performanceData, backendTranslations);
+
   const valueFormatter = (number: number) =>
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
   const { theme } = useTheme();
@@ -30,13 +37,13 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
 
   return (
     <Card>
-      <Title>Performance</Title>
-      <Text>Comparison between Sales and Profit</Text>
+      <Title>{t("title")}</Title>
+      <Text>{t("subtitle")}</Text>
       <BarChart
         className="mt-4 h-80"
-        data={performanceData}
+        data={translatedData}
         index="month"
-        categories={["sales", "profit"]}
+        categories={[t("sales"), t("profit")]}
         colors={selectedColors}
         stack={false}
         valueFormatter={valueFormatter}

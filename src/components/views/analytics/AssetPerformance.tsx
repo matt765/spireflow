@@ -17,6 +17,7 @@ import {
   Grid,
   Color,
 } from "@tremor/react";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 interface Asset {
@@ -34,6 +35,7 @@ interface AssetPerformanceProps {
 export const AssetPerformance = ({
   assetPerformanceData,
 }: AssetPerformanceProps) => {
+  const t = useTranslations("analytics.assetPerformance");
   const [selectedindustry, setSelectedindustry] = useState("all");
   const [filteredData, setFilteredData] = useState(assetPerformanceData);
 
@@ -54,7 +56,7 @@ export const AssetPerformance = ({
     <Card className=" h-full">
       <div>
         <Flex className="space-x-4" justifyContent="start" alignItems="center">
-          <Title>Asset Performance</Title>
+          <Title>{t("title")}</Title>
         </Flex>
       </div>
       <Grid numItemsLg={3} className="mt-8 gap-x-10 gap-y-10">
@@ -68,12 +70,9 @@ export const AssetPerformance = ({
           />
         </Flex>
         <Col numColSpan={1} numColSpanLg={2}>
-          <Flex className="block sm:hidden lg:block">
-            <Text className="pb-1">
-              <Bold>Asset</Bold>
-            </Text>
+          <Flex className="block sm:hidden lg:block">          
             <Text>
-              <Bold>+/-% since transaction </Bold>
+              <Bold>+/-% {t("sinceTransaction")} </Bold>
             </Text>
           </Flex>
           <div className="sm:max-h-32 lg:max-h-full overflow-auto pr-2 ">

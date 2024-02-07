@@ -9,6 +9,9 @@ import {
   BadgeDelta,
   AreaChart,
 } from "@tremor/react";
+import { useTranslations } from "next-intl";
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface ProductProfit {
   title: string;
@@ -30,13 +33,17 @@ export const TotalProfit = ({
   totalProfitProducts,
   totalProfitSales,
 }: TotalProfitProps) => {
-  const valueFormatter = (number: number) =>
+  const t = useTranslations("analytics.totalProfit");
+  const backendTranslations = useBackendTranslations("analytics.totalProfit");
+  const translatedData = useTranslateData(totalProfitSales, backendTranslations);
+
+  const valueFormatter = (number: number) =>  
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
   return (
     <Card className="w-full mx-auto  recharts-tooltip-stable">
       <Flex alignItems="start">
-        <Text>Total Profit</Text>
+        <Text>{t("title")}</Text>
         <BadgeDelta deltaType="moderateIncrease">23.1%</BadgeDelta>
       </Flex>
       <Flex
@@ -45,13 +52,13 @@ export const TotalProfit = ({
         className="space-x-3 truncate"
       >
         <Metric>$ 442,276</Metric>
-        <Text>this year</Text>
+        <Text>{t("thisYear")}</Text>
       </Flex>
       <AreaChart
         className="mt-10 h-48"
-        data={totalProfitSales}
+        data={translatedData}
         index="month"
-        categories={["sales"]}
+        categories={[t("sales")]}
         colors={["blue"]}
         showYAxis={false}
         showLegend={false}

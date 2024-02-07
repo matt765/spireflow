@@ -2,9 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { ProgressCircle } from "@tremor/react";
+import { useTranslations } from "next-intl";
+
 import { OutlinedButton } from "../../common/OutlinedButton";
 import useModal from "../../../hooks/useModal";
 import { CloseIcon } from "../../../assets/icons/CloseIcon";
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
+import { useTranslateData } from "../../../hooks/useTranslateData";
+import { Input } from "../../forms/Input";
+import { CopyIcon } from "../../../assets/icons/CopyIcon";
 
 type Parameter = {
   title: string;
@@ -31,11 +38,11 @@ export interface ProductParameterProps {
 
 const ProductParameter = ({ title, value }: ProductParameterProps) => {
   return (
-    <div className="flex flex-col border-b border-mainBorder dark:border-mainBorderDark pb-0 gap-2 h-[5rem] md:h-[4.5rem] ">
+    <div className="flex flex-col pb-0 gap-2 h-[5rem] md:h-[4.5rem] ">
       <span className="text-sm lg:text-[12px] 2xl:text-sm text-secondaryText dark:text-secondaryTextDark">
         {title}
       </span>
-      <span className="text-sm lg:text-[12px] 2xl:text-base overflow-auto">
+      <span className="text-sm lg:text-[12px] 2xl:text-base overflow-hidden">
         {value}
       </span>
     </div>
@@ -54,6 +61,9 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
     []
   );
   const { isOpen, toggle, ref } = useModal();
+  const t = useTranslations("products");
+  const backendTranslations = useBackendTranslations("products");
+  const translatedData = useTranslateData(products, backendTranslations);
 
   // Function to group products into categories
   const categorizeProducts = (products: Product[]): ProductCategory[] => {
@@ -71,8 +81,8 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   // Set the first product as default and categorize products on load
   useEffect(() => {
     if (products.length > 0) {
-      setActiveProduct(products[0]);
-      setProductCategories(categorizeProducts(products));
+      setActiveProduct(translatedData[0]);
+      setProductCategories(categorizeProducts(translatedData));
     }
   }, [products]);
 
@@ -115,11 +125,11 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   };
 
   return (
-    <>
+    <div className="flex flex-row px-0 w-full pr-4">
       {/* Left panel: Product details */}
-      <div className="flex-1 2xl:p-4 2xl:pt-2">
-        <div className="flex flex-col space-y-8">
-          <div className="flex gap-6 md:gap-8 items-center justify-start mb-8 ">
+      <div className="w-3/4 2xl:p-4 2xl:pt-2">
+        <div className="flex flex-col">
+          <div className="flex gap-6 md:gap-8 items-center justify-start mb-16 ">
             <div className="min-w-[9rem] min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-6 rounded-xl  flex justify-center items-center border border-mainBorder dark:border-mainBorderDark ">
               <div className="relative w-full h-full">
                 {activeProduct.image && (
@@ -133,7 +143,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               </h2>
               <div className="flex gap-1">
                 <p className=" text-sm md:text-base text-secondaryText dark:text-secondaryTextDark">
-                  Type:
+                  {t("header.type")}:
                 </p>
                 <p className=" text-sm md:text-base text-primaryText dark:text-primaryTextDark">
                   {activeProduct.type}
@@ -142,7 +152,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               <div className="flex text-sm md:text-base 2xl:text-xl gap-2 xsm:gap-4 md:gap-8 mt-2 xsm:mt-3 2xl:mt-4 flex-col xsm:flex-row">
                 <div className="flex gap-2">
                   <p className="text-secondaryText dark:text-secondaryTextDark">
-                    Price:
+                    {t("header.price")}:
                   </p>
                   <p className="text-primaryText dark:text-primaryTextDark">
                     ${activeProduct.price.toFixed(2)}
@@ -150,7 +160,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 </div>
                 <div className="flex gap-1">
                   <p className="text-secondaryText dark:text-secondaryTextDark">
-                    Markup:
+                    {t("header.markup")}:
                   </p>
                   <p className="text-primaryText dark:text-primaryTextDark">
                     12%
@@ -161,7 +171,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 </div>
                 <div className="hidden md:flex gap-2">
                   <p className="text-secondaryText dark:text-secondaryTextDark">
-                    Profit:
+                    {t("header.profit")}:
                   </p>
                   <p className="text-primaryText dark:text-primaryTextDark">
                     ${profit.toFixed(2)}
@@ -174,11 +184,103 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
             {activeProduct.parameters.map((param, index) => (
               <div
                 key={index}
-                className="text-primaryText dark:text-primaryTextDark"
+                className={`text-primaryText dark:text-primaryTextDark ${
+                  index <= 8 &&
+                  "border-b border-mainBorder dark:border-mainBorderDark"
+                }`}
               >
                 <ProductParameter title={param.title} value={param.value} />
               </div>
             ))}
+          </div>
+        </div>
+        <div className="flex justify-center items-center mt-16 w-full gap-10 pl-0 pr-0">
+          <div className="w-1/2 px-8  mx-auto flex justify-center items-center border border-mainBorder dark:border-mainBorderDark  py-12 rounded-md">
+            <div className="flex gap-8 items-center">
+              <ProgressCircle value={72} size="xl" color="slate">
+                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
+                  72%
+                </span>
+              </ProgressCircle>
+              <div className="flex flex-col">
+                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
+                  $340 / $450
+                </div>
+                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
+                  Spend management
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 px-8  mx-auto flex justify-center items-center  border border-mainBorder dark:border-mainBorderDark py-12 rounded-md">
+            <div className="flex gap-8 items-center">
+              <ProgressCircle value={42} size="xl" color="slate">
+                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
+                  42%
+                </span>
+              </ProgressCircle>
+              <div className="flex flex-col">
+                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
+                  $340 / $450
+                </div>
+                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
+                  Spend management
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center items-center mt-10 w-full gap-10 pl-0 pr-0">
+          <div className="w-1/2 px-8  mx-auto  border flex justify-center items-center border-mainBorder dark:border-mainBorderDark  py-12 rounded-md">
+            <div className="flex gap-8 items-center">
+              <ProgressCircle value={36} size="xl" color="slate">
+                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
+                  36%
+                </span>
+              </ProgressCircle>
+              <div className="flex flex-col">
+                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
+                  $340 / $450
+                </div>
+                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
+                  Spend management
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 px-8  mx-auto  border flex justify-center items-center border-mainBorder dark:border-mainBorderDark  py-12 rounded-md">
+            <div className="flex gap-8 items-center">
+              <ProgressCircle value={82} size="xl" color="slate">
+                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
+                  82%
+                </span>
+              </ProgressCircle>
+              <div className="flex flex-col">
+                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
+                  $340 / $450
+                </div>
+                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
+                  Spend management
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-between items-center w-full mt-8 xsm:mt-14">
+          <div className="flex justify-center items-center w-[16rem] relative">
+            <div className="w-10 text-xl text-secondaryText dark:text-secondaryTextDark">
+              ID:
+            </div>
+            <Input value="NCUB439034G2J" type="text"></Input>
+            <button className="absolute right-2 text-gray-400 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300">
+              <CopyIcon />
+            </button>
+          </div>
+          <div className="flex  w-48 h-12  items-center justify-center">
+            <OutlinedButton
+              text="Export as PDF"
+              handleClick={handleShowAllProductsClick}
+            />
           </div>
         </div>
         <div className="flex lg:hidden w-48 h-12 mx-auto mt-8 xsm:mt-14 items-center justify-center">
@@ -189,7 +291,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
         </div>
       </div>
       {/* Right Panel: List of products */}
-      <div className="hidden lg:flex flex-col w-1/4 p-4 border border-mainBorder dark:border-mainBorderDark ml-8 mt-4 rounded-md min-w-[17.5rem]">
+      <div className="h-fit hidden lg:flex flex-col w-1/4 p-4 border border-mainBorder dark:border-mainBorderDark ml-8 mt-4 pt-1 rounded-md ">
         <div className="flex flex-col space-y-2">{renderedCategories}</div>
       </div>
       {/* Modal for mobile resolution: List of products */}
@@ -207,6 +309,6 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
           {renderedCategories}
         </div>
       )}
-    </>
+    </div>
   );
 };

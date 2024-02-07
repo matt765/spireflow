@@ -3,6 +3,8 @@
 import { Card, BarChart } from "@tremor/react";
 
 import { BlockTitle } from "../../common/BlockTitle";
+import { useTranslations } from "next-intl";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface BestSellingProduct {
   name: string;
@@ -21,27 +23,31 @@ interface TransformedBestSellingProduct {
 export const BestSellingProducts = ({
   bestSellingProductsData,
 }: BestSellingProductsProps) => {
+  const t = useTranslations("homepage.bestSellingProducts");
+
+  const translations = {
+    "Profit from last week": t("profitFromLastWeek"),
+  };
+
+  const translatedData = useTranslateData(
+    bestSellingProductsData,
+    translations
+  );
+
   const dataFormatter = (number: number) => {
     return "$ " + Intl.NumberFormat("us").format(number).toString();
   };
 
-  const transformDataKeys = (
-    data: BestSellingProduct[]
-  ): TransformedBestSellingProduct[] => {
-    return data.map((item) => ({
-      name: item.name,
-      "Profit from last week": item.profit,
-    }));
-  };
-
-  const transformedData = transformDataKeys(bestSellingProductsData);
   return (
     <Card className="h-full">
-      <BlockTitle title="Best selling products" />
+      <BlockTitle title={t("title")} />
       <BarChart
-        data={transformedData}
+        data={translatedData.map((product) => ({
+          ...product,
+          [t("profitFromLastWeek")]: product.profit,
+        }))}
         index="name"
-        categories={["Profit from last week"]}
+        categories={[t("profitFromLastWeek")]}
         colors={["blue"]}
         valueFormatter={dataFormatter}
         className="mt-6"

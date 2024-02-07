@@ -12,13 +12,13 @@ const currentMonth = new Date().getMonth();
 
 export const mockDatesForEvents = [
   {
-    start: new Date(currentYear, currentMonth, 3).toISOString(),
+    start: new Date(currentYear, currentMonth, 3, 10).toISOString(),
   },
   {
     start: new Date(currentYear, currentMonth, 3, 15, 0).toISOString(),
   },
   {
-    start: new Date(currentYear, currentMonth, 6).toISOString(),
+    start: new Date(currentYear, currentMonth, 6, 12).toISOString(),
   },
 
   {
@@ -47,12 +47,12 @@ export const mockDatesForEvents = [
     start: new Date(currentYear, currentMonth, 30, 10, 0).toISOString(),
   },
   {
-    start: new Date(currentYear, currentMonth, 9).toISOString(),
-    end: new Date(currentYear, currentMonth, 12).toISOString(),
+    start: new Date(currentYear, currentMonth, 9, 14).toISOString(),
+    end: new Date(currentYear, currentMonth, 12, 14).toISOString(),
   },
   {
-    start: new Date(currentYear, currentMonth, 21).toISOString(),
-    end: new Date(currentYear, currentMonth, 24).toISOString(),
+    start: new Date(currentYear, currentMonth, 21, 12).toISOString(),
+    end: new Date(currentYear, currentMonth, 24, 10).toISOString(),
   },
 ];
 

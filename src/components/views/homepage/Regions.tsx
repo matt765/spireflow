@@ -10,8 +10,10 @@ import {
   ListItem,
 } from "@tremor/react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface Region {
   name: string;
@@ -28,6 +30,7 @@ interface RegionsProps {
 export const Regions = ({ regionsData }: RegionsProps) => {
   const [selectedRegion, setSelectedRegion] = useState("asia");
   const [filteredData, setFilteredData] = useState(regionsData);
+  const t = useTranslations("homepage.regions");
 
   const valueFormatter = (number: number) =>
     `${Intl.NumberFormat("us").format(number).toString()} $`;
@@ -40,24 +43,31 @@ export const Regions = ({ regionsData }: RegionsProps) => {
     setFilteredData(filterByRegion(selectedRegion, data));
   }, [selectedRegion]);
 
+  const translations = {
+    "North America": t("northAmerica"),
+    Europe: t("europe"),
+  };
+
+  const translatedData = useTranslateData(regionsData, translations);
+
   return (
     <Card>
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
-        <BlockTitle title="Regions" />
+        <BlockTitle title={t("title")} />
       </Flex>
       <Legend
-        categories={regionsData.map((city) => city.name)}
+        categories={translatedData.map((city) => city.name)}
         className="mt-6"
       />
       <DonutChart
-        data={regionsData}
+        data={translatedData}
         category="sales"
         index="name"
         valueFormatter={valueFormatter}
         className="mt-6"
       />
       <List className="mt-6">
-        {regionsData.map((city) => (
+        {translatedData.map((city) => (
           <ListItem key={city.name}>
             {city.name}
             <BadgeDelta deltaType={city.deltaType} size="xs">

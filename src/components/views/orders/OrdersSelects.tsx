@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react";
+import { useTranslations } from "next-intl";
 
 import { OrdersSelectsProps } from "./types";
 import { Select } from "../../forms/Select";
@@ -9,20 +10,37 @@ export const OrderSelects = ({
   setFilter,
   ordersData,
 }: OrdersSelectsProps) => {
+  const t = useTranslations("orders");
+
+  const deliveryTypeOptions = [
+    t("deliveryType.standardShipping"),
+    t("deliveryType.twoDayShipping"),
+    t("deliveryType.freeShipping"),
+    t("deliveryType.expressShipping"),
+  ];
+
+  const statusOptions = [
+    t("status.delivered"),
+    t("status.inTransit"),
+    t("status.shipped"),
+  ];
 
   const selectsConfig = [
     {
       value: filters.productName,
       setFilterKey: "productName",
-      placeholder: "All Products",
-      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).productName))),
-
+      placeholder: t("selectPlaceholder.allProducts"),
+      options: Array.from(
+        new Set(ordersData.map((item) => (item as OrderType).productName))
+      ),
     },
     {
       value: filters.user,
       setFilterKey: "user",
-      placeholder: "All Users",   
-      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).user))),
+      placeholder: t("selectPlaceholder.allUsers"),
+      options: Array.from(
+        new Set(ordersData.map((item) => (item as OrderType).user))
+      ),
     },
     {
       value:
@@ -30,7 +48,7 @@ export const OrderSelects = ({
           ? ""
           : `${filters.priceRange.min}-${filters.priceRange.max}`,
       setFilterKey: "priceRange",
-      placeholder: "Any Price",
+      placeholder: t("selectPlaceholder.anyPrice"),
       options: ["0-100", "100-500", "500-1000", "1000-5000"],
       specialHandler: (e: ChangeEvent<HTMLSelectElement>) => {
         const [min, max] = e.target.value.split("-").map(Number);
@@ -40,14 +58,14 @@ export const OrderSelects = ({
     {
       value: filters.deliveryType,
       setFilterKey: "deliveryType",
-      placeholder: "Any Delivery Type",   
-      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).deliveryType))),
+      placeholder: t("selectPlaceholder.anyDeliveryType"),
+      options: deliveryTypeOptions,
     },
     {
       value: filters.status,
       setFilterKey: "status",
-      placeholder: "Any Status",
-      options: Array.from(new Set(ordersData.map((item) => (item as OrderType).status))),     
+      placeholder: t("selectPlaceholder.anyStatus"),
+      options: statusOptions,
     },
   ];
 
@@ -72,7 +90,7 @@ export const OrderSelects = ({
                 }
               }}
               placeholder={placeholder}
-            >           
+            >
               {options.map((option) => (
                 <option key={option} value={option}>
                   {option}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CenteredPageWrapper } from "../components/common/CenteredPageWrapper";
+import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
 
 const NotFound = () => {
   return (

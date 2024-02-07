@@ -1,20 +1,27 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { OrderType, useOrders } from "./useOrders";
 import { OrdersDateRange } from "./OrdersDateRange";
 import { OrderSelects } from "./OrdersSelects";
 import { OrdersTable } from "./OrdersTable";
 import { OrdersPagination } from "./OrdersPagination";
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
-import { useState } from "react";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Input } from "../../forms/Input";
+import { useTranslateData } from "../../../hooks/useTranslateData";
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 
 interface OrdersViewProps {
   ordersData: OrderType[];
 }
 
 export const OrdersView = ({ ordersData }: OrdersViewProps) => {
+  const t = useTranslations("orders");
+  const backendTranslations = useBackendTranslations("orders");
+  const translatedData = useTranslateData(ordersData, backendTranslations);
+
   const {
     table,
     searchQuery,
@@ -31,7 +38,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
     itemsPerPage,
     setCurrentPage,
     resetFilters,
-  } = useOrders({ orders: ordersData });
+  } = useOrders({ orders: translatedData });
 
   return (
     <div className="flex flex-col w-full h-full">
@@ -44,7 +51,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
               setSearchQuery(e.target.value);
               setCurrentPage(0);
             }}
-            placeholder="Search orders..."
+            placeholder={t("searchField.searchOrders")}
             icon={<SearchIcon />}
           />
         </div>
@@ -71,7 +78,10 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
       </div>
       <div className="flex justify-between flex-wrap pb-4">
         <div className="w-36 mt-8 sm:mb-0">
-          <OutlinedButton handleClick={resetFilters} text="Clear Filters" />
+          <OutlinedButton
+            handleClick={resetFilters}
+            text={t("button.clearFilters")}
+          />
         </div>
         <OrdersPagination
           itemsPerPage={itemsPerPage}

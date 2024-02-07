@@ -1,6 +1,6 @@
 "use client";
 
-import { CenteredPageWrapper } from "../components/common/CenteredPageWrapper";
+import { CenteredPageWrapper } from "../../components/common/CenteredPageWrapper";
 
 const Error = ({
   error,

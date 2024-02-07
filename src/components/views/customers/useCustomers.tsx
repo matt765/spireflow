@@ -8,43 +8,9 @@ import {
 
 import { useTable } from "../../../hooks/useTable";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const columnHelper = createColumnHelper<CustomerColumns>();
-
-const customerColumns = [
-  columnHelper.accessor("col0", {
-    header: () => "Photo",
-    enableSorting: false,
-    cell: ({ row }: { row: { original: CustomerColumns } }) => (
-      <Image
-        src={row.original.col0}
-        alt="User Profile"
-        width={50}
-        height={50}
-      />
-    ),
-  }),
-  columnHelper.accessor("col1", {
-    header: () => "First Name",
-  }),
-  columnHelper.accessor("col2", {
-    header: () => "Last Name",
-  }),
-  columnHelper.accessor("col3", {
-    header: () => "City",
-  }),
-  columnHelper.accessor("col4", {
-    header: () => "Country",
-  }),
-  columnHelper.accessor("col5", {
-    header: () => "Phone",
-  }),
-  columnHelper.accessor("col6", {
-    header: () => "Total Buys",
-    cell: ({ row }: { row: { original: CustomerColumns } }) =>
-      row.original.col6.toString(),
-  }),
-];
 
 export type CustomerFilters = {
   country?: string;
@@ -86,6 +52,42 @@ export const useCustomers = (customers: Customer[]) => {
     setFilter,
   } = useTable<CustomerFilters>({});
   const [customersData, setCustomersData] = useState<Customer[]>();
+  const t = useTranslations("customers");
+
+  const customerColumns = [
+    columnHelper.accessor("col0", {
+      header: () => t("tableHeader.photo"),
+      enableSorting: false,
+      cell: ({ row }: { row: { original: CustomerColumns } }) => (
+        <Image
+          src={row.original.col0}
+          alt="User Profile"
+          width={50}
+          height={50}
+        />
+      ),
+    }),
+    columnHelper.accessor("col1", {
+      header: () => t("tableHeader.firstName"),
+    }),
+    columnHelper.accessor("col2", {
+      header: () => t("tableHeader.lastName"),
+    }),
+    columnHelper.accessor("col3", {
+      header: () => t("tableHeader.city"),
+    }),
+    columnHelper.accessor("col4", {
+      header: () => t("tableHeader.country"),
+    }),
+    columnHelper.accessor("col5", {
+      header: () => t("tableHeader.phone"),
+    }),
+    columnHelper.accessor("col6", {
+      header: () => t("tableHeader.totalBuys"),
+      cell: ({ row }: { row: { original: CustomerColumns } }) =>
+        `$${row.original.col6.toString()}`,
+    }),
+  ];
 
   useEffect(() => {
     if (customers) {
@@ -175,6 +177,15 @@ export const useCustomers = (customers: Customer[]) => {
     onSortingChange: setSorting,
   });
 
+  const sortOptions = [
+    { value: "col1", label: t("tableHeader.firstName") },
+    { value: "col2", label: t("tableHeader.lastName") },
+    { value: "col3", label: t("tableHeader.city") },
+    { value: "col4", label: t("tableHeader.country") },
+    { value: "col5", label: t("tableHeader.phone") },
+    { value: "col6", label: t("tableHeader.totalBuys") },
+  ];
+
   return {
     table,
     searchQuery,
@@ -194,5 +205,6 @@ export const useCustomers = (customers: Customer[]) => {
     filters,
     customersData,
     clearFilters,
+    sortOptions,
   };
 };

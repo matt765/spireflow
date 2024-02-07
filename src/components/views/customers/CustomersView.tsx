@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Chip } from "../../forms/Chip";
@@ -9,21 +10,18 @@ import { CustomersPagination } from "./CustomersPagination";
 import { CustomersSortDropdown } from "./CustomersSortDropdown";
 import { CustomersTable } from "./CustomersTable";
 import { useCustomers, Customer } from "./useCustomers";
-
-const sortOptions = [
-  { value: "col1", label: "First Name" },
-  { value: "col2", label: "Last Name" },
-  { value: "col3", label: "City" },
-  { value: "col4", label: "Country" },
-  { value: "col5", label: "Phone" },
-  { value: "col6", label: "Total Buys" },
-];
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface CustomersViewProps {
   customers: Customer[];
 }
 
 export const CustomersView = ({ customers }: CustomersViewProps) => {
+  const t = useTranslations("customers");
+  const backendTranslations = useBackendTranslations("customers");
+  const translatedData = useTranslateData(customers, backendTranslations);
+
   const {
     table,
     searchQuery,
@@ -41,8 +39,9 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
     sorting,
     filters,
     customersData,
-    clearFilters, 
-  } = useCustomers(customers);
+    clearFilters,
+    sortOptions,
+  } = useCustomers(translatedData);
 
   const countryOptions = Array.from(
     new Set(customersData?.map((customer) => customer.country))
@@ -56,7 +55,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search customers..."
+            placeholder={t("searchField.searchCustomers")}
             icon={<SearchIcon />}
           />
         </div>
@@ -83,16 +82,16 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
       >
         {filters.country && (
           <Chip
-            label={`Country: ${filters.country}`}
+            label={`${t("chip.country")}: ${filters.country}`}
             onDelete={() => clearFilter("country")}
           />
         )}
         {sorting[0] && (
           <Chip
-            label={`Sorted by ${
+            label={`${t("chip.sortedBy")}: ${
               sortOptions.find((option) => option.value === sorting[0].id)
                 ?.label || sorting[0].id
-            } ${sorting[0].desc ? "Descending" : "Ascending"}`}
+            } ${sorting[0].desc ? t("button.descending") : t("button.ascending")}`}
             onDelete={() => setSorting([])}
           />
         )}
@@ -102,7 +101,10 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap pb-4">
         <div className="w-36 mt-8 mb-0 self-start sm:self-unset">
-          <OutlinedButton handleClick={clearFilters} text="Clear Filters" />
+          <OutlinedButton
+            handleClick={clearFilters}
+            text={t("button.clearFilters")}
+          />
         </div>
         <CustomersPagination
           itemsPerPage={itemsPerPage}

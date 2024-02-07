@@ -41,11 +41,17 @@ export const SignUpModal = ({
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-6 text-xl text-primaryText dark:text-primaryTextDark stroke-secondaryText dark:stroke-secondaryTextDark fill-secondaryText dark:fill-secondaryTextDark"
+            className="absolute top-4 right-6 text-xl
+            fill-secondaryText
+            dark:stroke-secondaryTextDark       
+            dark:fill-secondaryTextDark
+            hover:dark:stroke-secondaryTextHoverDark
+            hover:dark:fill-secondaryTextHoverDark
+            hover:fill-secondaryTextHover          
+            hover:stroke-secondaryTextHover"
           >
             <CloseIcon />
-          </button>
-          <h1 className="text-4xl font-bold mb-10 mt-0 text-primaryText dark:text-primaryTextDark">Sign Up</h1>
+          </button>         
           <SignUpForm
             handleSignUp={handleSignUp}
             switchToSignIn={switchToSignIn}

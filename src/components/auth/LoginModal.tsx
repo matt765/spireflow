@@ -36,17 +36,21 @@ export const LoginModal = ({ closeModal, switchToSignUp }: LoginModalProps) => {
       <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 ">
         <div
           ref={modalRef}
-          className="w-screen h-screen sm:w-[31rem] sm:h-auto bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-16  pt-24 sm:pt-14 pb-12 flex flex-col items-center justify-start sm:rounded-2xl relative"
+          className=" w-screen h-screen sm:w-[31rem] sm:h-auto bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-16  pt-24 sm:pt-[4rem] pb-20 flex flex-col items-center justify-start sm:rounded-2xl relative"
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-6 text-xl stroke-secondaryText dark:stroke-secondaryTextDark fill-secondaryText dark:fill-secondaryTextDark"
+            className="absolute top-4 right-6 text-xl
+            fill-secondaryText
+            dark:stroke-secondaryTextDark       
+            dark:fill-secondaryTextDark
+            hover:dark:stroke-secondaryTextHoverDark
+            hover:dark:fill-secondaryTextHoverDark
+            hover:fill-secondaryTextHover          
+            hover:stroke-secondaryTextHover"
           >
             <CloseIcon />
-          </button>
-          <h1 className={`text-4xl font-bold mb-8 text-primaryText dark:text-primaryTextDark`}>
-            Sign In
-          </h1>
+          </button>          
           <LoginForm
             handleLogin={async (data) => handleLogin(data)}
             authError={authError}

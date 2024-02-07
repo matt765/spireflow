@@ -1,14 +1,13 @@
 import { Grid, Col } from "@tremor/react";
 
-import { PageWrapper } from "../components/common/PageWrapper";
-import { HomeSmallCards } from "../components/views/homepage/HomeSmallCards";
-import { CustomerSatisfaction } from "../components/views/homepage/CustomerSatisfaction";
-import { Regions } from "../components/views/homepage/Regions";
-import { BestSellingProducts } from "../components/views/homepage/BestSellingProducts";
-import { RevenueOverTime } from "../components/views/homepage/RevenueOverTime";
-import { TradersTable } from "../components/views/homepage/TradersTable";
-import { getData } from "../services/getData";
-import { Metadata } from "next";
+import { PageWrapper } from "../../components/common/PageWrapper";
+import { HomeSmallCards } from "../../components/views/homepage/HomeSmallCards";
+import { CustomerSatisfaction } from "../../components/views/homepage/CustomerSatisfaction";
+import { Regions } from "../../components/views/homepage/Regions";
+import { BestSellingProducts } from "../../components/views/homepage/BestSellingProducts";
+import { RevenueOverTime } from "../../components/views/homepage/RevenueOverTime";
+import { TradersTable } from "../../components/views/homepage/TradersTable";
+import { getData } from "../../services/getData";
 
 const Home = async () => {
   const homepageData = await getData("homepage");
@@ -21,6 +20,7 @@ const Home = async () => {
           <HomeSmallCards homeSmallCardsData={homepageData.homeSmallCards} />
         )}
       </Grid>
+
       {/* Second row */}
       <Grid
         numItems={1}

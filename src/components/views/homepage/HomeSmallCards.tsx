@@ -1,6 +1,9 @@
 "use client";
 
 import { Card, DeltaType, BarChart, Color } from "@tremor/react";
+import { useTranslations } from "next-intl";
+
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface HomeSmallCardChartData {
   date: string;
@@ -25,13 +28,29 @@ interface HomeSmallCardsProps {
 }
 
 export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
+  const t = useTranslations("homepage.homeSmallCards");
+  const translations = {
+    Sales: t("sales"),
+    Profit: t("profit"),
+    Traffic: t("traffic"),
+    Customers: t("customers"),
+    "Last 3 weeks": t("Last 3 weeks"),
+    "Last month": t("Last month"),
+    Yesterday: t("Yesterday"),
+    "Last week": t("Last week"),
+  };
+
+  const translatedData = useTranslateData(homeSmallCardsData, translations);
 
   return (
     <>
-      {homeSmallCardsData.map((item, index) => {
-        const chartArray = item.chartData;  
+      {translatedData.map((item, index) => {
+        const chartArray = item.chartData;
         return (
-          <Card key={`${item.title}-${index}`} className="h-46 sm:h-28 lg:h-32  !pr-[0.7rem] 2xl:!pr-[1.3rem]">
+          <Card
+            key={`${item.title}-${index}`}
+            className="h-46 sm:h-28 lg:h-32  !pr-[0.7rem] 2xl:!pr-[1.3rem]"
+          >
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">
               <div className="flex flex-col  w-full sm:w-1/2 gap-1 pl-1 sm:pl-0">
                 <div className="flex flex-row lg:flex-col">

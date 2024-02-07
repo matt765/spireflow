@@ -1,0 +1,370 @@
+{
+  "homepage": {
+    "revenueOverTime": {
+      "title": "Revenue over time",
+      "websiteSales": "Website sales",
+      "inStoreSales": "In store sales",
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "homeSmallCards": {
+      "sales": "Sales",
+      "profit": "Profit",
+      "traffic": "Traffic",
+      "customers": "Customers",
+      "Last 3 weeks": "Last 3 weeks",
+      "Last month": "Last month",
+      "Yesterday": "Yesterday",
+      "Last week": "Last week"
+    },
+    "regions": {
+      "title": "Regions",
+      "northAmerica": "North America",
+      "europe": "Europe"
+    },
+    "bestSellingProducts": {
+      "title": "Best selling products",
+      "profitFromLastWeek": "Profit from last week"
+    },
+    "customerSatisfaction": {
+      "title": "Customer satisfaction",
+      "totalSales": "Total sales",
+      "customerSatisfaction": "Customer satisfaction",
+      "numberOfOrders": "Number of orders"
+    },
+    "tradersTable": {
+      "selectSalespeople": "Select salespeople",
+      "search": "Search",
+      "name": "Name",
+      "leads": "Leads",
+      "sales": "Sales",
+      "quota": "Quota",
+      "variance": "Variance",
+      "region": "Region",
+      "status": "Status",
+      "overperforming": "overperforming",
+      "underperforming": "underperforming",
+      "average": "average",
+      "northAmerica": "North America",
+      "europe": "Europe",
+      "low": "low",
+      "medium": "medium"
+    }
+  },
+  "orders": {
+    "selectPlaceholder": {
+      "allProducts": "All Products",
+      "allUsers": "All Users",
+      "anyPrice": "Any price",
+      "anyDeliveryType": "Any delivery type",
+      "anyStatus": "Any status"
+    },
+    "tableHeader": {
+      "productName": "Product name",
+      "user": "User",
+      "price": "Price",
+      "deliveryType": "Delivery type",
+      "date": "Date",
+      "status": "Status"
+    },
+    "deliveryType": {
+      "twoDayShipping": "Two-day shipping",
+      "standardShipping": "Standard shipping",
+      "freeShipping": "Free shipping",
+      "expressShipping": "Express shipping"
+    },
+    "status": {
+      "inTransit": "In Transit",
+      "delivered": "Delivered",
+      "shipped": "Shipped"
+    },
+    "button": {
+      "clearFilters": "Clear filters"
+    },
+    "searchField": {
+      "searchOrders": "Search orders..."
+    }
+  },
+  "customers": {
+    "tableHeader": {
+      "photo": "Photo",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "city": "City",
+      "country": "Country",
+      "phone": "Phone",
+      "totalBuys": "Total Buys"
+    },
+    "searchField": {
+      "searchCustomers": "Search customers..."
+    },
+    "button": {
+      "clearFilters": "Clear filters",
+      "clearFilter": "Clear filter",
+      "filterByCountry": "Filter by country",
+      "sortBy": "Sort By",
+      "ascending": "Ascending",
+      "descending": "Descending",
+      "clearSorting": "Clear sorting"
+    },
+    "country": {
+      "usa": "USA",
+      "australia": "Australia",
+      "france": "France",
+      "norway": "Norway",
+      "unitedKingdom": "United Kingdom"
+    },
+    "city": {
+      "newYork": "New York",
+      "munich": "Munich",
+      "cologne": "Cologne",
+      "london": "London"
+    },
+    "chip": {
+      "country": "Country",
+      "sortedBy": "Sorted by"
+    }
+  },
+  "products": {
+    "header": {
+      "type": "Type",
+      "price": "Price",
+      "markup": "Markup",
+      "profit": "Profit"
+    },
+    "parameterName": {
+      "screenSize": "Screen Size",
+      "processor": "Processor",
+      "memory": "Memory",
+      "storage": "Storage",
+      "batteryLife": "Battery Life",
+      "operatingSystem": "Operating System",
+      "cameraResolution": "Camera Resolution",
+      "portTypes": "Port Types",
+      "graphics": "Graphics",
+      "displayResolution": "Display Resolution",
+      "dimensionsAndWeight": "Dimensions and Weight",
+      "colorOptions": "Color Options"
+    },
+    "parameterContent": {
+      "inches": "inches",
+      "upTo": "Up to",
+      "hoursTalkTime": "hours talk time",
+      "lightningConnector": "Lightning connector",
+      "graphics": "graphics",
+      "pixels": "pixels",
+      "blue": "Blue",
+      "black": "Black",
+      "pink": "Pink",
+      "red": "Red",
+      "type": "Type",
+      "moonlight": "Moonlight",
+      "basedOn": "based on",
+      "tripleCamera": "Triple Camera",
+      "hoursVideoPlayback": "hours video playback",
+      "main": "main",
+      "rearFacing": "rear-facing",
+      "frontFacing": "front-facing",
+      "hourseOfMixedUsage": "hours of mixed usage"
+    },
+    "productList": {
+      "phone": "Phone",
+      "tablet": "Tablet",
+      "laptop": "Laptop"
+    }
+  },
+  "analytics": {
+    "assetPerformance": {
+      "title": "Asset performance",
+      "sinceTransaction": "since transaction"
+    },
+    "todaySales": {
+      "title": "Today's sales",
+      "todayVsAverage": "Today vs. Average",
+      "todayVsYesterday": "Today vs. Yesterday",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "average": "Average"
+    },
+    "totalProfit": {
+      "title": "Total profit",
+      "thisYear": "this year",
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec",
+      "sales": "Sales"
+    },
+    "revenuePerCountry": {
+      "title": "Revenue per country",
+      "country": "Country",
+      "sales": "Sales",
+      "unitedStates": "United States",
+      "france": "France",
+      "unitedKingdom": "United Kingdom",
+      "norway": "Norway",
+      "australia": "Australia",
+      "poland": "Poland"
+    },
+    "performance": {
+      "title": "Performance",
+      "subtitle": "Comparison between sales and profit",
+      "sales": "Sales",
+      "profit": "Profit",
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "yearOverview": {
+      "title": "Year overview",
+      "phones": "Phones",
+      "tablets": "Tablets",
+      "laptops": "Laptops",
+      "sales": "Sales",
+      "revenue": "Revenue",
+      "unitsSold": "Units sold",
+      "returns": "Returns"
+    }
+  },
+  "calendar": {
+    "marketStrategy": "Market strategy",
+    "teamSync": "Team Sync",
+    "productReview": "Product review",
+    "supplierMeeting": "Supplier Meeting",
+    "dailyInventoryCheck": "Daily Inventory Check",
+    "marketingStrategyReview": "Marketing Strategy Review",
+    "seoStrategyMeeting": "SEO Strategy Meeting",
+    "clientMeeting": "Client Meeting",
+    "salesPromotionPlanning": "Sales Promotion Planning",
+    "oneOnOneMeeting": "1-on-1 Meeting",
+    "salesReview": "Sales Review",
+    "productLaunchWebinar": "Product Launch Webinar",
+    "eCommercePlatformTraining": "E-commerce Platform Training"
+  },
+  "singleCharts": {
+    "area": {
+      "title": "Online store traffic",
+      "views": "Views",
+      "uniqueVisitors": "Unique visitors",
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "bars": {
+      "title": "Product sales over time (USD)",
+      "widgets": "Widgets",
+      "gadgets": "Gadgets",
+      "modules": "Modules",
+      "components": "Components",
+      "kits": "Kits",
+      "accessories": "Accessories"
+    },
+    "scatter": {
+      "title": "Life expectancy vs GDP per capita",
+      "subtitle": "As of 2015. Source: Our World in Data",
+      "country": "country",
+      "gdp": "GDP",
+      "lifeExpectancy": "Life expectancy",
+      "population": "Population",
+      "yrs": "yrs",
+      "countries": {
+        "Argentina": "Argentina",
+        "Australia": "Australia",
+        "Austria": "Austria",
+        "Brazil": "Brazil",
+        "Canada": "Canada",
+        "China": "China",
+        "Denmark": "Denmark",
+        "Egypt": "Egypt",
+        "Finland": "Finland",
+        "Germany": "Germany",
+        "India": "India",
+        "Japan": "Japan",
+        "Mexico": "Mexico",
+        "Netherlands": "Netherlands",
+        "Russia": "Russia",
+        "Poland": "Poland",
+        "Spain": "Spain",
+        "Greece": "Greece"
+      }
+    },
+    "line": {
+      "title": "Population of dragons in Westeros",
+      "houseTargaryen": "House Targaryen",
+      "houseVelaryon": "House Velaryon",
+      "aegonsConquest": "Aegon's Conquest",
+      "theLongReignOfJaehaerysI": "The long reign of Jaehaerys I",
+      "houseOfTheDragonSeries": "House of the Dragon series",
+      "theConquestOfDorne": "The conquest of Dorne",
+      "theBlackfyreRebellions": "The Blackfyre Rebellions",
+      "timeOfTheShowBooksStart": "Time of the show/books start"
+    }
+  },
+  "sideMenu": {
+    "main": "Main",
+    "dashboard": "Dashboard",
+    "eCommerce": "E-commerce",
+    "orders": "Orders",
+    "customers": "Customers",
+    "products": "Products",
+    "analytics": "Analytics",
+    "calendar": "Calendar",
+    "singleCharts": "Single Charts",
+    "area": "Area",
+    "bars": "Bars",
+    "scatter": "Scatter",
+    "line": "Line"
+  },
+  "navbar": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signUp": "Sign up",
+    "yourEmail": "Your e-mail",
+    "yourPassword": "Your password",
+    "noAccount": "Don't have an account yet?",
+    "registerHere": "Register here...",
+    "logIn": "Log in",
+    "sampleAccount": "Sample account",
+    "createAccount": "Create account",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInHere": "Sign in here...",
+    "english": "English",
+    "polish": "Polish"
+  }
+}

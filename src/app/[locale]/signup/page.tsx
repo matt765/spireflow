@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
-import { SignUpForm } from "../../components/auth/SignUpForm";
-import { useHandleSignUp } from "../../hooks/useHandleSignUp";
+import { SignUpForm } from "../../../components/auth/SignUpForm";
+import { useHandleSignUp } from "../../../hooks/useHandleSignUp";
 
 export default function SignUp() {
   // const { handleSignUp } = useHandleSignUp();

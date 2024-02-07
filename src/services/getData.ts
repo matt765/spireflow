@@ -29,7 +29,7 @@ export const getData = async (pageName: string) => {
 
   try {
     const { data } = await client.query({ query });
-
+   
     switch (pageName) {
       case "homepage":
         return data;

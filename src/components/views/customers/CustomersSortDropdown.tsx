@@ -4,6 +4,7 @@ import { SortIcon } from "../../../assets/icons/SortIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
+import { useTranslations } from "next-intl";
 
 interface SortDropdownProps {
   options: { value: string; label: string }[];
@@ -18,6 +19,7 @@ export const CustomersSortDropdown = ({
   currentSort,
   currentDirection,
 }: SortDropdownProps) => {
+  const t = useTranslations("customers");
   const [selectedSort, setSelectedSort] = useState<string | null>(currentSort);
   const [sortDirection, setSortDirection] = useState<boolean>(currentDirection); // false for Ascending, true for Descending
   const { isOpen, toggle, close, ref } = useDropdown();
@@ -42,15 +44,15 @@ export const CustomersSortDropdown = ({
   };
 
   return (
-    <div className="relative inline-block w-[7.5rem]" ref={ref}>
+    <div className="relative inline-block w-[8rem]" ref={ref}>
       <OutlinedButton
         handleClick={toggle}
-        text="Sort By"
+        text={t("button.sortBy")}
         icon={<SortIcon />}
         className="text-sm pr-4"
       />
       {isOpen && (
-        <Dropdown className="right-0 top-12 min-w-[11rem]">
+        <Dropdown className="right-0 top-[3.3rem] min-w-[12.5rem]">
           {options.map((option) => (
             <div
               key={option.value}
@@ -64,16 +66,16 @@ export const CustomersSortDropdown = ({
             </div>
           ))}
           <div
-            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
+            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer border-t border-mainBorder dark:border-mainBorderDark"
             onClick={() => handleDirectionClick(false)}
           >
-            Ascending
+          {t("button.ascending")}
           </div>
           <div
             className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => handleDirectionClick(true)}
           >
-            Descending
+               {t("button.descending")}
           </div>
           <div
             className="px-4 py-2  hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark cursor-pointer"
@@ -83,7 +85,7 @@ export const CustomersSortDropdown = ({
               close();
             }}
           >
-            Clear Sorting
+                {t("button.clearSorting")}
           </div>
         </Dropdown>
       )}

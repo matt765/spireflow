@@ -13,8 +13,11 @@ import {
   TabPanel,
   TabGroup,
 } from "@tremor/react";
+import { useTranslations } from "next-intl";
 
 import { useState } from "react";
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface TodaySalesDataUnit {
   hour: string;
@@ -27,27 +30,31 @@ interface TodaySalesProps {
   todaySalesData: TodaySalesDataUnit[];
 }
 export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
+  const t = useTranslations("analytics.todaySales");
   const valueFormatter = (number: number) =>
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
+  const backendTranslations = useBackendTranslations("analytics.todaySales");
+  const translatedData = useTranslateData(todaySalesData, backendTranslations);
+
   return (
     <Card className="w-full h-full recharts-tooltip-stable">
-      <Text>Today&apos;s Sales</Text>
+      <Text>{t("title")}</Text>
       <Metric className="mt-1">$ 2276</Metric>
       <TabGroup>
         <TabList defaultValue="average" className="mt-6">
-          <Tab value="average" className="!text-[12px] 1xl:!text-sm">
-            Today vs. average
-          </Tab>
           <Tab value="yesterday" className="!text-[12px] 1xl:!text-sm">
-            Today vs. yesterday
+            {t("todayVsYesterday")}
+          </Tab>
+          <Tab value="average" className="!text-[12px] 1xl:!text-sm">
+            {t("todayVsAverage")}
           </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
             <LineChart
-              data={todaySalesData}
-              categories={["today", "yesterday"]}
+              data={translatedData}
+              categories={[t("today"), t("yesterday")]}
               index="year"
               colors={["blue", "slate"]}
               showYAxis={false}
@@ -57,7 +64,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
             />
             <Flex justifyContent="end">
               <Legend
-                categories={["Today", "Yesterday"]}
+                categories={[t("today"), t("yesterday")]}
                 colors={["blue", "slate"]}
                 className="mt-3"
               />
@@ -65,18 +72,18 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
           </TabPanel>
           <TabPanel>
             <LineChart
-              data={todaySalesData}
-              categories={["today", "average"]}
+              data={translatedData}
+              categories={[t("today"), t("average")]}
               colors={["blue", "slate"]}
               index="year"
               showYAxis={false}
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-4 h-56"             
+              className="mt-4 h-56"
             />
             <Flex justifyContent="end">
               <Legend
-                categories={["Today", "Peer average"]}
+                categories={[t("today"), t("average")]}
                 colors={["blue", "slate"]}
                 className="mt-3"
               />

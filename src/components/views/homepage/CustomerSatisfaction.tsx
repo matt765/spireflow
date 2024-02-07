@@ -4,6 +4,8 @@ import { ScatterChart } from "@tremor/react";
 import { Card } from "@tremor/react";
 
 import { BlockTitle } from "../../common/BlockTitle";
+import { useTranslateData } from "../../../hooks/useTranslateData";
+import { useTranslations } from "next-intl";
 
 interface ProductSatisfaction {
   brandName: string;
@@ -16,41 +18,35 @@ interface CustomerSatisfactionProps {
   customerSatisfactionData: ProductSatisfaction[];
 }
 
-interface TransformedProductSatisfaction {
-  brandName: string;
-  "Customer Satisfaction": number;
-  "Total Sales": number;
-  "Number of Orders": number;
-}
 export const CustomerSatisfaction = ({
   customerSatisfactionData,
 }: CustomerSatisfactionProps) => {
-  const numberOfOrdersScaleFactor = 1.1;
+  const t = useTranslations("homepage.customerSatisfaction");
 
-  const transformDataKeys = (
-    data: ProductSatisfaction[]
-  ): TransformedProductSatisfaction[] => {
-    return data.map((item) => ({
-      brandName: item.brandName,
-      "Customer Satisfaction": item.customerSatisfaction,
-      "Total Sales": item.totalSales,
-      "Number of Orders": item.numberOfOrders * numberOfOrdersScaleFactor,
-    }));
+  const translations = {
+    totalSales: t("totalSales"),
+    customerSatisfaction: t("customerSatisfaction"),
+    numberOfOrders: t("numberOfOrders"),
   };
 
-  const transformedData = transformDataKeys(customerSatisfactionData);
+  const translatedData = useTranslateData(
+    customerSatisfactionData,
+    translations
+  );
+
+  const numberOfOrdersScaleFactor = 1.1;
 
   return (
     <Card className="max-w-full h-full max-h-full flex flex-col ">
-      <BlockTitle title="Customer satisfaction" />
+      <BlockTitle title={t("title")} />
       <ScatterChart
         className="h-72 md:h-full mt-8"
         yAxisWidth={50}
-        data={transformedData}
+        data={translatedData}
         category="brandName"
-        x="Total Sales"
-        y="Customer Satisfaction"
-        size="Number of Orders"
+        x={t("totalSales")}
+        y={t("customerSatisfaction")}
+        size={t("numberOfOrders")}
         showOpacity={true}
         minYValue={60}
         maxYValue={100}

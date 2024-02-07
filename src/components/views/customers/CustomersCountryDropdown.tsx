@@ -5,6 +5,7 @@ import { FilterIcon } from "../../../assets/icons/FilterIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
+import { useTranslations } from "next-intl";
 
 interface CustomersDropdownProps {
   options: string[];
@@ -17,6 +18,7 @@ export const CustomersCountryDropdown = ({
   filterKey,
   setFilter,
 }: CustomersDropdownProps) => {
+  const t = useTranslations("customers");
   const { isOpen, toggle, close, ref } = useDropdown();
   const [activeFilter, setActiveFilter] = useState<string | undefined>();
 
@@ -25,11 +27,11 @@ export const CustomersCountryDropdown = ({
       <OutlinedButton
         handleClick={toggle}
         icon={<FilterIcon />}
-        text="Filter by Country"
+        text={t("button.filterByCountry")}
         className="text-sm"
       />
       {isOpen && (
-        <Dropdown className="-right-8 sm:right-0 w-[12rem] top-12">
+        <Dropdown className="-right-8 sm:right-0 w-[12rem] top-[3.3rem]">
           {options.map((option) => (
             <div
               key={option}
@@ -47,13 +49,13 @@ export const CustomersCountryDropdown = ({
             </div>
           ))}
           <div
-            className="px-4 py-2 cursor-pointer hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
+            className="px-4 py-2 cursor-pointer hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark border-t border-mainBorder dark:border-mainBorderDark"
             onClick={() => {
               setFilter(filterKey, undefined);
               close();
             }}
           >
-            Clear Filter
+            {t("button.clearFilter")}
           </div>
         </Dropdown>
       )}

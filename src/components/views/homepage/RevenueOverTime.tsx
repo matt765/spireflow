@@ -4,6 +4,8 @@ import { Card, AreaChart } from "@tremor/react";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+import { useTranslateData } from "../../../hooks/useTranslateData";
 
 interface Revenue {
   date: string;
@@ -11,11 +13,6 @@ interface Revenue {
   inStoreSales: number;
 }
 
-interface TransformedRevenue {
-  date: string;
-  "Website sales": number;
-  "In store sales": number;
-}
 interface RevenueOverTimeProps {
   revenueOverTimeData: Revenue[];
 }
@@ -23,21 +20,31 @@ interface RevenueOverTimeProps {
 export const RevenueOverTime = ({
   revenueOverTimeData,
 }: RevenueOverTimeProps) => {
+  const t = useTranslations("homepage.revenueOverTime");
+
   const dataFormatter = (number: number) => {
     return "$ " + Intl.NumberFormat("us").format(number).toString();
   };
 
-  const transformDataKeys = (data: Revenue[]): TransformedRevenue[] => {
-    return data.map(
-      (item: Revenue): TransformedRevenue => ({
-        date: item.date,
-        "Website sales": item.websiteSales,
-        "In store sales": item.inStoreSales,
-      })
-    );
+  const translations = {
+    Jan: t("jan"),
+    Feb: t("feb"),
+    Mar: t("mar"),
+    Apr: t("apr"),
+    May: t("may"),
+    Jun: t("jun"),
+    Jul: t("jul"),
+    Aug: t("aug"),
+    Sep: t("sep"),
+    Oct: t("oct"),
+    Nov: t("nov"),
+    Dec: t("dec"),
+    websiteSales: t("websiteSales"),
+    inStoreSales: t("inStoreSales"),
   };
 
-  const transformedData = transformDataKeys(revenueOverTimeData);
+  const translatedData = useTranslateData(revenueOverTimeData, translations);
+
   const { theme } = useTheme();
 
   const colorSchemes: { [key: string]: string[] } = {
@@ -45,7 +52,7 @@ export const RevenueOverTime = ({
     midnight: ["indigo", "cyan"],
     oceanic: ["gray", "blue"],
     charcoal: ["gray", "green"],
-    sapphire: ["gray", "purple"]
+    sapphire: ["gray", "purple"],
   };
 
   const defaultTheme = "midnight";
@@ -53,17 +60,19 @@ export const RevenueOverTime = ({
   const selectedColors = colorSchemes[theme || defaultTheme];
 
   return (
-    <Card className="h-full">
+    <Card className="h-full chart-text-class">
       <div className="p-1">
-        <BlockTitle title="Revenue over time" />
+        <BlockTitle title={t("title")} />
       </div>
       <AreaChart
-        data={transformedData}
-        categories={["Website sales", "In store sales"]}
+        data={translatedData}
+        categories={[t("websiteSales"), t("inStoreSales")]}
         index="date"
         colors={selectedColors}
         valueFormatter={dataFormatter}
         className="mt-4 h-72"
+        lang="PL"
+        translate="yes"
       />
     </Card>
   );

@@ -1,0 +1,370 @@
+{
+  "homepage": {
+    "revenueOverTime": {
+      "title": "Dochód miesięczny",
+      "websiteSales": "Strona internetowa",
+      "inStoreSales": "Sklepy stacjonarne",
+      "jan": "Sty",
+      "feb": "Lut",
+      "mar": "Mar",
+      "apr": "Kwi",
+      "may": "Maj",
+      "jun": "Cze",
+      "jul": "Lip",
+      "aug": "Sie",
+      "sep": "Wrz",
+      "oct": "Paź",
+      "nov": "Lis",
+      "dec": "Gru"
+    },
+    "homeSmallCards": {
+      "sales": "Sprzedaż",
+      "profit": "Zysk",
+      "traffic": "Wyświetlenia",
+      "customers": "Klienci",
+      "Last 3 weeks": "3 tygodnie",
+      "Last month": "Ostatni miesiąc",
+      "Yesterday": "Wczoraj",
+      "Last week": "Ostatni tydzień"
+    },
+    "regions": {
+      "title": "Regiony",
+      "northAmerica": "Ameryka Północna",
+      "europe": "Europa"
+    },
+    "bestSellingProducts": {
+      "title": "Bestsellery",
+      "profitFromLastWeek": "Ostatni tydzień"
+    },
+    "customerSatisfaction": {
+      "title": "Zadowolenie klientów",
+      "totalSales": "Całkowita sprzedaż",
+      "customerSatisfaction": "Zadowolenie klientów",
+      "numberOfOrders": "Liczba zamówień"
+    },
+    "tradersTable": {
+      "selectSalespeople": "Wybierz sprzedawców",
+      "search": "Szukaj",
+      "name": "Imię i nazwisko",
+      "leads": "Klienci",
+      "sales": "Sprzedaż",
+      "quota": "Cel",
+      "variance": "Różnica",
+      "region": "Region",
+      "status": "Status",
+      "overperforming": "ponad oczekiwania",
+      "underperforming": "poniżej poczekiwań",
+      "average": "przeciętnie",
+      "northAmerica": "Ameryka Północna",
+      "europe": "Europa",
+      "low": "niska",
+      "medium": "przeciętna"
+    }
+  },
+  "orders": {
+    "selectPlaceholder": {
+      "allProducts": "Produkty",
+      "allUsers": "Użytkownicy",
+      "anyPrice": "Cena",
+      "anyDeliveryType": "Dostawa",
+      "anyStatus": "Status"
+    },
+    "tableHeader": {
+      "productName": "Nazwa produktu",
+      "user": "Użytkownik",
+      "price": "Cena",
+      "deliveryType": "Typ dostawy",
+      "date": "Data",
+      "status": "Status"
+    },
+    "deliveryType": {
+      "twoDayShipping": "Dostawa dwudniowa",
+      "standardShipping": "Standardowa dostawa",
+      "freeShipping": "Darmowa dostawa",
+      "expressShipping": "Ekspresowa dostawa"
+    },
+    "status": {
+      "inTransit": "W transporcie",
+      "delivered": "Dostarczone",
+      "shipped": "Wysłane"
+    },
+    "button": {
+      "clearFilters": "Wyczyść filtry"
+    },
+    "searchField": {
+      "searchOrders": "Szukaj zamówień..."
+    }
+  },
+  "customers": {
+    "tableHeader": {
+      "photo": "Zdjęcie",
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "city": "Miasto",
+      "country": "Kraj",
+      "phone": "Telefon",
+      "totalBuys": "Suma wydatków"
+    },
+    "searchField": {
+      "searchCustomers": "Szukaj klientów..."
+    },
+    "button": {
+      "clearFilters": "Wyczyść filtry",
+      "clearFilter": "Wyczyść filtr",
+      "filterByCountry": "Filtruj wg kraju",
+      "sortBy": "Sortuj wg",
+      "ascending": "Malejąco",
+      "descending": "Rosnąco",
+      "clearSorting": "Bez sortowania"
+    },
+    "country": {
+      "usa": "USA",
+      "australia": "Australia",
+      "france": "Francja",
+      "norway": "Norwegia",
+      "unitedKingdom": "Wielka Brytania"
+    },
+    "city": {
+      "newYork": "Nowy Jork",
+      "munich": "Monachium",
+      "cologne": "Kolonia",
+      "london": "Londyn"
+    },
+    "chip": {
+      "country": "Kraj",
+      "sortedBy": "Sortowanie wg"
+    }
+  },
+  "products": {
+    "header": {
+      "type": "Typ",
+      "price": "Cena",
+      "markup": "Marża",
+      "profit": "Zysk"
+    },
+    "parameterName": {
+      "screenSize": "Ekran",
+      "processor": "Procesor",
+      "memory": "Pamięć wewnętrzna",
+      "storage": "Pamięć masowa",
+      "batteryLife": "Bateria",
+      "operatingSystem": "System operacyjny",
+      "cameraResolution": "Aparat",
+      "portTypes": "Porty",
+      "graphics": "Grafika",
+      "displayResolution": "Rozdzielczość ekranu",
+      "dimensionsAndWeight": "Wymiary i waga",
+      "colorOptions": "Motywy"
+    },
+    "parameterContent": {
+      "inches": "cali",
+      "upTo": "Do",
+      "hoursTalkTime": "godzin rozmowy",
+      "lightningConnector": "Lightning",
+      "graphics": "",
+      "pixels": "pikseli",
+      "blue": "Niebieski",
+      "black": "Czarny",
+      "pink": "Różowy",
+      "red": "Czerwony",
+      "type": "Typ",
+      "moonlight": "Księżycowy",
+      "basedOn": "&",
+      "tripleCamera": "Potrójna kamera",
+      "hoursVideoPlayback": "godzin wyświetlania video",
+      "main": "główny",
+      "rearFacing": "tylny",
+      "frontFacing": "przedni",
+      "hourseOfMixedUsage": "godzin pracy"
+    },
+    "productList": {
+      "phone": "Telefon",
+      "tablet": "Tablet",
+      "laptop": "Laptop"
+    }
+  },
+  "analytics": {
+    "assetPerformance": {
+      "title": "Wydajność aktywów",
+      "sinceTransaction": "od momentu transakcji"
+    },
+    "todaySales": {
+      "title": "Dzisiejsza sprzedaż",
+      "todayVsAverage": "Dzisiaj vs. Średnia",
+      "todayVsYesterday": "Dzisiaj vs. Wczoraj",
+      "today": "Dzisiaj",
+      "yesterday": "Wczoraj",
+      "average": "Średnia"
+    },
+    "totalProfit": {
+      "title": "Całkowity zysk",
+      "thisYear": "w tym roku",
+      "jan": "Sty",
+      "feb": "Lut",
+      "mar": "Mar",
+      "apr": "Kwi",
+      "may": "Maj",
+      "jun": "Cze",
+      "jul": "Lip",
+      "aug": "Sie",
+      "sep": "Wrz",
+      "oct": "Paź",
+      "nov": "Lis",
+      "dec": "Gru",
+      "sales": "Sprzedaż"
+    },
+    "revenuePerCountry": {
+      "title": "Przychód według kraju",
+      "country": "Kraj",
+      "sales": "Sprzedaż",
+      "unitedStates": "Stany Zjednoczone",
+      "france": "Francja",
+      "unitedKingdom": "Wielka Brytania",
+      "norway": "Norwegia",
+      "australia": "Australia",
+      "poland": "Polska"
+    },
+    "performance": {
+      "title": "Wydajność",
+      "subtitle": "Porównanie między sprzedażą, a zyskiem",
+      "sales": "Sprzedaż",
+      "profit": "Zysk",
+      "jan": "Sty",
+      "feb": "Lut",
+      "mar": "Mar",
+      "apr": "Kwi",
+      "may": "Maj",
+      "jun": "Cze",
+      "jul": "Lip",
+      "aug": "Sie",
+      "sep": "Wrz",
+      "oct": "Paź",
+      "nov": "Lis",
+      "dec": "Gru"
+    },
+    "yearOverview": {
+      "title": "Przegląd roczny",
+      "phones": "Telefony",
+      "tablets": "Tablety",
+      "laptops": "Laptopy",
+      "sales": "Sprzedaż",
+      "revenue": "Przychód",
+      "unitsSold": "Sprzedane sztuki",
+      "returns": "Zwroty"
+    }
+  },
+  "calendar": {
+    "marketStrategy": "Strategia rynkowa",
+    "teamSync": "Synchronizacja zespołu",
+    "productReview": "Recenzja produktu",
+    "supplierMeeting": "Spotkanie z dostawcą",
+    "dailyInventoryCheck": "Audyt magazynu",
+    "marketingStrategyReview": "Strategia marketingowa",
+    "seoStrategyMeeting": "Strategii SEO",
+    "clientMeeting": "Spotkanie z klientem",
+    "salesPromotionPlanning": "Planowanie promocji",
+    "oneOnOneMeeting": "Spotkanie 1 na 1",
+    "salesReview": "Przegląd sprzedaży",
+    "productLaunchWebinar": "Webinar - nowy produkt",
+    "eCommercePlatformTraining": "Szkolenie e-commerce"
+  },
+  "singleCharts": {
+    "area": {
+      "title": "Ruch w sklepie internetowym",
+      "views": "Wyświetlenia",
+      "uniqueVisitors": "Unikalni odwiedzający",
+      "jan": "Sty",
+      "feb": "Lut",
+      "mar": "Mar",
+      "apr": "Kwi",
+      "may": "Maj",
+      "jun": "Cze",
+      "jul": "Lip",
+      "aug": "Sie",
+      "sep": "Wrz",
+      "oct": "Paź",
+      "nov": "Lis",
+      "dec": "Gru"
+    },
+    "bars": {
+      "title": "Sprzedaż produktów (USD)",
+      "widgets": "Widgety",
+      "gadgets": "Gadżety",
+      "modules": "Moduły",
+      "components": "Komponenty",
+      "kits": "Zestawy",
+      "accessories": "Akcesoria"
+    },
+    "scatter": {
+      "title": "Oczekiwana długość życia vs PKB per capita",
+      "subtitle": "Stan na rok 2015. Źródło: Our World in Data",
+      "country": "Kraj",
+      "gdp": "PKB",
+      "lifeExpectancy": "Długość życia",
+      "population": "Populacja",
+      "yrs": "lat",
+      "countries": {
+        "Argentina": "Argentyna",
+        "Australia": "Australia",
+        "Austria": "Austria",
+        "Brazil": "Brazylia",
+        "Canada": "Kanada",
+        "China": "Chiny",
+        "Denmark": "Dania",
+        "Egypt": "Egipt",
+        "Finland": "Finlandia",
+        "Germany": "Niemcy",
+        "India": "Indie",
+        "Japan": "Japonia",
+        "Mexico": "Meksyk",
+        "Netherlands": "Holandia",
+        "Russia": "Rosja",
+        "Poland": "Polska",
+        "Spain": "Hiszpania",
+        "Greece": "Grecja"
+      }
+    },
+    "line": {
+      "title": "Populacja smoków w Westeros",
+      "houseTargaryen": "Ród Targaryen",
+      "houseVelaryon": "Ród Velaryon",
+      "aegonsConquest": "Podbój Aegona",
+      "theLongReignOfJaehaerysI": "Panowanie Jaehaerysa I",
+      "houseOfTheDragonSeries": "Seria Dom Smoka",
+      "theConquestOfDorne": "Podbój Dorne",
+      "theBlackfyreRebellions": "Powstania Blackfyre",
+      "timeOfTheShowBooksStart": "Start serialu/książek"
+    }
+  },
+  "sideMenu": {
+    "main": "Intro",
+    "dashboard": "Panel główny",
+    "eCommerce": "E-commerce",
+    "orders": "Zamówienia",
+    "customers": "Klienci",
+    "products": "Produkty",
+    "analytics": "Analityka",
+    "calendar": "Kalendarz",
+    "singleCharts": "Wykresy",
+    "area": "Obszar",
+    "bars": "Słupki",
+    "scatter": "Rozrzut",
+    "line": "Linia"
+  },
+  "navbar": {
+    "signIn": "Zaloguj się",
+    "signOut": "Wyloguj się",
+    "signUp": "Zarejestruj się",
+    "yourEmail": "Twój e-mail",
+    "yourPassword": "Twoje hasło",
+    "noAccount": "Nie masz jeszcze konta?",
+    "registerHere": "Zarejestruj się...",
+    "logIn": "Zaloguj się",
+    "sampleAccount": "Konto gościa",
+    "createAccount": "Utwórz konto",
+    "alreadyHaveAccount": "Masz już konto?",
+    "signInHere": "Zaloguj się tutaj...",
+    "english": "Angielski",
+    "polish": "Polski"
+  }
+}

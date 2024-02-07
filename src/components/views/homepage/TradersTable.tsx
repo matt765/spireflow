@@ -13,7 +13,11 @@ import {
   MultiSelect,
   MultiSelectItem,
 } from "@tremor/react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
+
+import { useTranslateData } from "../../../hooks/useTranslateData";
+import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 
 interface Trader {
   name: string;
@@ -32,18 +36,26 @@ interface TradersTableProps {
 
 export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
+  const t = useTranslations("homepage.tradersTable");
 
   const isSalesPersonSelected = (traderData: Trader) =>
     selectedNames.includes(traderData.name) || selectedNames.length === 0;
+
+  const backendTranslations = useBackendTranslations("homepage.tradersTable");
+  const translatedData = useTranslateData(
+    tradersTableData,
+    backendTranslations
+  );
 
   return (
     <Card className="min-h-[30rem]">
       <MultiSelect
         onValueChange={setSelectedNames}
-        placeholder="Select Salespeople..."
+        placeholder={t("selectSalespeople")}
         className="max-w-xs "
+        placeholderSearch={t("search")}
       >
-        {tradersTableData.map((item) => (
+        {translatedData.map((item) => (
           <MultiSelectItem key={item.name} value={item.name}>
             {item.name}
           </MultiSelectItem>
@@ -53,31 +65,31 @@ export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
         <TableHead>
           <TableRow className="text-primaryText">
             <TableHeaderCell className=" text-secondaryText">
-              Name
+              {t("name")}
             </TableHeaderCell>
             <TableHeaderCell className="text-right text-secondaryText">
-              Leads
+              {t("leads")}
             </TableHeaderCell>
             <TableHeaderCell className="text-right text-secondaryText">
-              Sales ($)
+              {t("sales")} ($)
             </TableHeaderCell>
             <TableHeaderCell className="text-right text-secondaryText">
-              Quota ($)
+              {t("quota")} ($)
             </TableHeaderCell>
             <TableHeaderCell className="text-right text-secondaryText">
-              Variance
+              {t("variance")}
             </TableHeaderCell>
             <TableHeaderCell className="text-right text-secondaryText">
-              Region
+              {t("region")}
             </TableHeaderCell>
             <TableHeaderCell className="text-right text-secondaryText">
-              Status
+              {t("status")}
             </TableHeaderCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
-          {tradersTableData
+          {translatedData
             .filter((item) => isSalesPersonSelected(item))
             .map((item) => (
               <TableRow key={item.name}>

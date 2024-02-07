@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 export const client = new ApolloClient({
   link: new HttpLink({ uri: process.env.NEXT_PUBLIC_GRAPHQL_URL }),
@@ -9,12 +9,12 @@ export const client = new ApolloClient({
 
 client.defaultOptions = {
   watchQuery: {
-    fetchPolicy: 'network-only',
-    errorPolicy: 'ignore',
+    fetchPolicy: "cache-first",
+    nextFetchPolicy: "cache-first",
+    errorPolicy: "all",
   },
   query: {
-    fetchPolicy: 'network-only',
-    errorPolicy: 'all',
+    fetchPolicy: "cache-first",
+    errorPolicy: "all",
   },
 };
-

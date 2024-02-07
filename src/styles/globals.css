@@ -129,6 +129,9 @@ a {
 .fc-list-empty {
   @apply !bg-calendarListDayHeaderBg dark:!bg-calendarListDayHeaderBgDark;
 }
+.fc-toolbar-chunk .fc-toolbar-title {
+  @apply capitalize
+}
 
 @media (max-width: 768px) {
   .fc-media-screen {

@@ -1,13 +1,13 @@
 import { Grid, Col } from "@tremor/react";
 
-import { PageWrapper } from "../../components/common/PageWrapper";
-import { AssetPerformance } from "../../components/views/analytics/AssetPerformance";
-import { TodaySales } from "../../components/views/analytics/TodaySales";
-import { RevenuePerCountry } from "../../components/views/analytics/RevenuePerCountry";
-import { TotalProfit } from "../../components/views/analytics/TotalProfit";
-import { YearOverview } from "../../components/views/analytics/YearOverview";
-import { Performance } from "../../components/views/analytics/Performance";
-import { getData } from "../../services/getData";
+import { PageWrapper } from "../../../components/common/PageWrapper";
+import { AssetPerformance } from "../../../components/views/analytics/AssetPerformance";
+import { TodaySales } from "../../../components/views/analytics/TodaySales";
+import { RevenuePerCountry } from "../../../components/views/analytics/RevenuePerCountry";
+import { TotalProfit } from "../../../components/views/analytics/TotalProfit";
+import { YearOverview } from "../../../components/views/analytics/YearOverview";
+import { Performance } from "../../../components/views/analytics/Performance";
+import { getData } from "../../../services/getData";
 
 const Analytics = async () => {
   const analyticsData = await getData("analytics");
