@@ -37,7 +37,7 @@ export const SignUpModal = ({
       <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 ">
         <div
           ref={modalRef}
-          className="w-screen h-screen sm:w-[29rem] sm:h-auto  bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-12 py-20 flex flex-col items-center justify-start pt-24 sm:pt-16 rounded-2xl relative"
+          className="w-screen h-screen sm:w-[30rem] sm:h-auto  bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-16 py-20 flex flex-col items-center justify-start pt-24 sm:pt-16 rounded-2xl relative"
         >
           <button
             onClick={closeModal}

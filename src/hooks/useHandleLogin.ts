@@ -14,6 +14,8 @@ export const useHandleLogin = (isModal: boolean, closeModal: () => void) => {
   const { setUser, setLoading } = useLoginStore();
   const router = useRouter();
 
+  const clearAuthError = () => setAuthError("");
+
   const handleLogin = async (
     data: { username: string; password: string },
     isDemo?: boolean
@@ -44,5 +46,5 @@ export const useHandleLogin = (isModal: boolean, closeModal: () => void) => {
     setLoading(false);
   };
 
-  return { handleLogin, authError };
+  return { handleLogin, authError, clearAuthError };
 };

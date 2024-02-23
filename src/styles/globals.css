@@ -130,7 +130,7 @@ a {
   @apply !bg-calendarListDayHeaderBg dark:!bg-calendarListDayHeaderBgDark;
 }
 .fc-toolbar-chunk .fc-toolbar-title {
-  @apply capitalize
+  @apply capitalize;
 }
 
 @media (max-width: 768px) {
@@ -292,16 +292,26 @@ a {
 
 /* Hide colored bar on mobile in Analytics/Assset Performance component */
 .text-tremor-default .w-44 {
-  @apply hidden sm:flex
+  @apply hidden sm:flex;
 }
 
 /* Add margin for mobile resolution of legend section im bars single chart page */
 .single-chart-bars .tremor-Legend-root {
- @apply mb-6 sm:mb-2;
+  @apply mb-6 sm:mb-2;
 }
 
 /* Hide outline until better solution for styling input borders on multiple themes is developed */
 /* Accessibility issue */
 :focus-visible {
   outline: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+
+
+  box-shadow: inset 0 0 20px 20px rgb(255,255,255,0.03);
 }

@@ -365,6 +365,12 @@
     "alreadyHaveAccount": "Masz już konto?",
     "signInHere": "Zaloguj się tutaj...",
     "english": "Angielski",
-    "polish": "Polski"
+    "polish": "Polski",
+    "pleaseEnterAValidEmail": "Wprowadź prawidłowy adres e-mail",    
+    "emailFieldIsRequired": "E-mail jest wymagany",
+    "pleaseEnterAValidPassword": "Wprowadź prawidłowe hasło",
+    "passwordFieldIsRequired": "Hasło jest wymagane",
+    "eitherEmailOrPasswordIsIncorrect": "Adres e-mail lub hasło jest nieprawidłowe",
+    "passwordMinimumLength": "Hasło musi mieć co najmniej 6 znaków"
   }
 }

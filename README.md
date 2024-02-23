@@ -1,13 +1,17 @@
 # ecommerce-dashboard
 todo:
-- code refactor + update all packages
-- i18n
+
 - dnd
 - yup
-- products actions
-- csv
+- products
+- mobile adjustments & bug fixing
 - db mock
+- code refactor + update all packages
 - rtl
 - readme / documentation
+- colors
+- console errors
+- datepicker
+- custom select
 
 live: https://ecommerce-dashboard-2.vercel.app/

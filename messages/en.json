@@ -365,6 +365,12 @@
     "alreadyHaveAccount": "Already have an account?",
     "signInHere": "Sign in here...",
     "english": "English",
-    "polish": "Polish"
+    "polish": "Polish",
+    "pleaseEnterAValidEmail": "Please enter a valid email",
+    "emailFieldIsRequired": "Email field is required",
+    "pleaseEnterAValidPassword": "Please enter a valid password",
+    "passwordFieldIsRequired": "Password field is required",
+    "eitherEmailOrPasswordIsIncorrect": "Either email or password is incorrect",
+    "passwordMinimumLength": "Password must be at least 6 characters long"
   }
 }

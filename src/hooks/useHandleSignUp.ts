@@ -1,8 +1,6 @@
 import { FormEvent } from "react";
-import { useRouter } from "next/router";
 
 import { auth } from "../services/firebaseClient";
-import { signIn } from "next-auth/react";
 
 export const useHandleSignUp = () => {
   const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
@@ -19,13 +17,6 @@ export const useHandleSignUp = () => {
       const user = userCredential.user;
 
       if (user) {
-        const idToken = await user.getIdToken(true);
-
-        signIn("credentials", {
-          idToken,
-          callbackUrl: "/",
-        });
-
         console.log("Successfully signed up:", user);
       }
     } catch (error) {

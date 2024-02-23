@@ -11,7 +11,7 @@ interface LoginModalProps {
 
 
 export const LoginModal = ({ closeModal, switchToSignUp }: LoginModalProps) => {
-  const { handleLogin, authError } = useHandleLogin(true, closeModal);
+  const { handleLogin, authError, clearAuthError } = useHandleLogin(true, closeModal);
 
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ export const LoginModal = ({ closeModal, switchToSignUp }: LoginModalProps) => {
       <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 ">
         <div
           ref={modalRef}
-          className=" w-screen h-screen sm:w-[31rem] sm:h-auto bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-16  pt-24 sm:pt-[4rem] pb-20 flex flex-col items-center justify-start sm:rounded-2xl relative"
+          className=" w-screen h-screen sm:w-[30rem] sm:h-auto bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-16  pt-24 sm:pt-[4rem] pb-20 flex flex-col items-center justify-start sm:rounded-2xl relative"
         >
           <button
             onClick={closeModal}
@@ -55,6 +55,7 @@ export const LoginModal = ({ closeModal, switchToSignUp }: LoginModalProps) => {
             handleLogin={async (data) => handleLogin(data)}
             authError={authError}
             switchToSignUp={switchToSignUp}
+            clearAuthError={clearAuthError}
           />
         </div>
       </div>

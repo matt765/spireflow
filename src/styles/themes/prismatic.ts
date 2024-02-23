@@ -18,7 +18,7 @@ export const prismaticTheme = {
   navItemTextActive: "white",
   navItemIconActive: "rgb(17, 159, 183)",
   mainBorder: "rgb(255,255,255,0.07)",
-  inputBg: "rgb(255,255,255,0.1)",
+  inputBg: "rgb(255,255,255,0.05)",
   inputBgHover: "rgb(82, 89, 106)",
   inputBorder: "rgb(255,255,255,0.1)",
   inputBorderHover: "rgb(255,255,255,0.4)",

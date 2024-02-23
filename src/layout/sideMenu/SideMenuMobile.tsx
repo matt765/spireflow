@@ -1,5 +1,3 @@
-import { useSession } from "next-auth/react";
-
 import { AnalyticsIcon } from "../../assets/icons/AnalyticsIcon";
 import { AreaIcon } from "../../assets/icons/AreaIcon";
 import { BarsIcon } from "../../assets/icons/BarsIcon";
@@ -17,7 +15,6 @@ import { MenuItem } from "./MenuItem";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 import { Select } from "../../components/forms/Select";
 import { useTheme } from "next-themes";
-import { UserIcon } from "../../assets/icons/UserIcon";
 
 interface SideMenuMobileProps {
   isMobileMenuOpen: boolean;
@@ -30,7 +27,7 @@ export const SideMenuMobile = ({
 }: SideMenuMobileProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
   const { user } = useLoginStore();
-  const { data: session } = useSession();
+
   const { theme } = useTheme();
 
   return (
@@ -66,7 +63,7 @@ export const SideMenuMobile = ({
         <MenuItem title="Line" icon={<LineIcon />} path="/line" />
       </div>
       <div className="w-full border-t-0 dark:border-mainBorderDark px-4 pt-8 mb-6 ">
-        {!(user || session?.user?.name) && (
+        {!(user) && (
           <button
             onClick={() => {
               onLoginButtonClick();

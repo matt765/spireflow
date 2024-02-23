@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 
 import { LoginModal } from "../../components/auth/LoginModal";
@@ -58,19 +57,7 @@ export const Navbar = () => {
     "Sandstone",
     "Prismatic",
   ];
-
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    initializeUser();
-  }, []);
-
-  useEffect(() => {
-    if (session?.user) {
-      setUser(session.user);
-    }
-  }, [session]);
-
+  console.log(user);
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 1280 && isMobileMenuOpen) {
@@ -78,6 +65,11 @@ export const Navbar = () => {
       }
     }
   }, []);
+
+  // Function necessary to initialize user in Zustand store
+  useEffect(() => {
+    initializeUser();
+  }, [initializeUser]);
 
   const userIconBtnRef = useRef<HTMLButtonElement | null>(null);
 
@@ -242,58 +234,56 @@ export const Navbar = () => {
             )}
           </div>
         </div>
-        {loading ? (
-          <SpinnerIcon />
-        ) : (
-          <div ref={userDropdown.ref} className="-mr-2 xl:-mr-unset">
-            {user ? (
-              <OutlinedButton
-                ref={userIconBtnRef}
-                handleClick={() => {
-                  closeMobileMenu();
+
+        <div ref={userDropdown.ref} className="-mr-2 xl:-mr-unset">
+          {user ? (
+            <OutlinedButton
+              ref={userIconBtnRef}
+              handleClick={() => {
+                closeMobileMenu();
+                userDropdown.toggle();
+              }}
+              className="!rounded-full"
+              icon={<UserIcon />}
+            />
+          ) : (
+            <button
+              onClick={handleLoginButton}
+              className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
+            >
+              {t("signIn")}
+            </button>
+          )}
+          {userDropdown.isOpen && (
+            <div
+              className={`${
+                theme === "prismatic" &&
+                "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
+              }              
+                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
+            >
+              <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
+                <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+                  <MailIcon />
+                </div>
+                {user?.email || "Email"}
+              </div>
+              <div
+                className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
+                onClick={() => {
+                  handleSignOut();
                   userDropdown.toggle();
                 }}
-                className="!rounded-full"
-                icon={<UserIcon />}
-              />
-            ) : (
-              <button
-                onClick={handleLoginButton}
-                className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
               >
-                {t("signIn")}
-              </button>
-            )}
-            {userDropdown.isOpen && (
-              <div
-                className={`${
-                  theme === "prismatic" &&
-                  "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
-                }              
-                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
-              >
-                <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
-                  <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                    <MailIcon />
-                  </div>
-                  {user?.email || "Email"}
+                <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+                  <LogoutIcon />
                 </div>
-                <div
-                  className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                  onClick={() => {
-                    handleSignOut();
-                    userDropdown.toggle();
-                  }}
-                >
-                  <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                    <LogoutIcon />
-                  </div>
-                  <button>{t("signOut")}</button>
-                </div>
+                <button>{t("signOut")}</button>
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
+
         <button className="relative block xl:hidden" onClick={toggleMobileMenu}>
           <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all  duration-200">
             <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
