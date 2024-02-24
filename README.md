@@ -4,14 +4,13 @@ todo:
 - dnd
 - yup
 - products
+- datepicker
+- custom select
 - mobile adjustments & bug fixing
-- db mock
 - code refactor + update all packages
 - rtl
 - readme / documentation
 - colors
 - console errors
-- datepicker
-- custom select
 
 live: https://ecommerce-dashboard-2.vercel.app/

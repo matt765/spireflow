@@ -72,6 +72,10 @@ const translationsConfig: TranslationsConfig = {
     "rear-facing": "parameterContent.rearFacing",
     "front-facing": "parameterContent.frontFacing",
     "hours of mixed usage": "parameterContent.hourseOfMixedUsage",
+    "Inventory Status": "metrics.inventoryStatus",
+    "Monthly Target": "metrics.monthlyTarget",
+    "Order Fulfillment": "metrics.orderFullfillment",
+    "Conversion Rate": "metrics.conversionRate",
   },
   "analytics.todaySales": {
     today: "today",

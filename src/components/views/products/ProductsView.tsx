@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ProgressCircle } from "@tremor/react";
 import { useTranslations } from "next-intl";
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from "@react-pdf/renderer";
 
 import { OutlinedButton } from "../../common/OutlinedButton";
 import useModal from "../../../hooks/useModal";
@@ -12,18 +12,73 @@ import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { Input } from "../../forms/Input";
 import { CopyIcon } from "../../../assets/icons/CopyIcon";
+import { ProgressCircles } from "./ProgressCircles";
+import { Tooltip } from "../../common/Tooltip";
+import { useTooltip } from "../../../hooks/useTooltip";
+
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: "column",
+    backgroundColor: "#FFFFFF",
+    padding: 10,
+    gap: 4
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: 4,
+  },
+});
+
+type ProductPDFProps = {
+  product: Product;
+};
+
+const ProductPDF = ({ product }: ProductPDFProps) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.section}>
+        <Text>Product ID: {product.productId}</Text>
+        <Text>Name: {product.name}</Text>
+        <Text>Price: ${product.price}</Text>
+        <Text>Type: {product.type}</Text>
+        {product.parameters.map((param, index) => (
+          <Text key={index}>
+            {param.title}: {param.value}
+          </Text>
+        ))}
+        {product.metrics.map((metric, index) => (
+          <Text key={index}>
+            {metric.title}: {metric.firstValue} / {metric.secondValue}
+          </Text>
+        ))}
+      </View>
+    </Page>
+  </Document>
+);
 
 type Parameter = {
   title: string;
   value: string;
 };
 
+type Metric = {
+  title: string;
+  firstValue: number;
+  secondValue: number;
+};
+
 type Product = {
+  productId: string;
   name: string;
   price: number;
   type: string;
   image: string;
   parameters: Parameter[];
+  metrics: Metric[];
 };
 
 export type ProductCategory = {
@@ -51,11 +106,13 @@ const ProductParameter = ({ title, value }: ProductParameterProps) => {
 
 export const ProductsView = ({ products }: { products: Product[] }) => {
   const [activeProduct, setActiveProduct] = useState<Product>({
+    productId: "",
     name: "",
     price: 0,
     type: "",
     image: "",
     parameters: [],
+    metrics: [],
   });
   const [productCategories, setProductCategories] = useState<ProductCategory[]>(
     []
@@ -64,6 +121,18 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   const t = useTranslations("products");
   const backendTranslations = useBackendTranslations("products");
   const translatedData = useTranslateData(products, backendTranslations);
+
+  const [copySuccess, setCopySuccess] = useState("");
+  const { isTooltipVisible, showTooltip, hideTooltip } = useTooltip();
+
+  const handleCopyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      showTooltip(); // Show tooltip on successful copy
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
 
   // Function to group products into categories
   const categorizeProducts = (products: Product[]): ProductCategory[] => {
@@ -194,93 +263,39 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
             ))}
           </div>
         </div>
-        <div className="flex justify-center items-center mt-16 w-full gap-10 pl-0 pr-0">
-          <div className="w-1/2 px-8  mx-auto flex justify-center items-center border border-mainBorder dark:border-mainBorderDark  py-12 rounded-md">
-            <div className="flex gap-8 items-center">
-              <ProgressCircle value={72} size="xl" color="slate">
-                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
-                  72%
-                </span>
-              </ProgressCircle>
-              <div className="flex flex-col">
-                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
-                  $340 / $450
-                </div>
-                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
-                  Spend management
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-1/2 px-8  mx-auto flex justify-center items-center  border border-mainBorder dark:border-mainBorderDark py-12 rounded-md">
-            <div className="flex gap-8 items-center">
-              <ProgressCircle value={42} size="xl" color="slate">
-                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
-                  42%
-                </span>
-              </ProgressCircle>
-              <div className="flex flex-col">
-                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
-                  $340 / $450
-                </div>
-                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
-                  Spend management
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-center items-center mt-10 w-full gap-10 pl-0 pr-0">
-          <div className="w-1/2 px-8  mx-auto  border flex justify-center items-center border-mainBorder dark:border-mainBorderDark  py-12 rounded-md">
-            <div className="flex gap-8 items-center">
-              <ProgressCircle value={36} size="xl" color="slate">
-                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
-                  36%
-                </span>
-              </ProgressCircle>
-              <div className="flex flex-col">
-                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
-                  $340 / $450
-                </div>
-                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
-                  Spend management
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-1/2 px-8  mx-auto  border flex justify-center items-center border-mainBorder dark:border-mainBorderDark  py-12 rounded-md">
-            <div className="flex gap-8 items-center">
-              <ProgressCircle value={82} size="xl" color="slate">
-                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
-                  82%
-                </span>
-              </ProgressCircle>
-              <div className="flex flex-col">
-                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
-                  $340 / $450
-                </div>
-                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
-                  Spend management
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProgressCircles metrics={activeProduct.metrics} />
+
         <div className="flex justify-between items-center w-full mt-8 xsm:mt-14">
           <div className="flex justify-center items-center w-[16rem] relative">
             <div className="w-10 text-xl text-secondaryText dark:text-secondaryTextDark">
               ID:
             </div>
-            <Input value="NCUB439034G2J" type="text"></Input>
-            <button className="absolute right-2 text-gray-400 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300">
+            <Input value={activeProduct.productId} type="text"></Input>
+            <button
+              className="absolute right-2 text-gray-400 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300"
+              onClick={() => handleCopyToClipboard(activeProduct.productId)}
+            >
               <CopyIcon />
             </button>
+            {isTooltipVisible && (
+              <div className="absolute left-[16.8rem] bottom-1 min-w-[6rem]">
+                <Tooltip text="Copied to clipboard!" />
+              </div>
+            )}
           </div>
-          <div className="flex  w-48 h-12  items-center justify-center">
-            <OutlinedButton
-              text="Export as PDF"
-              handleClick={handleShowAllProductsClick}
-            />
+          <div className="flex  w-[15rem] h-12  items-center justify-end">           
+            <PDFDownloadLink
+              document={<ProductPDF product={activeProduct} />}
+              fileName={`${activeProduct.name}.pdf`}
+            >
+              {({ blob, url, loading, error }) =>
+                loading ? (
+                  "Loading document..."
+                ) : (
+                  <OutlinedButton text={t("pdf.exportToPdf")} className="min-w-[10rem]" />
+                )
+              }
+            </PDFDownloadLink>
           </div>
         </div>
         <div className="flex lg:hidden w-48 h-12 mx-auto mt-8 xsm:mt-14 items-center justify-center">

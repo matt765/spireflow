@@ -181,6 +181,15 @@
       "phone": "Telefon",
       "tablet": "Tablet",
       "laptop": "Laptop"
+    },
+    "metrics": {
+      "inventoryStatus": "Stan magazynu",
+      "monthlyTarget": "Miesięczny cel",
+      "orderFullfillment": "Realizacja zamówień",
+      "conversionRate": "Wskaźnik konwersji"
+    },
+    "pdf": {
+      "exportToPdf": "Eksport to PDF"
     }
   },
   "analytics": {
@@ -366,7 +375,7 @@
     "signInHere": "Zaloguj się tutaj...",
     "english": "Angielski",
     "polish": "Polski",
-    "pleaseEnterAValidEmail": "Wprowadź prawidłowy adres e-mail",    
+    "pleaseEnterAValidEmail": "Wprowadź prawidłowy adres e-mail",
     "emailFieldIsRequired": "E-mail jest wymagany",
     "pleaseEnterAValidPassword": "Wprowadź prawidłowe hasło",
     "passwordFieldIsRequired": "Hasło jest wymagane",

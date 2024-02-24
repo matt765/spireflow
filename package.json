@@ -23,6 +23,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@next-auth/firebase-adapter": "^2.0.1",
     "@next/font": "^13.5.4",
+    "@react-pdf/renderer": "^3.3.8",
     "@tanstack/react-table": "^8.9.3",
     "@tremor/react": "^3.7.9",
     "@types/node": "18.11.9",

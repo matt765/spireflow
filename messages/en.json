@@ -181,6 +181,15 @@
       "phone": "Phone",
       "tablet": "Tablet",
       "laptop": "Laptop"
+    },
+    "metrics": {
+      "inventoryStatus": "Inventory status",
+      "monthlyTarget": "Monthly target",
+      "orderFullfillment": "Order fulfillment",
+      "conversionRate": "Conversion rate"
+    },
+    "pdf": {
+      "exportToPdf": "Export to PDF"
     }
   },
   "analytics": {
