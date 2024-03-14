@@ -46,6 +46,8 @@ export const snowlightTheme = {
   loginModalBg: "white",
   navbarButtonBg: "rgb(118, 167, 247)",
   navbarButtonBgHover: "rgb(79, 142, 247)",
+  galleryBg: "rgb(255, 255, 255, 0.01)",
+  galleryThumbnailBg: "rgb(255, 255, 255, 0.2)",
 
   tremor: {
     brand: {

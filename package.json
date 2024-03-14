@@ -49,6 +49,7 @@
     "remixicon-react": "^1.0.0",
     "tw-colors": "^3.3.1",
     "typescript": "4.8.4",
+    "yet-another-react-lightbox": "^3.17.1",
     "yup": "^1.3.3",
     "zustand": "^4.4.1"
   },

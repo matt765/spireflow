@@ -47,6 +47,8 @@ export const midnightTheme = {
   loginModalBgDark: "rgb(63, 70, 85)",
   navbarButtonBgDark: "rgb(255, 255, 255, 0)",
   navbarButtonBgHoverDark: "rgb(255, 255, 255, 0.08)",
+  galleryBgDark: "rgb(0,0,0,0.5)",
+  galleryThumbnailBgDark: "rgb(255, 255, 255, 0.02)",
 
   // Primary dark mode for graphs
   "dark-tremor": {

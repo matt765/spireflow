@@ -46,6 +46,8 @@ export const sandstoneTheme = {
   loginModalBg: "rgb(48, 50, 55)",
   navbarButtonBg: "rgb(255, 255, 255, 0)",
   navbarButtonBgHover: "rgb(255, 255, 255, 0.05)",
+  galleryBg: "rgb(0,0,0,0.5)",
+  galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
 
   tremor: {
     brand: {

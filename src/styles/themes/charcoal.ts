@@ -46,6 +46,8 @@ export const charcoalTheme = {
   loginModalBg: "rgb(53, 58, 66)",
   navbarButtonBg: "rgb(255, 255, 255, 0)",
   navbarButtonBgHover: "rgb(255, 255, 255, 0.05)", 
+  galleryBg: "rgb(0,0,0,0.5)",
+  galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
 
   tremor: {
     brand: {

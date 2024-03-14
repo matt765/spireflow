@@ -46,6 +46,8 @@ export const prismaticTheme = {
   loginModalBg: "rgba(103, 137, 174, 0.21)",
   navbarButtonBg: "rgb(255, 255, 255, 0)",
   navbarButtonBgHover: "rgb(255, 255, 255, 0.05)",
+  galleryBg: "rgb(0,0,0,0.01)",
+  galleryThumbnailBg: "rgb(255, 255, 255, 0.05)",
 
   tremor: {
     brand: {

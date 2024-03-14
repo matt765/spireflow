@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import dynamic from "next/dynamic";
+import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Counter from "yet-another-react-lightbox/plugins/counter";
 
 import { OutlinedButton } from "../../common/OutlinedButton";
 import useModal from "../../../hooks/useModal";
@@ -15,13 +23,22 @@ import { CopyIcon } from "../../../assets/icons/CopyIcon";
 import { ProgressCircles } from "./ProgressCircles";
 import { Tooltip } from "../../common/Tooltip";
 import { useTooltip } from "../../../hooks/useTooltip";
+import { CameraIcon } from "../../../assets/icons/CameraIcon";
+
+const PDFDownloadLink = dynamic(
+  () => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
+  {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     backgroundColor: "#FFFFFF",
     padding: 10,
-    gap: 4
+    gap: 4,
   },
   section: {
     margin: 10,
@@ -86,6 +103,12 @@ export type ProductCategory = {
   sales: Product[];
 };
 
+interface ThumbnailsPluginInstance {
+  visible: boolean;
+  hide: () => void;
+  show: () => void;
+}
+
 export interface ProductParameterProps {
   title: string;
   value: string | number;
@@ -121,6 +144,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   const t = useTranslations("products");
   const backendTranslations = useBackendTranslations("products");
   const translatedData = useTranslateData(products, backendTranslations);
+  const [isPhotoOpen, setIsPhotoOpen] = useState(false);
 
   const [copySuccess, setCopySuccess] = useState("");
   const { isTooltipVisible, showTooltip, hideTooltip } = useTooltip();
@@ -128,13 +152,12 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   const handleCopyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      showTooltip(); // Show tooltip on successful copy
+      showTooltip();
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
   };
 
-  // Function to group products into categories
   const categorizeProducts = (products: Product[]): ProductCategory[] => {
     const categories: { [key: string]: Product[] } = {};
     products.forEach((product) => {
@@ -193,19 +216,72 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
     toggle();
   };
 
+  const thumbnailsRef = useRef<ThumbnailsPluginInstance | null>(null);
+  const fullscreenRef = useRef(null);
+  const zoomRef = useRef(null);
+
   return (
     <div className="flex flex-row px-0 w-full pr-4">
       {/* Left panel: Product details */}
       <div className="w-3/4 2xl:p-4 2xl:pt-2">
         <div className="flex flex-col">
           <div className="flex gap-6 md:gap-8 items-center justify-start mb-16 ">
-            <div className="min-w-[9rem] min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-6 rounded-xl  flex justify-center items-center border border-mainBorder dark:border-mainBorderDark ">
+            <div
+              onClick={() => setIsPhotoOpen(true)}
+              className="group relative min-w-[9rem] hover:bg-[rgb(255,255,255,0.02)] cursor-pointer min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-2 rounded-xl  flex justify-center items-center border border-mainBorder dark:border-mainBorderDark "
+            >
               <div className="relative w-full h-full">
                 {activeProduct.image && (
                   <Image src={activeProduct.image} alt="Product" fill={true} />
                 )}
               </div>
+              <div className="absolute  top-0 left-0 w-full h-full flex justify-center items-center z-50  opacity-0 group-hover:opacity-100 ">
+                <div className="w-10 h-10 text-grayIcon dark:text-grayIconDark">
+                  <CameraIcon />
+                </div>
+              </div>
             </div>
+            <Lightbox
+              plugins={[Thumbnails, Fullscreen, Zoom, Counter]}
+              thumbnails={{ ref: thumbnailsRef }}
+              open={isPhotoOpen}
+              close={() => setIsPhotoOpen(false)}
+              // Ternary operators below allow to show multiple photos in gallery for demo purposes 
+              slides={[
+                {
+                  src:
+                    activeProduct.type === "Phone"
+                      ? "phone.png"
+                      : activeProduct.type === "Tablet"
+                      ? "tablet.png"
+                      : "laptop.png",
+                },
+                {
+                  src:
+                    activeProduct.type === "Phone"
+                      ? "tablet.png"
+                      : activeProduct.type === "Tablet"
+                      ? "laptop.png"
+                      : "phone.png",
+                },
+                {
+                  src:
+                    activeProduct.type === "Phone"
+                      ? "laptop.png"
+                      : activeProduct.type === "Tablet"
+                      ? "phone.png"
+                      : "tablet.png",
+                },
+              ]}
+              counter={{ container: { style: { top: "unset", bottom: 0 } } }}
+              on={{
+                click: () => {
+                  (thumbnailsRef.current?.visible
+                    ? thumbnailsRef.current?.hide
+                    : thumbnailsRef.current?.show)?.();
+                },
+              }}
+            />
             <div>
               <h2 className="text-lg md:text-3xl lg:text-3xl 2xl:text-4xl mb-3 xsm:mb-4 text-primaryText dark:text-primaryTextDark">
                 {activeProduct.name}
@@ -264,26 +340,27 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
           </div>
         </div>
         <ProgressCircles metrics={activeProduct.metrics} />
-
         <div className="flex justify-between items-center w-full mt-8 xsm:mt-14">
-          <div className="flex justify-center items-center w-[16rem] relative">
-            <div className="w-10 text-xl text-secondaryText dark:text-secondaryTextDark">
-              ID:
+          <div className="flex items-center gap-2">
+            <div className="flex justify-center items-center  relative max-w-[15.5rem]">
+              <div className="w-10 text-xl text-secondaryText dark:text-secondaryTextDark">
+                ID:
+              </div>
+              <Input value={activeProduct.productId} type="text"></Input>
+              <button
+                className="absolute right-2 text-gray-400 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300"
+                onClick={() => handleCopyToClipboard(activeProduct.productId)}
+              >
+                <CopyIcon />
+              </button>
             </div>
-            <Input value={activeProduct.productId} type="text"></Input>
-            <button
-              className="absolute right-2 text-gray-400 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300"
-              onClick={() => handleCopyToClipboard(activeProduct.productId)}
-            >
-              <CopyIcon />
-            </button>
             {isTooltipVisible && (
-              <div className="absolute left-[16.8rem] bottom-1 min-w-[6rem]">
-                <Tooltip text="Copied to clipboard!" />
+              <div className=" bottom-1">
+                <Tooltip text={t("clipboard.copiedToClipboard")} />
               </div>
             )}
           </div>
-          <div className="flex  w-[15rem] h-12  items-center justify-end">           
+          <div className="flex  w-[15rem] h-12  items-center justify-end">
             <PDFDownloadLink
               document={<ProductPDF product={activeProduct} />}
               fileName={`${activeProduct.name}.pdf`}
@@ -292,7 +369,10 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 loading ? (
                   "Loading document..."
                 ) : (
-                  <OutlinedButton text={t("pdf.exportToPdf")} className="min-w-[10rem]" />
+                  <OutlinedButton
+                    text={t("pdf.exportToPdf")}
+                    className="min-w-[10rem]"
+                  />
                 )
               }
             </PDFDownloadLink>

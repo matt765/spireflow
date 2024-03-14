@@ -190,6 +190,9 @@
     },
     "pdf": {
       "exportToPdf": "Eksport to PDF"
+    },
+    "clipboard": {
+      "copiedToClipboard": "Skopiowano do schowka!"
     }
   },
   "analytics": {

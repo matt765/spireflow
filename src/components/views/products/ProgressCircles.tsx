@@ -26,7 +26,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
         return (
           <div
             key={index}
-            className="w-[48%] px-8 flex justify-center items-center border border-mainBorder dark:border-mainBorderDark py-12 rounded-md"
+            className="hover:bg-[rgb(255,255,255,0.01)] transition w-[48%] px-8 flex justify-center items-center border border-mainBorder dark:border-mainBorderDark py-12 rounded-md"
           >
             <div className="flex gap-8 items-center">
               <ProgressCircle value={percentage} size="xl" color="slate">
