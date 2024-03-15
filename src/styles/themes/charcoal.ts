@@ -48,6 +48,7 @@ export const charcoalTheme = {
   navbarButtonBgHover: "rgb(255, 255, 255, 0.05)", 
   galleryBg: "rgb(0,0,0,0.5)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
+  datepickerHeaderBg: "rgb(45,50,57)",
 
   tremor: {
     brand: {

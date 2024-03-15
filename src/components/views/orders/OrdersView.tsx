@@ -60,7 +60,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
           setStartDate={(value) => setFilter("startDate", value)}
           endDate={getFilter("endDate") as string | null}
           setEndDate={(value) => setFilter("endDate", value)}
-        />
+        />        
       </div>
       <div className="flex w-full gap-4 mt-2">
         <OrderSelects

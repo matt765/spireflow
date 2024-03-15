@@ -48,6 +48,7 @@ export const snowlightTheme = {
   navbarButtonBgHover: "rgb(79, 142, 247)",
   galleryBg: "rgb(255, 255, 255, 0.01)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.2)",
+  datepickerHeaderBg: "rgb(240, 240, 245, 0.4)",
 
   tremor: {
     brand: {

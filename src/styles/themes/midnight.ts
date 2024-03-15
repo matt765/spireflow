@@ -49,6 +49,7 @@ export const midnightTheme = {
   navbarButtonBgHoverDark: "rgb(255, 255, 255, 0.08)",
   galleryBgDark: "rgb(0,0,0,0.5)",
   galleryThumbnailBgDark: "rgb(255, 255, 255, 0.02)",
+  datepickerHeaderBgDark: "rgb(52, 60, 74)",
 
   // Primary dark mode for graphs
   "dark-tremor": {

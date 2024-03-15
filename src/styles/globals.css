@@ -312,15 +312,14 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-background-clip: text;
 
-
-  box-shadow: inset 0 0 20px 20px rgb(255,255,255,0.03);
+  box-shadow: inset 0 0 20px 20px rgb(255, 255, 255, 0.03);
 }
 
 /* Colors for lightbox gallery on products page */
 .yarl__container {
   @apply !bg-galleryBg dark:!bg-galleryBgDark  backdrop-blur-md dark:bg-secondaryBgDark;
 }
- .yarl__thumbnails_container {
+.yarl__thumbnails_container {
   @apply !bg-galleryBg dark:!bg-galleryBgDark   backdrop-blur-md dark:bg-secondaryBgDark;
 }
 .yarl__thumbnails_vignette {
@@ -330,3 +329,34 @@ input:-webkit-autofill:active {
   @apply !border-mainBorder dark:!border-mainBorderDark !bg-galleryThumbnailBg dark:!bg-galleryThumbnailBgDark backdrop-blur-md dark:bg-secondaryBgDark;
 }
 
+/* React Datepicker adjustments */
+.react-datepicker__tab-loop {
+  margin-left: 0 !important;
+}
+.react-datepicker {
+  @apply backdrop-blur-md !bg-primaryBg dark:!bg-primaryBgDark !border-mainBorder dark:!border-mainBorderDark !text-primaryText dark:text-primaryTextDark;
+}
+.react-datepicker * {
+  @apply !text-primaryText dark:text-primaryTextDark;
+}
+.react-datepicker__header {
+  @apply !bg-datepickerHeaderBg dark:!bg-secondaryBgDark !border-mainBorder dark:!border-mainBorderDark;
+}
+.react-datepicker__day-name {
+  @apply !text-gray-400 dark:text-secondaryTextDark;
+}
+.react-datepicker__day:hover {
+  @apply !bg-mainBorder dark:!bg-navItemBgHoverDark;
+}
+.react-datepicker__day--selected {
+  @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
+}
+.react-datepicker__day--keyboard-selected {
+  @apply !bg-mainColor dark:!bg-mainColor !text-white dark:!text-white;
+}
+.react-datepicker__day--selected:hover {
+  @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
+}
+.react-datepicker__day--keyboard-selected:hover {
+  @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
+}

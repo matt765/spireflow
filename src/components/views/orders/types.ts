@@ -13,9 +13,9 @@ export interface Order {
 
 export interface OrdersDateRangeProps {
   startDate: string | null;
-  setStartDate: (value: string) => void;
+  setStartDate: (value: string | null) => void;
   endDate: string | null;
-  setEndDate: (value: string) => void;
+  setEndDate: (value: string | null) => void;
 }
 
 export interface PriceRange {

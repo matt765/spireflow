@@ -48,6 +48,7 @@ export const prismaticTheme = {
   navbarButtonBgHover: "rgb(255, 255, 255, 0.05)",
   galleryBg: "rgb(0,0,0,0.01)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.05)",
+  datepickerHeaderBg: "rgb(255,255,255,0)",
 
   tremor: {
     brand: {
