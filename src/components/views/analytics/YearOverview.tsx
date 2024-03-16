@@ -2,7 +2,6 @@
 
 import {
   Card,
-  Title,
   Bold,
   Text,
   Tab,
@@ -14,34 +13,18 @@ import {
   Grid,
 } from "@tremor/react";
 import { useTranslations } from "next-intl";
-
 import React, { useState } from "react";
+
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { BlockTitle } from "../../common/BlockTitle";
+import { SingleProductData, YearOverviewProps } from "./types";
 
 const Categories = {
   Phones: "Phones",
   Tablets: "Tablets",
   Laptops: "Laptops",
 };
-
-interface SingleProductData {
-  name: string;
-  value: number;
-}
-
-interface OverviewCategoryData {
-  name: string;
-  sales: SingleProductData[];
-  revenue: SingleProductData[];
-  unitsSold: SingleProductData[];
-  returns: SingleProductData[];
-}
-
-interface YearOverviewProps {
-  yearOverviewData: OverviewCategoryData[];
-}
 
 export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
   const [activeCategory, setActiveCategory] = useState(Categories.Phones);

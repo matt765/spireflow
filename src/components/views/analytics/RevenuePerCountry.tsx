@@ -18,28 +18,24 @@ import { AustraliaIcon } from "../../../assets/icons/AustraliaIcon";
 import { useTranslations } from "next-intl";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
+import { RevenuePerCountryProps } from "./types";
 
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
 const HIGHLIGHT_COLOR = "rgb(59, 130, 246)";
 
-
-
-interface Country {
-  name: string;
-  price: number;
-}
-
-interface RevenuePerCountryProps {
-  revenuePerCountryData: Country[];
-}
 export const RevenuePerCountry = ({
   revenuePerCountryData,
 }: RevenuePerCountryProps) => {
   const t = useTranslations("analytics.revenuePerCountry");
-  const backendTranslations = useBackendTranslations("analytics.revenuePerCountry");
-  const translatedData = useTranslateData(revenuePerCountryData, backendTranslations);
-  
+  const backendTranslations = useBackendTranslations(
+    "analytics.revenuePerCountry"
+  );
+  const translatedData = useTranslateData(
+    revenuePerCountryData,
+    backendTranslations
+  );
+
   const countryIconMap: {
     [key: string]: React.FC<React.SVGProps<SVGSVGElement>> | undefined;
   } = {
@@ -98,8 +94,12 @@ export const RevenuePerCountry = ({
         </ComposableMap>
         <div className="flex flex-col p-0 overflow-auto min-w-[18rem] gap-3 overflow-hidden -mt-8 px-2">
           <div className="w-full flex justify-between">
-            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">{t("country")}</h3>
-            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">{t("sales")}</h3>
+            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">
+              {t("country")}
+            </h3>
+            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">
+              {t("sales")}
+            </h3>
           </div>
           {dataWithIcons.map((data, index) => (
             <div
@@ -114,7 +114,9 @@ export const RevenuePerCountry = ({
                   {data.name}
                 </span>
               </div>
-              <span className="font-semibold text-sm text-primaryText dark:text-primaryTextDark">${data.price}</span>
+              <span className="font-semibold text-sm text-primaryText dark:text-primaryTextDark">
+                ${data.price}
+              </span>
             </div>
           ))}
         </div>

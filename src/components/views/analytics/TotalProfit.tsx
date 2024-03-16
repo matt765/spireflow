@@ -10,24 +10,10 @@ import {
   AreaChart,
 } from "@tremor/react";
 import { useTranslations } from "next-intl";
+
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-
-interface ProductProfit {
-  title: string;
-  value: number;
-  metric: string;
-}
-
-interface TotalMonthProfit {
-  month: string;
-  sales: number;
-}
-
-interface TotalProfitProps {
-  totalProfitProducts: ProductProfit[];
-  totalProfitSales: TotalMonthProfit[];
-}
+import { TotalProfitProps } from "./types";
 
 export const TotalProfit = ({
   totalProfitProducts,
@@ -35,9 +21,12 @@ export const TotalProfit = ({
 }: TotalProfitProps) => {
   const t = useTranslations("analytics.totalProfit");
   const backendTranslations = useBackendTranslations("analytics.totalProfit");
-  const translatedData = useTranslateData(totalProfitSales, backendTranslations);
+  const translatedData = useTranslateData(
+    totalProfitSales,
+    backendTranslations
+  );
 
-  const valueFormatter = (number: number) =>  
+  const valueFormatter = (number: number) =>
     `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
   return (

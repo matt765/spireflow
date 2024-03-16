@@ -5,16 +5,7 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-
-interface MonthPerformance {
-  month: string;
-  sales: number;
-  profit: number;
-}
-
-interface PerformanceProps {
-  performanceData: MonthPerformance[];
-}
+import { PerformanceProps } from "./types";
 
 export const Performance = ({ performanceData }: PerformanceProps) => {
   const t = useTranslations("analytics.performance");

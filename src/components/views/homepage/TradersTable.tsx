@@ -9,7 +9,6 @@ import {
   TableHeaderCell,
   TableBody,
   BadgeDelta,
-  DeltaType,
   MultiSelect,
   MultiSelectItem,
 } from "@tremor/react";
@@ -18,21 +17,7 @@ import { useState } from "react";
 
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
-
-interface Trader {
-  name: string;
-  leads: number;
-  sales: string;
-  quota: string;
-  variance: string;
-  region: string;
-  status: string;
-  deltaType: DeltaType;
-}
-
-interface TradersTableProps {
-  tradersTableData: Trader[];
-}
+import { Trader, TradersTableProps } from "./types";
 
 export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
   const [selectedNames, setSelectedNames] = useState<string[]>([]);

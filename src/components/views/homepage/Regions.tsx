@@ -14,18 +14,8 @@ import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
+import { RegionsProps, Region } from "./types";
 
-interface Region {
-  name: string;
-  region: string;
-  sales: number;
-  delta: string;
-  deltaType: string;
-}
-
-interface RegionsProps {
-  regionsData: Region[];
-}
 
 export const Regions = ({ regionsData }: RegionsProps) => {
   const [selectedRegion, setSelectedRegion] = useState("asia");

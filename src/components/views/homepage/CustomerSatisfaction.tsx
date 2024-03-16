@@ -2,21 +2,11 @@
 
 import { ScatterChart } from "@tremor/react";
 import { Card } from "@tremor/react";
+import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { useTranslations } from "next-intl";
-
-interface ProductSatisfaction {
-  brandName: string;
-  customerSatisfaction: number;
-  totalSales: number;
-  numberOfOrders: number;
-}
-
-interface CustomerSatisfactionProps {
-  customerSatisfactionData: ProductSatisfaction[];
-}
+import { CustomerSatisfactionProps } from "./types";
 
 export const CustomerSatisfaction = ({
   customerSatisfactionData,

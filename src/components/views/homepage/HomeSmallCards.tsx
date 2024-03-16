@@ -1,31 +1,10 @@
 "use client";
 
-import { Card, DeltaType, BarChart, Color } from "@tremor/react";
+import { Card, BarChart, Color } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
 import { useTranslateData } from "../../../hooks/useTranslateData";
-
-interface HomeSmallCardChartData {
-  date: string;
-  metric: number;
-}
-
-interface HomeSmallCard {
-  title: string;
-  metric: string;
-  metricPrev: string;
-  delta: string;
-  deltaType: DeltaType;
-  color: Color;
-  increased: boolean;
-  changeValue: number;
-  changeText: string;
-  chartData: HomeSmallCardChartData[];
-}
-
-interface HomeSmallCardsProps {
-  homeSmallCardsData: HomeSmallCard[];
-}
+import { HomeSmallCardsProps } from "./types";
 
 export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
   const t = useTranslations("homepage.homeSmallCards");

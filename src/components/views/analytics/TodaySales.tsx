@@ -15,20 +15,10 @@ import {
 } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
-import { useState } from "react";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
+import { TodaySalesProps } from "./types";
 
-interface TodaySalesDataUnit {
-  hour: string;
-  today: number;
-  average: number;
-  yesterday: number;
-}
-
-interface TodaySalesProps {
-  todaySalesData: TodaySalesDataUnit[];
-}
 export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
   const t = useTranslations("analytics.todaySales");
   const valueFormatter = (number: number) =>

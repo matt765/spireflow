@@ -1,24 +1,11 @@
 "use client";
 
 import { Card, BarChart } from "@tremor/react";
+import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
-import { useTranslations } from "next-intl";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-
-interface BestSellingProduct {
-  name: string;
-  profit: number;
-}
-
-interface BestSellingProductsProps {
-  bestSellingProductsData: BestSellingProduct[];
-}
-
-interface TransformedBestSellingProduct {
-  name: string;
-  "Profit from last week": number;
-}
+import { BestSellingProductsProps } from "./types";
 
 export const BestSellingProducts = ({
   bestSellingProductsData,

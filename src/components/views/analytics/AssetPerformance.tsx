@@ -3,11 +3,8 @@
 import {
   Card,
   Col,
-  DeltaType,
   DeltaBar,
   DonutChart,
-  Select,
-  SelectItem,
   Flex,
   List,
   ListItem,
@@ -15,22 +12,10 @@ import {
   Title,
   Bold,
   Grid,
-  Color,
 } from "@tremor/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-
-interface Asset {
-  name: string;
-  industry: string;
-  sales: number;
-  delta: number;
-  deltaType: DeltaType;
-  status: Color;
-}
-interface AssetPerformanceProps {
-  assetPerformanceData: Asset[];
-}
+import { Asset, AssetPerformanceProps } from "./types";
 
 export const AssetPerformance = ({
   assetPerformanceData,
@@ -70,7 +55,7 @@ export const AssetPerformance = ({
           />
         </Flex>
         <Col numColSpan={1} numColSpanLg={2}>
-          <Flex className="block sm:hidden lg:block">          
+          <Flex className="block sm:hidden lg:block">
             <Text>
               <Bold>+/-% {t("sinceTransaction")} </Bold>
             </Text>
@@ -89,7 +74,7 @@ export const AssetPerformance = ({
                         <DeltaBar
                           value={asset.delta}
                           isIncreasePositive={true}
-                          tooltip=""                       
+                          tooltip=""
                         />
                       </div>
                     </Flex>
