@@ -45,14 +45,21 @@ export const OrderSelects = ({
     {
       value:
         filters.priceRange.min === 0 && filters.priceRange.max === 5000
+          ? "" // Treat the initial state as equivalent to having no selection.
+          : typeof filters.priceRange.min === "undefined" ||
+            typeof filters.priceRange.max === "undefined"
           ? ""
           : `${filters.priceRange.min}-${filters.priceRange.max}`,
       setFilterKey: "priceRange",
       placeholder: t("selectPlaceholder.anyPrice"),
       options: ["0-100", "100-500", "500-1000", "1000-5000"],
       specialHandler: (e: ChangeEvent<HTMLSelectElement>) => {
-        const [min, max] = e.target.value.split("-").map(Number);
-        setFilter("priceRange", { min, max });
+        if (e.target.value === "") {
+          setFilter("priceRange", { min: 0, max: 5000 });
+        } else {
+          const [min, max] = e.target.value.split("-").map(Number);
+          setFilter("priceRange", { min, max });
+        }
       },
     },
     {
@@ -90,6 +97,8 @@ export const OrderSelects = ({
                 }
               }}
               placeholder={placeholder}
+              customOptions={options}
+              customOnDesktop={true}
             >
               {options.map((option) => (
                 <option key={option} value={option}>
