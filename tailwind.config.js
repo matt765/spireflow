@@ -27,7 +27,7 @@ module.exports = {
       fontFamily: {
         inter: ["var(--inter-font)", ...fontFamily.sans],
         nunito: ["var(--nunito-font)", ...fontFamily.sans],
-      },
+      },     
       boxShadow: {
         // light
         "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",

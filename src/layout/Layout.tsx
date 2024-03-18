@@ -39,9 +39,9 @@ export const Layout = ({ children }: Props) => {
         )}
       </div>
       {theme === "prismatic" && (
-        <div className="bg-[url('/bg.jpg')] fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"></div>
+        <div className="gradientBackground fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"></div>
       )}
-      <div className="w-screen fixed top-0 left-0 h-screen backdrop-blur-xl z-[-1]"></div>
+      <div className="w-screen fixed top-0 left-0 h-screen z-[-1]"></div>
     </>
   );
 };

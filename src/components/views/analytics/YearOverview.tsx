@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Card,
   Bold,
   Text,
   Tab,
@@ -19,6 +18,7 @@ import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { BlockTitle } from "../../common/BlockTitle";
 import { SingleProductData, YearOverviewProps } from "./types";
+import { Card } from "../../common/Card";
 
 const Categories = {
   Phones: "Phones",

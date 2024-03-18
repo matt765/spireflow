@@ -1,10 +1,11 @@
 "use client";
 
-import { Card, BarChart, Color } from "@tremor/react";
+import { BarChart, Color } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { HomeSmallCardsProps } from "./types";
+import { Card } from "../../common/Card";
 
 export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
   const t = useTranslations("homepage.homeSmallCards");

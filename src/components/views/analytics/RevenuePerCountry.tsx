@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-import { Card } from "@tremor/react";
-import ReactTooltip from "react-tooltip";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 
@@ -19,6 +17,7 @@ import { useTranslations } from "next-intl";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RevenuePerCountryProps } from "./types";
+import { Card } from "../../common/Card";
 
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 

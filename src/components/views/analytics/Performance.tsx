@@ -1,11 +1,12 @@
 "use client";
 
-import { Card, BarChart, Title, Text } from "@tremor/react";
+import { BarChart, Title, Text } from "@tremor/react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { PerformanceProps } from "./types";
+import { Card } from "../../common/Card";
 
 export const Performance = ({ performanceData }: PerformanceProps) => {
   const t = useTranslations("analytics.performance");
@@ -18,8 +19,9 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
 
   const colorSchemes: { [key: string]: string[] } = {
     sandstone: ["stone", "amber"],
-    midnight: ["indigo", "cyan"],
+    midnight: ["indigo", "slate"],
     oceanic: ["purple", "slate"],
+    charcoal: ["purple", "gray"],
   };
 
   const defaultTheme = "midnight";

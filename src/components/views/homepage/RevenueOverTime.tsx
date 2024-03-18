@@ -1,12 +1,13 @@
 "use client";
 
-import { Card, AreaChart } from "@tremor/react";
+import { AreaChart } from "@tremor/react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RevenueOverTimeProps } from "./types";
+import { Card } from "../../common/Card";
 
 export const RevenueOverTime = ({
   revenueOverTimeData,

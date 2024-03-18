@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Card,
   ProgressBar,
   Text,
   Flex,
@@ -14,6 +13,7 @@ import { useTranslations } from "next-intl";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { TotalProfitProps } from "./types";
+import { Card } from "../../common/Card";
 
 export const TotalProfit = ({
   totalProfitProducts,

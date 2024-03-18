@@ -2,7 +2,6 @@
 
 import {
   BadgeDelta,
-  Card,
   DonutChart,
   Flex,
   Legend,
@@ -15,7 +14,7 @@ import { useTranslations } from "next-intl";
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RegionsProps, Region } from "./types";
-
+import { Card } from "../../common/Card";
 
 export const Regions = ({ regionsData }: RegionsProps) => {
   const [selectedRegion, setSelectedRegion] = useState("asia");

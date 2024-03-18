@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Card,
   Table,
   TableRow,
   TableCell,
@@ -18,6 +17,7 @@ import { useState } from "react";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { Trader, TradersTableProps } from "./types";
+import { Card } from "../../common/Card";
 
 export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
   const [selectedNames, setSelectedNames] = useState<string[]>([]);

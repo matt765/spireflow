@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Card,
   Col,
   DeltaBar,
   DonutChart,
@@ -16,6 +15,7 @@ import {
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Asset, AssetPerformanceProps } from "./types";
+import { Card } from "../../common/Card";
 
 export const AssetPerformance = ({
   assetPerformanceData,

@@ -1,5 +1,5 @@
 export const prismaticTheme = {
-  primaryBg: "rgb(255,255,255,0.04)",
+  primaryBg: "rgb(255,255,255,0.02)",
   secondaryBg: "rgba(17, 17, 17, 0.35)",
   primaryText: "white",
   secondaryText: "rgb(255,255,255,0.6)",

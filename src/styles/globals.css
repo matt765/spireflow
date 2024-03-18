@@ -360,3 +360,14 @@ input:-webkit-autofill:active {
 .react-datepicker__day--keyboard-selected:hover {
   @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
 }
+
+/* Gradient background for prismatic theme */
+.gradientBackground {
+  background-color:hsla(216,32%,16%,1);
+  background-image:
+  radial-gradient(at 91% 92%, hsla(214,26%,43%,1) 0px, transparent 50%),
+  radial-gradient(at 88% 16%, hsla(215,32%,39%,1) 0px, transparent 50%),
+  radial-gradient(at 34% 27%, hsla(214,28%,43%,1) 0px, transparent 50%),
+  radial-gradient(at 18% 86%, hsla(220,38%,28%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(216,29%,32%,1) 0px, transparent 50%);
+}
