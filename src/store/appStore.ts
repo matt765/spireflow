@@ -45,7 +45,3 @@ export const useAppStore = create<AppStore>((set) => ({
   setLoading: (loading) => set(() => ({ isLoading: loading })),
 }));
 
-export const initializeLoadingState = () => {
-  useAppStore.getState().setLoading(true);
-  setTimeout(() => useAppStore.getState().setLoading(false), 400);
-};

@@ -1,7 +1,7 @@
 export const midnightTheme = {
   // Primary dark mode
   primaryBgDark: "rgb(63, 70, 85)",
-  secondaryBgDark: "rgb(52, 60, 74)",
+  secondaryBgDark: "rgb(57, 64, 77)",
   primaryTextDark: "white",
   secondaryTextDark: "rgb(255,255,255,0.6)",
   secondaryTextHoverDark: "rgb(255,255,255,0.8)",

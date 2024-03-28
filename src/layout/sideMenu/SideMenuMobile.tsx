@@ -9,12 +9,12 @@ import { LineIcon } from "../../assets/icons/LineIcon";
 import { OrdersIcon } from "../../assets/icons/OrdersIcon";
 import { ScatterIcon } from "../../assets/icons/ScatterIcon";
 import { useAppStore } from "../../store/appStore";
-import { useLoginStore } from "../../store/loginStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 import { Select } from "../../components/forms/Select";
 import { useTheme } from "next-themes";
+import { useSession } from "../../hooks/auth/useSession";
 
 interface SideMenuMobileProps {
   isMobileMenuOpen: boolean;
@@ -26,8 +26,7 @@ export const SideMenuMobile = ({
   onLoginButtonClick,
 }: SideMenuMobileProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
-  const { user } = useLoginStore();
-
+  const { session } = useSession();
   const { theme } = useTheme();
 
   return (
@@ -63,7 +62,7 @@ export const SideMenuMobile = ({
         <MenuItem title="Line" icon={<LineIcon />} path="/line" />
       </div>
       <div className="w-full border-t-0 dark:border-mainBorderDark px-4 pt-8 mb-6 ">
-        {!(user) && (
+        {!session?.isLoggedIn && (
           <button
             onClick={() => {
               onLoginButtonClick();
@@ -83,7 +82,7 @@ export const SideMenuMobile = ({
             <option value="polish">Polish</option>
           </Select>
         </div>
-      </div>     
+      </div>
       <a
         href="https://github.com/matt765/spireflow"
         target="_blank"

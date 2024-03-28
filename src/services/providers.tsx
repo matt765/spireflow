@@ -20,6 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           "sapphire",
           "sandstone",
         ]}
+        defaultTheme="prismatic"
         disableTransitionOnChange
       >
         <Layout>{children}</Layout>

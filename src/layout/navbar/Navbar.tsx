@@ -5,10 +5,8 @@ import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 
 import { LoginModal } from "../../components/auth/LoginModal";
-import { useLoginStore } from "../../store/loginStore";
 import { Logo } from "../sideMenu/Logo";
 import { SignUpModal } from "../../components/auth/SignUpModal";
-import { SpinnerIcon } from "../../assets/icons/Spinner";
 import { UserIcon } from "../../assets/icons/UserIcon";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { LogoutIcon } from "../../assets/icons/LogoutIcon";
@@ -23,21 +21,26 @@ import { useDropdown } from "../../hooks/useDropdown";
 import { Dropdown } from "../../components/common/Dropdown";
 import { Link } from "../../i18n/navigation";
 import { LanguageIcon } from "../../assets/icons/LanguageIcon";
+import { useSession } from "../../hooks/auth/useSession";
+import { useHandleLogout } from "../../hooks/auth/useHandleLogout";
 
 export const Navbar = () => {
-  const { user, setUser, loading, initializeUser } = useLoginStore();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [currentLanguage, setCurrentLanguage] = useState("en");
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
   const t = useTranslations("navbar");
+  const { handleLogout } = useHandleLogout();
+  const [isPrismaticTheme, setIsPrismaticTheme] = useState(true);
 
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
       toggleMobileMenu();
     }
   };
+
+  const { session } = useSession();
 
   const themes = [
     "light",
@@ -57,7 +60,7 @@ export const Navbar = () => {
     "Sandstone",
     "Prismatic",
   ];
-  console.log(user);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 1280 && isMobileMenuOpen) {
@@ -66,19 +69,7 @@ export const Navbar = () => {
     }
   }, []);
 
-  // Function necessary to initialize user in Zustand store
-  useEffect(() => {
-    initializeUser();
-  }, [initializeUser]);
-
   const userIconBtnRef = useRef<HTMLButtonElement | null>(null);
-
-  const handleSignOut = async () => {
-    // await signOut();
-
-    localStorage.removeItem("user");
-    setUser(null);
-  };
 
   const closeLoginModal = () => setIsLoginModalOpen(false);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
@@ -115,7 +106,22 @@ export const Navbar = () => {
 
   const selectTheme = (themeName: string) => {
     setTheme(themeName);
+    if (theme && themeName === "prismatic") {
+      setIsPrismaticTheme(true);
+    } else {
+      setIsPrismaticTheme(false);
+    }
   };
+
+  // This hook and setIsPrismaticTheme state exist because standard conditional
+  // rendering based on useTheme causes hydration errors in a browser
+  useEffect(() => {
+    if (theme && theme === "prismatic") {
+      setIsPrismaticTheme(true);
+    } else {
+      setIsPrismaticTheme(false);
+    }
+  }, [theme]);
 
   const cycleThemeUp = () => {
     if (typeof theme === "string") {
@@ -136,16 +142,18 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`${
-        theme === "prismatic" && ""
-      } flex items-center justify-between fixed h-[5rem] xl:h-[4rem] 2xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
+      className={`flex items-center justify-between fixed h-[5rem] xl:h-[4rem] 2xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
     >
-      {theme === "prismatic" && (
-        <div className="backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-1] border-b border-solid border-mainBorder dark:border-mainBorderDark"></div>
-      )}
+      <div
+        className={`${
+          isPrismaticTheme
+            ? "backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-50] border-b border-solid border-mainBorder dark:border-mainBorderDark"
+            : "hidden"
+        }`}
+      />
       <Link
         href="/"
-        className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark ${
+        className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark  ${
           !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
         }     
         `}
@@ -236,7 +244,7 @@ export const Navbar = () => {
         </div>
 
         <div ref={userDropdown.ref} className="-mr-2 xl:-mr-unset">
-          {user ? (
+          {session && session.username ? (
             <OutlinedButton
               ref={userIconBtnRef}
               handleClick={() => {
@@ -266,12 +274,12 @@ export const Navbar = () => {
                 <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                   <MailIcon />
                 </div>
-                {user?.email || "Email"}
+                {session?.username || "Email"}
               </div>
               <div
                 className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
                 onClick={() => {
-                  handleSignOut();
+                  handleLogout();
                   userDropdown.toggle();
                 }}
               >

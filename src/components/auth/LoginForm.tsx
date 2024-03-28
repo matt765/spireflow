@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
 import { SpinnerIcon } from "../../assets/icons/Spinner";
-import { HandleLoginProps } from "../../hooks/useHandleLogin";
+import { HandleLoginProps } from "../../hooks/auth/useHandleLogin";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
 import { ContainedButton } from "../common/ContainedButton";
@@ -19,7 +19,7 @@ export interface LoginData {
 interface LoginFormProps {
   handleLogin: SubmitHandler<HandleLoginProps>;
   authError: string;
-  switchToSignUp: () => void;
+  switchToSignUp?: () => void;
   clearAuthError?: () => void;
 }
 
@@ -40,8 +40,8 @@ export const LoginForm = ({
       .required(t("emailFieldIsRequired"))
       .email(t("pleaseEnterAValidEmail")),
     password: Yup.string()
-    .required(t("passwordFieldIsRequired"))
-    .min(6, t("passwordMinimumLength")), 
+      .required(t("passwordFieldIsRequired"))
+      .min(6, t("passwordMinimumLength")),
   });
 
   const {
@@ -55,9 +55,15 @@ export const LoginForm = ({
   });
 
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
-    console.log(data);
     setLoading(true);
-    await handleLogin(data);
+
+    try {
+      await handleLogin(data);
+    } catch (error) {
+      console.error("Login process error:", error);
+    } finally {
+      setTimeout(() => setLoading(false), 1000);
+    }
   };
 
   // Hide error messages when user clicks anywhere on the screen
@@ -93,19 +99,12 @@ export const LoginForm = ({
   // Effects that delay showing auth error to prevent spam
   useEffect(() => {
     if (authError) {
-      const timer = setTimeout(() => {
+      setTimeout(() => {
         setAuthErrorDisplayed(authError);
+        setLoading(false);
       }, 1000);
-
-      return () => clearTimeout(timer);
     } else {
       setAuthErrorDisplayed("");
-    }
-  }, [authError]);
-
-  useEffect(() => {
-    if (authError) {
-      setTimeout(() => setLoading(false), 1000);
     }
   }, [authError]);
 
@@ -117,13 +116,13 @@ export const LoginForm = ({
         {t("signIn")}
       </h1>
       <form
-        className="w-full flex flex-col gap-3 py-12 pt-14 "
+        className="w-full flex flex-col gap-3 py-12 pt-14"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="mb-2 w-full relative">
           <Controller
             name="username"
-            control={control}         
+            control={control}
             render={({ field }) => (
               <Input
                 {...field}
@@ -158,7 +157,7 @@ export const LoginForm = ({
         <div className="mb-2 relative">
           <Controller
             name="password"
-            control={control}          
+            control={control}
             render={({ field }) => (
               <Input
                 {...field}
@@ -218,6 +217,7 @@ export const LoginForm = ({
                 });
                 setLoading(true);
               }}
+              type="submit"
             >
               {loading ? (
                 <div className="w-6 h-6 -mt-4 -ml-5">

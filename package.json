@@ -37,6 +37,7 @@
     "firebase": "^10.3.0",
     "framer-motion": "^6.5.1",
     "graphql": "^16.8.1",
+    "iron-session": "^8.0.1",
     "next": "^14.0.3",
     "next-intl": "^3.5.0",
     "next-themes": "^0.2.1",

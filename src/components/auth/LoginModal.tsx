@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import { useHandleLogin } from "../../hooks/useHandleLogin";
+import { useHandleLogin } from "../../hooks/auth/useHandleLogin";
 import { LoginForm } from "./LoginForm";
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 

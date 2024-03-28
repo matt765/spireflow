@@ -1,12 +1,14 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 import { Navbar } from "./navbar/Navbar";
 import { SideMenu } from "./sideMenu/SideMenu";
-import { initializeLoadingState, useAppStore } from "../store/appStore";
+import { useAppStore } from "../store/appStore";
 import { Loader } from "../components/common/Loader";
+import { useSession } from "../hooks/auth/useSession";
 
 interface Props {
   children: ReactNode;
@@ -14,22 +16,39 @@ interface Props {
 
 export const Layout = ({ children }: Props) => {
   const { isMobileMenuOpen, toggleMobileMenu } = useAppStore();
-  const isLoading = useAppStore((state) => state.isLoading);
-  const { theme, setTheme } = useTheme();
+  const { theme = "prismatic" } = useTheme();
+  const [isLoadingScreenDisplayed, setIsLoadingScreenDisplayed] =
+    useState(true);
 
   useEffect(() => {
-    // Initialize the loading state only on the first mount of the Layout component
-    initializeLoadingState();
+    setTimeout(() => {
+      setIsLoadingScreenDisplayed(false);
+    }, 500);
   }, []);
+
+  const currentPathname = usePathname();
+
+  const pathsWithNoLayout = [
+    "/login",
+    "/pl/login",
+    "/register",
+    "/pl/register",
+  ];
 
   return (
     <>
-      <div className=" flex h-full w-full bg-secondaryBg dark:bg-secondaryBgDark overflow-x-hidden">
-        {isLoading && <Loader />}
-        <SideMenu />
-        <Navbar />
+      <div className=" flex h-full w-full bg-secondaryBg dark:bg-secondaryBgDark overflow-x-hidden z-50">
+        {isLoadingScreenDisplayed && <Loader />}
+        {!pathsWithNoLayout.includes(currentPathname) && (
+          <>
+            <SideMenu />
+            <Navbar />
+          </>
+        )}
         <div className="flex flex-col w-full xl:max-w-[80%] 1xl:max-w-[82%] 2xl:max-w-[85vw] 5xl:max-w-[102rem] h-full mx-auto">
-          <div className="w-full flex justify-center max-w-full">{children}</div>
+          <div className="w-full flex justify-center max-w-full">
+            {children}
+          </div>
         </div>
         {isMobileMenuOpen && (
           <div
@@ -38,9 +57,12 @@ export const Layout = ({ children }: Props) => {
           />
         )}
       </div>
-      {theme === "prismatic" && (
-        <div className="gradientBackground fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"></div>
-      )}
+      <div
+        className={`${
+          theme === "prismatic" &&
+          "gradientBackground fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"
+        }`}
+      />
       <div className="w-screen fixed top-0 left-0 h-screen z-[-1]"></div>
     </>
   );

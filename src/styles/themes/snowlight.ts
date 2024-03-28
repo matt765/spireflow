@@ -1,6 +1,6 @@
 export const snowlightTheme = {
   primaryBg: "white",
-  secondaryBg: "rgb(240, 240, 245, 0.4)",
+  secondaryBg: "rgb(249, 249, 251)",
   primaryText: "black",
   secondaryText: "rgb(0,0,0,0.6)",
   secondaryTextHover: "rgb(0,0,0,0.8)",

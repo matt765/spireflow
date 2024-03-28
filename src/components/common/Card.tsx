@@ -8,12 +8,20 @@ type CardProps = {
 
 export const Card = ({ children, className }: CardProps) => {
   const { theme } = useTheme();
+
+  // const themesWithoutShadow = [
+  //   "midnight",
+  //   "charcoal",
+  //   "sapphire",
+  //   "oceanic",
+  //   "sandstone",
+  // ];
+
   return (
     <div
       className={`border border-mainBorder rounded-md dark:!border-mainBorderDark bg-primaryBg dark:bg-primaryBgDark
-                relative w-full text-left p-6 h-full ${className}
-                ${theme === "prismatic" && `shadow-xl`}
-                ${theme === "light" && `shadow-md`}
+                relative w-full text-left p-6 h-full shadow-lg ${className}               
+                ${theme === "light" && `shadow-md`}        
                 `}
     >
       {children}

@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 
-import { auth } from "../services/firebaseClient";
+import { auth } from "../../services/firebaseClient";
 
 export const useHandleSignUp = () => {
   const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {

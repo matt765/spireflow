@@ -51,18 +51,15 @@ export const Select = ({
   useClickOutside(dropdownRef, () => setIsSelectOpen(false));
 
   const clearSelection = () => {
-    setSelectedValue(""); // Reset local state
+    setSelectedValue("");
     if (onChange) {
-      // Inform the parent component (simulate empty selection)
       onChange({
         target: { value: "" },
       } as ChangeEvent<HTMLSelectElement>);
     }
-    setIsSelectOpen(false); // Optionally close the dropdown
+    setIsSelectOpen(false);
   };
-  console.log("value", value)
-  console.log("selected", selectedValue)
-  console.log("placeholder", placeholder)
+
   return (
     <>
       <div
@@ -105,7 +102,7 @@ export const Select = ({
                   "bg-dropdownBgHover dark:bg-dropdownBgHoverDark pointer-events-none"
                 }
                 `}
-                onClick={clearSelection}             
+                onClick={clearSelection}
               >
                 {placeholder}
               </div>

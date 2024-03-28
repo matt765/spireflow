@@ -363,11 +363,14 @@ input:-webkit-autofill:active {
 
 /* Gradient background for prismatic theme */
 .gradientBackground {
-  background-color:hsla(216,32%,16%,1);
-  background-image:
-  radial-gradient(at 91% 92%, hsla(214,26%,43%,1) 0px, transparent 50%),
-  radial-gradient(at 88% 16%, hsla(215,32%,39%,1) 0px, transparent 50%),
-  radial-gradient(at 34% 27%, hsla(214,28%,43%,1) 0px, transparent 50%),
-  radial-gradient(at 18% 86%, hsla(220,38%,28%,1) 0px, transparent 50%),
-  radial-gradient(at 0% 0%, hsla(216,29%,32%,1) 0px, transparent 50%);
+  background-color: hsla(216, 32%, 16%, 1);
+  background-image: radial-gradient(
+      at 91% 92%,
+      hsla(213.7, 26%, 42.9%, 0.80) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 88% 16%, hsl(215.2, 31.7%, 39%) 0px, transparent 50%),
+    radial-gradient(at 34% 27%, hsl(213.4, 27.9%, 42.9%) 0px, transparent 50%),
+    radial-gradient(at 18% 86%, hsl(220.4, 38.5%, 28%) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsl(215.7, 28.8%, 32%) 0px, transparent 50%);
 }
