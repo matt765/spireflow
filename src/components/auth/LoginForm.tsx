@@ -62,7 +62,7 @@ export const LoginForm = ({
     } catch (error) {
       console.error("Login process error:", error);
     } finally {
-      setTimeout(() => setLoading(false), 1000);
+      setTimeout(() => setLoading(false), 700);
     }
   };
 
@@ -102,7 +102,7 @@ export const LoginForm = ({
       setTimeout(() => {
         setAuthErrorDisplayed(authError);
         setLoading(false);
-      }, 1000);
+      }, 700);
     } else {
       setAuthErrorDisplayed("");
     }
