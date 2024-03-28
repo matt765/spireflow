@@ -49,6 +49,7 @@ export const oceanicTheme = {
   galleryBg: "rgb(0,0,0,0.5)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
   datepickerHeaderBg: "rgb(34, 44, 55)",
+  tooltipBg: "rgb(34, 44, 55)",
 
   tremor: {
     brand: {

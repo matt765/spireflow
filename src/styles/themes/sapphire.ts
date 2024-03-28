@@ -49,6 +49,7 @@ export const sapphireTheme = {
   galleryBg: "rgb(0,0,0,0.5)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
   datepickerHeaderBg: "rgb(46, 48, 60)",
+  tooltipBg: "rgb(46, 48, 60)",
 
   tremor: {
     brand: {

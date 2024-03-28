@@ -23,6 +23,8 @@ import { Link } from "../../i18n/navigation";
 import { LanguageIcon } from "../../assets/icons/LanguageIcon";
 import { useSession } from "../../hooks/auth/useSession";
 import { useHandleLogout } from "../../hooks/auth/useHandleLogout";
+import { useTooltip } from "../../hooks/useTooltip";
+import { Tooltip } from "../../components/common/Tooltip";
 
 export const Navbar = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -60,6 +62,9 @@ export const Navbar = () => {
     "Sandstone",
     "Prismatic",
   ];
+
+  const paletteTooltip = useTooltip();
+  const languageTooltip = useTooltip();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -161,16 +166,32 @@ export const Navbar = () => {
         <Logo />
       </Link>
       <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
-        <div className="relative" ref={themeDropdown.ref}>
+        <div
+          className="relative"
+          ref={themeDropdown.ref}
+          onMouseEnter={paletteTooltip.showTooltip}
+          onMouseLeave={paletteTooltip.hideTooltip}
+        >
           <div
             className="text-white fill-white stroke-secondaryText dark:stroke-secondaryTextDark cursor-pointer hover:stroke-primaryText hover:dark:stroke-primaryTextDark transition"
             onClick={() => {
               themeDropdown.toggle();
               closeMobileMenu();
+              languageDropdown.close()
             }}
           >
             <PaletteIcon />
           </div>
+          {paletteTooltip.isTooltipVisible &&
+            !themeDropdown.isOpen &&
+            !languageDropdown.isOpen && (
+              <div className="absolute top-10 right-2 pointer-events-none">
+                <Tooltip
+                  text="Change theme"
+                  className=" h-8 px-2  min-w-[7rem] pointer-events-none"
+                />
+              </div>
+            )}
           {themeDropdown.isOpen && (
             <Dropdown className="w-[11rem] min-w-[11rem] right-0 top-11">
               {themes.map((themeName, index) => (
@@ -205,13 +226,31 @@ export const Navbar = () => {
           )}
         </div>
         <div className="hidden xl:flex">
-          <div className="relative" ref={languageDropdown.ref}>
+          <div
+            className="relative"
+            ref={languageDropdown.ref}
+            onMouseEnter={languageTooltip.showTooltip}
+            onMouseLeave={languageTooltip.hideTooltip}
+          >
             <button
-              onClick={() => languageDropdown.toggle()}
+              onClick={() =>  {
+                themeDropdown.close()
+                languageDropdown.toggle()
+              }}
               className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
             >
               <LanguageIcon />
             </button>
+            {languageTooltip.isTooltipVisible &&
+              !themeDropdown.isOpen &&
+              !languageDropdown.isOpen && (
+                <div className="absolute top-10 right-3">
+                  <Tooltip
+                    text="Change language"
+                    className=" h-8 px-3  min-w-32"
+                  />
+                </div>
+              )}
             {languageDropdown.isOpen && (
               <Dropdown className="flex flex-col right-0 top-11 w-36">
                 <Link

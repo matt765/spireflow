@@ -1,10 +1,11 @@
 interface TooltipProps {
   text: string;
+  className?: string; 
 }
 
-export const Tooltip = ({ text }: TooltipProps) => {
+export const Tooltip = ({ text, className }: TooltipProps) => {
   return (
-    <div className="text-primaryText dark:text-primaryTextDark text-xs p-2 px-2 flex items-center justify-center min-w-36 min-h-8 border-mainBorder border rounded-md dark:border-mainBorderDark bg-secondaryBg dark:bg-secondaryBgDark ">
+    <div className={`text-primaryText dark:text-primaryTextDark text-xs p-2 px-2 flex items-center justify-center border-mainBorder border rounded-sm dark:border-mainBorderDark bg-tooltipBg dark:bg-tooltipBgDark !opacity-100 z-50 ${className}`}>
       {text}
     </div>
   );

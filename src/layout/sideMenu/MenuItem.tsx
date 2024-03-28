@@ -5,6 +5,8 @@ import { useRouter, usePathname } from "next/navigation";
 import { useAppStore } from "../../store/appStore";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Link } from "../../i18n/navigation";
+import { useTooltip } from "../../hooks/useTooltip";
+import { Tooltip } from "../../components/common/Tooltip";
 
 interface Props {
   title: string;
@@ -18,6 +20,7 @@ export const MenuItem = ({ title, icon, path }: Props) => {
   const currentPathname = usePathname();
   const isDesktop = useMediaQuery("(min-width: 1280px)");
   const [isActive, setIsActive] = useState(false);
+  const { isTooltipVisible, showTooltip, hideTooltip } = useTooltip();
 
   const handleMenuItemClick = () => {
     if (window.innerWidth < 1024) {
@@ -51,8 +54,10 @@ export const MenuItem = ({ title, icon, path }: Props) => {
     >
       <div
         onClick={handleMenuItemClick}
+        onMouseEnter={showTooltip}
+        onMouseLeave={hideTooltip}
         className={`     
-        flex items-center py-2 rounded-xl pl-4 mb-1 2xl:mb-2 w-full pr-2  transition ${
+        flex relative items-center py-2 rounded-xl pl-4 mb-1 2xl:mb-2 w-full pr-2  transition ${
           isActive
             ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark"
             : "bg-navItemBg dark:bg-navItemBgDark hover:bg-navItemBgHover dark:hover:bg-navItemBgHoverDark"
@@ -84,6 +89,11 @@ export const MenuItem = ({ title, icon, path }: Props) => {
             }`}
           >
             {title}
+          </div>
+        )}
+        {isTooltipVisible && !isSideMenuOpen && (
+          <div className="absolute top-0 left-12 hidden xl:flex">
+            <Tooltip text={title} className=" h-8 px-3  " />
           </div>
         )}
       </div>

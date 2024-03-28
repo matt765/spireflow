@@ -49,6 +49,7 @@ export const prismaticTheme = {
   galleryBg: "rgb(0,0,0,0.01)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.05)",
   datepickerHeaderBg: "rgb(255,255,255,0)",
+  tooltipBg: "rgb(39, 52, 68)",
 
   tremor: {
     brand: {

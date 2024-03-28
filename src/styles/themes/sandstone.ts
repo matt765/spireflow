@@ -49,6 +49,7 @@ export const sandstoneTheme = {
   galleryBg: "rgb(0,0,0,0.5)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
   datepickerHeaderBg: "rgb(41, 43, 48)",
+  tooltipBg: "rgb(41, 43, 48)",
 
   tremor: {
     brand: {

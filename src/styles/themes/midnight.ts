@@ -50,6 +50,7 @@ export const midnightTheme = {
   galleryBgDark: "rgb(0,0,0,0.5)",
   galleryThumbnailBgDark: "rgb(255, 255, 255, 0.02)",
   datepickerHeaderBgDark: "rgb(52, 60, 74)",
+  tooltipBgDark: "rgb(57, 64, 77)",
 
   // Primary dark mode for graphs
   "dark-tremor": {
