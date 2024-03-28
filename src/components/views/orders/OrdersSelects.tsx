@@ -98,7 +98,8 @@ export const OrderSelects = ({
               }}
               placeholder={placeholder}
               customOptions={options}
-              customOnDesktop={true}
+              customOnDesktop
+              isBottomPlaceholderVisible
             >
               {options.map((option) => (
                 <option key={option} value={option}>

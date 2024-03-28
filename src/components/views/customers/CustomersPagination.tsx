@@ -22,12 +22,15 @@ export const CustomersPagination = ({
 }: CustomersPaginationProps) => {
   return (
     <div className="flex items-center mt-8 gap-4 w-full sm:w-auto justify-between sm:justify-end self-start sm:self-unset">
-      <div className="w-16 sm:mr-8">
+      <div className="w-[4.5rem] sm:mr-8">
         <Select
           value={itemsPerPage}
           onChange={(e) => {
             setItemsPerPage(Number(e.target.value));
           }}
+          customOnDesktop={true}
+          customOptions={["10", "50", "100"]}
+          direction="top"
         >
           <option value={10}>10</option>
           <option value={50}>50</option>

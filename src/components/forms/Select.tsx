@@ -18,6 +18,8 @@ interface SelectProps {
   children?: ReactNode;
   customOnDesktop?: boolean;
   customOptions?: string[];
+  direction?: "top" | "bottom";
+  isBottomPlaceholderVisible?: boolean;
 }
 
 export const Select = ({
@@ -27,6 +29,8 @@ export const Select = ({
   children,
   customOnDesktop,
   customOptions,
+  direction = "bottom",
+  isBottomPlaceholderVisible = false,
 }: SelectProps) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | number>(
@@ -74,12 +78,20 @@ export const Select = ({
         >
           {value || placeholder}
         </div>
-        <div className="text-secondaryText absolute top-2 right-1 w-6 h-6">
+        <div
+          className="text-secondaryText absolute top-2 right-1 w-6 h-6 cursor-pointer"
+          onClick={() => setIsSelectOpen(!isSelectOpen)}
+        >
           {isSelectOpen ? <ArrowUpSimpleIcon /> : <ArrowDownSimpleIcon />}
         </div>
         {/* Dropdown for custom select */}
         {isSelectOpen && (
-          <div className="rounded-md backdrop-blur-lg absolute w-full top-[2.9rem] border border-inputBorder dark:border-inputBorderDark z-10 bg-dropdownBg dark:bg-dropdownBgDark text-primaryText dark:text-primaryTextDark">
+          <div
+            className={`rounded-md backdrop-blur-lg absolute w-full ${
+              direction === "top" ? "bottom-[2.8rem]" : "top-[2.9rem]"
+            } border border-inputBorder
+           dark:border-inputBorderDark z-10 bg-dropdownBg dark:bg-dropdownBgDark text-primaryText dark:text-primaryTextDark`}
+          >
             <>
               {customOptions?.map((option, index) => (
                 <div
@@ -95,17 +107,19 @@ export const Select = ({
                   {option}
                 </div>
               ))}
-              <div
-                className={`text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
+              {isBottomPlaceholderVisible && (
+                <div
+                  className={`text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
                 ${
                   !selectedValue &&
                   "bg-dropdownBgHover dark:bg-dropdownBgHoverDark pointer-events-none"
                 }
                 `}
-                onClick={clearSelection}
-              >
-                {placeholder}
-              </div>
+                  onClick={clearSelection}
+                >
+                  {placeholder}
+                </div>
+              )}
             </>
           </div>
         )}

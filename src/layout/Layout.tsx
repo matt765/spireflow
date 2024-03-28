@@ -20,11 +20,15 @@ export const Layout = ({ children }: Props) => {
   const [isLoadingScreenDisplayed, setIsLoadingScreenDisplayed] =
     useState(true);
 
+  const { session } = useSession();
+
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoadingScreenDisplayed(false);
-    }, 500);
-  }, []);
+    if (session !== null) {
+      setTimeout(() => {
+        setIsLoadingScreenDisplayed(false);
+      }, 300);
+    }
+  }, [session]);
 
   const currentPathname = usePathname();
 

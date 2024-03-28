@@ -10,31 +10,8 @@ interface SessionData {
   isLoggedIn: boolean;
 }
 
-// Define your protected routes
-const protectedRoutes = [
-  "/pl",
-  "/orders",
-  "pl/orders",
-  "customers",
-  "pl/customers",
-  "/products",
-  "/pl/products",
-  "/analytics",
-  "/pl/analytics",
-  "/calendar",
-  "/pl/calendar",
-  "/area",
-  "/pl/area",
-  "/bars",
-  "/pl/bars",
-  "/scatter",
-  "/pl/scatter",
-  "/line",
-  "/pl/line",
-];
-
 export async function middleware(req: NextRequest) {
-  // Middleware for protected routes is disabled for demo purposes
+  // Middleware that uses iron-session to protect routes is disabled for demo purposes
   // Uncomment the following code to enable it
 
   // if (
@@ -80,3 +57,25 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: ["/", "/(pl|en)/:path*", "/((?!_next|_vercel|.*\\..*).*)"],
 };
+
+const protectedRoutes = [
+  "/pl",
+  "/orders",
+  "pl/orders",
+  "customers",
+  "pl/customers",
+  "/products",
+  "/pl/products",
+  "/analytics",
+  "/pl/analytics",
+  "/calendar",
+  "/pl/calendar",
+  "/area",
+  "/pl/area",
+  "/bars",
+  "/pl/bars",
+  "/scatter",
+  "/pl/scatter",
+  "/line",
+  "/pl/line",
+];
