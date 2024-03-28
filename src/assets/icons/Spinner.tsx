@@ -1,15 +1,20 @@
-export const SpinnerIcon = () => (
+interface SpinnerIconProps {
+  width?: number;
+  height?: number;
+}
+
+export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{
       margin: "auto",
       display: "block",
       shapeRendering: "auto",
-    }} 
+    }}
     viewBox="0 0 110 110"
     preserveAspectRatio="xMidYMid"
-    width="45"
-    height="45"
+    width={width}
+    height={height}
   >
     <g transform="rotate(0 50 50)">
       <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">

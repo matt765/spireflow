@@ -9,6 +9,7 @@ import {
 import { useTable } from "../../../hooks/useTable";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { SpinnerIcon } from "../../../assets/icons/Spinner";
 
 const columnHelper = createColumnHelper<CustomerColumns>();
 
@@ -33,6 +34,24 @@ export interface Customer {
   phone: string;
   totalBuys: number;
 }
+
+const ImageCell = ({ src }: { src: string }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <>
+      {!imageLoaded && <SpinnerIcon />}
+      <img
+        src={src}
+        alt="User Profile"
+        width={50}
+        height={50}
+        onLoad={() => setImageLoaded(true)}
+        style={{ display: imageLoaded ? "block" : "none" }}
+      />
+    </>
+  );
+};
 
 export const useCustomers = (customers: Customer[]) => {
   const {
@@ -59,12 +78,7 @@ export const useCustomers = (customers: Customer[]) => {
       header: () => t("tableHeader.photo"),
       enableSorting: false,
       cell: ({ row }: { row: { original: CustomerColumns } }) => (
-        <Image
-          src={row.original.col0}
-          alt="User Profile"
-          width={50}
-          height={50}
-        />
+        <ImageCell src={row.original.col0} />
       ),
     }),
     columnHelper.accessor("col1", {

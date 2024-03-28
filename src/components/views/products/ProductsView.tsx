@@ -24,6 +24,7 @@ import { ProgressCircles } from "./ProgressCircles";
 import { Tooltip } from "../../common/Tooltip";
 import { useTooltip } from "../../../hooks/useTooltip";
 import { CameraIcon } from "../../../assets/icons/CameraIcon";
+import { SpinnerIcon } from "../../../assets/icons/Spinner";
 
 const PDFDownloadLink = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
@@ -219,6 +220,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   const thumbnailsRef = useRef<ThumbnailsPluginInstance | null>(null);
   const fullscreenRef = useRef(null);
   const zoomRef = useRef(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div className="flex flex-row px-0 w-full pr-4">
@@ -228,25 +230,40 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
           <div className="flex gap-6 md:gap-8 items-center justify-start mb-16 ">
             <div
               onClick={() => setIsPhotoOpen(true)}
-              className="group relative min-w-[9rem] hover:bg-[rgb(255,255,255,0.02)] cursor-pointer min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-2 rounded-xl  flex justify-center items-center border border-mainBorder dark:border-mainBorderDark "
+              className="group relative min-w-[9rem] hover:bg-[rgb(255,255,255,0.02)] cursor-pointer min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-0 rounded-xl  flex justify-center items-center border border-mainBorder dark:border-mainBorderDark "
             >
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full flex justify-center items-center">
+                {!imageLoaded && (
+                  <div className="w-full h-full flex items-center justify-center pl-2">
+                    <SpinnerIcon height={120} width={120} />
+                  </div>
+                )}
                 {activeProduct.image && (
-                  <Image src={activeProduct.image} alt="Product" fill={true} />
+                  <img
+                    src={activeProduct.image}
+                    alt="Product"
+                    onLoad={() => setImageLoaded(true)}
+                    style={{
+                      maxHeight: "100%",
+                      display: imageLoaded ? "block" : "none",
+                    }}
+                  />
                 )}
               </div>
-              <div className="absolute  top-0 left-0 w-full h-full flex justify-center items-center z-50  opacity-0 group-hover:opacity-100 ">
-                <div className="w-10 h-10 text-grayIcon dark:text-grayIconDark">
-                  <CameraIcon />
+              {imageLoaded && (
+                <div className="absolute  top-0 left-0 w-full h-full flex justify-center items-center z-40  opacity-0 group-hover:opacity-100 ">
+                  <div className="w-10 h-10 text-grayIcon dark:text-grayIconDark">
+                    <CameraIcon />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <Lightbox
               plugins={[Thumbnails, Fullscreen, Zoom, Counter]}
               thumbnails={{ ref: thumbnailsRef }}
               open={isPhotoOpen}
               close={() => setIsPhotoOpen(false)}
-              // Ternary operators below allow to show multiple photos in gallery for demo purposes 
+              // Ternary operators below allow to show multiple photos in gallery for demo purposes
               slides={[
                 {
                   src:
