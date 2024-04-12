@@ -133,6 +133,15 @@ a {
   @apply capitalize;
 }
 
+.fc-daygrid-day-events a.fc-event {
+ height: 1.7rem;
+ padding-top: 0.1rem;
+ padding-left: 0.2rem;
+}
+.fc-daygrid-day-events .fc-event-main * {
+  color: white;
+ }
+
 @media (max-width: 768px) {
   .fc-media-screen {
     max-height: 100vh !important;
@@ -223,20 +232,20 @@ a {
 }
 
 /* Better contrast for Tremor reddish badge */
-.tremor-TableCell-root .text-rose-500,
-.tremor-ListItem-root .text-rose-500 {
+.tremor-TableCell-root .text-red-600,
+.tremor-ListItem-root .text-red-600 {
   @apply text-redBadgeText dark:text-redBadgeTextDark;
 }
 
 /* Better contrast for Tremor warning badge */
-.tremor-TableCell-root .text-orange-500,
-.tremor-ListItem-root .text-orange-500 {
+.tremor-TableCell-root .text-orange-600,
+.tremor-ListItem-root .text-orange-600 {
   @apply text-orangeBadgeText dark:text-orangeBadgeTextDark;
 }
 
 /* Better contrast for Tremor greenish badge */
-.tremor-TableCell-root .text-emerald-500,
-.tremor-ListItem-root .text-emerald-500 {
+.tremor-TableCell-root .text-emerald-600,
+.tremor-ListItem-root .text-emerald-600 {
   @apply text-greenBadgeText dark:text-greenBadgeTextDark;
 }
 

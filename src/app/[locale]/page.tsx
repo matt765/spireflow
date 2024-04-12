@@ -12,7 +12,7 @@ const Home = async () => {
   );
 };
 
-// All API requests are done during build time on default for demo purposes
+// All API requests are resolved during build time on default for demo purposes
 // Uncomment those exports to enable dynamic rendering on this page
 // export const dynamic = 'force-dynamic'
 // export const revalidate = 0

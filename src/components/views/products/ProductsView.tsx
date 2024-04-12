@@ -268,26 +268,26 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 {
                   src:
                     activeProduct.type === "Phone"
-                      ? "phone.png"
+                      ? "/phone.png"
                       : activeProduct.type === "Tablet"
-                      ? "tablet.png"
-                      : "laptop.png",
+                      ? "/tablet.png"
+                      : "/laptop.png",
                 },
                 {
                   src:
                     activeProduct.type === "Phone"
-                      ? "tablet.png"
+                      ? "/tablet.png"
                       : activeProduct.type === "Tablet"
-                      ? "laptop.png"
-                      : "phone.png",
+                      ? "/laptop.png"
+                      : "/phone.png",
                 },
                 {
                   src:
                     activeProduct.type === "Phone"
-                      ? "laptop.png"
+                      ? "/laptop.png"
                       : activeProduct.type === "Tablet"
-                      ? "phone.png"
-                      : "tablet.png",
+                      ? "/phone.png"
+                      : "/tablet.png",
                 },
               ]}
               counter={{ container: { style: { top: "unset", bottom: 0 } } }}
