@@ -33,8 +33,7 @@ export const useHandleLogout = () => {
       } else {
         setError("Logout failed due to an unknown error");
       }
-    } finally {
-      setLoading(false);
+    } finally {    
       location.reload();
     }
   };

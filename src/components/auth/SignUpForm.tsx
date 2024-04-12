@@ -8,7 +8,7 @@ import { PasswordIcon } from "../../assets/icons/PasswordIcon";
 import { Input } from "../forms/Input";
 import { ContainedButton } from "../common/ContainedButton";
 import { useTranslations } from "next-intl";
-import { SpinnerIcon } from "../../assets/icons/Spinner";
+import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
 
 export interface SignUpData {
   email: string;
@@ -92,8 +92,8 @@ export const SignUpForm = ({
   }, [errors.password]);
 
   return (
-    <>
-      <h1 className="text-4xl font-bold mb-14 mt-0 text-primaryText dark:text-primaryTextDark">
+    <div className="min-w-[20rem] flex flex-col items-center mb-2">
+      <h1 className="text-4xl font-bold mb-16 mt-4 text-primaryText dark:text-primaryTextDark">
         {t("signUp")}
       </h1>
       <form
@@ -175,7 +175,7 @@ export const SignUpForm = ({
             {loading ? <SpinnerIcon /> : t("createAccount")}
           </ContainedButton>
         </div>
-        <div className="w-full text-sm flex justify-center gap-2 mt-4">
+        <div className="w-full text-sm flex justify-center gap-2 mt-6">
           <div className="text-primaryText dark:text-primaryTextDark">
             {t("alreadyHaveAccount")}
           </div>
@@ -187,6 +187,6 @@ export const SignUpForm = ({
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };

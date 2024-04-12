@@ -281,6 +281,11 @@ a {
   @apply stroke-none;
 }
 
+/* Disable upper empty part of tooltip on Today Sales section on /analytics page */
+.todaySalesContainer .recharts-tooltip-wrapper .border-b {
+  display: none ;
+}
+
 /* Blur for tooltips and dropdowns in Prismatic theme. To be deleted in case of performance issues */
 .recharts-tooltip-wrapper {
   backdrop-filter: blur(25px);
@@ -382,4 +387,9 @@ input:-webkit-autofill:active {
     radial-gradient(at 34% 27%, hsl(213.4, 27.9%, 42.9%) 0px, transparent 50%),
     radial-gradient(at 18% 86%, hsl(220.4, 38.5%, 28%) 0px, transparent 50%),
     radial-gradient(at 0% 0%, hsl(215.7, 28.8%, 32%) 0px, transparent 50%);
+}
+
+/* Class needed to display different colors for the content spinner on multiple themes and backgrounds (button/pageContainer) */
+.contentSpinner {
+  @apply fill-primaryText dark:fill-primaryTextDark;
 }

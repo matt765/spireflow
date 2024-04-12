@@ -25,15 +25,17 @@ import { useSession } from "../../hooks/auth/useSession";
 import { useHandleLogout } from "../../hooks/auth/useHandleLogout";
 import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
+import { LogoutModal } from "./LogoutModal";
 
 export const Navbar = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [currentLanguage, setCurrentLanguage] = useState("en");
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
   const t = useTranslations("navbar");
-  const { handleLogout } = useHandleLogout();
+
   const [isPrismaticTheme, setIsPrismaticTheme] = useState(true);
 
   const closeMobileMenu = () => {
@@ -65,6 +67,7 @@ export const Navbar = () => {
 
   const paletteTooltip = useTooltip();
   const languageTooltip = useTooltip();
+  const userTooltip = useTooltip();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -78,9 +81,14 @@ export const Navbar = () => {
 
   const closeLoginModal = () => setIsLoginModalOpen(false);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
+  const closeLogoutModal = () => setIsLogoutModalOpen(false);
 
   const handleLoginButton = () => {
     setIsLoginModalOpen(true);
+  };
+
+  const showLogoutModal = () => {
+    setIsLogoutModalOpen(true);
   };
 
   const switchToSignUp = () => {
@@ -177,12 +185,14 @@ export const Navbar = () => {
             onClick={() => {
               themeDropdown.toggle();
               closeMobileMenu();
-              languageDropdown.close()
+              languageDropdown.close();
+              userDropdown.close();
             }}
           >
             <PaletteIcon />
           </div>
           {paletteTooltip.isTooltipVisible &&
+            !userDropdown.isOpen &&
             !themeDropdown.isOpen &&
             !languageDropdown.isOpen && (
               <div className="absolute top-10 right-2 pointer-events-none">
@@ -233,9 +243,10 @@ export const Navbar = () => {
             onMouseLeave={languageTooltip.hideTooltip}
           >
             <button
-              onClick={() =>  {
-                themeDropdown.close()
-                languageDropdown.toggle()
+              onClick={() => {
+                themeDropdown.close();
+                languageDropdown.toggle();
+                userDropdown.close();
               }}
               className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
             >
@@ -243,6 +254,7 @@ export const Navbar = () => {
             </button>
             {languageTooltip.isTooltipVisible &&
               !themeDropdown.isOpen &&
+              !userDropdown.isOpen &&
               !languageDropdown.isOpen && (
                 <div className="absolute top-10 right-3">
                   <Tooltip
@@ -282,17 +294,65 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <div ref={userDropdown.ref} className="-mr-2 xl:-mr-unset">
+        <div className="-mr-2 xl:-mr-unset">
           {session && session.username ? (
-            <OutlinedButton
-              ref={userIconBtnRef}
-              handleClick={() => {
-                closeMobileMenu();
-                userDropdown.toggle();
-              }}
-              className="!rounded-full"
-              icon={<UserIcon />}
-            />
+            <div
+              className="relative"
+              ref={userDropdown.ref}
+              onMouseEnter={userTooltip.showTooltip}
+              onMouseLeave={userTooltip.hideTooltip}
+            >
+              <OutlinedButton
+                ref={userIconBtnRef}
+                handleClick={() => {
+                  closeMobileMenu();
+                  userDropdown.toggle();
+                  themeDropdown.close();
+                  languageDropdown.close();
+                }}
+                className="!rounded-full"
+                icon={<UserIcon />}
+              />
+              {userTooltip.isTooltipVisible &&
+                !userDropdown.isOpen &&
+                !themeDropdown.isOpen &&
+                !languageDropdown.isOpen && (
+                  <div className="absolute top-12 right-4 pointer-events-none">
+                    <Tooltip
+                      text="Open user menu"
+                      className=" h-8 px-2  min-w-[7rem] pointer-events-none"
+                    />
+                  </div>
+                )}
+              {userDropdown.isOpen && (
+                <div
+                  className={`${
+                    theme === "prismatic" &&
+                    "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
+                  }              
+                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
+                >
+                  <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
+                    <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+                      <MailIcon />
+                    </div>
+                    {session?.username || "Email"}
+                  </div>
+                  <div
+                    className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
+                    onClick={() => {
+                      userDropdown.close();
+                      showLogoutModal();
+                    }}
+                  >
+                    <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+                      <LogoutIcon />
+                    </div>
+                    <button>{t("signOut")}</button>
+                  </div>
+                </div>
+              )}
+            </div>
           ) : (
             <button
               onClick={handleLoginButton}
@@ -300,34 +360,6 @@ export const Navbar = () => {
             >
               {t("signIn")}
             </button>
-          )}
-          {userDropdown.isOpen && (
-            <div
-              className={`${
-                theme === "prismatic" &&
-                "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
-              }              
-                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
-            >
-              <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
-                <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                  <MailIcon />
-                </div>
-                {session?.username || "Email"}
-              </div>
-              <div
-                className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                onClick={() => {
-                  handleLogout();
-                  userDropdown.toggle();
-                }}
-              >
-                <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                  <LogoutIcon />
-                </div>
-                <button>{t("signOut")}</button>
-              </div>
-            </div>
           )}
         </div>
 
@@ -381,6 +413,7 @@ export const Navbar = () => {
           switchToSignIn={switchToSignIn}
         />
       )}
+      {isLogoutModalOpen && <LogoutModal closeModal={closeLogoutModal} />}
       <SideMenuMobile
         isMobileMenuOpen={isMobileMenuOpen}
         onLoginButtonClick={handleLoginButton}

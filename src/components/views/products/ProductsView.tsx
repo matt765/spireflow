@@ -24,7 +24,7 @@ import { ProgressCircles } from "./ProgressCircles";
 import { Tooltip } from "../../common/Tooltip";
 import { useTooltip } from "../../../hooks/useTooltip";
 import { CameraIcon } from "../../../assets/icons/CameraIcon";
-import { SpinnerIcon } from "../../../assets/icons/Spinner";
+import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 
 const PDFDownloadLink = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
@@ -235,7 +235,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               <div className="relative w-full h-full flex justify-center items-center">
                 {!imageLoaded && (
                   <div className="w-full h-full flex items-center justify-center pl-2">
-                    <SpinnerIcon height={120} width={120} />
+                    <SpinnerIcon height={120} width={120} className="contentSpinner" />
                   </div>
                 )}
                 {activeProduct.image && (

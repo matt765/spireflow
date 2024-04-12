@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
-import { SpinnerIcon } from "../../assets/icons/Spinner";
+import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
 import { HandleLoginProps } from "../../hooks/auth/useHandleLogin";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
@@ -109,7 +109,7 @@ export const LoginForm = ({
   }, [authError]);
 
   return (
-    <>
+    <div className="min-w-[22rem] flex flex-col items-center py-4">
       <h1
         className={`text-4xl font-bold text-primaryText dark:text-primaryTextDark`}
       >
@@ -194,7 +194,7 @@ export const LoginForm = ({
             {t("eitherEmailOrPasswordIsIncorrect")}
           </p>
         )}
-        <div className="w-10/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
+        <div className="w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
           <div className="w-full h-10 max-h-10">
             <ContainedButton disabled={loading} type="submit">
               {loading ? (
@@ -227,7 +227,7 @@ export const LoginForm = ({
                 t("sampleAccount")
               )}
             </ContainedButton>
-            <div className="w-full text-sm flex justify-center gap-2 mt-10">
+            <div className="w-full text-sm flex justify-center gap-2 mt-10 ">
               <div className="text-primaryText dark:text-primaryTextDark">
                 {t("noAccount")}
               </div>
@@ -242,6 +242,6 @@ export const LoginForm = ({
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };

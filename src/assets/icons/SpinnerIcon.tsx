@@ -1,9 +1,11 @@
 interface SpinnerIconProps {
   width?: number;
   height?: number;
+  fill?: string;
+  className?: string;
 }
 
-export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
+export const SpinnerIcon = ({ width = 45, height = 45, fill = "white", className }: SpinnerIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{
@@ -14,10 +16,10 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
     viewBox="0 0 110 110"
     preserveAspectRatio="xMidYMid"
     width={width}
-    height={height}
+    height={height}    
   >
     <g transform="rotate(0 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -29,7 +31,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(30 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -41,7 +43,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(60 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -53,7 +55,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(90 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -65,7 +67,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(120 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -77,7 +79,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(150 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -89,7 +91,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(180 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -101,7 +103,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(210 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -113,7 +115,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(240 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill} className={className}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -125,7 +127,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(270 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -137,7 +139,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(300 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill}>
         <animate
           attributeName="opacity"
           values="1;0"
@@ -149,7 +151,7 @@ export const SpinnerIcon = ({ width = 45, height = 45 }: SpinnerIconProps) => (
       </rect>
     </g>
     <g transform="rotate(330 50 50)">
-      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#93dbe9">
+      <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill={fill}>
         <animate
           attributeName="opacity"
           values="1;0"

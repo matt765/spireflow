@@ -9,7 +9,7 @@ import {
 import { useTable } from "../../../hooks/useTable";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { SpinnerIcon } from "../../../assets/icons/Spinner";
+import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 
 const columnHelper = createColumnHelper<CustomerColumns>();
 
@@ -40,7 +40,7 @@ const ImageCell = ({ src }: { src: string }) => {
 
   return (
     <>
-      {!imageLoaded && <SpinnerIcon />}
+      {!imageLoaded && <SpinnerIcon className="contentSpinner" />}
       <img
         src={src}
         alt="User Profile"

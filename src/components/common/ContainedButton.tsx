@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SpinnerIcon } from "../../assets/icons/Spinner";
+import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
 
 interface ContainedButtonProps {
   text?: string;
