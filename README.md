@@ -9,6 +9,9 @@ todo:
 - mobile adjustments & bug fixing
 - code refactor + update all packages
 - rtl
+- scrollbar fix
+- logs
+- storybook
 - readme / documentation
 - colors
 - console errors

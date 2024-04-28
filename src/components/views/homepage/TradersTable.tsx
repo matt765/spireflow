@@ -34,18 +34,20 @@ export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
 
   return (
     <Card className="min-h-[30rem]">
-      <MultiSelect
-        onValueChange={setSelectedNames}
-        placeholder={t("selectSalespeople")}
-        className="max-w-xs "
-        placeholderSearch={t("search")}
-      >
-        {translatedData.map((item) => (
-          <MultiSelectItem key={item.name} value={item.name}>
-            {item.name}
-          </MultiSelectItem>
-        ))}
-      </MultiSelect>
+      <div className="w-[20rem]">
+        <MultiSelect
+          onValueChange={setSelectedNames}
+          placeholder={t("selectSalespeople")}
+          className="w-[20rem]"
+          placeholderSearch={t("search")}
+        >
+          {translatedData.map((item) => (
+            <MultiSelectItem key={item.name} value={item.name}>
+              {item.name}
+            </MultiSelectItem>
+          ))}
+        </MultiSelect>
+      </div>
       <Table className="mt-6">
         <TableHead>
           <TableRow className="text-primaryText">

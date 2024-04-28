@@ -3,6 +3,8 @@ import { Table, flexRender } from "@tanstack/react-table";
 
 import { Loader } from "../../common/Loader";
 import { Customer, CustomerColumns } from "./useCustomers";
+import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
+import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 
 export interface CustomersTableProps {
   table: Table<CustomerColumns>;
@@ -17,6 +19,18 @@ const columnWidths = {
   col4: "15%",
   col5: "19%",
   col6: "15%",
+};
+
+const SortingArrow = ({ isSortedDesc }: { isSortedDesc: boolean }) => {
+  return (
+    <div className="inline-flex text-mainColor dark:text-mainColorDark">
+      {!isSortedDesc ? (
+        <ArrowDownIcon width={18} height={18} />
+      ) : (
+        <ArrowUpIcon width={18} height={18} />
+      )}
+    </div>
+  );
 };
 
 export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
@@ -39,7 +53,7 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
                 colSpan={header.colSpan}
                 className={
                   header.column.getCanSort()
-                    ? " text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
+                    ? "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                     : "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                 }
                 onClick={header.column.getToggleSortingHandler()}
@@ -51,16 +65,19 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
                     columnWidths[header.id as keyof typeof columnWidths],
                 }}
               >
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                {{
-                  asc: " 🔼",
-                  desc: " 🔽",
-                }[header.column.getIsSorted() as string] ?? null}
+                <div className="flex items-center gap-1">
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                  {header.column.getIsSorted() ? (
+                    <SortingArrow
+                      isSortedDesc={header.column.getIsSorted() === "desc"}
+                    />
+                  ) : null}
+                </div>
               </th>
             ))}
           </tr>

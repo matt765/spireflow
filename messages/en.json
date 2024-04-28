@@ -93,6 +93,20 @@
     },
     "searchField": {
       "searchOrders": "Search orders..."
+    },
+    "orderModal": {
+      "title": "Order details",
+      "id": "ID",
+      "product": "Product",
+      "customer": "Customer",
+      "price": "Price",
+      "shipping": "Shipping",
+      "date": "Date",
+      "status": "Status",
+      "priority": "Priority",
+      "normal": "Normal",
+      "cancelButton": "Cancel order",
+      "callButton": "Call logistics"
     }
   },
   "customers": {
@@ -383,6 +397,13 @@
     "pleaseEnterAValidPassword": "Please enter a valid password",
     "passwordFieldIsRequired": "Password field is required",
     "eitherEmailOrPasswordIsIncorrect": "Either email or password is incorrect",
-    "passwordMinimumLength": "Password must be at least 6 characters long"
+    "passwordMinimumLength": "Password must be at least 6 characters long",
+    "changeTheme": "Change theme",
+    "changeLanguage": "Change language",
+    "openUserMenu": "Open user menu",
+    "logoutModalTitle": "Are you sure?",
+    "logoutModalDesc": "Click yes to sign out from application",
+    "logoutModalCancelButton": "Cancel",
+    "logoutModalConfirmButton": "Yes"
   }
 }

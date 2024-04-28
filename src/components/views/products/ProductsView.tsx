@@ -179,10 +179,15 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
     }
   }, [products]);
 
-  // Open categories modal only on mobile
   const handleProductClick = (product: Product) => {
+    // Show spinner while image is loading, but only when category changes
+    // This is for demo purposes only, due to every product per category having the same image
+    if (activeProduct.image !== product.image) {
+      setImageLoaded(false);
+    } else {
+      setImageLoaded(true);
+    }
     setActiveProduct(product);
-
     if (typeof window !== "undefined") {
       if (window.innerWidth < 1024) {
         toggle();
@@ -235,7 +240,11 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               <div className="relative w-full h-full flex justify-center items-center">
                 {!imageLoaded && (
                   <div className="w-full h-full flex items-center justify-center pl-2">
-                    <SpinnerIcon height={120} width={120} className="contentSpinner" />
+                    <SpinnerIcon
+                      height={120}
+                      width={120}
+                      className="contentSpinner"
+                    />
                   </div>
                 )}
                 {activeProduct.image && (
@@ -267,7 +276,8 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               slides={[
                 {
                   src:
-                    activeProduct.type === "Phone"
+                    activeProduct.type === "Phone" ||
+                    activeProduct.type === "Telefon"
                       ? "/phone.png"
                       : activeProduct.type === "Tablet"
                       ? "/tablet.png"
@@ -275,7 +285,8 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 },
                 {
                   src:
-                    activeProduct.type === "Phone"
+                    activeProduct.type === "Phone" ||
+                    activeProduct.type === "Telefon"
                       ? "/tablet.png"
                       : activeProduct.type === "Tablet"
                       ? "/laptop.png"
@@ -283,7 +294,8 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 },
                 {
                   src:
-                    activeProduct.type === "Phone"
+                    activeProduct.type === "Phone" ||
+                    activeProduct.type === "Telefon"
                       ? "/laptop.png"
                       : activeProduct.type === "Tablet"
                       ? "/phone.png"

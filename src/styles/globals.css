@@ -280,6 +280,10 @@ a {
 .recharts-scatter-symbol {
   @apply stroke-none;
 }
+/* Checkbox background color for Multiselect component in TradersTable */
+.tremor-MultiSelectItem-root .accent-tremor-brand {
+ @apply accent-mainColor dark:accent-mainColorDark;
+}
 
 /* Disable upper empty part of tooltip on Today Sales section on /analytics page */
 .todaySalesContainer .recharts-tooltip-wrapper .border-b {
@@ -325,7 +329,6 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-background-clip: text;
-
   box-shadow: inset 0 0 20px 20px rgb(255, 255, 255, 0.03);
 }
 

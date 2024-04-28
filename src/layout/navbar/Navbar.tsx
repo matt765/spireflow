@@ -154,270 +154,275 @@ export const Navbar = () => {
   };
 
   return (
-    <div
-      className={`flex items-center justify-between fixed h-[5rem] xl:h-[4rem] 2xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
-    >
+    <>
       <div
-        className={`${
-          isPrismaticTheme
-            ? "backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-50] border-b border-solid border-mainBorder dark:border-mainBorderDark"
-            : "hidden"
-        }`}
-      />
-      <Link
-        href="/"
-        className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark  ${
-          !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
-        }     
-        `}
+        className={`flex items-center justify-between fixed h-[5rem] xl:h-[4rem] 2xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
       >
-        <Logo />
-      </Link>
-      <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
         <div
-          className="relative"
-          ref={themeDropdown.ref}
-          onMouseEnter={paletteTooltip.showTooltip}
-          onMouseLeave={paletteTooltip.hideTooltip}
+          className={`${
+            isPrismaticTheme
+              ? "backdrop-blur-md top-0 left-0 fixed w-screen h-20 z-[-50] border-b border-solid border-mainBorder dark:border-mainBorderDark"
+              : "hidden"
+          }`}
+        />
+        <Link
+          href="/"
+          className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark  ${
+            !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
+          }     
+        `}
         >
-          <div
-            className="text-white fill-white stroke-secondaryText dark:stroke-secondaryTextDark cursor-pointer hover:stroke-primaryText hover:dark:stroke-primaryTextDark transition"
-            onClick={() => {
-              themeDropdown.toggle();
-              closeMobileMenu();
-              languageDropdown.close();
-              userDropdown.close();
-            }}
-          >
-            <PaletteIcon />
-          </div>
-          {paletteTooltip.isTooltipVisible &&
-            !userDropdown.isOpen &&
-            !themeDropdown.isOpen &&
-            !languageDropdown.isOpen && (
-              <div className="absolute top-10 right-2 pointer-events-none">
-                <Tooltip
-                  text="Change theme"
-                  className=" h-8 px-2  min-w-[7rem] pointer-events-none"
-                />
-              </div>
-            )}
-          {themeDropdown.isOpen && (
-            <Dropdown className="w-[11rem] min-w-[11rem] right-0 top-11">
-              {themes.map((themeName, index) => (
-                <div
-                  key={themeName}
-                  className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
-                  onClick={() => selectTheme(themeName)}
-                >
-                  {themesDisplayNames[index]}
-                  {theme === themeName && (
-                    <div className="text-secondaryText dark:text-secondaryTextDark">
-                      <CheckIcon />
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="h-10 flex w-full border-t border-mainBorder dark:border-mainBorderDark">
-                <div
-                  onClick={cycleThemeDown}
-                  className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
-                >
-                  <ArrowDownIcon />
-                </div>
-                <div
-                  onClick={cycleThemeUp}
-                  className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
-                >
-                  <ArrowUpIcon />
-                </div>
-              </div>
-            </Dropdown>
-          )}
-        </div>
-        <div className="hidden xl:flex">
+          <Logo />
+        </Link>
+        <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
           <div
             className="relative"
-            ref={languageDropdown.ref}
-            onMouseEnter={languageTooltip.showTooltip}
-            onMouseLeave={languageTooltip.hideTooltip}
+            ref={themeDropdown.ref}
+            onMouseEnter={paletteTooltip.showTooltip}
+            onMouseLeave={paletteTooltip.hideTooltip}
           >
-            <button
+            <div
+              className="text-white fill-white stroke-secondaryText dark:stroke-secondaryTextDark cursor-pointer hover:stroke-primaryText hover:dark:stroke-primaryTextDark transition"
               onClick={() => {
-                themeDropdown.close();
-                languageDropdown.toggle();
+                themeDropdown.toggle();
+                closeMobileMenu();
+                languageDropdown.close();
                 userDropdown.close();
               }}
-              className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
             >
-              <LanguageIcon />
-            </button>
-            {languageTooltip.isTooltipVisible &&
-              !themeDropdown.isOpen &&
+              <PaletteIcon />
+            </div>
+            {paletteTooltip.isTooltipVisible &&
               !userDropdown.isOpen &&
+              !themeDropdown.isOpen &&
               !languageDropdown.isOpen && (
-                <div className="absolute top-10 right-3">
+                <div className="absolute top-10 right-2 pointer-events-none">
                   <Tooltip
-                    text="Change language"
-                    className=" h-8 px-3  min-w-32"
+                    text={t("changeTheme")}
+                    className=" h-8 px-2  min-w-[7rem] pointer-events-none"
                   />
                 </div>
               )}
-            {languageDropdown.isOpen && (
-              <Dropdown className="flex flex-col right-0 top-11 w-36">
-                <Link
-                  href="/"
-                  locale="en"
-                  className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
-                >
-                  {t("english")}
-                  {currentLanguage === "en" && (
-                    <div className="text-secondaryText dark:text-secondaryTextDark">
-                      <CheckIcon />
-                    </div>
-                  )}
-                </Link>
-                <Link
-                  href="/"
-                  locale="pl"
-                  className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
-                >
-                  {t("polish")}
-                  {currentLanguage === "pl" && (
-                    <div className="text-secondaryText dark:text-secondaryTextDark">
-                      <CheckIcon />
-                    </div>
-                  )}
-                </Link>
+            {themeDropdown.isOpen && (
+              <Dropdown className="w-[11rem] min-w-[11rem] right-0 top-11">
+                {themes.map((themeName, index) => (
+                  <div
+                    key={themeName}
+                    className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+                    onClick={() => selectTheme(themeName)}
+                  >
+                    {themesDisplayNames[index]}
+                    {theme === themeName && (
+                      <div className="text-secondaryText dark:text-secondaryTextDark">
+                        <CheckIcon />
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div className="h-10 flex w-full border-t border-mainBorder dark:border-mainBorderDark">
+                  <div
+                    onClick={cycleThemeDown}
+                    className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
+                  >
+                    <ArrowDownIcon />
+                  </div>
+                  <div
+                    onClick={cycleThemeUp}
+                    className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
+                  >
+                    <ArrowUpIcon />
+                  </div>
+                </div>
               </Dropdown>
             )}
           </div>
-        </div>
-
-        <div className="-mr-2 xl:-mr-unset">
-          {session && session.username ? (
+          <div className="hidden xl:flex">
             <div
               className="relative"
-              ref={userDropdown.ref}
-              onMouseEnter={userTooltip.showTooltip}
-              onMouseLeave={userTooltip.hideTooltip}
+              ref={languageDropdown.ref}
+              onMouseEnter={languageTooltip.showTooltip}
+              onMouseLeave={languageTooltip.hideTooltip}
             >
-              <OutlinedButton
-                ref={userIconBtnRef}
-                handleClick={() => {
-                  closeMobileMenu();
-                  userDropdown.toggle();
+              <button
+                onClick={() => {
                   themeDropdown.close();
-                  languageDropdown.close();
+                  languageDropdown.toggle();
+                  userDropdown.close();
                 }}
-                className="!rounded-full"
-                icon={<UserIcon />}
-              />
-              {userTooltip.isTooltipVisible &&
-                !userDropdown.isOpen &&
+                className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
+              >
+                <LanguageIcon />
+              </button>
+              {languageTooltip.isTooltipVisible &&
                 !themeDropdown.isOpen &&
+                !userDropdown.isOpen &&
                 !languageDropdown.isOpen && (
-                  <div className="absolute top-12 right-4 pointer-events-none">
+                  <div className="absolute top-10 right-3">
                     <Tooltip
-                      text="Open user menu"
-                      className=" h-8 px-2  min-w-[7rem] pointer-events-none"
+                      text={t("changeLanguage")}
+                      className=" h-8 px-3  min-w-32"
                     />
                   </div>
                 )}
-              {userDropdown.isOpen && (
-                <div
-                  className={`${
-                    theme === "prismatic" &&
-                    "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
-                  }              
-                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
-                >
-                  <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
-                    <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                      <MailIcon />
-                    </div>
-                    {session?.username || "Email"}
-                  </div>
-                  <div
-                    className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                    onClick={() => {
-                      userDropdown.close();
-                      showLogoutModal();
-                    }}
+              {languageDropdown.isOpen && (
+                <Dropdown className="flex flex-col right-0 top-11 w-36">
+                  <Link
+                    href="/"
+                    locale="en"
+                    className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
                   >
-                    <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                      <LogoutIcon />
-                    </div>
-                    <button>{t("signOut")}</button>
-                  </div>
-                </div>
+                    {t("english")}
+                    {currentLanguage === "en" && (
+                      <div className="text-secondaryText dark:text-secondaryTextDark">
+                        <CheckIcon />
+                      </div>
+                    )}
+                  </Link>
+                  <Link
+                    href="/"
+                    locale="pl"
+                    className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+                  >
+                    {t("polish")}
+                    {currentLanguage === "pl" && (
+                      <div className="text-secondaryText dark:text-secondaryTextDark">
+                        <CheckIcon />
+                      </div>
+                    )}
+                  </Link>
+                </Dropdown>
               )}
             </div>
-          ) : (
-            <button
-              onClick={handleLoginButton}
-              className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
-            >
-              {t("signIn")}
-            </button>
-          )}
-        </div>
+          </div>
 
-        <button className="relative block xl:hidden" onClick={toggleMobileMenu}>
-          <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all  duration-200">
-            <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
+          <div className="-mr-2 xl:-mr-unset">
+            {session && session.username ? (
               <div
-                className={`bg-secondaryText dark:bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
-                  isMobileMenuOpen ? "translate-x-10" : ""
-                }`}
-              ></div>
-              <div
-                className={`bg-secondaryText dark:bg-white h-[2px] w-7 rounded transform transition-all duration-300 ${
-                  isMobileMenuOpen ? "translate-x-10 delay-75" : ""
-                }`}
-              ></div>
-              <div
-                className={`bg-secondaryText dark:bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
-                  isMobileMenuOpen ? "translate-x-10 delay-150" : ""
-                }`}
-              ></div>
-              <div
-                className={`absolute items-center justify-between transform transition-all duration-500 top-2.5 ${
-                  isMobileMenuOpen ? "translate-x-0" : "-translate-x-10"
-                } flex w-0 ${isMobileMenuOpen ? "w-12" : ""}`}
+                className="relative"
+                ref={userDropdown.ref}
+                onMouseEnter={userTooltip.showTooltip}
+                onMouseLeave={userTooltip.hideTooltip}
               >
+                <OutlinedButton
+                  ref={userIconBtnRef}
+                  handleClick={() => {
+                    closeMobileMenu();
+                    userDropdown.toggle();
+                    themeDropdown.close();
+                    languageDropdown.close();
+                  }}
+                  className="!rounded-full"
+                  icon={<UserIcon />}
+                />
+                {userTooltip.isTooltipVisible &&
+                  !userDropdown.isOpen &&
+                  !themeDropdown.isOpen &&
+                  !languageDropdown.isOpen && (
+                    <div className="absolute top-12 right-4 pointer-events-none">
+                      <Tooltip
+                        text={t("openUserMenu")}
+                        className=" h-8 px-2  min-w-[7rem] pointer-events-none"
+                      />
+                    </div>
+                  )}
+                {userDropdown.isOpen && (
+                  <div
+                    className={`${
+                      theme === "prismatic" &&
+                      "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
+                    }              
+                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
+                  >
+                    <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
+                      <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+                        <MailIcon />
+                      </div>
+                      {session?.username || "Email"}
+                    </div>
+                    <div
+                      className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
+                      onClick={() => {
+                        userDropdown.close();
+                        showLogoutModal();
+                      }}
+                    >
+                      <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+                        <LogoutIcon />
+                      </div>
+                      <button>{t("signOut")}</button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={handleLoginButton}
+                className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
+              >
+                {t("signIn")}
+              </button>
+            )}
+          </div>
+          <button
+            className="relative block xl:hidden"
+            onClick={toggleMobileMenu}
+          >
+            <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all  duration-200">
+              <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
                 <div
-                  className={`absolute bg-secondaryText dark:bg-white h-[2px] w-5 transform transition-all duration-500 ${
-                    isMobileMenuOpen ? "rotate-45 delay-300" : "rotate-0"
+                  className={`bg-secondaryText dark:bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
+                    isMobileMenuOpen ? "translate-x-10" : ""
                   }`}
                 ></div>
                 <div
-                  className={`absolute bg-secondaryText dark:bg-white h-[2px] w-5 transform transition-all duration-500 ${
-                    isMobileMenuOpen ? "-rotate-45 delay-300" : "-rotate-0"
+                  className={`bg-secondaryText dark:bg-white h-[2px] w-7 rounded transform transition-all duration-300 ${
+                    isMobileMenuOpen ? "translate-x-10 delay-75" : ""
                   }`}
                 ></div>
+                <div
+                  className={`bg-secondaryText dark:bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
+                    isMobileMenuOpen ? "translate-x-10 delay-150" : ""
+                  }`}
+                ></div>
+                <div
+                  className={`absolute items-center justify-between transform transition-all duration-500 top-2.5 ${
+                    isMobileMenuOpen ? "translate-x-0" : "-translate-x-10"
+                  } flex w-0 ${isMobileMenuOpen ? "w-12" : ""}`}
+                >
+                  <div
+                    className={`absolute bg-secondaryText dark:bg-white h-[2px] w-5 transform transition-all duration-500 ${
+                      isMobileMenuOpen ? "rotate-45 delay-300" : "rotate-0"
+                    }`}
+                  ></div>
+                  <div
+                    className={`absolute bg-secondaryText dark:bg-white h-[2px] w-5 transform transition-all duration-500 ${
+                      isMobileMenuOpen ? "-rotate-45 delay-300" : "-rotate-0"
+                    }`}
+                  ></div>
+                </div>
               </div>
             </div>
-          </div>
-        </button>
+          </button>
+        </div>
+        {isLoginModalOpen && (
+          <LoginModal
+            closeModal={closeLoginModal}
+            switchToSignUp={switchToSignUp}
+          />
+        )}
+        {isSignUpModalOpen && (
+          <SignUpModal
+            closeModal={closeSignUpModal}
+            switchToSignIn={switchToSignIn}
+          />
+        )}
+
+        <SideMenuMobile
+          isMobileMenuOpen={isMobileMenuOpen}
+          onLoginButtonClick={handleLoginButton}
+        />
       </div>
-      {isLoginModalOpen && (
-        <LoginModal
-          closeModal={closeLoginModal}
-          switchToSignUp={switchToSignUp}
-        />
-      )}
-      {isSignUpModalOpen && (
-        <SignUpModal
-          closeModal={closeSignUpModal}
-          switchToSignIn={switchToSignIn}
-        />
-      )}
       {isLogoutModalOpen && <LogoutModal closeModal={closeLogoutModal} />}
-      <SideMenuMobile
-        isMobileMenuOpen={isMobileMenuOpen}
-        onLoginButtonClick={handleLoginButton}
-      />
-    </div>
+    </>
   );
 };

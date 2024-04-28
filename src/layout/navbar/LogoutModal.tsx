@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 
 import { ContainedButton } from "../../components/common/ContainedButton";
 import { OutlinedButton } from "../../components/common/OutlinedButton";
@@ -13,35 +14,37 @@ interface LogoutModalProps {
 
 export const LogoutModal = ({ closeModal }: LogoutModalProps) => {
   const { handleLogout, loading } = useHandleLogout();
+  const t = useTranslations("navbar");
 
   return (
     <div>
       <Modal onClose={closeModal}>
         <div className="flex items-center justify-center w-full flex-col gap-2 -mt-2">
-          <div className="rounded-full w-18 flex justify-center items-center mr-[0rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-            <LogoutIcon width="55" height="55" />
+          <div className="rounded-full border border-mainBorder dark:border-mainBorderDark p-3 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+            <LogoutIcon width="45" height="45" />
           </div>
           <h2 className="text-primaryText text-3xl w-full text-center mt-2">
-            Are you sure?
+            {t("logoutModalTitle")}
           </h2>
         </div>
-
         <h2 className="text-primaryText text-base w-full text-secondaryText mt-4">
-          Click yes to sign out from application.
+          {t("logoutModalDesc")}
         </h2>
         <div className="flex w-full justify-center mt-12 gap-4">
           <div className="w-[6rem] h-[2.5rem]">
-            <OutlinedButton text="Cancel" handleClick={closeModal} />
+            <OutlinedButton
+              text={t("logoutModalCancelButton")}
+              handleClick={closeModal}
+            />
           </div>
           <div className="w-[6.5rem] h-[2.5rem] pb-0">
-            <ContainedButton handleClick={handleLogout} disabled={loading}>
-              {/* {loading ? <SpinnerIcon /> : t("createAccount")} */}
+            <ContainedButton handleClick={handleLogout} disabled={loading}>             
               {loading ? (
                 <div className="pt-[0.3rem]">
                   <SpinnerIcon width={45} height={45} />
                 </div>
               ) : (
-                "Yes"
+                t("logoutModalConfirmButton")
               )}
             </ContainedButton>
           </div>

@@ -9,6 +9,7 @@ interface ContainedButtonProps {
   loading?: boolean;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  icon?: React.ReactNode; 
 }
 
 export const ContainedButton = ({
@@ -18,6 +19,7 @@ export const ContainedButton = ({
   loading = false,
   disabled = false,
   type = "button",
+  icon,
 }: ContainedButtonProps) => {
   return (
     <button
@@ -26,6 +28,7 @@ export const ContainedButton = ({
       disabled={disabled || loading}
       className="transition w-full h-full flex items-center justify-center disabled:opacity-75 bg-containedButtonBg dark:bg-containedButtonBgDark dark:hover:bg-containedButtonBgHoverDark hover:bg-containedButtonBgHover text-white p-2 rounded-md focus:outline-none"
     >
+      {icon && <div className="mr-2"> {icon}</div>}
       {loading ? <SpinnerIcon /> : children || text}
     </button>
   );

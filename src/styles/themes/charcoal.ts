@@ -61,7 +61,7 @@ export const charcoalTheme = {
       inverted: "#030712",
     },
     background: {
-      muted: "rgb(45,50,57)",
+      muted: "rgb(45,50,57, 0.5)",
       subtle: "rgb(45,50,57)",
       DEFAULT: "rgb(53, 58, 66)",
       emphasis: "#d1d5db",

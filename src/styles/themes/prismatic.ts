@@ -43,7 +43,7 @@ export const prismaticTheme = {
   orangeBadgeText: "rgb(253, 186, 116)",
   selectBg: "rgb(255,255,255,0.05)",
   selectBgHover: "rgb(255,255,255,0.09)",
-  loginModalBg: "rgba(55, 74, 96, 0.75)",
+  loginModalBg: "rgba(54, 68, 85, 0.75)",
   navbarButtonBg: "rgb(255, 255, 255, 0)",
   navbarButtonBgHover: "rgb(255, 255, 255, 0.05)",
   galleryBg: "rgb(0,0,0,0.01)",
@@ -63,7 +63,7 @@ export const prismaticTheme = {
     background: {
       muted: "rgb(255,255,255, 0.05)", 
       subtle: "rgb(255,255,255, 0.05)",
-      DEFAULT: "rgb(255,255,255, 0.05)",
+      DEFAULT: "rgb(255,255,255, 0.02)",
       emphasis: "#d1d5db", 
     },
     border: {
@@ -73,7 +73,7 @@ export const prismaticTheme = {
       DEFAULT: "rgb(0,0,0,0)", 
     },
     content: {
-      subtle: "#4b5563", 
+      subtle: "#e1e1e1",
       DEFAULT: "#e1e1e1", 
       emphasis: "#e5e7eb",
       strong: "#f9fafb",

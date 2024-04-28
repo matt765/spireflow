@@ -61,9 +61,9 @@ export const oceanicTheme = {
       inverted: "#030712",
     },
     background: {
-      muted: "rgb(36, 48, 62)",
-      subtle: "rgb(36, 48, 62)",
-      DEFAULT: "rgb(46, 61, 78)",
+      muted: "rgb(36, 48, 62, 0.5)",
+      subtle: "rgb(36, 48, 62, 0.5)",
+      DEFAULT: "rgb(41, 52, 64)",
       emphasis: "#d1d5db",
     },
     border: {

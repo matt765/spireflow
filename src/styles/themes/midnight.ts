@@ -63,8 +63,8 @@ export const midnightTheme = {
       inverted: "#030712",
     },
     background: {
-      muted: "rgb(47, 55, 70, 0.8)",
-      subtle: "rgb(47, 55, 70)",
+      muted: "rgb(47, 55, 70, 0.4)",
+      subtle: "rgb(47, 55, 70, 0.5)",
       DEFAULT: "rgb(63, 70, 85)",
       emphasis: "#d1d5db",
     },

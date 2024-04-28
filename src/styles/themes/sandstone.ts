@@ -61,8 +61,8 @@ export const sandstoneTheme = {
       inverted: "#030712",
     },
     background: {
-      muted: "rgb(41, 43, 48)",
-      subtle: "rgb(41, 43, 48)",
+      muted: "rgb(41, 43, 48, 0.6)",
+      subtle: "rgb(41, 43, 48, 0.5)",
       DEFAULT: "rgb(48, 50, 55)",
       emphasis: "#d1d5db",
     },

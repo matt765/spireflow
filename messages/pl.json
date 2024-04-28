@@ -52,7 +52,7 @@
       "variance": "Różnica",
       "region": "Region",
       "status": "Status",
-      "overperforming": "ponad oczekiwania",
+      "overperforming": "powyżej oczekiwań",
       "underperforming": "poniżej poczekiwań",
       "average": "przeciętnie",
       "northAmerica": "Ameryka Północna",
@@ -63,22 +63,22 @@
   },
   "orders": {
     "selectPlaceholder": {
-      "allProducts": "Produkty",
-      "allUsers": "Użytkownicy",
-      "anyPrice": "Cena",
-      "anyDeliveryType": "Dostawa",
-      "anyStatus": "Status"
+      "allProducts": "Wszystkie produkty",
+      "allUsers": "Wszyscy klienci",
+      "anyPrice": "Dowolna cena",
+      "anyDeliveryType": "Dowolna dostawa",
+      "anyStatus": "Dowolny status"
     },
     "tableHeader": {
       "productName": "Nazwa produktu",
-      "user": "Użytkownik",
+      "user": "Klient",
       "price": "Cena",
       "deliveryType": "Typ dostawy",
       "date": "Data",
       "status": "Status"
     },
     "deliveryType": {
-      "twoDayShipping": "Dostawa dwudniowa",
+      "twoDayShipping": "Dwudniowa dostawa",
       "standardShipping": "Standardowa dostawa",
       "freeShipping": "Darmowa dostawa",
       "expressShipping": "Ekspresowa dostawa"
@@ -93,6 +93,20 @@
     },
     "searchField": {
       "searchOrders": "Szukaj zamówień..."
+    },
+    "orderModal": {
+      "title": "Szczegóły zamówienia",
+      "id": "ID",
+      "product": "Produkt",
+      "customer": "Klient",
+      "price": "Cena",
+      "shipping": "Dostawa",
+      "date": "Data",
+      "status": "Status",
+      "priority": "Priorytet",
+      "normal": "Normalny",
+      "cancelButton": "Anuluj zamówienie",
+      "callButton": "Dział logistyki"
     }
   },
   "customers": {
@@ -383,6 +397,13 @@
     "pleaseEnterAValidPassword": "Wprowadź prawidłowe hasło",
     "passwordFieldIsRequired": "Hasło jest wymagane",
     "eitherEmailOrPasswordIsIncorrect": "Adres e-mail lub hasło jest nieprawidłowe",
-    "passwordMinimumLength": "Hasło musi mieć co najmniej 6 znaków"
+    "passwordMinimumLength": "Hasło musi mieć co najmniej 6 znaków",
+    "changeTheme": "Zmień motyw",
+    "changeLanguage": "Przełącz język",
+    "openUserMenu": "Otwórz menu",
+    "logoutModalTitle": "Jesteś pewien?",
+    "logoutModalDesc": "Kliknij \"tak\" aby wylogować się z aplikacji",
+    "logoutModalCancelButton": "Anuluj",
+    "logoutModalConfirmButton": "Tak"
   }
 }

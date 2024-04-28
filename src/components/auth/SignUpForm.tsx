@@ -116,7 +116,7 @@ export const SignUpForm = ({
           />
         </div>
         {errors.email && showEmailError && (
-          <div className="absolute left-[27rem] top-[10.5rem] z-50 min-w-[20rem] w-auto">
+          <div className="absolute left-[24.5rem] top-[11rem] z-50 min-w-[20rem] w-auto">
             <div className="relative">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
                 {errors.email.message}
@@ -151,7 +151,7 @@ export const SignUpForm = ({
           />
         </div>
         {errors.password && showPasswordError && (
-          <div className="absolute  left-[27rem] top-[14.4rem] z-50 min-w-[20rem] w-auto">
+          <div className="absolute  left-[24.5rem] top-[14.9rem] z-50 min-w-[20rem] w-auto">
             <div className="relative mb-8">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
                 {errors.password.message}

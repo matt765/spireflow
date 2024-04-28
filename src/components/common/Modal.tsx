@@ -28,8 +28,8 @@ export const Modal = ({ children, onClose, className }: ModalProps) => {
 
   return (
     <>
-      <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0   backdrop-blur-md" />
-      <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 ">
+      <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0   backdrop-blur-md z-40" />
+      <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 z-50">
         <div
           ref={modalRef}
           className="bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-14  pt-24 sm:pt-[3rem] pb-12 flex flex-col items-center justify-start sm:rounded-2xl relative"
