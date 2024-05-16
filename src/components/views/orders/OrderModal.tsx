@@ -56,7 +56,12 @@ export const OrderModal = ({ closeModal, orderData }: OrderModalProps) => {
         </div>
         <div className="flex w-full justify-center mt-12 gap-4 h-[2.7rem]">
           <OutlinedButton text={t("cancelButton")} />
-          <ContainedButton text={t("callButton")} icon={<PhoneIcon />} />
+          <a
+            href={`tel:5555-5555-5555`}
+            style={{ textDecoration: "none", width: "100%" }}
+          >
+            <ContainedButton text={t("callButton")} icon={<PhoneIcon />} />
+          </a>
         </div>
       </Modal>
     </div>

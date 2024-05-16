@@ -117,7 +117,7 @@
       "city": "City",
       "country": "Country",
       "phone": "Phone",
-      "totalBuys": "Total Buys"
+      "totalBuys": "Money spent"
     },
     "searchField": {
       "searchCustomers": "Search customers..."
@@ -147,6 +147,16 @@
     "chip": {
       "country": "Country",
       "sortedBy": "Sorted by"
+    },
+    "customerModal": {
+      "moneySpent": "Money spent",
+      "totalOrders": "Total orders",
+      "phone": "Phone",
+      "email": "E-mail",
+      "returns": "Returns",
+      "loyaltyPoints": "Loyalty points",
+      "orderHistory": "Order history",
+      "callButton": "Call customer"
     }
   },
   "products": {
@@ -292,8 +302,23 @@
     "oneOnOneMeeting": "1-on-1 Meeting",
     "salesReview": "Sales Review",
     "productLaunchWebinar": "Product Launch Webinar",
-    "eCommercePlatformTraining": "E-commerce Platform Training"
+    "eCommercePlatformTraining": "E-commerce Platform Training",
+    "deleteEventModalTitle": "Are you sure?",
+    "deleteEventModalSubtitle": "Press yes if you want to",
+    "delete": "delete",
+    "move": "move",
+    "theEvent": "the event",
+    "yes": "Yes",
+    "cancel": "Cancel",
+    "addEventModalTitle": "New event",
+    "addEventModalSubtitle": "Please specify the time and title for your event",
+    "addEventModalPlaceholder": "Enter event title",
+    "addEventConfirmButton": "Confirm",
+    "addEventTitleRequiredError": "Event title is required",
+    "addEventLengthError": "Title exceeds 20 characters",
+    "addEventIncorrectTime": "End time must be later than start time"
   },
+
   "singleCharts": {
     "area": {
       "title": "Online store traffic",

@@ -20,6 +20,7 @@ interface SelectProps {
   customOptions?: string[];
   direction?: "top" | "bottom";
   isBottomPlaceholderVisible?: boolean;
+  enableOptionsDropdownScroll?: boolean;
 }
 
 export const Select = ({
@@ -31,6 +32,7 @@ export const Select = ({
   customOptions,
   direction = "bottom",
   isBottomPlaceholderVisible = false,
+  enableOptionsDropdownScroll = false,
 }: SelectProps) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | number>(
@@ -89,7 +91,11 @@ export const Select = ({
           <div
             className={`rounded-md backdrop-blur-lg absolute w-full ${
               direction === "top" ? "bottom-[2.8rem]" : "top-[2.9rem]"
-            } border border-inputBorder
+            } 
+            ${
+              enableOptionsDropdownScroll ? "max-h-[13rem] overflow-y-auto" : ""
+            }
+            border border-inputBorder
            dark:border-inputBorderDark z-10 bg-dropdownBg dark:bg-dropdownBgDark text-primaryText dark:text-primaryTextDark`}
           >
             <>

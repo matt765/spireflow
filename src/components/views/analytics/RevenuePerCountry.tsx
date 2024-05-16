@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
@@ -19,9 +19,13 @@ import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RevenuePerCountryProps } from "./types";
 import { Card } from "../../common/Card";
 
-const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
-
 const HIGHLIGHT_COLOR = "rgb(59, 130, 246)";
+
+const ComposableMapLazy = lazy(() =>
+  import("react-simple-maps").then((module) => ({
+    default: module.ComposableMap,
+  }))
+);
 
 export const RevenuePerCountry = ({
   revenuePerCountryData,
@@ -55,42 +59,44 @@ export const RevenuePerCountry = ({
     <Card className="h-full relative overflow-hidden flex flex-col">
       <BlockTitle title={t("title")} />
       <div className="flex -ml-8 2xl:-ml-10 gap-16 max-h-[25rem] pt-8 mt-4 ">
-        <ComposableMap width={800} height={440}>
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const countryName = geo.properties.name;
-                if (countryName === "Antarctica") {
-                  return null;
-                }
-                const countryData = revenuePerCountryData.find(
-                  (s) => s.name === countryName
-                );
-                const tooltipContent = countryData
-                  ? `${countryName} - ${countryData.price}$`
-                  : `${countryName}`;
+        <Suspense fallback={<div>Loading map...</div>}>
+          <ComposableMapLazy width={800} height={440}>
+            <Geographies geography="/geographies.json">
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const countryName = geo.properties.name;
+                  if (countryName === "Antarctica") {
+                    return null;
+                  }
+                  const countryData = revenuePerCountryData.find(
+                    (s) => s.name === countryName
+                  );
+                  const tooltipContent = countryData
+                    ? `${countryName} - ${countryData.price}$`
+                    : `${countryName}`;
 
-                return (
-                  <Tooltip
-                    placement="top"
-                    overlay={<span>{tooltipContent}</span>}
-                    key={geo.rsmKey}
-                  >
-                    <Geography
-                      geography={geo}
-                      fill={countryData ? HIGHLIGHT_COLOR : "#D6D6DA"}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { fill: HIGHLIGHT_COLOR, outline: "none" },
-                        pressed: { outline: "none" },
-                      }}
-                    />
-                  </Tooltip>
-                );
-              })
-            }
-          </Geographies>
-        </ComposableMap>
+                  return (
+                    <Tooltip
+                      placement="top"
+                      overlay={<span>{tooltipContent}</span>}
+                      key={geo.rsmKey}
+                    >
+                      <Geography
+                        geography={geo}
+                        fill={countryData ? HIGHLIGHT_COLOR : "#D6D6DA"}
+                        style={{
+                          default: { outline: "none" },
+                          hover: { fill: HIGHLIGHT_COLOR, outline: "none" },
+                          pressed: { outline: "none" },
+                        }}
+                      />
+                    </Tooltip>
+                  );
+                })
+              }
+            </Geographies>
+          </ComposableMapLazy>
+        </Suspense>
         <div className="flex flex-col p-0 overflow-auto min-w-[18rem] gap-3 overflow-hidden -mt-8 px-2">
           <div className="w-full flex justify-between">
             <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">

@@ -147,6 +147,16 @@
     "chip": {
       "country": "Kraj",
       "sortedBy": "Sortowanie wg"
+    },
+    "customerModal": {
+      "moneySpent": "Wydatki",
+      "totalOrders": "Zamówienia",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "returns": "Zwroty",
+      "loyaltyPoints": "Punkty lojalnościowe",
+      "orderHistory": "Historia zamówień",
+      "callButton": "Zadzwoń do klienta"
     }
   },
   "products": {
@@ -292,7 +302,21 @@
     "oneOnOneMeeting": "Spotkanie 1 na 1",
     "salesReview": "Przegląd sprzedaży",
     "productLaunchWebinar": "Webinar - nowy produkt",
-    "eCommercePlatformTraining": "Szkolenie e-commerce"
+    "eCommercePlatformTraining": "Szkolenie e-commerce",
+    "deleteEventModalTitle": "Czy na pewno?",
+    "deleteEventModalSubtitle": "Naciśnij tak, jeśli chcesz",
+    "delete": "usunąć",
+    "move": "przenieść",
+    "theEvent": "wydarzenie",
+    "yes": "Tak",
+    "cancel": "Anuluj",
+    "addEventModalTitle": "Nowe wydarzenie",
+    "addEventModalSubtitle": "Proszę podać czas i tytuł nowego wydarzenia",
+    "addEventModalPlaceholder": "Tytuł wydarzenia",
+    "addEventConfirmButton": "Potwierdź",
+    "addEventTitleRequiredError": "Tytuł wydarzenia jest wymagany",
+    "addEventLengthError": "Tytuł nie może przekraczać 20 znaków",
+    "addEventIncorrectTime": "Nieprawidłowy przedział czasu"
   },
   "singleCharts": {
     "area": {

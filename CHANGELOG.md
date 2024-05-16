@@ -9,5 +9,13 @@
 - add custom sorting arrow for orders and customers tables
 - add order details modal
 
-## Author: matt765 (Mateusz Wyrębek)
-## https://github.com/matt765
+## 1.0.1 (16-05-2024)
+
+- add customer details modal
+- add new event modal in calendar
+- add remove event modal in calendar
+- fix translations in calendar
+- add reusable confirmation modal
+- move countries list for react-simple-maps to public folder
+
+## Author: [matt765](https://github.com/matt765)

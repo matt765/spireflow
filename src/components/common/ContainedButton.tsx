@@ -26,7 +26,7 @@ export const ContainedButton = ({
       onClick={handleClick}
       type={type}
       disabled={disabled || loading}
-      className="transition w-full h-full flex items-center justify-center disabled:opacity-75 bg-containedButtonBg dark:bg-containedButtonBgDark dark:hover:bg-containedButtonBgHoverDark hover:bg-containedButtonBgHover text-white p-2 rounded-md focus:outline-none"
+      className="transition text-nowrap w-full h-full flex items-center justify-center disabled:opacity-75 bg-containedButtonBg dark:bg-containedButtonBgDark dark:hover:bg-containedButtonBgHoverDark hover:bg-containedButtonBgHover text-white p-2 rounded-md focus:outline-none"
     >
       {icon && <div className="mr-2"> {icon}</div>}
       {loading ? <SpinnerIcon /> : children || text}

@@ -13,6 +13,8 @@ import { useCalendar } from "./useCalendar";
 import { CalendarViewProps } from "./types";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
+import { ConfirmModal } from "../../common/ConfirmModal";
+import { AddEventModal } from "./AddEventModal";
 
 export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
   const t = useTranslations("calendar");
@@ -25,8 +27,19 @@ export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
     handleDateSelect,
     handleEventDrop,
     handleEventResize,
+    modalOpen,
+    handleConfirmAction,
+    handleModalClose,
+    currentAction,
+    selectedEvent,
+    addEventModalOpen,
+    handleAddEventModalClose,
+    handleAddEventConfirm,
+    setEventTitle,
+    setEventStart,
+    setEventEnd,
   } = useCalendar({ calendarEvents: translatedData });
-  
+
   const locale = useLocale();
 
   return (
@@ -50,6 +63,30 @@ export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
         }}
         locale={locale === "pl" ? plLocale : "en"}
       />
+      {modalOpen && (
+        <ConfirmModal
+          closeModal={handleModalClose}
+          onConfirm={handleConfirmAction}
+          loading={false}
+          title={t("deleteEventModalTitle")}
+          subtitle={`${t("deleteEventModalSubtitle")} ${
+            currentAction === "delete" ? t("delete") : t("move")
+          } ${t("theEvent")} '${selectedEvent ? selectedEvent.title : ""}'`}
+          confirmButtonText={t("yes")}
+          cancelButtonText={t("cancel")}
+          type="delete"
+        />
+      )}
+      {addEventModalOpen && (
+        <AddEventModal
+          closeModal={handleAddEventModalClose}
+          onConfirm={handleAddEventConfirm}
+          setEventTitle={setEventTitle}
+          setEventStart={setEventStart}
+          setEventEnd={setEventEnd}
+          loading={false}
+        />
+      )}
     </div>
   );
 };

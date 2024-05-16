@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 
-import { ContainedButton } from "../../components/common/ContainedButton";
-import { OutlinedButton } from "../../components/common/OutlinedButton";
-import { Modal } from "../../components/common/Modal";
+import { ContainedButton } from "../common/ContainedButton";
+import { OutlinedButton } from "../common/OutlinedButton";
+import { Modal } from "../common/Modal";
 import { useHandleLogout } from "../../hooks/auth/useHandleLogout";
 import { LogoutIcon } from "../../assets/icons/LogoutIcon";
 import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";

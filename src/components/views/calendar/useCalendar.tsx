@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import { CalendarEvent, CalendarViewProps } from "./types";
+import {
+  CalendarAction,
+  CalendarEvent,
+  CalendarViewProps,
+  EventChange,
+} from "./types";
 import { DateSelectArg, EventClickArg, EventDropArg } from "@fullcalendar/core";
 import { EventResizeDoneArg } from "@fullcalendar/interaction";
+import { EventImpl } from "@fullcalendar/core/internal";
 
 let eventGuid = 0;
 const createEventId = () => String(eventGuid++);
@@ -58,10 +64,19 @@ export const mockDatesForEvents = [
 
 export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<EventImpl | null>(null);
+  const [currentAction, setCurrentAction] = useState<CalendarAction>(null);
+  const [eventChange, setEventChange] = useState<EventChange | null>(null);
+  const [eventTitle, setEventTitle] = useState("");
+  const [eventStart, setEventStart] = useState("");
+  const [eventEnd, setEventEnd] = useState("");
+  const [addEventModalOpen, setAddEventModalOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
     // Here we assign dates to each event from the backend based on index
-    // Normally dates would come from backend, but I wanted to keep events always in current month for demo purposes
+    // Normally dates would come from backend as, but I wanted to keep events always in current month for demo purposes
     const mergedEvents = calendarEvents.map((event, index) => {
       const mockDate = mockDatesForEvents[index];
       return { ...event, ...mockDate };
@@ -69,40 +84,86 @@ export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
     setCurrentEvents(mergedEvents);
   }, [calendarEvents]);
 
-  const handleEventClick = (clickInfo: EventClickArg) => {
-    if (
-      window.confirm(
-        `Are you sure you want to delete the event '${clickInfo.event.title}'?`
-      )
-    ) {
-      clickInfo.event.remove();
+  const handleConfirmDelete = () => {
+    if (selectedEvent) {
+      selectedEvent.remove();
+      setSelectedEvent(null);
+      setModalOpen(false);
     }
   };
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setSelectedEvent(null);
+  };
+  const handleAddEventModalOpen = (startStr: string) => {
+    setSelectedDate(startStr);
+    setAddEventModalOpen(true);
+  };
+  const handleAddEventModalClose = () => {
+    setAddEventModalOpen(false);
+  };
 
-  const handleDateSelect = (selectInfo: DateSelectArg) => {
-    const title = window.prompt("Please enter a new title for your event");
-    const calendarApi = selectInfo.view.calendar;
+  const handleAddEventConfirm = () => {
+    if (eventTitle) {
+      const startDate = new Date(selectedDate);
+      const [startHour, startMinute] = eventStart.split(":").map(Number);
+      startDate.setHours(startHour, startMinute);
 
-    calendarApi.unselect();
+      const endDate = new Date(selectedDate);
+      const [endHour, endMinute] = eventEnd.split(":").map(Number);
+      endDate.setHours(endHour, endMinute);
 
-    if (title) {
       setCurrentEvents([
         ...currentEvents,
         {
           id: createEventId(),
-          title,
-          start: selectInfo.startStr,
-          end: selectInfo.endStr,
+          title: eventTitle,
+          start: startDate.toISOString(),
+          end: endDate.toISOString(),
         },
       ]);
+      handleAddEventModalClose();
+      setEventTitle("");
+      setSelectedDate("");
     }
   };
 
-  const handleEventDrop = (dropInfo: EventDropArg) => {
-    window.confirm(
-      `Move '${dropInfo.event.title}' to ${dropInfo.event.start}?`
-    );
+  const handleDateSelect = (selectInfo: DateSelectArg) => {
+    handleAddEventModalOpen(selectInfo.startStr);
+    const calendarApi = selectInfo.view.calendar;
+    calendarApi.unselect();
   };
+
+  const handleConfirmAction = () => {
+    if (!selectedEvent) return;
+
+    switch (currentAction) {
+      case "delete":
+        selectedEvent.remove();
+        break;
+      case "move":
+        // Assuming the drop info has been preserved, the event move is confirmed here
+        break;
+    }
+
+    resetModalState();
+  };
+
+  const resetModalState = () => {
+    setSelectedEvent(null);
+    setCurrentAction(null);
+    setModalOpen(false);
+  };
+  const handleEventClick = (clickInfo: EventClickArg) => {
+    setSelectedEvent(clickInfo.event);
+    setModalOpen(true);
+    setCurrentAction("delete");
+  };
+
+  const handleEventDrop = (dropInfo: EventDropArg) => {
+    return true;
+  };
+
   const handleEventResize = (resizeInfo: EventResizeDoneArg) => {
     window.confirm(
       `Change '${resizeInfo.event.title}' to end at ${resizeInfo.event.end}?`
@@ -115,5 +176,18 @@ export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
     handleDateSelect,
     handleEventDrop,
     handleEventResize,
+    modalOpen,
+    handleConfirmDelete,
+    handleConfirmAction,
+    handleModalClose,
+    currentAction,
+    selectedEvent,
+    addEventModalOpen,
+    handleAddEventModalOpen,
+    handleAddEventModalClose,
+    handleAddEventConfirm,
+    setEventTitle,
+    setEventStart,
+    setEventEnd,
   };
 };

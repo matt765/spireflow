@@ -1,0 +1,74 @@
+import React from "react";
+import { useTranslations } from "next-intl";
+
+import { ContainedButton } from "../common/ContainedButton";
+import { OutlinedButton } from "../common/OutlinedButton";
+import { Modal } from "../common/Modal";
+import { LogoutIcon } from "../../assets/icons/LogoutIcon";
+import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
+import { ConfirmIcon } from "../../assets/icons/ConfirmIcon";
+import { AreaIcon } from "../../assets/icons/AreaIcon";
+import { DeleteIcon } from "../../assets/icons/DeleteIcon";
+
+interface ConfirmModalProps {
+  closeModal: () => void;
+  onConfirm: () => void;
+  loading: boolean;
+  title: string;
+  subtitle: string;
+  confirmButtonText: string;
+  cancelButtonText: string;
+  IconComponent?: React.ElementType;
+  type?: "delete" | "default";
+}
+
+export const ConfirmModal = ({
+  closeModal,
+  onConfirm,
+  loading,
+  title,
+  subtitle,
+  confirmButtonText,
+  cancelButtonText,
+  IconComponent = LogoutIcon,
+  type = "default",
+}: ConfirmModalProps) => {
+  const t = useTranslations();
+
+  return (
+    <div>
+      <Modal onClose={closeModal}>
+        <div className="flex items-center justify-center w-full flex-col gap-2 -mt-2">
+          <div className="text-grayIcon rounded-full border border-mainBorder dark:border-mainBorderDark p-4 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem] ">
+            {type === "delete" ? <DeleteIcon /> : <ConfirmIcon />}
+          </div>
+          <h2 className="text-primaryText text-3xl w-full text-center mt-2">
+            {t(title)}
+          </h2>
+        </div>
+        <h2 className="text-primaryText text-base w-full text-secondaryText mt-4 max-w-[24rem] text-center">
+          {t(subtitle)}
+        </h2>
+        <div className="flex w-full justify-center mt-12 gap-4">
+          <div className="w-[6rem] h-[2.5rem]">
+            <OutlinedButton
+              text={t(cancelButtonText)}
+              handleClick={closeModal}
+            />
+          </div>
+          <div className="w-[6.5rem] h-[2.5rem] pb-0">
+            <ContainedButton handleClick={onConfirm} disabled={loading}>
+              {loading ? (
+                <div className="pt-[0.3rem]">              
+                  <SpinnerIcon width={45} height={45} />
+                </div>
+              ) : (
+                t(confirmButtonText)
+              )}
+            </ContainedButton>
+          </div>
+        </div>
+      </Modal>
+    </div>
+  );
+};
