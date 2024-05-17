@@ -19,18 +19,24 @@ import { ArrowUpIcon } from "../../assets/icons/ArrowUpIcon";
 import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { useDropdown } from "../../hooks/useDropdown";
 import { Dropdown } from "../../components/common/Dropdown";
-import { Link } from "../../i18n/navigation";
+import { Link as NavigationLink } from "../../i18n/navigation";
 import { LanguageIcon } from "../../assets/icons/LanguageIcon";
 import { useSession } from "../../hooks/auth/useSession";
 import { useHandleLogout } from "../../hooks/auth/useHandleLogout";
 import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
 import { LogoutModal } from "../../components/auth/LogoutModal";
+import { InfoIcon } from "../../assets/icons/InfoIcon";
+import { HistoryIcon } from "../../assets/icons/HistoryIcon";
+
+import Link from "next/link";
+import { AboutModal } from "./AboutModal";
 
 export const Navbar = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [currentLanguage, setCurrentLanguage] = useState("en");
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
@@ -82,6 +88,7 @@ export const Navbar = () => {
   const closeLoginModal = () => setIsLoginModalOpen(false);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
   const closeLogoutModal = () => setIsLogoutModalOpen(false);
+  const closeAboutModal = () => setIsAboutModalOpen(false);
 
   const handleLoginButton = () => {
     setIsLoginModalOpen(true);
@@ -89,6 +96,10 @@ export const Navbar = () => {
 
   const showLogoutModal = () => {
     setIsLogoutModalOpen(true);
+  };
+
+  const showAboutModal = () => {
+    setIsAboutModalOpen(true);
   };
 
   const switchToSignUp = () => {
@@ -165,7 +176,7 @@ export const Navbar = () => {
               : "hidden"
           }`}
         />
-        <Link
+        <NavigationLink
           href="/"
           className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark  ${
             !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
@@ -173,7 +184,7 @@ export const Navbar = () => {
         `}
         >
           <Logo />
-        </Link>
+        </NavigationLink>
         <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
           <div
             className="relative"
@@ -266,7 +277,7 @@ export const Navbar = () => {
                 )}
               {languageDropdown.isOpen && (
                 <Dropdown className="flex flex-col right-0 top-11 w-36">
-                  <Link
+                  <NavigationLink
                     href="/"
                     locale="en"
                     className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
@@ -277,8 +288,8 @@ export const Navbar = () => {
                         <CheckIcon />
                       </div>
                     )}
-                  </Link>
-                  <Link
+                  </NavigationLink>
+                  <NavigationLink
                     href="/"
                     locale="pl"
                     className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
@@ -289,7 +300,7 @@ export const Navbar = () => {
                         <CheckIcon />
                       </div>
                     )}
-                  </Link>
+                  </NavigationLink>
                 </Dropdown>
               )}
             </div>
@@ -331,13 +342,35 @@ export const Navbar = () => {
                       theme === "prismatic" &&
                       "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
                     }              
-                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-76 border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded shadow`}
+                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow`}
                   >
-                    <div className="px-4 pr-5 py-2 pl-[0.9rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
+                    <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder dark:border-mainBorderDark flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
                       <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
                         <MailIcon />
                       </div>
                       {session?.username || "Email"}
+                    </div>
+                    <Link
+                      href="https://github.com/matt765/spireflow/blob/main/CHANGELOG.md"
+                      target="_blank"
+                      className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
+                    >
+                      <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem] ">
+                        <HistoryIcon />
+                      </div>
+                      <button>{t("changelog")}</button>
+                    </Link>
+                    <div
+                      className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
+                      onClick={() => {
+                        userDropdown.close();
+                        showAboutModal();
+                      }}
+                    >
+                      <div className="w-5 flex justify-center items-center text-grayIcon  dark:text-grayIconDark  mr-[0.8rem] ">
+                        <InfoIcon />
+                      </div>
+                      <button>{t("about")}</button>
                     </div>
                     <div
                       className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
@@ -423,6 +456,7 @@ export const Navbar = () => {
         />
       </div>
       {isLogoutModalOpen && <LogoutModal closeModal={closeLogoutModal} />}
+      {isAboutModalOpen && <AboutModal closeModal={closeAboutModal} />}
     </>
   );
 };

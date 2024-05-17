@@ -6,21 +6,25 @@ import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
 import { useTranslations } from "next-intl";
+import { CheckIcon } from "../../../assets/icons/CheckIcon";
 
 interface CustomersDropdownProps {
   options: string[];
   filterKey: keyof CustomerFilters;
   setFilter: (key: keyof CustomerFilters, value: string | undefined) => void;
+  filters: CustomerFilters;
 }
 
 export const CustomersCountryDropdown = ({
   options,
   filterKey,
   setFilter,
+  filters,
 }: CustomersDropdownProps) => {
   const t = useTranslations("customers");
   const { isOpen, toggle, close, ref } = useDropdown();
-  const [activeFilter, setActiveFilter] = useState<string | undefined>();
+
+  const activeFilter = filters[filterKey];
 
   return (
     <div className="relative inline-block w-44" ref={ref}>
@@ -35,17 +39,21 @@ export const CustomersCountryDropdown = ({
           {options.map((option) => (
             <div
               key={option}
-              className={`cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 ${
+              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 ${
                 activeFilter === option &&
                 "bg-dropdownBgHover dark:bg-dropdownBgHoverDark"
               }  `}
               onClick={() => {
                 setFilter(filterKey, option);
-                setActiveFilter(option);
                 close();
               }}
             >
               {option}
+              {activeFilter === option && (
+                <div className="text-secondaryText dark:text-secondaryTextDark">
+                  <CheckIcon />
+                </div>
+              )}
             </div>
           ))}
           <div

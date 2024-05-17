@@ -9,7 +9,7 @@
 - add custom sorting arrow for orders and customers tables
 - add order details modal
 
-## 1.0.1 (16-05-2024)
+## 1.0.1 (15-05-2024)
 
 - add customer details modal
 - add new event modal in calendar
@@ -18,4 +18,10 @@
 - add reusable confirmation modal
 - move countries list for react-simple-maps to public folder
 
-## Author: [matt765](https://github.com/matt765)
+## 1.0.2 (16-05-2024)
+
+- expand user dropdown in navbar
+- add about modal
+- add new logo
+- refactor reusable select component
+- adjust side menu for 1366x768 resolution

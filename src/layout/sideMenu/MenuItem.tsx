@@ -57,7 +57,7 @@ export const MenuItem = ({ title, icon, path }: Props) => {
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
         className={`     
-        flex relative items-center py-2 rounded-xl pl-4 mb-1 2xl:mb-2 w-full pr-2  transition ${
+        flex relative items-center py-2 rounded-xl pl-4 mb-0 1xl:mb-1 2xl:mb-2 w-full pr-2  transition ${
           isActive
             ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark"
             : "bg-navItemBg dark:bg-navItemBgDark hover:bg-navItemBgHover dark:hover:bg-navItemBgHoverDark"

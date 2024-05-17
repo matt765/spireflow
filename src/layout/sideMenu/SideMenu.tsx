@@ -29,7 +29,7 @@ export const SideMenu = () => {
       } `}
     >
       <div
-        className={` px-4 xl:px-6 pt-2 fixed xl:w-[220px] xl:min-w-[220px] 2xl:min-w-[260px] bg-primaryBg  dark:bg-primaryBgDark h-full border-r-[1px] border-mainBorder dark:border-mainBorderDark ${
+        className={` px-4 xl:px-6 pt-4 1xl:pt-6 2xl:pt-2 fixed xl:w-[220px] xl:min-w-[220px] 2xl:min-w-[260px] bg-primaryBg  dark:bg-primaryBgDark h-full border-r-[1px] border-mainBorder dark:border-mainBorderDark ${
           !isSideMenuOpen &&
           "xl:!max-w-[3rem] xl:!w-[3rem] xl:!min-w-[4.5rem] justify-center items-center pr-0 pt-4"
         } `}

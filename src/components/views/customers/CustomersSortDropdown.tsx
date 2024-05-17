@@ -5,6 +5,7 @@ import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
 import { useTranslations } from "next-intl";
+import { CheckIcon } from "../../../assets/icons/CheckIcon";
 
 interface SortDropdownProps {
   options: { value: string; label: string }[];
@@ -56,26 +57,31 @@ export const CustomersSortDropdown = ({
           {options.map((option) => (
             <div
               key={option.value}
-              className={`cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark px-4 py-2 ${
+              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark px-4 py-2 ${
                 selectedSort === option.value &&
                 "bg-dropdownBgHover dark:bg-dropdownBgHoverDark"
               } `}
               onClick={() => handleSortClick(option.value)}
             >
               {option.label}
+              {selectedSort === option.value && (
+                <div className="text-secondaryText dark:text-secondaryTextDark">
+                  <CheckIcon />
+                </div>
+              )}
             </div>
           ))}
           <div
             className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer border-t border-mainBorder dark:border-mainBorderDark"
             onClick={() => handleDirectionClick(false)}
           >
-          {t("button.ascending")}
+            {t("button.ascending")}
           </div>
           <div
             className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => handleDirectionClick(true)}
           >
-               {t("button.descending")}
+            {t("button.descending")}
           </div>
           <div
             className="px-4 py-2  hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark cursor-pointer"
@@ -85,7 +91,7 @@ export const CustomersSortDropdown = ({
               close();
             }}
           >
-                {t("button.clearSorting")}
+            {t("button.clearSorting")}
           </div>
         </Dropdown>
       )}

@@ -65,6 +65,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
               options={countryOptions}
               filterKey="country"
               setFilter={setFilter}
+              filters={filters}
             />
             <CustomersSortDropdown
               options={sortOptions}

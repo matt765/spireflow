@@ -10,6 +10,7 @@ import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
 import { ArrowDownSimpleIcon } from "../../assets/icons/ArrowDownSimpleIcon";
 import { ArrowUpSimpleIcon } from "../../assets/icons/ArrowUpSimpleIcon";
 import { s } from "@fullcalendar/core/internal-common";
+import { CheckIcon } from "../../assets/icons/CheckIcon";
 
 interface SelectProps {
   value?: string | number;
@@ -102,7 +103,7 @@ export const Select = ({
               {customOptions?.map((option, index) => (
                 <div
                   key={index}
-                  className={`text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
+                  className={`flex  justify-between text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
                 ${
                   value === option &&
                   "bg-dropdownBgHover dark:bg-dropdownBgHoverDark pointer-events-none"
@@ -111,6 +112,11 @@ export const Select = ({
                   onClick={() => handleCustomChange(option)}
                 >
                   {option}
+                  {value === option && (
+                    <div className="text-secondaryText dark:text-secondaryTextDark">
+                      <CheckIcon />
+                    </div>
+                  )}
                 </div>
               ))}
               {isBottomPlaceholderVisible && (

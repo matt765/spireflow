@@ -134,13 +134,13 @@ a {
 }
 
 .fc-daygrid-day-events a.fc-event {
- height: 1.7rem;
- padding-top: 0.1rem;
- padding-left: 0.2rem;
+  height: 1.7rem;
+  padding-top: 0.1rem;
+  padding-left: 0.2rem;
 }
 .fc-daygrid-day-events .fc-event-main * {
   color: white;
- }
+}
 
 @media (max-width: 768px) {
   .fc-media-screen {
@@ -282,12 +282,12 @@ a {
 }
 /* Checkbox background color for Multiselect component in TradersTable */
 .tremor-MultiSelectItem-root .accent-tremor-brand {
- @apply accent-mainColor dark:accent-mainColorDark;
+  @apply accent-mainColor dark:accent-mainColorDark;
 }
 
 /* Disable upper empty part of tooltip on Today Sales section on /analytics page */
 .todaySalesContainer .recharts-tooltip-wrapper .border-b {
-  display: none ;
+  display: none;
 }
 
 /* Blur for tooltips and dropdowns in Prismatic theme. To be deleted in case of performance issues */
@@ -316,6 +316,11 @@ a {
 /* Add margin for mobile resolution of legend section im bars single chart page */
 .single-chart-bars .tremor-Legend-root {
   @apply mb-6 sm:mb-2;
+}
+
+/* Fix selected tab title color in Today Sales section */
+.ui-selected\:text-tremor-brand[data-headlessui-state~="selected"] {
+  color: rgb(90, 150, 249) !important;
 }
 
 /* Hide outline until better solution for styling input borders on multiple themes is developed */
@@ -383,7 +388,7 @@ input:-webkit-autofill:active {
   background-color: hsla(216, 32%, 16%, 1);
   background-image: radial-gradient(
       at 91% 92%,
-      hsla(213.7, 26%, 42.9%, 0.80) 0px,
+      hsla(213.7, 26%, 42.9%, 0.8) 0px,
       transparent 50%
     ),
     radial-gradient(at 88% 16%, hsl(215.2, 31.7%, 39%) 0px, transparent 50%),

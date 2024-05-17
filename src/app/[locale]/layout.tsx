@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import "../../styles/globals.css";
-import { inter } from "../../styles/fonts";
+import { inter, nunito } from "../../styles/fonts";
 import { Providers } from "../../services/providers";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { locales } from "../../i18n/navigation";
