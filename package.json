@@ -2,7 +2,7 @@
   "name": "spireflow",
   "version": "1.0.2",
   "license": "GPL-3.0-only",
-  "description": "Spireflow is an open source e-commerce analytic dashboard application", 
+  "description": "Spireflow is an open source e-commerce analytic dashboard application",
   "author": {
     "name": "Mateusz Wyrębek (matt765)",
     "email": "mateusz.wyrebek@gmail.com",

@@ -89,7 +89,8 @@
       "shipped": "Wysłane"
     },
     "button": {
-      "clearFilters": "Wyczyść filtry"
+      "clearFilters": "Wyczyść filtry",
+      "csv": "Eksport do CSV"
     },
     "searchField": {
       "searchOrders": "Szukaj zamówień..."
@@ -129,7 +130,8 @@
       "sortBy": "Sortuj wg",
       "ascending": "Malejąco",
       "descending": "Rosnąco",
-      "clearSorting": "Bez sortowania"
+      "clearSorting": "Bez sortowania",
+      "csv": "Eksport do CSV"
     },
     "country": {
       "usa": "USA",

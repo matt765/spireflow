@@ -303,6 +303,13 @@ a {
   @apply text-mainColor dark:text-mainColorDark;
 }
 
+/* Active tab in Today Sales section */
+.todaySalesContainer
+  .tremor-TabList-root
+  button[data-headlessui-state="selected"] {
+  @apply !text-blue-400 dark:!text-blue-400;
+}
+
 /* Hide unnecessary grid lines in Tremor bar charts */
 .small-box .recharts-cartesian-grid-horizontal {
   display: none;
@@ -318,10 +325,10 @@ a {
   @apply mb-6 sm:mb-2;
 }
 
-/* Fix selected tab title color in Today Sales section */
+/* Fix selected tab title color in Today Sales section
 .ui-selected\:text-tremor-brand[data-headlessui-state~="selected"] {
-  color: rgb(90, 150, 249) !important;
-}
+  color: red !important;
+} */
 
 /* Hide outline until better solution for styling input borders on multiple themes is developed */
 /* Accessibility issue */
@@ -400,4 +407,17 @@ input:-webkit-autofill:active {
 /* Class needed to display different colors for the content spinner on multiple themes and backgrounds (button/pageContainer) */
 .contentSpinner {
   @apply fill-primaryText dark:fill-primaryTextDark;
+}
+
+/* Custom scrollbar for About modal */
+.aboutModal * {
+  scrollbar-width: thin;
+}
+
+.aboutModal ::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 168, 231, 0.5);
+}
+
+.aboutModal {
+  scrollbar-color: rgb(94, 98, 105, 0.7) rgb(94, 98, 105, 0.2)!important;
 }

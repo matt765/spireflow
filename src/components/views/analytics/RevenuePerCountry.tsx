@@ -18,6 +18,7 @@ import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RevenuePerCountryProps } from "./types";
 import { Card } from "../../common/Card";
+import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 
 const HIGHLIGHT_COLOR = "rgb(59, 130, 246)";
 
@@ -59,7 +60,13 @@ export const RevenuePerCountry = ({
     <Card className="h-full relative overflow-hidden flex flex-col">
       <BlockTitle title={t("title")} />
       <div className="flex -ml-8 2xl:-ml-10 gap-16 max-h-[25rem] pt-8 mt-4 ">
-        <Suspense fallback={<div>Loading map...</div>}>
+        <Suspense
+          fallback={
+            <div className="w-full flex items-center justify-center pb-10">
+              <SpinnerIcon width={100} height={100} />
+            </div>
+          }
+        >
           <ComposableMapLazy width={800} height={440}>
             <Geographies geography="/geographies.json">
               {({ geographies }) =>

@@ -118,7 +118,7 @@ export const AddEventModal = ({
             onChange={(e) => updateTitle(e.target.value)}
             className="text-input"
           />
-          <div className="flex gap-4 w-full justify-between">
+          <div className="flex gap-4 w-full justify-between mt-1">
             <div className="w-1/2">
               <Select
                 value={startTime}

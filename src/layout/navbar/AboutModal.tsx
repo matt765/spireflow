@@ -15,13 +15,10 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
   const t = useTranslations();
 
   return (
-    <div>
+    <div className="aboutModal">
       <Modal onClose={closeModal}>
         <div className="max-h-[60vh] w-full -mr-4 overflow-auto pr-4 max-w-[36rem]">
           <div className="flex items-center justify-center w-full flex-col gap-2 -mt-2">
-            {/* <div className="text-grayIcon rounded-full border border-mainBorder dark:border-mainBorderDark p-4 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem] ">
-            <InfoIcon />
-          </div> */}
             <h2 className="text-primaryText dark:text-primaryTextDark text-3xl w-full text-left mt-2">
               About
             </h2>
@@ -30,13 +27,13 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             <p className="mb-4 text-base">
               Spireflow is an open source e-commerce analytic dashboard
               application, written in NextJS and TypeScript. I built this
-              project because I wanted some full stack application in my
+              project with intention to have some full stack application in
               portfolio. <br />
               <br /> The initial commits were pushed to GitHub in December 2022,
-              and since then, I have continuously expanded pool of features and
-              integrated it with a NodeJS backend. If you would like to support
-              this project, please consider using the sponsor button on my
-              GitHub profile.
+              and since then, I have been expanding pool of features and
+              integrating them with a NodeJS backend. If you would like to
+              support this project, please consider using the sponsor button on
+              my GitHub profile.
             </p>
             <p className="text-left w-full mt-4 text-xl">Tech stack:</p>
             <p className="mt-4">
@@ -104,9 +101,10 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             Contact author
           </p>
           <p className=" text-primaryText dark:text-primaryTextDark text-left mt-2 ">
-            You can reach out to me through the contact form on my personal website or via LinkedIn.
+            You can reach out to me through the contact form on my personal
+            website or via LinkedIn.
           </p>
-          <div className="w-full flex justify-start">           
+          <div className="w-full flex justify-start">
             <Link
               href="https://matt765-portfolio.vercel.app/#contact"
               className="text-primaryText dark:text-primaryTextDark mt-1"
@@ -117,25 +115,17 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
               </span>
             </Link>
           </div>
-          <div className="w-full flex justify-start">           
+          <div className="w-full flex justify-start">
             <Link
               href="https://www.linkedin.com/in/mateusz-wyrebek/"
               className="text-primaryText dark:text-primaryTextDark mt-1"
               target="_blank"
             >
               <span className="text-secondaryText dark:text-secondaryTextDark">
-              https://www.linkedin.com/in/mateusz-wyrebek/
+                https://www.linkedin.com/in/mateusz-wyrebek/
               </span>
             </Link>
           </div>
-          {/* <div className="flex w-full justify-center mt-12 gap-4">
-          <div className="w-[6rem] h-[2.5rem]">
-            <OutlinedButton
-              text={t("about.closeButton")}
-              handleClick={closeModal}
-            />
-          </div>
-        </div> */}
         </div>
       </Modal>
     </div>

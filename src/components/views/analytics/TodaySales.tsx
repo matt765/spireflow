@@ -66,7 +66,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               categories={[t("today"), t("average")]}
               colors={["blue", "slate"]}
               index="year"
-              showYAxis={false}
+              showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
               className="mt-4 h-56"

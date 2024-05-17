@@ -32,7 +32,7 @@ export const Modal = ({ children, onClose, className }: ModalProps) => {
       <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 z-50">
         <div
           ref={modalRef}
-          className="bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-14  pt-24 sm:pt-[3rem] pb-12 flex flex-col items-center justify-start sm:rounded-2xl relative"
+          className="bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[6vw] xsm:px-[18vw] sm:px-12  pt-24 sm:pt-[3rem] pb-12 flex flex-col items-center justify-start sm:rounded-2xl relative"
         >
           <button
             onClick={onClose}

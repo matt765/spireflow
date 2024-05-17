@@ -12,6 +12,11 @@ import { CustomersTable } from "./CustomersTable";
 import { useCustomers, Customer } from "./useCustomers";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
+import { useTooltip } from "../../../hooks/useTooltip";
+import { DownloadIcon } from "../../../assets/icons/DownloadIcon";
+import { Tooltip } from "../../common/Tooltip";
+import { exportToCSV } from "../../../utils/exportToCSV";
+import { useCallback, useMemo, useRef } from "react";
 
 interface CustomersViewProps {
   customers: Customer[];
@@ -43,9 +48,29 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
     sortOptions,
   } = useCustomers(translatedData);
 
-  const countryOptions = Array.from(
-    new Set(customersData?.map((customer) => customer.country))
-  );
+  const countryOptions = useMemo(() => {
+    return Array.from(
+      new Set(customersData?.map((customer) => customer.country))
+    );
+  }, [customersData]);
+
+  const handleExportToCSV = useCallback(() => {
+    exportToCSV(translatedData, "customers");
+  }, [translatedData]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (tooltipRef.current) {
+      tooltipRef.current.style.visibility = "visible";
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (tooltipRef.current) {
+      tooltipRef.current.style.visibility = "hidden";
+    }
+  }, []);
+
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div className="flex flex-col w-full h-full">
@@ -92,7 +117,9 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
             label={`${t("chip.sortedBy")}: ${
               sortOptions.find((option) => option.value === sorting[0].id)
                 ?.label || sorting[0].id
-            } ${sorting[0].desc ? t("button.descending") : t("button.ascending")}`}
+            } ${
+              sorting[0].desc ? t("button.descending") : t("button.ascending")
+            }`}
             onDelete={() => setSorting([])}
           />
         )}
@@ -101,11 +128,30 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
         <CustomersTable table={table} />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap pb-4">
-        <div className="w-36 mt-8 mb-0 self-start sm:self-unset">
+        <div className="w-[13rem] mt-8 sm:mb-0 flex gap-4 h-11">
           <OutlinedButton
             handleClick={clearFilters}
             text={t("button.clearFilters")}
           />
+          <div
+            className="h-11 w-16 relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <OutlinedButton handleClick={handleExportToCSV}>
+              <DownloadIcon />
+            </OutlinedButton>
+            <div
+              ref={tooltipRef}
+              style={{ visibility: "hidden" }}
+              className="absolute bottom-2 left-14 pointer-events-none"
+            >
+              <Tooltip
+                text={t("button.csv")}
+                className="h-8 px-2 min-w-[7rem] pointer-events-none"
+              />
+            </div>
+          </div>
         </div>
         <CustomersPagination
           itemsPerPage={itemsPerPage}

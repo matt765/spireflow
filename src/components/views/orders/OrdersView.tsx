@@ -12,6 +12,10 @@ import { OutlinedButton } from "../../common/OutlinedButton";
 import { Input } from "../../forms/Input";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
+import { DownloadIcon } from "../../../assets/icons/DownloadIcon";
+import { useTooltip } from "../../../hooks/useTooltip";
+import { Tooltip } from "../../common/Tooltip";
+import { exportToCSV } from "../../../utils/exportToCSV";
 
 interface OrdersViewProps {
   ordersData: OrderType[];
@@ -39,6 +43,13 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
     setCurrentPage,
     resetFilters,
   } = useOrders({ orders: translatedData });
+  console.log(translatedData);
+
+  const csvTooltip = useTooltip();
+
+  const handleExportToCSV = () => {
+    exportToCSV(translatedData, "orders");
+  };
 
   return (
     <div className="flex flex-col w-full h-full">
@@ -60,7 +71,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
           setStartDate={(value) => setFilter("startDate", value)}
           endDate={getFilter("endDate") as string | null}
           setEndDate={(value) => setFilter("endDate", value)}
-        />        
+        />
       </div>
       <div className="flex w-full gap-4 mt-2">
         <OrderSelects
@@ -77,11 +88,28 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
         />
       </div>
       <div className="flex justify-between flex-wrap pb-4">
-        <div className="w-36 mt-8 sm:mb-0">
+        <div className="w-[13rem] mt-8 sm:mb-0 flex gap-4 h-11">
           <OutlinedButton
             handleClick={resetFilters}
             text={t("button.clearFilters")}
           />
+          <div
+            className="h-11 w-16 relative"
+            onMouseEnter={csvTooltip.showTooltip}
+            onMouseLeave={csvTooltip.hideTooltip}
+          >
+            <OutlinedButton handleClick={handleExportToCSV}>
+              <DownloadIcon />
+            </OutlinedButton>
+            {csvTooltip.isTooltipVisible && (
+              <div className="absolute bottom-2 left-14 pointer-events-none">
+                <Tooltip
+                  text={t("button.csv")}
+                  className=" h-8 px-2  min-w-[7rem] pointer-events-none"
+                />
+              </div>
+            )}
+          </div>
         </div>
         <OrdersPagination
           itemsPerPage={itemsPerPage}
