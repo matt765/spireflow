@@ -1,3 +1,6 @@
+/* This file with global styles is definitely too big and will likely be optimized in the future . 
+Unfortunately, it's challenging to apply/overwrite styles in more reliable way for some of many libraries used in this project */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -419,5 +422,5 @@ input:-webkit-autofill:active {
 }
 
 .aboutModal {
-  scrollbar-color: rgb(94, 98, 105, 0.7) rgb(94, 98, 105, 0.2)!important;
+  scrollbar-color: rgb(94, 98, 105, 0.7) rgb(94, 98, 105, 0.2) !important;
 }

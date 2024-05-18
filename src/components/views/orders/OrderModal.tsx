@@ -33,7 +33,7 @@ export const OrderModal = ({ closeModal, orderData }: OrderModalProps) => {
   ];
 
   return (
-    <div>
+    <div className="hidden md:flex">
       <Modal onClose={closeModal}>
         <div className="flex items-center justify-center w-full flex-col gap-2 min-w-[20rem]">
           <div className="rounded-full border border-mainBorder dark:border-mainBorderDark p-4 w-18 flex justify-center items-center mr-[0rem] text-secondaryText dark:text-secondaryTextDark -mt-1">

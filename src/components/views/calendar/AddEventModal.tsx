@@ -107,7 +107,7 @@ export const AddEventModal = ({
             {t("addEventModalTitle")}
           </h2>
         </div>
-        <h2 className="text-primaryText text-base w-full text-secondaryText mt-4">
+        <h2 className="text-primaryText text-base w-full text-center text-secondaryText mt-4">
           {t("addEventModalSubtitle")}
         </h2>
         <div className="flex w-full justify-center mt-8 flex-col gap-4">

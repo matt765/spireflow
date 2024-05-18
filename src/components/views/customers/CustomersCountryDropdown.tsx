@@ -35,7 +35,7 @@ export const CustomersCountryDropdown = ({
         className="text-sm"
       />
       {isOpen && (
-        <Dropdown className="-right-8 sm:right-0 w-[12rem] top-[3.3rem]">
+        <Dropdown className="-right-4 md:-right-4  w-[12rem] top-[3.3rem]">
           {options.map((option) => (
             <div
               key={option}

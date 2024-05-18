@@ -34,11 +34,11 @@ export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
 
   return (
     <Card className="min-h-[30rem]">
-      <div className="w-[20rem]">
+      <div className="w-[15rem] sm:w-[20rem]">
         <MultiSelect
           onValueChange={setSelectedNames}
           placeholder={t("selectSalespeople")}
-          className="w-[20rem]"
+          className="w-[15rem] sm:w-[20rem]"
           placeholderSearch={t("search")}
         >
           {translatedData.map((item) => (

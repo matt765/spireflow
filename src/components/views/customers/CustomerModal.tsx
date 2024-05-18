@@ -32,7 +32,7 @@ export const CustomerModal = ({
   ];
 
   return (
-    <div>
+    <div className="hidden md:flex">
       <Modal onClose={closeModal}>
         <div className="flex items-center justify-center w-full flex-col gap-2 min-w-[32rem] max-w-[32rem]">
           <div className="flex w-full gap-6">

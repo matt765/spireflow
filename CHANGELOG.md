@@ -25,3 +25,11 @@
 - add new logo
 - refactor reusable select component
 - adjust side menu for 1366x768 resolution
+
+## 1.0.3 (17-05-2024)
+
+- add CSV export for customers table
+- add CSV export for orders table
+- adjust mobile styles
+- update About modal (content, scrollbar)
+- adjust Today Sales chart

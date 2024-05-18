@@ -1,5 +1,6 @@
 import { ProgressCircle } from "@tremor/react";
 import { useTranslations } from "next-intl";
+import { useGetWindowWidth } from "../../../hooks/useGetWindowWidth";
 
 interface ProgressCirclesProps {
   metrics: {
@@ -19,6 +20,20 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
     t("conversionRate"),
   ];
 
+  const windowWidth = useGetWindowWidth();
+
+  const getCircleSize = () => {
+    if (windowWidth < 490) {
+      return "md";
+    } else if (windowWidth < 640) {
+      return "xl";
+    } else if (windowWidth < 1400) {
+      return "md";
+    } else {
+      return "xl";
+    }
+  };
+
   return (
     <div className="mt-16 w-full flex flex-wrap justify-between items-between gap-0 gap-y-10 px-0">
       {metrics.map(({ title, firstValue, secondValue }, index) => {
@@ -26,17 +41,22 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
         return (
           <div
             key={index}
-            className="hover:bg-[rgb(255,255,255,0.01)] transition w-[48%] px-8 flex justify-center items-center border border-mainBorder dark:border-mainBorderDark py-12 rounded-md"
+            className="hover:bg-[rgb(255,255,255,0.01)] transition mx-auto sm:mx-unset w-[90%] sm:w-[48%] px-4 flex justify-center items-center border border-mainBorder dark:border-mainBorderDark py-12 rounded-md"
           >
-            <div className="flex gap-8 items-center">
-              <ProgressCircle value={percentage} size="xl" color="slate">
-                <span className="text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
+            <div className="flex gap-8 sm:gap-4 md:gap-8 items-center">
+              <ProgressCircle
+                value={percentage}
+                size={getCircleSize()}
+                color="slate"
+              >
+                <span className="text-md 1xl:text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
                   {percentage}%
                 </span>
               </ProgressCircle>
               <div className="flex flex-col">
-                <div className="font-medium text-2xl text-primaryText dark:text-primaryTextDark">
-                  {index === 1 && "$"} {firstValue}
+                <div className="font-medium text-xl sm:text-md md:text-xl 2xl:text-2xl text-primaryText dark:text-primaryTextDark">
+                  {index === 1 && "$"}
+                  {firstValue}
                   {index === 1 && "k"} / {index === 1 && "$"}
                   {secondValue}
                   {index === 1 && "k"}

@@ -109,7 +109,7 @@ export const LoginForm = ({
   }, [authError]);
 
   return (
-    <div className="min-w-[22rem] flex flex-col items-center py-4">
+    <div className="w-full xsm:w-[22rem] flex flex-col items-center py-4">
       <h1
         className={`text-4xl font-bold text-primaryText dark:text-primaryTextDark`}
       >
@@ -194,7 +194,7 @@ export const LoginForm = ({
             {t("eitherEmailOrPasswordIsIncorrect")}
           </p>
         )}
-        <div className="w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
+        <div className="w-11/12 xsm:w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
           <div className="w-full h-10 max-h-10">
             <ContainedButton disabled={loading} type="submit">
               {loading ? (
@@ -227,7 +227,7 @@ export const LoginForm = ({
                 t("sampleAccount")
               )}
             </ContainedButton>
-            <div className="w-full text-sm flex justify-center gap-2 mt-10 ">
+            <div className="w-full text-xs sm:text-sm flex justify-center gap-2 mt-10 ">
               <div className="text-primaryText dark:text-primaryTextDark">
                 {t("noAccount")}
               </div>

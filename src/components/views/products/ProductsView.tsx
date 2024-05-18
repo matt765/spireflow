@@ -228,9 +228,9 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div className="flex flex-row px-0 w-full pr-4">
+    <div className="flex flex-row px-0 w-full xl:pr-1 2xl:pr-4">
       {/* Left panel: Product details */}
-      <div className="w-3/4 2xl:p-4 2xl:pt-2">
+      <div className="w-full lg:w-3/4 2xl:p-4 2xl:pt-2">
         <div className="flex flex-col">
           <div className="flex gap-6 md:gap-8 items-center justify-start mb-16 ">
             <div
@@ -260,7 +260,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 )}
               </div>
               {imageLoaded && (
-                <div className="absolute  top-0 left-0 w-full h-full flex justify-center items-center z-40  opacity-0 group-hover:opacity-100 ">
+                <div className="absolute  top-0 left-0 w-full h-full hidden xl:flex justify-center items-center z-40  opacity-0 group-hover:opacity-100 ">
                   <div className="w-10 h-10 text-grayIcon dark:text-grayIconDark">
                     <CameraIcon />
                   </div>
@@ -354,7 +354,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 xsm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {activeProduct.parameters.map((param, index) => (
               <div
                 key={index}
@@ -369,7 +369,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
           </div>
         </div>
         <ProgressCircles metrics={activeProduct.metrics} />
-        <div className="flex justify-between items-center w-full mt-8 xsm:mt-14">
+        <div className="flex justify-center sm:justify-between items-center w-full mt-8 xsm:mt-14">
           <div className="flex items-center gap-2">
             <div className="flex justify-center items-center  relative max-w-[15.5rem]">
               <div className="w-10 text-xl text-secondaryText dark:text-secondaryTextDark">
@@ -384,12 +384,12 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               </button>
             </div>
             {isTooltipVisible && (
-              <div className=" bottom-1">
+              <div className="hidden sm:flex bottom-1">
                 <Tooltip text={t("clipboard.copiedToClipboard")} />
               </div>
             )}
           </div>
-          <div className="flex  w-[15rem] h-12  items-center justify-end">
+          <div className="hidden sm:flex w-[15rem] h-12  items-center justify-end">
             <PDFDownloadLink
               document={<ProductPDF product={activeProduct} />}
               fileName={`${activeProduct.name}.pdf`}
@@ -407,22 +407,42 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
             </PDFDownloadLink>
           </div>
         </div>
-        <div className="flex lg:hidden w-48 h-12 mx-auto mt-8 xsm:mt-14 items-center justify-center">
-          <OutlinedButton
-            text="Show all products"
-            handleClick={handleShowAllProductsClick}
-          />
+        <div className="flex lg:hidden w-[100%] text-sm sm:text-md xsm:w-[90%] h-12 mx-auto mt-8 xsm:mt-14 items-center justify-center gap-4">
+          <div className="w-1/2">
+            <OutlinedButton
+              text="Show all products"
+              handleClick={handleShowAllProductsClick}
+            />
+          </div>
+          <div className="flex sm:hidden  w-1/2">
+            <PDFDownloadLink
+              document={<ProductPDF product={activeProduct} />}
+              fileName={`${activeProduct.name}.pdf`}
+              style={{ width: "100%" }}
+            >
+              {({ blob, url, loading, error }) =>
+                loading ? (
+                  "Loading document..."
+                ) : (
+                  <OutlinedButton
+                    text={t("pdf.exportToPdf")}
+                    className="w-full"
+                  />
+                )
+              }
+            </PDFDownloadLink>
+          </div>
         </div>
       </div>
       {/* Right Panel: List of products */}
-      <div className="h-fit hidden lg:flex flex-col w-1/4 p-4 border border-mainBorder dark:border-mainBorderDark ml-8 mt-4 pt-1 rounded-md ">
+      <div className="h-fit hidden lg:flex flex-col w-1/4 p-4 border border-mainBorder dark:border-mainBorderDark ml-8 mt-1 2xl:mt-4 pt-1 rounded-md ">
         <div className="flex flex-col space-y-2">{renderedCategories}</div>
       </div>
       {/* Modal for mobile resolution: List of products */}
       {isOpen && (
         <div
           ref={ref}
-          className="w-full h-full fixed left-0 top-0 pt-4 pb-8 z-50 bg-primaryBg dark:bg-primaryBgDark px-8 overflow-auto"
+          className="w-full h-full fixed left-0 top-0 pt-4 pb-8 z-50 bg-primaryBg dark:bg-primaryBgDark px-8 overflow-auto backdrop-blur-xl"
         >
           <button
             onClick={toggle}

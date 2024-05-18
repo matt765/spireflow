@@ -15,7 +15,7 @@ export const PageWrapper = ({
 }: Props) => {
   return (
     <div
-      className={`flex pb-0 flex-col min-h-screen max-w-full h-full w-full pt-20 md:pt-28 xl:pt-24 2xl:pt-28 pb-0 md:pb-6 xl:pb-8 items-center
+      className={`flex pb-0 flex-col min-h-screen max-w-full h-full w-full pt-16 md:pt-28 xl:pt-24 2xl:pt-28 pb-0 md:pb-6 xl:pb-8 items-center
       px-0 md:px-6  xl:pl-3 xl:pr-2 2xl:px-8
       ${hidePaper && ""}
       `}

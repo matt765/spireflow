@@ -92,7 +92,7 @@ export const SignUpForm = ({
   }, [errors.password]);
 
   return (
-    <div className="min-w-[20rem] flex flex-col items-center mb-2">
+    <div className="min-w-full sm:min-w-[20rem] flex flex-col items-center mb-2">
       <h1 className="text-4xl font-bold mb-16 mt-4 text-primaryText dark:text-primaryTextDark">
         {t("signUp")}
       </h1>

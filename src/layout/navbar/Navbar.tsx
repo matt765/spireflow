@@ -185,7 +185,7 @@ export const Navbar = () => {
         >
           <Logo />
         </NavigationLink>
-        <div className="flex justify-end items-center gap-4 lg:gap-7 relative">
+        <div className="flex justify-end items-center gap-4 xl:gap-7 relative">
           <div
             className="relative"
             ref={themeDropdown.ref}
@@ -207,7 +207,7 @@ export const Navbar = () => {
               !userDropdown.isOpen &&
               !themeDropdown.isOpen &&
               !languageDropdown.isOpen && (
-                <div className="absolute top-10 right-2 pointer-events-none">
+                <div className="absolute top-10 right-2 pointer-events-none hidden xl:flex">
                   <Tooltip
                     text={t("changeTheme")}
                     className=" h-8 px-2  min-w-[7rem] pointer-events-none"
@@ -268,7 +268,7 @@ export const Navbar = () => {
                 !themeDropdown.isOpen &&
                 !userDropdown.isOpen &&
                 !languageDropdown.isOpen && (
-                  <div className="absolute top-10 right-3">
+                  <div className="absolute top-10 right-3 hidden xl:flex">
                     <Tooltip
                       text={t("changeLanguage")}
                       className=" h-8 px-3  min-w-32"
@@ -329,7 +329,7 @@ export const Navbar = () => {
                   !userDropdown.isOpen &&
                   !themeDropdown.isOpen &&
                   !languageDropdown.isOpen && (
-                    <div className="absolute top-12 right-4 pointer-events-none">
+                    <div className="absolute top-12 right-4 pointer-events-none hidden xl:flex">
                       <Tooltip
                         text={t("openUserMenu")}
                         className=" h-8 px-2  min-w-[7rem] pointer-events-none"
@@ -342,7 +342,7 @@ export const Navbar = () => {
                       theme === "prismatic" &&
                       "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
                     }              
-                absolute right-[4.5rem] xl:right-0 top-12 xl:top-10 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow`}
+                absolute right-[0.5rem] xl:right-0 top-10 xl:top-12 xl:top-10 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow`}
                   >
                     <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder dark:border-mainBorderDark flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
                       <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
@@ -449,11 +449,13 @@ export const Navbar = () => {
             switchToSignIn={switchToSignIn}
           />
         )}
-
         <SideMenuMobile
           isMobileMenuOpen={isMobileMenuOpen}
           onLoginButtonClick={handleLoginButton}
         />
+        {isMobileMenuOpen && (
+          <div className="fixed top-[4.5rem] w-full h-full backdrop-blur-md z-10" onClick={toggleMobileMenu}/>
+        )}
       </div>
       {isLogoutModalOpen && <LogoutModal closeModal={closeLogoutModal} />}
       {isAboutModalOpen && <AboutModal closeModal={closeAboutModal} />}
