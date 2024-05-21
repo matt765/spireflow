@@ -149,8 +149,8 @@ export const Navbar = () => {
 
   const cycleThemeUp = () => {
     if (typeof theme === "string") {
-      let currentThemeIndex = themes.indexOf(theme);
-      let previousThemeIndex =
+      const currentThemeIndex = themes.indexOf(theme);
+      const previousThemeIndex =
         (currentThemeIndex - 1 + themes.length) % themes.length;
       setTheme(themes[previousThemeIndex]);
     }
@@ -158,8 +158,8 @@ export const Navbar = () => {
 
   const cycleThemeDown = () => {
     if (typeof theme === "string") {
-      let currentThemeIndex = themes.indexOf(theme);
-      let nextThemeIndex = (currentThemeIndex + 1) % themes.length;
+      const currentThemeIndex = themes.indexOf(theme);
+      const nextThemeIndex = (currentThemeIndex + 1) % themes.length;
       setTheme(themes[nextThemeIndex]);
     }
   };
@@ -454,7 +454,10 @@ export const Navbar = () => {
           onLoginButtonClick={handleLoginButton}
         />
         {isMobileMenuOpen && (
-          <div className="fixed top-[4.5rem] w-full h-full backdrop-blur-md z-10" onClick={toggleMobileMenu}/>
+          <div
+            className="fixed top-[4.5rem] w-full h-full backdrop-blur-md z-10"
+            onClick={toggleMobileMenu}
+          />
         )}
       </div>
       {isLogoutModalOpen && <LogoutModal closeModal={closeLogoutModal} />}

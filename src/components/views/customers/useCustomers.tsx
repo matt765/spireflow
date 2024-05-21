@@ -139,7 +139,7 @@ export const useCustomers = (customers: Customer[]) => {
   }, [searchQuery, filters, customersData]);
 
   const sortedAndFilteredData = useMemo(() => {
-    let data = (filteredData ?? []).map((customer) => ({
+    const data = (filteredData ?? []).map((customer) => ({
       col0: customer.photo,
       col1: customer.firstName,
       col2: customer.lastName,
