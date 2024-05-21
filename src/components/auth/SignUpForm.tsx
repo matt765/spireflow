@@ -116,7 +116,7 @@ export const SignUpForm = ({
           />
         </div>
         {errors.email && showEmailError && (
-          <div className="absolute left-[24.5rem] top-[11rem] z-50 min-w-[20rem] w-auto">
+          <div className="hidden md:block absolute left-[23.5rem] top-[11rem] z-50 min-w-[20rem] w-auto">
             <div className="relative">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
                 {errors.email.message}
@@ -151,7 +151,7 @@ export const SignUpForm = ({
           />
         </div>
         {errors.password && showPasswordError && (
-          <div className="absolute  left-[24.5rem] top-[14.9rem] z-50 min-w-[20rem] w-auto">
+          <div className="absolute  hidden md:block left-[23.5rem] top-[14.5rem] 1xl:top-[14.9rem] z-50 min-w-[20rem] w-auto">
             <div className="relative mb-8">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
                 {errors.password.message}
@@ -169,6 +169,15 @@ export const SignUpForm = ({
               </div>
             </div>
           </div>
+        )}
+        {/* On mobile I used for errors standard red text instead of tooltips to save space */}
+        {errors.email && showEmailError && (
+          <p className="text-red-500 -mb-2 md:hidden text-left w-full">{errors.email.message}</p>
+        )}
+        {errors.password && showPasswordError && (
+          <p className="text-red-500 -mb-3  md:hidden  text-left w-full">
+            {errors.password.message}
+          </p>
         )}
         <div className="flex justify-center items-center w-4/5 mt-6">
           <ContainedButton disabled={loading} type="submit">

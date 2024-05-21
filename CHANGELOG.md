@@ -33,3 +33,13 @@
 - adjust mobile styles
 - update About modal (content, scrollbar)
 - adjust Today Sales chart
+
+## 1.0.4 (21-05-2024)
+
+- further mobile resolution adjustments
+- fix visual bugs
+- extend About Modal
+- fix pagination bug on orders and customers pages
+- add contributing guidelines
+- revert logo changes
+- add new favicon

@@ -52,7 +52,7 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
 
   return (
     <>
-      <table className="w-full mt-8 min-w-[55rem]">
+      <table className="w-full mt-8 min-w-[58rem]">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
@@ -63,7 +63,7 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
                   className={
                     header.column.getCanSort()
                       ? "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
-                      : "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
+                      : "text-secondaryText dark:text-secondaryTextDark font-normal text-center text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
                   }
                   onClick={header.column.getToggleSortingHandler()}
                   style={{

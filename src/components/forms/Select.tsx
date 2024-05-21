@@ -69,12 +69,7 @@ export const Select = ({
 
   return (
     <>
-      <div
-        className={`relative   ${
-          customOnDesktop ? "hidden lg:block" : "hidden"
-        }`}
-        ref={dropdownRef}
-      >
+      <div className={`relative `} ref={dropdownRef}>
         <div
           className="text-sm 1xl:text-base rounded-md p-2 pl-3 pr-3 w-full cursor-pointer border border-mainBorder dark:border-mainBorderDark bg-selectBg dark:bg-selectBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark hover:dark:bg-inputBgHoverDark bg-selectBg dark:bg-selectBgDark hover:bg-selectBgHover dark:hover:bg-selectBgHoverDark"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
@@ -103,7 +98,7 @@ export const Select = ({
               {customOptions?.map((option, index) => (
                 <div
                   key={index}
-                  className={`flex  justify-between text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
+                  className={`flex items-center justify-between text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
                 ${
                   value === option &&
                   "bg-dropdownBgHover dark:bg-dropdownBgHoverDark pointer-events-none"
@@ -137,7 +132,7 @@ export const Select = ({
         )}
       </div>
       {/* Default select */}
-      <select
+      {/* <select
         value={value}
         onChange={onChange}
         className={`text-sm 1xl:text-base  rounded-md p-2 pl-3 pr-3 w-full !cursor-pointer border border-inputBorder dark:border-inputBorderDark
@@ -148,7 +143,7 @@ export const Select = ({
       >
         {placeholder && <option value="">{placeholder}</option>}
         {children}
-      </select>
+      </select> */}
     </>
   );
 };

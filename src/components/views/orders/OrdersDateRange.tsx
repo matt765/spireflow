@@ -52,7 +52,7 @@ export const OrdersDateRange = ({
         <div
           // @ts-ignore
           onClick={() => startDatePickerRef.current.setOpen(true)}
-          className="absolute right-2 top-3 stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400 hover:stroke-secondaryText dark:hover:stroke-secondaryTextDark cursor-pointer"
+          className="absolute right-2 top-[0.5rem] md:top-[0.6rem] stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400 hover:stroke-secondaryText dark:hover:stroke-secondaryTextDark cursor-pointer"
         >
           <CalendarIcon />
         </div>
@@ -67,7 +67,7 @@ export const OrdersDateRange = ({
         <div
           // @ts-ignore
           onClick={() => endDatePickerRef.current.setOpen(true)}
-          className="absolute right-2 top-3 stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400 hover:stroke-secondaryText dark:hover:stroke-secondaryTextDark cursor-pointer"
+          className="absolute right-2 top-[0.5rem] md:top-[0.6rem] stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400 hover:stroke-secondaryText dark:hover:stroke-secondaryTextDark cursor-pointer"
         >
           <CalendarIcon />
         </div>

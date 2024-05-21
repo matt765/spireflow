@@ -1,5 +1,5 @@
-/* This file with global styles is definitely too big and will likely be optimized in the future . 
-Unfortunately, it's challenging to apply/overwrite styles in more reliable way for some of many libraries used in this project */
+/* Primary cause for the size of this file is the fact that it's either highly challenging or impossible to apply/overwrite
+styles in more reliable way for some of the external libraries used in this project */
 
 @tailwind base;
 @tailwind components;
@@ -339,12 +339,31 @@ a {
   outline: none !important;
 }
 
+/* Overwrite autofill styles for inputs to ensure consistent appearance on multiple themes */
+:root {
+  --primary-text-color: theme("colors.primaryText");
+  --primary-text-color-dark: theme("colors.primaryTextDark");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-text-color: var(--primary-text-color-dark);
+  }
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-background-clip: text;
   box-shadow: inset 0 0 20px 20px rgb(255, 255, 255, 0.03);
+  -webkit-text-fill-color: var(--primary-text-color) !important;
+  @apply !bg-inputBg dark:!bg-inputBgDark;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
 }
 
 /* Colors for lightbox gallery on products page */

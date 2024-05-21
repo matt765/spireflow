@@ -260,7 +260,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
                 )}
               </div>
               {imageLoaded && (
-                <div className="absolute  top-0 left-0 w-full h-full hidden xl:flex justify-center items-center z-40  opacity-0 group-hover:opacity-100 ">
+                <div className="absolute  top-0 left-0 w-full h-full hidden xl:flex justify-center items-center z-20  opacity-0 group-hover:opacity-100 ">
                   <div className="w-10 h-10 text-grayIcon dark:text-grayIconDark">
                     <CameraIcon />
                   </div>

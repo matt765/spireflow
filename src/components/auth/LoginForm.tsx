@@ -118,6 +118,7 @@ export const LoginForm = ({
       <form
         className="w-full flex flex-col gap-3 py-12 pt-14"
         onSubmit={handleSubmit(onSubmit)}
+        autoComplete="new-password"
       >
         <div className="mb-2 w-full relative">
           <Controller
@@ -126,6 +127,7 @@ export const LoginForm = ({
             render={({ field }) => (
               <Input
                 {...field}
+                autoComplete="new-password"
                 type="text"
                 placeholder={t("yourEmail")}
                 icon={<MailIcon />}
@@ -135,21 +137,10 @@ export const LoginForm = ({
           />
         </div>
         {errors.username && showEmailError && (
-          <div className="absolute left-[27rem] top-[10.5rem] z-50 min-w-[20rem] w-auto">
+          <div className="hidden md:block absolute md:left-[25.8rem]  top-[10.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
                 {errors.username.message}
-                <svg
-                  className="absolute text-inputBg dark:text-inputBgDark h-0 left-0 ml-3 top-[1.9rem] "
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 255 255"
-                >
-                  <polygon
-                    className="fill-current border border-inputBorder dark:border-inputBorderDark"
-                    points="0,0 127.5,127.5 255,0"
-                  />
-                </svg>
               </div>
             </div>
           </div>
@@ -161,6 +152,7 @@ export const LoginForm = ({
             render={({ field }) => (
               <Input
                 {...field}
+                autoComplete="new-password"
                 type="password"
                 placeholder={t("yourPassword")}
                 icon={<PasswordIcon />}
@@ -170,31 +162,31 @@ export const LoginForm = ({
           />
         </div>
         {errors.password && showPasswordError && (
-          <div className="absolute  left-[27rem] top-[14.4rem] z-50 min-w-[20rem] w-auto">
+          <div className="hidden md:block absolute left-[25.8rem] top-[14rem] 1xl:top-[14.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative mb-8">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
                 {errors.password.message}
-                <svg
-                  className="absolute text-inputBg dark:text-inputBgDark h-0 left-0 ml-3 top-[1.9rem] "
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 255 255"
-                >
-                  <polygon
-                    className="fill-current border border-inputBorder dark:border-inputBorderDark"
-                    points="0,0 127.5,127.5 255,0"
-                  />
-                </svg>
               </div>
             </div>
           </div>
+        )}
+        {/* On mobile I used standard red text for errors instead of tooltips to save space */}
+        {!authErrorDisplayed && errors.username && showEmailError && (
+          <p className="text-red-500 -mb-2 md:hidden">
+            {errors.username.message}
+          </p>
+        )}
+        {!authErrorDisplayed && errors.password && showPasswordError && (
+          <p className="text-red-500 -mb-3  md:hidden">
+            {errors.password.message}
+          </p>
         )}
         {authErrorDisplayed && (
           <p className="text-red-500 -mb-3">
             {t("eitherEmailOrPasswordIsIncorrect")}
           </p>
         )}
-        <div className="w-11/12 xsm:w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
+        <div className="w-10/12 lg:w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
           <div className="w-full h-10 max-h-10">
             <ContainedButton disabled={loading} type="submit">
               {loading ? (

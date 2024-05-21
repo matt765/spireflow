@@ -18,6 +18,7 @@ export const OrdersPagination = ({
         value={itemsPerPage}
         onChange={(e) => {
           setItemsPerPage(Number(e.target.value));
+          goToPage(0);
         }}
         customOnDesktop={true}
         customOptions={["10", "50", "100"]}

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { CloseIcon } from "../../assets/icons/CloseIcon";
+import { useCloseModal } from "../../hooks/useCloseModal";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -10,21 +11,7 @@ interface ModalProps {
 export const Modal = ({ children, onClose, className }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        onClose();
-      }
-    };
-
-    window.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      window.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [onClose]);
+  useCloseModal(modalRef, onClose);
 
   return (
     <>

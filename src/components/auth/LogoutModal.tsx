@@ -27,7 +27,7 @@ export const LogoutModal = ({ closeModal }: LogoutModalProps) => {
             {t("logoutModalTitle")}
           </h2>
         </div>
-        <h2 className="text-primaryText text-base w-full text-secondaryText mt-4">
+        <h2 className="text-primaryText text-base w-full text-secondaryText text-center mt-4">
           {t("logoutModalDesc")}
         </h2>
         <div className="flex w-full justify-center mt-12 gap-4">

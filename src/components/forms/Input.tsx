@@ -10,6 +10,7 @@ interface InputProps {
   id?: string;
   name?: string;
   className?: string;
+  autoComplete?: string;
 }
 
 export const Input = ({
@@ -22,10 +23,11 @@ export const Input = ({
   id,
   name,
   className,
+  autoComplete
 }: InputProps) => {
   return (
     <div className="relative w-full h-full ">
-      <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.65rem] left-3 ">
+      <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.5rem] xl:top-[0.55rem] 2xl:top-[0.65rem] left-3 ">
         {icon}
       </div>
       <input
@@ -42,6 +44,7 @@ export const Input = ({
         onInput={onInput}
         id={id}
         name={name}
+        autoComplete={autoComplete}
       />
       <style jsx>{`
       
