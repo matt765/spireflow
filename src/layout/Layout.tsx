@@ -9,6 +9,7 @@ import { SideMenu } from "./sideMenu/SideMenu";
 import { useAppStore } from "../store/appStore";
 import { Loader } from "../components/common/Loader";
 import { useSession } from "../hooks/auth/useSession";
+import { useIsFirstRender } from "../hooks/useIsFirstRender";
 
 interface Props {
   children: ReactNode;
@@ -39,6 +40,8 @@ export const Layout = ({ children }: Props) => {
     "/pl/register",
   ];
 
+  const isFirstRender = useIsFirstRender();
+
   return (
     <>
       <div className=" flex h-full w-full bg-secondaryBg dark:bg-secondaryBgDark overflow-x-hidden z-50">
@@ -61,12 +64,15 @@ export const Layout = ({ children }: Props) => {
           />
         )}
       </div>
-      <div
-        className={`${
-          theme === "prismatic" &&
-          "gradientBackground fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"
-        }`}
-      />
+      {!isFirstRender && (
+        <div
+          className={`${
+            theme === "prismatic"
+              ? "gradientBackground fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"
+              : "hidden"
+          }`}
+        />
+      )}
       <div className="w-screen fixed top-0 left-0 h-screen z-[-1]"></div>
     </>
   );

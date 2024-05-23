@@ -17,6 +17,7 @@ import { useTheme } from "next-themes";
 import { useSession } from "../../hooks/auth/useSession";
 import { Link } from "../../i18n/navigation";
 import { useLocale } from "next-intl";
+import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 
 interface SideMenuMobileProps {
   isMobileMenuOpen: boolean;
@@ -32,7 +33,11 @@ export const SideMenuMobile = ({
   const { theme } = useTheme();
 
   const locale = useLocale();
-console.log(locale)
+
+  // First render check needed to prevent hydration mismatch errors
+  const isFirstRender = useIsFirstRender();
+  if (isFirstRender) return null;
+
   return (
     <div
       className={`z-50 overflow-auto flex fixed xl:hidden flex-col justify-between bg-primaryBg  border-r-[1px] border-mainBorder dark:border-mainBorderDark dark:bg-primaryBgDark white top-[4.5rem] xl:top-[4rem] 2xl:top-[4.5rem] mb-[2.5rem] left-0 items-center transform transition-transform ease-in-out  ${
@@ -42,7 +47,6 @@ console.log(locale)
       `}
       style={{ height: "calc(100% - 4.5rem)" }}
     >
-     
       <div className="px-4 xl:px-6 pt-2 pr-6  transition w-[16rem] pb-2">
         <MenuCategory title="Main" />
         <MenuItem title="Dashboard" icon={<DashboardIcon />} path="/" />
@@ -87,14 +91,22 @@ console.log(locale)
               <Link
                 href="/"
                 locale="en"
-                className={`${locale === "en" ? "border border-mainBorder dark:border-mainBorderDark" : "border border-[rgb(0,0,0,0)] dark:border-[rgb(0,0,0,0)]" }  text-primaryText dark:text-primaryTextDark h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between`}
+                className={`${
+                  locale === "en"
+                    ? "border border-mainBorder dark:border-mainBorderDark"
+                    : "border border-[rgb(0,0,0,0)] dark:border-[rgb(0,0,0,0)]"
+                }  text-primaryText dark:text-primaryTextDark h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between`}
               >
                 EN
               </Link>
               <Link
                 href="/"
                 locale="pl"
-                className={`${locale === "pl" ? "border border-mainBorder dark:border-mainBorderDark" : "border border-[rgb(0,0,0,0)] dark:border-[rgb(0,0,0,0)]" } text-primaryText dark:text-primaryTextDark h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between`}
+                className={`${
+                  locale === "pl"
+                    ? "border border-mainBorder dark:border-mainBorderDark"
+                    : "border border-[rgb(0,0,0,0)] dark:border-[rgb(0,0,0,0)]"
+                } text-primaryText dark:text-primaryTextDark h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between`}
               >
                 PL
               </Link>{" "}
