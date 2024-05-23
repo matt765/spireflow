@@ -18,7 +18,7 @@ import { CameraIcon } from "../../../assets/icons/CameraIcon";
 import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 import { ProductParameter } from "./ProductParameter";
 import { ProductPDF } from "./ProductPDF";
-import { Product } from "./types";
+import { ProductDetailsProps } from "./types";
 
 const PDFDownloadLink = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
@@ -28,18 +28,7 @@ const PDFDownloadLink = dynamic(
   }
 );
 
-interface ProductDetailsProps {
-  activeProduct: Product;
-  isPhotoOpen: boolean;
-  setIsPhotoOpen: (open: boolean) => void;
-  imageLoaded: boolean;
-  setImageLoaded: (loaded: boolean) => void;
-  handleCopyToClipboard: (text: string) => void;
-  handleShowAllProductsClick: () => void;
-  isTooltipVisible: boolean;
-}
-
-export const ProductDetails: React.FC<ProductDetailsProps> = ({
+export const ProductDetails = ({
   activeProduct,
   isPhotoOpen,
   setIsPhotoOpen,
@@ -48,7 +37,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
   handleCopyToClipboard,
   handleShowAllProductsClick,
   isTooltipVisible,
-}) => {
+}: ProductDetailsProps) => {
   const t = useTranslations("products");
 
   const thumbnailsRef = useRef<ThumbnailsRef>(null);

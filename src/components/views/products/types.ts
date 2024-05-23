@@ -38,3 +38,22 @@ export interface ProductParameterProps {
   title: string;
   value: string | number;
 }
+
+export interface ProductDetailsProps {
+  activeProduct: Product;
+  isPhotoOpen: boolean;
+  setIsPhotoOpen: (open: boolean) => void;
+  imageLoaded: boolean;
+  setImageLoaded: (loaded: boolean) => void;
+  handleCopyToClipboard: (text: string) => void;
+  handleShowAllProductsClick: () => void;
+  isTooltipVisible: boolean;
+}
+
+export interface ProgressCirclesProps {
+  metrics: {
+    title: string;
+    firstValue: number;
+    secondValue: number;
+  }[];
+}

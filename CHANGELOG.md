@@ -37,9 +37,17 @@
 ## 1.0.4 (21-05-2024)
 
 - further mobile resolution adjustments
-- fix visual bugs
+- fix multiple visual bugs
 - extend About Modal
 - fix pagination bug on orders and customers pages
 - add contributing guidelines
 - revert logo changes
 - add new favicon
+
+## 1.0.5 (23-05-2024)
+
+- update all packages
+- fix eslint bugs
+- fix console bugs
+- extract logic & types from components
+- refactor import statements

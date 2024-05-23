@@ -11,11 +11,11 @@ import { Loader } from "../components/common/Loader";
 import { useSession } from "../hooks/auth/useSession";
 import { useIsFirstRender } from "../hooks/useIsFirstRender";
 
-interface Props {
+interface LayoutProps {
   children: ReactNode;
 }
 
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ children }: LayoutProps) => {
   const { isMobileMenuOpen, toggleMobileMenu } = useAppStore();
   const { theme = "prismatic" } = useTheme();
   const [isLoadingScreenDisplayed, setIsLoadingScreenDisplayed] =

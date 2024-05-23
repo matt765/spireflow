@@ -2,14 +2,7 @@ import { ProgressCircle } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
 import { useGetWindowWidth } from "../../../hooks/useGetWindowWidth";
-
-interface ProgressCirclesProps {
-  metrics: {
-    title: string;
-    firstValue: number;
-    secondValue: number;
-  }[];
-}
+import { ProgressCirclesProps } from "./types";
 
 export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
   const t = useTranslations("products.metrics");
