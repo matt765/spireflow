@@ -7,3 +7,5 @@ If you would like to support the ongoing development and maintenance of this pro
 For some time, I will hold off on accepting external merge requests. While I greatly appreciate your willingness to contribute code, I am currently focused on managing the project's development internally. This may change in the future.
 
 Thank you once again for your interest and support!
+
+~matt765

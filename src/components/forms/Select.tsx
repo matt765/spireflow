@@ -5,11 +5,10 @@ import React, {
   useRef,
   useState,
 } from "react";
+
 import { useClickOutside } from "../../hooks/useClickOutside";
-import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
 import { ArrowDownSimpleIcon } from "../../assets/icons/ArrowDownSimpleIcon";
 import { ArrowUpSimpleIcon } from "../../assets/icons/ArrowUpSimpleIcon";
-import { s } from "@fullcalendar/core/internal-common";
 import { CheckIcon } from "../../assets/icons/CheckIcon";
 
 interface SelectProps {
@@ -28,8 +27,6 @@ export const Select = ({
   value,
   onChange,
   placeholder,
-  children,
-  customOnDesktop,
   customOptions,
   direction = "bottom",
   isBottomPlaceholderVisible = false,
@@ -131,19 +128,6 @@ export const Select = ({
           </div>
         )}
       </div>
-      {/* Default select */}
-      {/* <select
-        value={value}
-        onChange={onChange}
-        className={`text-sm 1xl:text-base  rounded-md p-2 pl-3 pr-3 w-full !cursor-pointer border border-inputBorder dark:border-inputBorderDark
-  bg-selectBg dark:bg-selectBgDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark
-  hover:dark:!border-inputBorderHoverDark  hover:dark:bg-inputBgHoverDark bg-selectBg dark:bg-selectBgDark hover:bg-selectBgHover dark:hover:bg-selectBgHoverDark
-        ${customOnDesktop ? "block lg:hidden" : "block"}
-  `}
-      >
-        {placeholder && <option value="">{placeholder}</option>}
-        {children}
-      </select> */}
     </>
   );
 };

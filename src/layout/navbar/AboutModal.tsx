@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
+import { OutlinedButton } from "../../components/common/OutlinedButton";
 
 interface AboutModalProps {
   closeModal: () => void;
@@ -46,14 +47,14 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             <div className="text-primaryText text-base w-full dark:text-primaryTextDark mt-4  text-left  px-8 md:px-0">
               <p className="mb-4 text-base">
                 Spireflow is an open source e-commerce analytic dashboard
-                application, written in NextJS and TypeScript. I built this
-                project with intention to have some full stack application in
-                portfolio. <br />
+                application, written in NextJS and TypeScript. It displays data
+                resembling a fictional e-commerce platform. 
+                <br />
                 <br /> The initial commits were pushed to GitHub in December
                 2022, and since then, I have been expanding pool of features and
                 integrating them with a NodeJS backend. If you would like to
-                support this project, please consider using the sponsor button
-                on my GitHub profile.
+                support the ongoing development and maintenance of this project,
+                you can do so through the GitHub Sponsors program on my profile
               </p>
               <p className="text-left w-full mt-4 text-xl">Tech stack:</p>
               <p className="mt-4">
@@ -85,36 +86,27 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             <p className="text-left w-full mt-4 text-xl text-primaryText dark:text-primaryTextDark  px-8 md:px-0">
               Links
             </p>
-            <div className="flex flex-col justify-start w-full mt-3 text-base  px-8 md:px-0">
+            <div className="flex flex-row justify-start w-full mt-3 text-base gap-2  px-8 md:px-0">
               <Link
                 href="https://github.com/matt765/spireflow"
                 className="text-primaryText dark:text-primaryTextDark"
                 target="_blank"
               >
-                Front-end repository:
-                <span className="text-secondaryText dark:text-secondaryTextDark  ml-2">
-                  https://github.com/matt765/spireflow
-                </span>
+                <OutlinedButton text="Front-end repository" />
               </Link>
               <Link
                 href="https://github.com/matt765/spireflow-backend"
                 className="text-primaryText dark:text-primaryTextDark"
                 target="_blank"
               >
-                Back-end repository:
-                <span className="text-secondaryText dark:text-secondaryTextDark ml-2">
-                  https://github.com/matt765/spireflow-backend
-                </span>
+                <OutlinedButton text="Back-end repository" />
               </Link>
               <Link
                 href="https://github.com/matt765/spireflow-backend"
                 className="text-primaryText dark:text-primaryTextDark"
                 target="_blank"
               >
-                Storybook live link:
-                <span className="text-secondaryText dark:text-secondaryTextDark  ml-2">
-                  https://github.com/matt765/spireflow-backend
-                </span>
+                <OutlinedButton text="Storybook" />
               </Link>
             </div>
             <p className="text-left w-full mt-4 text-xl text-primaryText dark:text-primaryTextDark  px-8  md:px-0">
@@ -124,27 +116,25 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
               You can reach out to me through the contact form on my personal
               website or via LinkedIn.
             </p>
-            <div className="w-full flex justify-start px-8  md:px-0">
-              <Link
-                href="https://matt765-portfolio.vercel.app/#contact"
-                className="text-primaryText dark:text-primaryTextDark mt-1"
-                target="_blank"
-              >
-                <span className="text-secondaryText dark:text-secondaryTextDark">
-                  https://matt765-portfolio.vercel.app/#contact
-                </span>
-              </Link>
-            </div>
-            <div className="w-full flex justify-start  px-8  md:px-0 mb-8 md:mb-0">
-              <Link
-                href="https://www.linkedin.com/in/mateusz-wyrebek/"
-                className="text-primaryText dark:text-primaryTextDark mt-1"
-                target="_blank"
-              >
-                <span className="text-secondaryText dark:text-secondaryTextDark">
-                  https://www.linkedin.com/in/mateusz-wyrebek/
-                </span>
-              </Link>
+            <div className="flex justify-start gap-2 mt-4">
+              <div className="flex justify-start px-8  md:px-0">
+                <Link
+                  href="https://matt765-portfolio.vercel.app/#contact"
+                  className="text-primaryText dark:text-primaryTextDark mt-1"
+                  target="_blank"
+                >
+                  <OutlinedButton text="Contact form" />
+                </Link>
+              </div>
+              <div className="flex justify-start  px-8  md:px-0 mb-8 md:mb-0">
+                <Link
+                  href="https://www.linkedin.com/in/mateusz-wyrebek/"
+                  className="text-primaryText dark:text-primaryTextDark mt-1"
+                  target="_blank"
+                >
+                  <OutlinedButton text="LinkedIn" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

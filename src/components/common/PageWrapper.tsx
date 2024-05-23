@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const PageWrapper = ({
-  className,
   children,
   hidePaper = false,
 }: Props) => {
