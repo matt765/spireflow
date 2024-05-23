@@ -1,6 +1,7 @@
+import { DocumentNode } from "graphql";
+
 import { client } from "./apolloClient";
 import { ORDERS_QUERY } from "../queries/OrdersQuery";
-import { DocumentNode } from "graphql";
 import { ANALYTICS_QUERY } from "../queries/analytics/AnalyticsQuery";
 import { EVENTS_QUERY } from "../queries/EventsQuery";
 import { CUSTOMERS_QUERY } from "../queries/CustomersQuery";
@@ -29,7 +30,7 @@ export const getData = async (pageName: string) => {
 
   try {
     const { data } = await client.query({ query });
-   
+
     switch (pageName) {
       case "homepage":
         return data;

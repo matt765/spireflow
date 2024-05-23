@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+
 import { Modal } from "../../common/Modal";
 import { DeleteIcon } from "../../../assets/icons/DeleteIcon";
-import { ConfirmIcon } from "../../../assets/icons/ConfirmIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { ContainedButton } from "../../common/ContainedButton";
 import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
@@ -71,7 +71,6 @@ export const AddEventModal = ({
   }, [title, startTime, endTime, setEventTitle, setEventStart, setEventEnd]);
 
   // This useEffect is necessary so user doesn't have to click confirm button twice
-
   useEffect(() => {
     if (isReadyToConfirm) {
       onConfirm();

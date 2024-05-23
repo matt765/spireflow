@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Table, flexRender } from "@tanstack/react-table";
 
 import { Loader } from "../../common/Loader";
-import { Customer, CustomerColumns } from "./useCustomers";
+import { CustomerColumns } from "./useCustomers";
 import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 import { CustomerModal } from "./CustomerModal";
@@ -36,9 +36,8 @@ const SortingArrow = ({ isSortedDesc }: { isSortedDesc: boolean }) => {
 
 export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
   const [isCustomerModalOpen, setIsCustomerModalOpen] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState<CustomerColumns | null>(
-    null
-  );
+  const [selectedCustomer, setSelectedCustomer] =
+    useState<CustomerColumns | null>(null);
 
   if (loading) {
     return (

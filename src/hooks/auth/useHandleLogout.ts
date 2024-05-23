@@ -1,11 +1,10 @@
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 import { auth } from "../../services/firebaseClient";
 
 export const useHandleLogout = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const router = useRouter();
 
   const destroySession = async () => {
     try {
@@ -33,7 +32,7 @@ export const useHandleLogout = () => {
       } else {
         setError("Logout failed due to an unknown error");
       }
-    } finally {    
+    } finally {
       location.reload();
     }
   };

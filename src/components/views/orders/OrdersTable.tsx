@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 
 import { OrdersTableProps } from "./types";
@@ -102,7 +102,7 @@ export const OrdersTable = ({
               <tr
                 key={row.id}
                 onClick={() => {
-                  setSelectedOrder(row.original as OrderType); 
+                  setSelectedOrder(row.original as OrderType);
                   setIsOrderModalOpen(true);
                 }}
                 className="hover:bg-[rgb(255,255,255,0.03)] cursor-pointer"
@@ -120,7 +120,10 @@ export const OrdersTable = ({
         </tbody>
       </table>
       {isOrderModalOpen && (
-        <OrderModal closeModal={closeOrderModal} orderData={selectedOrder as OrderType} />
+        <OrderModal
+          closeModal={closeOrderModal}
+          orderData={selectedOrder as OrderType}
+        />
       )}
     </>
   );

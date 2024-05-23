@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   CalendarAction,
   CalendarEvent,
   CalendarViewProps,
-  EventChange,
 } from "./types";
 import { DateSelectArg, EventClickArg, EventDropArg } from "@fullcalendar/core";
 import { EventResizeDoneArg } from "@fullcalendar/interaction";
@@ -67,7 +66,6 @@ export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<EventImpl | null>(null);
   const [currentAction, setCurrentAction] = useState<CalendarAction>(null);
-  const [eventChange, setEventChange] = useState<EventChange | null>(null);
   const [eventTitle, setEventTitle] = useState("");
   const [eventStart, setEventStart] = useState("");
   const [eventEnd, setEventEnd] = useState("");
@@ -76,7 +74,7 @@ export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
 
   useEffect(() => {
     // Here we assign dates to each event from the backend based on index
-    // Normally dates would come from backend as, but I wanted to keep events always in current month for demo purposes
+    // Normally dates would come from backend, but I wanted to keep events always in current month for demo purposes
     const mergedEvents = calendarEvents.map((event, index) => {
       const mockDate = mockDatesForEvents[index];
       return { ...event, ...mockDate };
@@ -142,7 +140,6 @@ export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
         selectedEvent.remove();
         break;
       case "move":
-        // Assuming the drop info has been preserved, the event move is confirmed here
         break;
     }
 

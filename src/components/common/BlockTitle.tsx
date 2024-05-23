@@ -1,6 +1,8 @@
-interface Props {
+interface BlockTitleProps {
   title: string;
 }
-export const BlockTitle = ({ title }: Props) => (
-  <div className="text-lg font-medium  text-primaryText dark:text-primaryTextDark">{title}</div>
+export const BlockTitle = ({ title }: BlockTitleProps) => (
+  <div className="text-lg font-medium  text-primaryText dark:text-primaryTextDark">
+    {title}
+  </div>
 );

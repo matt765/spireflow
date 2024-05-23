@@ -1,6 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useCallback, useMemo, useRef } from "react";
+
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Chip } from "../../forms/Chip";
@@ -12,11 +14,9 @@ import { CustomersTable } from "./CustomersTable";
 import { useCustomers, Customer } from "./useCustomers";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { useTooltip } from "../../../hooks/useTooltip";
 import { DownloadIcon } from "../../../assets/icons/DownloadIcon";
 import { Tooltip } from "../../common/Tooltip";
 import { exportToCSV } from "../../../utils/exportToCSV";
-import { useCallback, useMemo, useRef } from "react";
 
 interface CustomersViewProps {
   customers: Customer[];

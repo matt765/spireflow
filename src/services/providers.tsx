@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { ApolloProvider } from "@apollo/client";
+
 import { Layout } from "../layout/Layout";
 import { client } from "./apolloClient";
 

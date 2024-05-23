@@ -15,7 +15,6 @@ interface OrderModalProps {
 
 export const OrderModal = ({ closeModal, orderData }: OrderModalProps) => {
   const t = useTranslations("orders.orderModal");
-  console.log(orderData);
 
   const orderDetails = [
     { label: t("id"), value: orderData.col1 },

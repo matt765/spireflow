@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
 
@@ -8,7 +8,7 @@ interface ModalProps {
   className?: string;
 }
 
-export const Modal = ({ children, onClose, className }: ModalProps) => {
+export const Modal = ({ children, onClose }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useCloseModal(modalRef, onClose);

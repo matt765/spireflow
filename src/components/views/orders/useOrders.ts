@@ -1,11 +1,11 @@
 import { useMemo, useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
 import {
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
   createColumnHelper,
 } from "@tanstack/react-table";
+import { useTranslations } from "next-intl";
 
 import {
   FilterValues,
@@ -15,9 +15,6 @@ import {
   SelectFilters,
 } from "./types";
 import { useTable } from "../../../hooks/useTable";
-import { ORDERS_QUERY } from "../../../queries/OrdersQuery";
-import { useTranslations } from "next-intl";
-
 
 export interface OrderColumns {
   col1: number; // ID
@@ -45,32 +42,32 @@ interface useOrdersProps {
 export const useOrders = ({ orders }: useOrdersProps) => {
   const t = useTranslations("orders");
 
-const columnHelper = createColumnHelper<Order>();
+  const columnHelper = createColumnHelper<Order>();
 
-const columns = [
-  columnHelper.accessor("col1", {
-    header: () => "ID",
-  }),
-  columnHelper.accessor("col2", {
-    header: () => t("tableHeader.productName"),
-  }),
-  columnHelper.accessor("col3", {
-    header: () => t("tableHeader.user"),
-  }),
-  columnHelper.accessor("col4", {
-    header: () => t("tableHeader.price"),
-    cell: ({ row }) => `$${row.original.col4.toFixed(2)}`,
-  }),
-  columnHelper.accessor("col5", {
-    header: () => t("tableHeader.deliveryType"),
-  }),
-  columnHelper.accessor("col6", {
-    header: () => t("tableHeader.date"),
-  }),
-  columnHelper.accessor("col7", {
-    header: () => t("tableHeader.status"),
-  }),
-];
+  const columns = [
+    columnHelper.accessor("col1", {
+      header: () => "ID",
+    }),
+    columnHelper.accessor("col2", {
+      header: () => t("tableHeader.productName"),
+    }),
+    columnHelper.accessor("col3", {
+      header: () => t("tableHeader.user"),
+    }),
+    columnHelper.accessor("col4", {
+      header: () => t("tableHeader.price"),
+      cell: ({ row }) => `$${row.original.col4.toFixed(2)}`,
+    }),
+    columnHelper.accessor("col5", {
+      header: () => t("tableHeader.deliveryType"),
+    }),
+    columnHelper.accessor("col6", {
+      header: () => t("tableHeader.date"),
+    }),
+    columnHelper.accessor("col7", {
+      header: () => t("tableHeader.status"),
+    }),
+  ];
 
   const initialFilters = {
     startDate: null,

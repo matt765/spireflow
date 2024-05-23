@@ -3,6 +3,7 @@
 import { BarChart, Title, Text } from "@tremor/react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
+
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { PerformanceProps } from "./types";

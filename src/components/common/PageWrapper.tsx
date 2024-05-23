@@ -8,10 +8,7 @@ interface Props {
   hidePaper?: boolean;
 }
 
-export const PageWrapper = ({
-  children,
-  hidePaper = false,
-}: Props) => {
+export const PageWrapper = ({ children, hidePaper = false }: Props) => {
   return (
     <div
       className={`flex pb-0 flex-col min-h-screen max-w-full h-full w-full pt-[4.5rem] md:pt-28 xl:pt-24 2xl:pt-28 pb-0 md:pb-6 xl:pb-8 items-center

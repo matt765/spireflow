@@ -7,7 +7,7 @@ export const useTooltip = () => {
   const hideTooltip = () => setIsTooltipVisible(false);
 
   useEffect(() => {
-    const handleDocumentClick = (event: MouseEvent) => {
+    const handleDocumentClick = () => {
       // Hide the tooltip on document click
       hideTooltip();
     };

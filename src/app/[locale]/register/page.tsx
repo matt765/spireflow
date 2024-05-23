@@ -1,15 +1,16 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { SignUpForm } from "../../../components/auth/SignUpForm";
 import { useHandleSignUp } from "../../../hooks/auth/useHandleSignUp";
-import { useRouter } from "next/navigation";
 
 const Register = () => {
   const { handleSignUp } = useHandleSignUp();
   const router = useRouter();
 
   const switchToSignIn = () => {
-    router.push("/login")
+    router.push("/login");
   };
 
   return (

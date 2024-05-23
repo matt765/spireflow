@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useClickOutside } from "./useClickOutside";
 
 export const useDropdown = () => {
@@ -6,9 +6,7 @@ export const useDropdown = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const toggle = () => setIsOpen((prevIsOpen) => !prevIsOpen);
-
   const close = () => setIsOpen(false);
-
   const open = () => setIsOpen(true);
 
   useClickOutside(ref, close);

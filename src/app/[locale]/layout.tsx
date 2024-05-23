@@ -1,11 +1,11 @@
 import "dotenv/config";
 import { Metadata } from "next";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 
 import "../../styles/globals.css";
-import { inter, nunito } from "../../styles/fonts";
+import { inter } from "../../styles/fonts";
 import { Providers } from "../../services/providers";
-import { NextIntlClientProvider, useMessages } from "next-intl";
 import { locales } from "../../i18n/navigation";
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: "Spireflow",
   description:
-    "Open-source e-commerce dashboard built with Next.js and TypeScript.",
+    "Open-source e-commerce analytic dashboard built with Next.js and TypeScript.",
 };
 
 export function generateStaticParams() {

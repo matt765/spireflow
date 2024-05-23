@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import { SignUpForm } from "./SignUpForm";
 import { useHandleSignUp } from "../../hooks/auth/useHandleSignUp";
-import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { Modal } from "../common/Modal";
 
 interface SignUpModalProps {

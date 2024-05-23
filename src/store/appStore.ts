@@ -44,4 +44,3 @@ export const useAppStore = create<AppStore>((set) => ({
   isLoading: true,
   setLoading: (loading) => set(() => ({ isLoading: loading })),
 }));
-

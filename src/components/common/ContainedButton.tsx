@@ -9,7 +9,7 @@ interface ContainedButtonProps {
   loading?: boolean;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
-  icon?: React.ReactNode; 
+  icon?: React.ReactNode;
 }
 
 export const ContainedButton = ({

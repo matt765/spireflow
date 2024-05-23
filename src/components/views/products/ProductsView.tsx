@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import dynamic from "next/dynamic";
@@ -14,7 +13,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Counter from "yet-another-react-lightbox/plugins/counter";
 
 import { OutlinedButton } from "../../common/OutlinedButton";
-import useModal from "../../../hooks/useModal";
+import { useModal } from "../../../hooks/useModal";
 import { CloseIcon } from "../../../assets/icons/CloseIcon";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
@@ -147,8 +146,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   const translatedData = useTranslateData(products, backendTranslations);
   const [isPhotoOpen, setIsPhotoOpen] = useState(false);
 
-  const [copySuccess, setCopySuccess] = useState("");
-  const { isTooltipVisible, showTooltip, hideTooltip } = useTooltip();
+  const { isTooltipVisible, showTooltip } = useTooltip();
 
   const handleCopyToClipboard = async (text: string) => {
     try {
@@ -223,8 +221,6 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
   };
 
   const thumbnailsRef = useRef<ThumbnailsPluginInstance | null>(null);
-  const fullscreenRef = useRef(null);
-  const zoomRef = useRef(null);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -394,7 +390,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               document={<ProductPDF product={activeProduct} />}
               fileName={`${activeProduct.name}.pdf`}
             >
-              {({ blob, url, loading, error }) =>
+              {({ loading }) =>
                 loading ? (
                   "Loading document..."
                 ) : (
@@ -420,7 +416,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
               fileName={`${activeProduct.name}.pdf`}
               style={{ width: "100%" }}
             >
-              {({ blob, url, loading, error }) =>
+              {({ loading }) =>
                 loading ? (
                   "Loading document..."
                 ) : (

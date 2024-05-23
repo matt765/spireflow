@@ -22,7 +22,6 @@ import { Dropdown } from "../../components/common/Dropdown";
 import { Link as NavigationLink } from "../../i18n/navigation";
 import { LanguageIcon } from "../../assets/icons/LanguageIcon";
 import { useSession } from "../../hooks/auth/useSession";
-import { useHandleLogout } from "../../hooks/auth/useHandleLogout";
 import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
 import { LogoutModal } from "../../components/auth/LogoutModal";
@@ -305,7 +304,6 @@ export const Navbar = () => {
               )}
             </div>
           </div>
-
           <div className="-mr-2 xl:-mr-unset">
             {session && session.username ? (
               <div

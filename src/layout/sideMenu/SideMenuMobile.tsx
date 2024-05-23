@@ -1,3 +1,6 @@
+import { useTheme } from "next-themes";
+import { useLocale } from "next-intl";
+
 import { AnalyticsIcon } from "../../assets/icons/AnalyticsIcon";
 import { AreaIcon } from "../../assets/icons/AreaIcon";
 import { BarsIcon } from "../../assets/icons/BarsIcon";
@@ -12,11 +15,8 @@ import { useAppStore } from "../../store/appStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
-import { Select } from "../../components/forms/Select";
-import { useTheme } from "next-themes";
 import { useSession } from "../../hooks/auth/useSession";
 import { Link } from "../../i18n/navigation";
-import { useLocale } from "next-intl";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 
 interface SideMenuMobileProps {

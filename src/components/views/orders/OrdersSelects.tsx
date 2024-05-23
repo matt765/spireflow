@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 import { OrdersSelectsProps } from "./types";
 import { Select } from "../../forms/Select";
-import { OrderColumns, OrderType } from "./useOrders";
+import { OrderType } from "./useOrders";
 
 export const OrderSelects = ({
   filters,

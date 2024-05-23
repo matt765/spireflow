@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { TotalProfitProps } from "./types";
+import { ProductProfit, TotalProfitProps } from "./types";
 import { Card } from "../../common/Card";
 
 export const TotalProfit = ({
@@ -54,7 +54,7 @@ export const TotalProfit = ({
         startEndOnly={true}
         valueFormatter={valueFormatter}
       />
-      {totalProfitProducts.map((item: any) => (
+      {totalProfitProducts.map((item: ProductProfit) => (
         <div key={item.title} className="mt-4 space-y-2">
           <Flex>
             <Text>{item.title}</Text>

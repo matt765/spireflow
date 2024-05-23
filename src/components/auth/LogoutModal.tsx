@@ -38,7 +38,7 @@ export const LogoutModal = ({ closeModal }: LogoutModalProps) => {
             />
           </div>
           <div className="w-[6.5rem] h-[2.5rem] pb-0">
-            <ContainedButton handleClick={handleLogout} disabled={loading}>             
+            <ContainedButton handleClick={handleLogout} disabled={loading}>
               {loading ? (
                 <div className="pt-[0.3rem]">
                   <SpinnerIcon width={45} height={45} />

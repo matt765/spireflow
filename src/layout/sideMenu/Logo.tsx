@@ -4,7 +4,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { nunito } from "../../styles/fonts";
 
 export const Logo = () => {
-  const { isSideMenuOpen, toggleSideMenu } = useAppStore();
+  const { isSideMenuOpen } = useAppStore();
   const isDesktop = useMediaQuery("(min-width: 1280px)");
 
   return (

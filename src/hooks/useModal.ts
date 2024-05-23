@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, RefObject } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const useModal = () => {
+export const useModal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,4 +25,4 @@ const useModal = () => {
   return { isOpen, toggle, close, ref };
 };
 
-export default useModal;
+

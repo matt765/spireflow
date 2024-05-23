@@ -1,9 +1,9 @@
 "use client";
 
 import { LineChart } from "@tremor/react";
+import { useTranslations } from "next-intl";
 
 import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
-import { useTranslations } from "next-intl";
 
 const Line = () => {
   const t = useTranslations("singleCharts.line");

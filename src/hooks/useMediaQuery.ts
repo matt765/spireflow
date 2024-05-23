@@ -23,7 +23,6 @@ export function useMediaQuery(query: string): boolean {
     // Triggered at the first client-side load and if query changes
     handleChange();
 
-    // Listen matchMedia
     if (matchMedia.addListener) {
       matchMedia.addListener(handleChange);
     } else {

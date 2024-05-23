@@ -4,10 +4,8 @@ import { useTranslations } from "next-intl";
 import { ContainedButton } from "../common/ContainedButton";
 import { OutlinedButton } from "../common/OutlinedButton";
 import { Modal } from "../common/Modal";
-import { LogoutIcon } from "../../assets/icons/LogoutIcon";
 import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
 import { ConfirmIcon } from "../../assets/icons/ConfirmIcon";
-import { AreaIcon } from "../../assets/icons/AreaIcon";
 import { DeleteIcon } from "../../assets/icons/DeleteIcon";
 
 interface ConfirmModalProps {
@@ -30,7 +28,6 @@ export const ConfirmModal = ({
   subtitle,
   confirmButtonText,
   cancelButtonText,
-  IconComponent = LogoutIcon,
   type = "default",
 }: ConfirmModalProps) => {
   const t = useTranslations();
@@ -59,7 +56,7 @@ export const ConfirmModal = ({
           <div className="w-[6.5rem] h-[2.5rem] pb-0">
             <ContainedButton handleClick={onConfirm} disabled={loading}>
               {loading ? (
-                <div className="pt-[0.3rem]">              
+                <div className="pt-[0.3rem]">
                   <SpinnerIcon width={45} height={45} />
                 </div>
               ) : (

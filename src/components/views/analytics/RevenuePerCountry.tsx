@@ -1,11 +1,11 @@
 "use client";
 
 import React, { Suspense, lazy } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { Geographies, Geography } from "react-simple-maps";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
-
 import "react-tooltip/dist/react-tooltip.css";
+
 import { BlockTitle } from "../../common/BlockTitle";
 import { EnglishIcon } from "../../../assets/icons/EnglishIcon";
 import { PolishIcon } from "../../../assets/icons/PolishIcon";

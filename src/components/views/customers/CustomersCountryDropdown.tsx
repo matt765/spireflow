@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { CustomerFilters } from "./useCustomers";
 import { FilterIcon } from "../../../assets/icons/FilterIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
-import { useTranslations } from "next-intl";
 import { CheckIcon } from "../../../assets/icons/CheckIcon";
 
 interface CustomersDropdownProps {

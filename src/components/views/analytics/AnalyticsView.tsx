@@ -1,6 +1,7 @@
 "use client";
 
 import { Grid, Col } from "@tremor/react";
+
 import { AssetPerformance } from "./AssetPerformance";
 import { TodaySales } from "./TodaySales";
 import { TotalProfit } from "./TotalProfit";

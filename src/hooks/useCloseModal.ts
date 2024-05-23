@@ -1,9 +1,16 @@
 import { RefObject, useEffect } from "react";
 
-export const useCloseModal = (ref: RefObject<any>, onClose: () => void) => {
+export const useCloseModal = (
+  ref: RefObject<HTMLElement>,
+  onClose: () => void
+) => {
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (
+        ref.current &&
+        event.target instanceof Node &&
+        !ref.current.contains(event.target)
+      ) {
         onClose();
       }
     };

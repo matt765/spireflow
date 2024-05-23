@@ -45,7 +45,6 @@ export const LoginForm = ({
   });
 
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors },

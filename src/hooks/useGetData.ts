@@ -1,15 +1,15 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { DocumentNode } from "graphql";
+
 import { client } from "../services/apolloClient";
 import { ORDERS_QUERY } from "../queries/OrdersQuery";
-import { DocumentNode } from "graphql";
 import { ANALYTICS_QUERY } from "../queries/analytics/AnalyticsQuery";
 import { EVENTS_QUERY } from "../queries/EventsQuery";
 import { CUSTOMERS_QUERY } from "../queries/CustomersQuery";
 import { PRODUCTS_QUERY } from "../queries/ProductsQuery";
 import { HOMEPAGE_QUERY } from "../queries/homepage/HomepageQuery";
-
-import { useState, useEffect } from "react";
 import { useAppStore } from "../store/appStore";
 
 interface QueryMap {

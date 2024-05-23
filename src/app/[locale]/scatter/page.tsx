@@ -2,9 +2,9 @@
 
 import { Text } from "@tremor/react";
 import { ScatterChart } from "@tremor/react";
+import { useTranslations } from "next-intl";
 
 import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
-import { useTranslations } from "next-intl";
 
 const Scatter = () => {
   const t = useTranslations("singleCharts.scatter");

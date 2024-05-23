@@ -1,5 +1,6 @@
 import { ProgressCircle } from "@tremor/react";
 import { useTranslations } from "next-intl";
+
 import { useGetWindowWidth } from "../../../hooks/useGetWindowWidth";
 
 interface ProgressCirclesProps {
@@ -36,7 +37,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
 
   return (
     <div className="mt-16 w-full flex flex-wrap justify-between items-between gap-0 gap-y-10 px-0">
-      {metrics.map(({ title, firstValue, secondValue }, index) => {
+      {metrics.map(({ firstValue, secondValue }, index) => {
         const percentage = Math.round((firstValue / secondValue) * 100);
         return (
           <div

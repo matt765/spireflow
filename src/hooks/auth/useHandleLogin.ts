@@ -8,7 +8,7 @@ export interface HandleLoginProps extends LoginData {
   isDemo?: boolean;
 }
 
-export const useHandleLogin = (isModal?: boolean, closeModal?: () => void) => {
+export const useHandleLogin = () => {
   const [authError, setAuthError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();

@@ -1,9 +1,9 @@
 "use client";
 
 import { BarChart } from "@tremor/react";
+import { useTranslations } from "next-intl";
 
 import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
-import { useTranslations } from "next-intl";
 
 const Bars = () => {
   const t = useTranslations("singleCharts.bars");

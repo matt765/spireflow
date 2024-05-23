@@ -20,10 +20,7 @@ interface SignUpFormProps {
   switchToSignIn: () => void;
 }
 
-export const SignUpForm = ({
-  handleSignUp,
-  switchToSignIn,
-}: SignUpFormProps) => {
+export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
   const t = useTranslations("navbar");
   const [loading, setLoading] = useState(false);
   const [showEmailError, setShowEmailError] = useState(false);
@@ -172,7 +169,9 @@ export const SignUpForm = ({
         )}
         {/* On mobile I used for errors standard red text instead of tooltips to save space */}
         {errors.email && showEmailError && (
-          <p className="text-red-500 -mb-2 md:hidden text-left w-full">{errors.email.message}</p>
+          <p className="text-red-500 -mb-2 md:hidden text-left w-full">
+            {errors.email.message}
+          </p>
         )}
         {errors.password && showPasswordError && (
           <p className="text-red-500 -mb-3  md:hidden  text-left w-full">

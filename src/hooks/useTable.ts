@@ -5,7 +5,9 @@ type Filters<T> = {
   [P in keyof T]: T[P];
 };
 
-export const useTable = <T extends Record<string, any>>(initialFilters: T) => {
+export const useTable = <T extends Record<string, unknown>>(
+  initialFilters: T
+) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
@@ -19,7 +21,7 @@ export const useTable = <T extends Record<string, any>>(initialFilters: T) => {
       ...prev,
       [filterKey]: value,
     }));
-    setCurrentPage(0)
+    setCurrentPage(0);
   }, []);
 
   const clearFilter = useCallback((filterKey: keyof T) => {

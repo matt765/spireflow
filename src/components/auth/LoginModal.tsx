@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import { useHandleLogin } from "../../hooks/auth/useHandleLogin";
 import { LoginForm } from "./LoginForm";
-import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { Modal } from "../common/Modal";
 
 interface LoginModalProps {
@@ -11,10 +10,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ closeModal, switchToSignUp }: LoginModalProps) => {
-  const { handleLogin, authError, clearAuthError } = useHandleLogin(
-    true,
-    closeModal
-  );
+  const { handleLogin, authError, clearAuthError } = useHandleLogin();
 
   return (
     <>

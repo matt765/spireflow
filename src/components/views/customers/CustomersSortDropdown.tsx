@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { SortIcon } from "../../../assets/icons/SortIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";

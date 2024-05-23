@@ -1,7 +1,7 @@
 "use client";
 import { ReactElement, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
-import { useRouter, usePathname } from "next/navigation";
 import { useAppStore } from "../../store/appStore";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Link } from "../../i18n/navigation";
@@ -9,15 +9,13 @@ import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 
-interface Props {
+interface MenuItemProps {
   title: string;
   icon: ReactElement;
   path: string;
 }
 
-
-
-export const MenuItem = ({ title, icon, path }: Props) => {
+export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
   const { isSideMenuOpen } = useAppStore();
   const currentPathname = usePathname();

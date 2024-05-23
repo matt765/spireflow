@@ -1,10 +1,10 @@
 "use client";
 
 import { AreaChart } from "@tremor/react";
-
-import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
+
+import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
 
 const Area = () => {
   const dataFormatter = (number: number) => {
@@ -26,8 +26,6 @@ const Area = () => {
   const selectedColors = colorSchemes[theme || defaultTheme];
 
   const t = useTranslations("singleCharts.area");
-  const valueFormatter = (number: number) =>
-    `$ ${Intl.NumberFormat("us").format(number).toString()}`;
 
   const chartdata = [
     {

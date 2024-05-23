@@ -74,7 +74,6 @@ export const TradersTable = ({ tradersTableData }: TradersTableProps) => {
             </TableHeaderCell>
           </TableRow>
         </TableHead>
-
         <TableBody>
           {translatedData
             .filter((item) => isSalesPersonSelected(item))

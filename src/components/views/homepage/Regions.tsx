@@ -8,29 +8,18 @@ import {
   List,
   ListItem,
 } from "@tremor/react";
-import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { RegionsProps, Region } from "./types";
+import { RegionsProps } from "./types";
 import { Card } from "../../common/Card";
 
 export const Regions = ({ regionsData }: RegionsProps) => {
-  const [selectedRegion, setSelectedRegion] = useState("asia");
-  const [filteredData, setFilteredData] = useState(regionsData);
   const t = useTranslations("homepage.regions");
 
   const valueFormatter = (number: number) =>
     `${Intl.NumberFormat("us").format(number).toString()} $`;
-
-  const filterByRegion = (region: string, data: Region[]) =>
-    region === "all" ? data : data.filter((city) => city.region === region);
-
-  useEffect(() => {
-    const data = regionsData;
-    setFilteredData(filterByRegion(selectedRegion, data));
-  }, [selectedRegion]);
 
   const translations = {
     "North America": t("northAmerica"),
