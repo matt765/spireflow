@@ -65,6 +65,7 @@ export const RevenueOverTime = ({
         className="mt-4 h-72"
         lang="PL"
         translate="yes"
+        intervalType="preserveStartEnd"
       />
     </Card>
   );

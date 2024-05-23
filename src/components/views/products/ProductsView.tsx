@@ -410,7 +410,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
         <div className="flex lg:hidden w-[100%] text-sm sm:text-md xsm:w-[90%] h-12 mx-auto mt-8 xsm:mt-14 items-center justify-center gap-4">
           <div className="w-1/2">
             <OutlinedButton
-              text="Show all products"
+              text={t("mobileList.showAllProducts")}
               handleClick={handleShowAllProductsClick}
             />
           </div>

@@ -219,6 +219,9 @@
     },
     "clipboard": {
       "copiedToClipboard": "Skopiowano do schowka!"
+    },
+    "mobileList": {
+      "showAllProducts": "Lista produktów"
     }
   },
   "analytics": {
