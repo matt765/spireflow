@@ -1,14 +1,10 @@
 import React, { useRef } from "react";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
 import { OutlinedButton } from "../../components/common/OutlinedButton";
-
-interface AboutModalProps {
-  closeModal: () => void;
-}
+import { AboutModalProps } from "./types";
 
 export const AboutModal = ({ closeModal }: AboutModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -56,11 +52,11 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                 you can do so through the GitHub Sponsors program on my profile
               </p>
               <p className="text-left w-full mt-4 text-xl">Tech stack:</p>
-              <p className="mt-4">
+              <div className="mt-4">
                 <p className="text-secondaryText dark:text-secondaryTextDark mb-2">
                   Front-End:
                 </p>
-              </p>
+              </div>
               <ul className="list-disc list-inside mb-4 pl-3 text-primaryText dark:text-primaryTextDark">
                 <li>NextJS</li>
                 <li>TypeScript</li>
@@ -69,11 +65,11 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                 <li>Apollo Client</li>
                 <li>Iron Session</li>
               </ul>
-              <p>
+              <div>
                 <p className="text-secondaryText dark:text-secondaryTextDark mb-2">
                   Back-End:
                 </p>
-              </p>
+              </div>
               <ul className="list-disc list-inside pl-3">
                 <li>NodeJS</li>
                 <li>Express</li>

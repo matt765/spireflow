@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { SubmitHandler, useForm, Controller } from "react-hook-form";
+import React from "react";
+import { Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 
 import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
-import { HandleLoginProps } from "../../hooks/auth/useHandleLogin";
+import { useHandleLogin } from "../../hooks/auth/useHandleLogin";
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
 import { ContainedButton } from "../common/ContainedButton";
@@ -17,95 +15,26 @@ export interface LoginData {
 }
 
 interface LoginFormProps {
-  handleLogin: SubmitHandler<HandleLoginProps>;
-  authError: string;
   switchToSignUp?: () => void;
-  clearAuthError?: () => void;
 }
 
-export const LoginForm = ({
-  handleLogin,
-  authError,
-  switchToSignUp,
-  clearAuthError,
-}: LoginFormProps) => {
-  const t = useTranslations("navbar");
-  const [loading, setLoading] = useState(false);
-  const [showEmailError, setShowEmailError] = useState(false);
-  const [showPasswordError, setShowPasswordError] = useState(false);
-  const [authErrorDisplayed, setAuthErrorDisplayed] = useState("");
-
-  const validationSchema = Yup.object().shape({
-    username: Yup.string()
-      .required(t("emailFieldIsRequired"))
-      .email(t("pleaseEnterAValidEmail")),
-    password: Yup.string()
-      .required(t("passwordFieldIsRequired"))
-      .min(6, t("passwordMinimumLength")),
-  });
-
+export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
   const {
+    handleLogin,
+    loading,
+    setLoading,
+    showEmailError,
+    setShowEmailError,
+    showPasswordError,
+    setShowPasswordError,
+    authErrorDisplayed,
     handleSubmit,
+    onSubmit,
     control,
-    formState: { errors },
-  } = useForm<LoginData>({
-    resolver: yupResolver(validationSchema),
-    mode: "onSubmit",
-  });
+    errors,
+  } = useHandleLogin();
 
-  const onSubmit: SubmitHandler<LoginData> = async (data) => {
-    setLoading(true);
-
-    try {
-      await handleLogin(data);
-    } catch (error) {
-      console.error("Login process error:", error);
-    } finally {
-      setTimeout(() => setLoading(false), 700);
-    }
-  };
-
-  // Hide error messages when user clicks anywhere on the screen
-  useEffect(() => {
-    const handleDocumentClick = () => {
-      setShowEmailError(false);
-      setShowPasswordError(false);
-      if (clearAuthError) {
-        clearAuthError();
-      }
-    };
-
-    document.addEventListener("mousedown", handleDocumentClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleDocumentClick);
-    };
-  }, []);
-
-  // Effects necessary to not show both error messages at the same time if not needed
-  useEffect(() => {
-    if (errors.username) {
-      setShowEmailError(true);
-    }
-  }, [errors.username]);
-
-  useEffect(() => {
-    if (errors.password) {
-      setShowPasswordError(true);
-    }
-  }, [errors.password]);
-
-  // Effects that delay showing auth error to prevent spam
-  useEffect(() => {
-    if (authError) {
-      setTimeout(() => {
-        setAuthErrorDisplayed(authError);
-        setLoading(false);
-      }, 700);
-    } else {
-      setAuthErrorDisplayed("");
-    }
-  }, [authError]);
+  const t = useTranslations("navbar");
 
   return (
     <div className="w-full xsm:w-[22rem] flex flex-col items-center py-4">

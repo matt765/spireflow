@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { Table, flexRender } from "@tanstack/react-table";
+import { flexRender } from "@tanstack/react-table";
 
 import { Loader } from "../../common/Loader";
-import { CustomerColumns } from "./useCustomers";
+
 import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 import { CustomerModal } from "./CustomerModal";
-
-export interface CustomersTableProps {
-  table: Table<CustomerColumns>;
-  loading?: boolean;
-}
+import { CustomerColumns, CustomersTableProps } from "./types";
 
 const columnWidths = {
   col0: "7%",

@@ -21,3 +21,14 @@ export interface EventChange {
   newStart: Date;
   newEnd: Date | undefined;
 }
+
+export interface AddEventModalProps {
+  closeModal: () => void;
+  onConfirm: () => void;
+  loading: boolean;
+  setEventTitle: (title: string) => void;
+  setEventStart: (start: string) => void;
+  setEventEnd: (end: string) => void;
+  IconComponent?: React.ElementType;
+  type?: "delete" | "default";
+}

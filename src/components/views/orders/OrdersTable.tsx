@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 
-import { OrdersTableProps } from "./types";
+import { OrderType, OrdersTableProps } from "./types";
 import { Loader } from "../../common/Loader";
 import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 import { OrderModal } from "./OrderModal";
-import { OrderType } from "./useOrders";
 
 const columnWidths = {
   col1: "100px",

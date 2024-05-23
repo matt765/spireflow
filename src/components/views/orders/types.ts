@@ -1,7 +1,5 @@
 import { Table } from "@tanstack/react-table";
 
-import { OrderColumns } from "./useOrders";
-
 export interface Order {
   col1: number;
   col2: string;
@@ -60,4 +58,35 @@ export interface OrdersPaginationProps {
   goToPage: (page: number) => void;
   prevPage: () => void;
   nextPage: () => void;
+}
+
+export interface OrderModalProps {
+  closeModal: () => void;
+  orderData: OrderType;
+}
+export interface OrderColumns {
+  col1: number; // ID
+  col2: string; // productName
+  col3: string; // user
+  col4: number; // price
+  col5: string; // deliveryType
+  col6: string; // date
+  col7: string; // status
+}
+export interface OrderType extends OrderColumns {
+  orderId: number;
+  productName: string;
+  user: string;
+  price: number;
+  deliveryType: string;
+  date: string;
+  status: string;
+}
+
+export interface useOrdersProps {
+  orders: OrderType[];
+}
+
+export interface OrdersViewProps {
+  ordersData: OrderType[];
 }

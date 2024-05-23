@@ -11,33 +11,13 @@ import {
   FilterValues,
   Filters,
   Order,
+  OrderColumns,
+  OrderType,
   PriceRange,
   SelectFilters,
+  useOrdersProps,
 } from "./types";
 import { useTable } from "../../../hooks/useTable";
-
-export interface OrderColumns {
-  col1: number; // ID
-  col2: string; // productName
-  col3: string; // user
-  col4: number; // price
-  col5: string; // deliveryType
-  col6: string; // date
-  col7: string; // status
-}
-export interface OrderType extends OrderColumns {
-  orderId: number;
-  productName: string;
-  user: string;
-  price: number;
-  deliveryType: string;
-  date: string;
-  status: string;
-}
-
-interface useOrdersProps {
-  orders: OrderType[];
-}
 
 export const useOrders = ({ orders }: useOrdersProps) => {
   const t = useTranslations("orders");

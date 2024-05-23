@@ -1,11 +1,8 @@
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { useAppStore } from "../../store/appStore";
+import { MenuCategoryProps } from "./types";
 
-interface Props {
-  title: string;
-}
-
-export const MenuCategory = ({ title }: Props) => {
+export const MenuCategory = ({ title }: MenuCategoryProps) => {
   const { isSideMenuOpen } = useAppStore();
   const isDesktop = useMediaQuery("(min-width: 1280px)");
 

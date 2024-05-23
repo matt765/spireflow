@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 import { SortIcon } from "../../../assets/icons/SortIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
-import { useTranslations } from "next-intl";
 import { CheckIcon } from "../../../assets/icons/CheckIcon";
-
-interface SortDropdownProps {
-  options: { value: string; label: string }[];
-  setSorting: (value: Array<{ id: string; desc: boolean }>) => void;
-  currentSort: string | null;
-  currentDirection: boolean;
-}
+import { SortDropdownProps } from "./types";
 
 export const CustomersSortDropdown = ({
   options,

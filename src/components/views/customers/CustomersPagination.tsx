@@ -1,16 +1,7 @@
 import React from "react";
 
 import { Select } from "../../forms/Select";
-
-export interface CustomersPaginationProps {
-  itemsPerPage: number;
-  currentPage: number;
-  totalPage: number;
-  setItemsPerPage: (count: number) => void;
-  goToPage: (page: number) => void;
-  prevPage: () => void;
-  nextPage: () => void;
-}
+import { CustomersPaginationProps } from "./types";
 
 export const CustomersPagination = ({
   itemsPerPage,

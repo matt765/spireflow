@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-import { OrderType, useOrders } from "./useOrders";
+import { useOrders } from "./useOrders";
 import { OrdersDateRange } from "./OrdersDateRange";
 import { OrderSelects } from "./OrdersSelects";
 import { OrdersTable } from "./OrdersTable";
@@ -16,10 +16,7 @@ import { DownloadIcon } from "../../../assets/icons/DownloadIcon";
 import { useTooltip } from "../../../hooks/useTooltip";
 import { Tooltip } from "../../common/Tooltip";
 import { exportToCSV } from "../../../utils/exportToCSV";
-
-interface OrdersViewProps {
-  ordersData: OrderType[];
-}
+import { OrdersViewProps } from "./types";
 
 export const OrdersView = ({ ordersData }: OrdersViewProps) => {
   const t = useTranslations("orders");

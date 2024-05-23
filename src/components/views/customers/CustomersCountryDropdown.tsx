@@ -1,18 +1,11 @@
 import { useTranslations } from "next-intl";
 
-import { CustomerFilters } from "./useCustomers";
 import { FilterIcon } from "../../../assets/icons/FilterIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { Dropdown } from "../../common/Dropdown";
 import { useDropdown } from "../../../hooks/useDropdown";
 import { CheckIcon } from "../../../assets/icons/CheckIcon";
-
-interface CustomersDropdownProps {
-  options: string[];
-  filterKey: keyof CustomerFilters;
-  setFilter: (key: keyof CustomerFilters, value: string | undefined) => void;
-  filters: CustomerFilters;
-}
+import { CustomersDropdownProps } from "./types";
 
 export const CustomersCountryDropdown = ({
   options,

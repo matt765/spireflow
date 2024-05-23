@@ -1,5 +1,5 @@
 "use client";
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { useAppStore } from "../../store/appStore";
@@ -8,12 +8,7 @@ import { Link } from "../../i18n/navigation";
 import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
-
-interface MenuItemProps {
-  title: string;
-  icon: ReactElement;
-  path: string;
-}
+import { MenuItemProps } from "./types";
 
 export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);

@@ -9,30 +9,9 @@ import { useTranslations } from "next-intl";
 
 import { useTable } from "../../../hooks/useTable";
 import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
+import { Customer, CustomerColumns, CustomerFilters } from "./types";
 
 const columnHelper = createColumnHelper<CustomerColumns>();
-
-export type CustomerFilters = {
-  country?: string;
-};
-export interface CustomerColumns {
-  col0: string; // Avatar
-  col1: string; // First Name
-  col2: string; // Last Name
-  col3: string; // City
-  col4: string; // Country
-  col5: string; // Phone
-  col6: number; // Total Buys
-}
-export interface Customer {
-  photo: string;
-  firstName: string;
-  lastName: string;
-  city: string;
-  country: string;
-  phone: string;
-  totalBuys: number;
-}
 
 const ImageCell = ({ src }: { src: string }) => {
   const [imageLoaded, setImageLoaded] = useState(false);

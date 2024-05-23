@@ -1,167 +1,62 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 
 import { LoginModal } from "../../components/auth/LoginModal";
 import { Logo } from "../sideMenu/Logo";
 import { SignUpModal } from "../../components/auth/SignUpModal";
-import { UserIcon } from "../../assets/icons/UserIcon";
-import { MailIcon } from "../../assets/icons/MailIcon";
-import { LogoutIcon } from "../../assets/icons/LogoutIcon";
 import { SideMenuMobile } from "../sideMenu/SideMenuMobile";
-import { useAppStore } from "../../store/appStore";
-import { PaletteIcon } from "../../assets/icons/PaletteIcon";
-import { CheckIcon } from "../../assets/icons/CheckIcon";
-import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
-import { ArrowUpIcon } from "../../assets/icons/ArrowUpIcon";
-import { OutlinedButton } from "../../components/common/OutlinedButton";
-import { useDropdown } from "../../hooks/useDropdown";
-import { Dropdown } from "../../components/common/Dropdown";
 import { Link as NavigationLink } from "../../i18n/navigation";
-import { LanguageIcon } from "../../assets/icons/LanguageIcon";
-import { useSession } from "../../hooks/auth/useSession";
-import { useTooltip } from "../../hooks/useTooltip";
-import { Tooltip } from "../../components/common/Tooltip";
 import { LogoutModal } from "../../components/auth/LogoutModal";
-import { InfoIcon } from "../../assets/icons/InfoIcon";
-import { HistoryIcon } from "../../assets/icons/HistoryIcon";
-
-import Link from "next/link";
 import { AboutModal } from "./AboutModal";
+import { ThemeButton } from "./ThemeButton";
+import { LanguageButton } from "./LanguageButton";
+import { UserButton } from "./UserButton";
+import { HamburgerButton } from "./HamburgerButton";
+import { useNavbar } from "./hooks/useNavbar";
+import { useNavbarModals } from "./hooks/useNavbarModals";
+import { useNavbarTooltips } from "./hooks/useNavbarTooltips";
 
 export const Navbar = () => {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
-  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
-  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const [currentLanguage, setCurrentLanguage] = useState("en");
-  const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
   const t = useTranslations("navbar");
 
-  const [isPrismaticTheme, setIsPrismaticTheme] = useState(true);
+  const {
+    theme,
+    currentLanguage,
+    isMobileMenuOpen,
+    toggleMobileMenu,
+    isSideMenuOpen,
+    isPrismaticTheme,
+    closeMobileMenu,
+    session,
+    themes,
+    themesDisplayNames,
+    userIconBtnRef,
+    themeDropdown,
+    userDropdown,
+    languageDropdown,
+    selectTheme,
+    cycleThemeUp,
+    cycleThemeDown,
+  } = useNavbar();
 
-  const closeMobileMenu = () => {
-    if (isMobileMenuOpen) {
-      toggleMobileMenu();
-    }
-  };
+  const {
+    isLoginModalOpen,
+    isSignUpModalOpen,
+    isLogoutModalOpen,
+    isAboutModalOpen,
+    closeLoginModal,
+    closeSignUpModal,
+    closeLogoutModal,
+    closeAboutModal,
+    showLogoutModal,
+    showAboutModal,
+    switchToSignUp,
+    switchToSignIn,
+    handleLoginButton,
+  } = useNavbarModals();
 
-  const { session } = useSession();
-
-  const themes = [
-    "light",
-    "dark",
-    "charcoal",
-    "sapphire",
-    "oceanic",
-    "sandstone",
-    "prismatic",
-  ];
-  const themesDisplayNames = [
-    "Snowlight",
-    "Midnight",
-    "Charcoal",
-    "Sapphire",
-    "Oceanic",
-    "Sandstone",
-    "Prismatic",
-  ];
-
-  const paletteTooltip = useTooltip();
-  const languageTooltip = useTooltip();
-  const userTooltip = useTooltip();
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 1280 && isMobileMenuOpen) {
-        toggleMobileMenu();
-      }
-    }
-  }, []);
-
-  const userIconBtnRef = useRef<HTMLButtonElement | null>(null);
-
-  const closeLoginModal = () => setIsLoginModalOpen(false);
-  const closeSignUpModal = () => setIsSignUpModalOpen(false);
-  const closeLogoutModal = () => setIsLogoutModalOpen(false);
-  const closeAboutModal = () => setIsAboutModalOpen(false);
-
-  const handleLoginButton = () => {
-    setIsLoginModalOpen(true);
-  };
-
-  const showLogoutModal = () => {
-    setIsLogoutModalOpen(true);
-  };
-
-  const showAboutModal = () => {
-    setIsAboutModalOpen(true);
-  };
-
-  const switchToSignUp = () => {
-    setIsLoginModalOpen(false);
-    setIsSignUpModalOpen(true);
-  };
-
-  const switchToSignIn = () => {
-    setIsSignUpModalOpen(false);
-    setIsLoginModalOpen(true);
-  };
-
-  const themeDropdown = useDropdown();
-  const userDropdown = useDropdown();
-  const languageDropdown = useDropdown();
-
-  useEffect(() => {
-    const getCurrentLanguage = () => {
-      if (typeof window !== "undefined") {
-        const pathname = window.location.pathname;
-        return pathname.startsWith("/pl") ? "pl" : "en";
-      }
-      return "en";
-    };
-
-    setCurrentLanguage(getCurrentLanguage());
-  }, []);
-
-  const selectTheme = (themeName: string) => {
-    setTheme(themeName);
-    if (theme && themeName === "prismatic") {
-      setIsPrismaticTheme(true);
-    } else {
-      setIsPrismaticTheme(false);
-    }
-  };
-
-  // This hook and setIsPrismaticTheme state exist because standard conditional
-  // rendering based on useTheme causes hydration errors in a browser
-  useEffect(() => {
-    if (theme && theme === "prismatic") {
-      setIsPrismaticTheme(true);
-    } else {
-      setIsPrismaticTheme(false);
-    }
-  }, [theme]);
-
-  const cycleThemeUp = () => {
-    if (typeof theme === "string") {
-      const currentThemeIndex = themes.indexOf(theme);
-      const previousThemeIndex =
-        (currentThemeIndex - 1 + themes.length) % themes.length;
-      setTheme(themes[previousThemeIndex]);
-    }
-  };
-
-  const cycleThemeDown = () => {
-    if (typeof theme === "string") {
-      const currentThemeIndex = themes.indexOf(theme);
-      const nextThemeIndex = (currentThemeIndex + 1) % themes.length;
-      setTheme(themes[nextThemeIndex]);
-    }
-  };
+  const { paletteTooltip, languageTooltip, userTooltip } = useNavbarTooltips();
 
   return (
     <>
@@ -185,206 +80,46 @@ export const Navbar = () => {
           <Logo />
         </NavigationLink>
         <div className="flex justify-end items-center gap-4 xl:gap-7 relative">
-          <div
-            className="relative"
-            ref={themeDropdown.ref}
-            onMouseEnter={paletteTooltip.showTooltip}
-            onMouseLeave={paletteTooltip.hideTooltip}
-          >
-            <div
-              className="text-white fill-white stroke-secondaryText dark:stroke-secondaryTextDark cursor-pointer hover:stroke-primaryText hover:dark:stroke-primaryTextDark transition"
-              onClick={() => {
-                themeDropdown.toggle();
-                closeMobileMenu();
-                languageDropdown.close();
-                userDropdown.close();
-              }}
-            >
-              <PaletteIcon />
-            </div>
-            {paletteTooltip.isTooltipVisible &&
-              !userDropdown.isOpen &&
-              !themeDropdown.isOpen &&
-              !languageDropdown.isOpen && (
-                <div className="absolute top-10 right-2 pointer-events-none hidden xl:flex">
-                  <Tooltip
-                    text={t("changeTheme")}
-                    className=" h-8 px-2  min-w-[7rem] pointer-events-none"
-                  />
-                </div>
-              )}
-            {themeDropdown.isOpen && (
-              <Dropdown className="w-[11rem] min-w-[11rem] right-0 top-11">
-                {themes.map((themeName, index) => (
-                  <div
-                    key={themeName}
-                    className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
-                    onClick={() => selectTheme(themeName)}
-                  >
-                    {themesDisplayNames[index]}
-                    {theme === themeName && (
-                      <div className="text-secondaryText dark:text-secondaryTextDark">
-                        <CheckIcon />
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <div className="h-10 flex w-full border-t border-mainBorder dark:border-mainBorderDark">
-                  <div
-                    onClick={cycleThemeDown}
-                    className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
-                  >
-                    <ArrowDownIcon />
-                  </div>
-                  <div
-                    onClick={cycleThemeUp}
-                    className=" cursor-pointer w-1/2 flex justify-center items-center hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark"
-                  >
-                    <ArrowUpIcon />
-                  </div>
-                </div>
-              </Dropdown>
-            )}
-          </div>
+          <ThemeButton
+            theme={theme}
+            isMobileMenuOpen={isMobileMenuOpen}
+            paletteTooltip={paletteTooltip}
+            themeDropdown={themeDropdown}
+            languageDropdown={languageDropdown}
+            userDropdown={userDropdown}
+            closeMobileMenu={closeMobileMenu}
+            selectTheme={selectTheme}
+            cycleThemeUp={cycleThemeUp}
+            cycleThemeDown={cycleThemeDown}
+            themes={themes}
+            themesDisplayNames={themesDisplayNames}
+            t={t}
+          />
           <div className="hidden xl:flex">
-            <div
-              className="relative"
-              ref={languageDropdown.ref}
-              onMouseEnter={languageTooltip.showTooltip}
-              onMouseLeave={languageTooltip.hideTooltip}
-            >
-              <button
-                onClick={() => {
-                  themeDropdown.close();
-                  languageDropdown.toggle();
-                  userDropdown.close();
-                }}
-                className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
-              >
-                <LanguageIcon />
-              </button>
-              {languageTooltip.isTooltipVisible &&
-                !themeDropdown.isOpen &&
-                !userDropdown.isOpen &&
-                !languageDropdown.isOpen && (
-                  <div className="absolute top-10 right-3 hidden xl:flex">
-                    <Tooltip
-                      text={t("changeLanguage")}
-                      className=" h-8 px-3  min-w-32"
-                    />
-                  </div>
-                )}
-              {languageDropdown.isOpen && (
-                <Dropdown className="flex flex-col right-0 top-11 w-36">
-                  <NavigationLink
-                    href="/"
-                    locale="en"
-                    className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
-                  >
-                    {t("english")}
-                    {currentLanguage === "en" && (
-                      <div className="text-secondaryText dark:text-secondaryTextDark">
-                        <CheckIcon />
-                      </div>
-                    )}
-                  </NavigationLink>
-                  <NavigationLink
-                    href="/"
-                    locale="pl"
-                    className=" h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
-                  >
-                    {t("polish")}
-                    {currentLanguage === "pl" && (
-                      <div className="text-secondaryText dark:text-secondaryTextDark">
-                        <CheckIcon />
-                      </div>
-                    )}
-                  </NavigationLink>
-                </Dropdown>
-              )}
-            </div>
+            <LanguageButton
+              currentLanguage={currentLanguage}
+              languageTooltip={languageTooltip}
+              languageDropdown={languageDropdown}
+              themeDropdown={themeDropdown}
+              userDropdown={userDropdown}
+              t={t}
+            />
           </div>
           <div className="-mr-2 xl:-mr-unset">
             {session && session.username ? (
-              <div
-                className="relative"
-                ref={userDropdown.ref}
-                onMouseEnter={userTooltip.showTooltip}
-                onMouseLeave={userTooltip.hideTooltip}
-              >
-                <OutlinedButton
-                  ref={userIconBtnRef}
-                  handleClick={() => {
-                    closeMobileMenu();
-                    userDropdown.toggle();
-                    themeDropdown.close();
-                    languageDropdown.close();
-                  }}
-                  className="!rounded-full"
-                  icon={<UserIcon />}
-                />
-                {userTooltip.isTooltipVisible &&
-                  !userDropdown.isOpen &&
-                  !themeDropdown.isOpen &&
-                  !languageDropdown.isOpen && (
-                    <div className="absolute top-12 right-4 pointer-events-none hidden xl:flex">
-                      <Tooltip
-                        text={t("openUserMenu")}
-                        className=" h-8 px-2  min-w-[7rem] pointer-events-none"
-                      />
-                    </div>
-                  )}
-                {userDropdown.isOpen && (
-                  <div
-                    className={`${
-                      theme === "prismatic" &&
-                      "backdrop-blur-xl !bg-[rgb(255,255,255,0)]"
-                    }              
-                absolute right-[0.5rem] xl:right-0 top-10 xl:top-12 xl:top-10 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow`}
-                  >
-                    <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder dark:border-mainBorderDark flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
-                      <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                        <MailIcon />
-                      </div>
-                      {session?.username || "Email"}
-                    </div>
-                    <Link
-                      href="https://github.com/matt765/spireflow/blob/main/CHANGELOG.md"
-                      target="_blank"
-                      className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                    >
-                      <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem] ">
-                        <HistoryIcon />
-                      </div>
-                      <button>{t("changelog")}</button>
-                    </Link>
-                    <div
-                      className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                      onClick={() => {
-                        userDropdown.close();
-                        showAboutModal();
-                      }}
-                    >
-                      <div className="w-5 flex justify-center items-center text-grayIcon  dark:text-grayIconDark  mr-[0.8rem] ">
-                        <InfoIcon />
-                      </div>
-                      <button>{t("about")}</button>
-                    </div>
-                    <div
-                      className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover  cursor-pointer"
-                      onClick={() => {
-                        userDropdown.close();
-                        showLogoutModal();
-                      }}
-                    >
-                      <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
-                        <LogoutIcon />
-                      </div>
-                      <button>{t("signOut")}</button>
-                    </div>
-                  </div>
-                )}
-              </div>
+              <UserButton
+                userIconBtnRef={userIconBtnRef}
+                closeMobileMenu={closeMobileMenu}
+                userDropdown={userDropdown}
+                themeDropdown={themeDropdown}
+                languageDropdown={languageDropdown}
+                userTooltip={userTooltip}
+                showLogoutModal={showLogoutModal}
+                showAboutModal={showAboutModal}
+                session={session}
+                theme={theme}
+                t={t}
+              />
             ) : (
               <button
                 onClick={handleLoginButton}
@@ -394,46 +129,10 @@ export const Navbar = () => {
               </button>
             )}
           </div>
-          <button
-            className="relative block xl:hidden"
-            onClick={toggleMobileMenu}
-          >
-            <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all  duration-200">
-              <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
-                <div
-                  className={`bg-secondaryText dark:bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
-                    isMobileMenuOpen ? "translate-x-10" : ""
-                  }`}
-                ></div>
-                <div
-                  className={`bg-secondaryText dark:bg-white h-[2px] w-7 rounded transform transition-all duration-300 ${
-                    isMobileMenuOpen ? "translate-x-10 delay-75" : ""
-                  }`}
-                ></div>
-                <div
-                  className={`bg-secondaryText dark:bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
-                    isMobileMenuOpen ? "translate-x-10 delay-150" : ""
-                  }`}
-                ></div>
-                <div
-                  className={`absolute items-center justify-between transform transition-all duration-500 top-2.5 ${
-                    isMobileMenuOpen ? "translate-x-0" : "-translate-x-10"
-                  } flex w-0 ${isMobileMenuOpen ? "w-12" : ""}`}
-                >
-                  <div
-                    className={`absolute bg-secondaryText dark:bg-white h-[2px] w-5 transform transition-all duration-500 ${
-                      isMobileMenuOpen ? "rotate-45 delay-300" : "rotate-0"
-                    }`}
-                  ></div>
-                  <div
-                    className={`absolute bg-secondaryText dark:bg-white h-[2px] w-5 transform transition-all duration-500 ${
-                      isMobileMenuOpen ? "-rotate-45 delay-300" : "-rotate-0"
-                    }`}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </button>
+          <HamburgerButton
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+          />
         </div>
         {isLoginModalOpen && (
           <LoginModal

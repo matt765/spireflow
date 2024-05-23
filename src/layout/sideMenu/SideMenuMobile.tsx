@@ -18,11 +18,7 @@ import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 import { useSession } from "../../hooks/auth/useSession";
 import { Link } from "../../i18n/navigation";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
-
-interface SideMenuMobileProps {
-  isMobileMenuOpen: boolean;
-  onLoginButtonClick: () => void;
-}
+import { SideMenuMobileProps } from "./types";
 
 export const SideMenuMobile = ({
   isMobileMenuOpen,

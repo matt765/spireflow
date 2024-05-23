@@ -1,7 +1,6 @@
 import React from "react";
 
 import { SignUpForm } from "./SignUpForm";
-import { useHandleSignUp } from "../../hooks/auth/useHandleSignUp";
 import { Modal } from "../common/Modal";
 
 interface SignUpModalProps {
@@ -13,11 +12,11 @@ export const SignUpModal = ({
   closeModal,
   switchToSignIn,
 }: SignUpModalProps) => {
-  const { handleSignUp } = useHandleSignUp();
+
 
   return (
     <Modal onClose={closeModal}>
-      <SignUpForm handleSignUp={handleSignUp} switchToSignIn={switchToSignIn} />
+      <SignUpForm switchToSignIn={switchToSignIn} />
     </Modal>
   );
 };

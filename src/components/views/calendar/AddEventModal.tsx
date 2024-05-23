@@ -9,17 +9,7 @@ import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 import { Input } from "../../forms/Input";
 import { Select } from "../../forms/Select";
 import { OrderModalIcon } from "../../../assets/icons/OrderModalIcon";
-
-interface AddEventModalProps {
-  closeModal: () => void;
-  onConfirm: () => void;
-  loading: boolean;
-  setEventTitle: (title: string) => void;
-  setEventStart: (start: string) => void;
-  setEventEnd: (end: string) => void;
-  IconComponent?: React.ElementType;
-  type?: "delete" | "default";
-}
+import { AddEventModalProps } from "./types";
 
 const hours = Array.from({ length: 9 }, (_, i) => `${i + 8}:00`);
 

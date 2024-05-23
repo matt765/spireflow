@@ -1,6 +1,4 @@
-const capitalizeFirstLetter = (string: string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 
 export const convertToCSV = <T extends object>(arr: T[]): string => {
   const headers = Object.keys(arr[0]).map(capitalizeFirstLetter);

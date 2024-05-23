@@ -5,13 +5,8 @@ import { Modal } from "../../common/Modal";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { ContainedButton } from "../../common/ContainedButton";
 import { PhoneIcon } from "../../../assets/icons/PhoneIcon";
-import { CustomerColumns } from "./useCustomers";
 import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
-
-interface CustomerModalProps {
-  closeModal: () => void;
-  customerData: CustomerColumns;
-}
+import { CustomerModalProps } from "./types";
 
 export const CustomerModal = ({
   closeModal,

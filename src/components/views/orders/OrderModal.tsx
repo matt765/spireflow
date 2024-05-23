@@ -4,14 +4,9 @@ import { useTranslations } from "next-intl";
 import { Modal } from "../../common/Modal";
 import { OutlinedButton } from "../../common/OutlinedButton";
 import { ContainedButton } from "../../common/ContainedButton";
-import { OrderType } from "./useOrders";
 import { PhoneIcon } from "../../../assets/icons/PhoneIcon";
 import { OrderModalIcon } from "../../../assets/icons/OrderModalIcon";
-
-interface OrderModalProps {
-  closeModal: () => void;
-  orderData: OrderType;
-}
+import { OrderModalProps } from "./types";
 
 export const OrderModal = ({ closeModal, orderData }: OrderModalProps) => {
   const t = useTranslations("orders.orderModal");

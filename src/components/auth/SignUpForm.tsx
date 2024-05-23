@@ -1,14 +1,13 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
+import React from "react";
+import { Controller } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 import { MailIcon } from "../../assets/icons/MailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
 import { Input } from "../forms/Input";
 import { ContainedButton } from "../common/ContainedButton";
-import { useTranslations } from "next-intl";
 import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
+import { useHandleSignUp } from "../../hooks/auth/useHandleSignUp";
 
 export interface SignUpData {
   email: string;
@@ -16,77 +15,23 @@ export interface SignUpData {
 }
 
 interface SignUpFormProps {
-  handleSignUp: (e: FormEvent<HTMLFormElement>) => Promise<void>;
   switchToSignIn: () => void;
 }
 
 export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
-  const t = useTranslations("navbar");
-  const [loading, setLoading] = useState(false);
-  const [showEmailError, setShowEmailError] = useState(false);
-  const [showPasswordError, setShowPasswordError] = useState(false);
-
-  const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .required(t("emailFieldIsRequired"))
-      .email(t("pleaseEnterAValidEmail")),
-    password: Yup.string()
-      .required(t("passwordFieldIsRequired"))
-      .min(6, t("passwordMinimumLength")),
-  });
-
   const {
+    loading,
+    showEmailError,
+    setShowEmailError,
+    showPasswordError,
+    setShowPasswordError,
     handleSubmit,
+    onSubmit,
     control,
-    formState: { errors },
-  } = useForm<SignUpData>({
-    resolver: yupResolver(validationSchema),
-    mode: "onSubmit",
-  });
+    errors,
+  } = useHandleSignUp();
 
-  const onSubmit = async (data: SignUpData) => {
-    setLoading(true);
-    try {
-      // Creating accounts is disabled for demo purposes
-      // await handleSignUp(data);
-      demoSignupHandler();
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Alert for demo purposes
-  const demoSignupHandler = () => {
-    alert("Creating accounts on demo application is disabled, sorry");
-  };
-
-  useEffect(() => {
-    const handleDocumentClick = () => {
-      setShowEmailError(false);
-      setShowPasswordError(false);
-    };
-
-    document.addEventListener("mousedown", handleDocumentClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleDocumentClick);
-    };
-  }, []);
-
-  // Effects necessary to not show both error messages at the same time if not needed
-  useEffect(() => {
-    if (errors.email) {
-      setShowEmailError(true);
-    }
-  }, [errors.email]);
-
-  useEffect(() => {
-    if (errors.password) {
-      setShowPasswordError(true);
-    }
-  }, [errors.password]);
+  const t = useTranslations("navbar");
 
   return (
     <div className="min-w-full sm:min-w-[20rem] flex flex-col items-center mb-2">
