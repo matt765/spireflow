@@ -40,7 +40,6 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
     setCurrentPage,
     resetFilters,
   } = useOrders({ orders: translatedData });
-  console.log(translatedData);
 
   const csvTooltip = useTooltip();
 

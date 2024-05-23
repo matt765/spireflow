@@ -52,7 +52,6 @@ export const AddEventModal = ({
     setError(validationError);
 
     if (!validationError) {
-      console.log(title, startTime, endTime);
       setEventTitle(title);
       setEventStart(startTime);
       setEventEnd(endTime);
