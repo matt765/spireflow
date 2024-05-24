@@ -42,14 +42,13 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             <div className="text-primaryText text-base w-full dark:text-primaryTextDark mt-4  text-left  px-8 md:px-0">
               <p className="mb-4 text-base">
                 Spireflow is an open source e-commerce analytic dashboard
-                application, written in NextJS and TypeScript. It displays data
-                resembling a fictional e-commerce platform.
+                application, written in NextJS and TypeScript. I built it with
+                intention of creating full-stack application that will resemble real-world analytic platforms
                 <br />
                 <br /> The initial commits were pushed to GitHub in December
                 2022, and since then, I have been expanding pool of features and
-                integrating them with a NodeJS backend. If you would like to
-                support the ongoing development and maintenance of this project,
-                you can do so through the GitHub Sponsors program on my profile
+                integrating them with a NodeJS backend. In total,
+                development until v1.0.5 took around 2-3 months
               </p>
               <p className="text-left w-full mt-4 text-xl">Tech stack:</p>
               <div className="mt-4">

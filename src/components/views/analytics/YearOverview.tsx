@@ -43,13 +43,13 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
   const defaultFormatter = (number: number) =>
     Intl.NumberFormat("us").format(number).toString();
 
-  function formatKey(key: string) {
+  const formatKey = (key: string) => {
     // Capitalize the first letter and add a space before each uppercase letter
     return key
       .replace(/([A-Z])/g, " $1")
       .replace(/^./, (str) => str.toUpperCase())
       .trim();
-  }
+  };
 
   return (
     <Card>

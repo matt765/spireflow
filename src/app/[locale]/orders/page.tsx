@@ -2,7 +2,7 @@ import { PageWrapper } from "../../../components/common/PageWrapper";
 import { OrdersView } from "../../../components/views/orders/OrdersView";
 import { getData } from "../../../services/getData";
 
-export default async function Orders() {
+const Orders = async () => {
   const orders = await getData("orders");
 
   return (
@@ -10,4 +10,6 @@ export default async function Orders() {
       <OrdersView ordersData={orders} />
     </PageWrapper>
   );
-}
+};
+
+export default Orders;

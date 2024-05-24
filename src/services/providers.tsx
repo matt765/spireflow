@@ -6,7 +6,7 @@ import { ApolloProvider } from "@apollo/client";
 import { Layout } from "../layout/Layout";
 import { client } from "./apolloClient";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider
