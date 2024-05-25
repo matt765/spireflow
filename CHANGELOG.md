@@ -61,3 +61,8 @@
 - add useWindowDimensions hook
 - fix double click bug in login/signup form
 
+## 1.0.7 (25-05-2024)
+
+- minor bugfixes
+- add tests (Jest + RTL)
+- add Storybook

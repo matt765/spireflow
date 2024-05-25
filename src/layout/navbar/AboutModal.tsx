@@ -96,7 +96,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                 <OutlinedButton text="Back-end repository" />
               </Link>
               <Link
-                href="https://github.com/matt765/spireflow-backend"
+                href="https://spireflow-storybook.vercel.app/"
                 className="text-primaryText dark:text-primaryTextDark"
                 target="_blank"
               >
