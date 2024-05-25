@@ -17,6 +17,7 @@ import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { useAppStore } from "../../store/appStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 export const SideMenu = () => {
   const { isSideMenuOpen, toggleSideMenu } = useAppStore();
@@ -24,15 +25,18 @@ export const SideMenu = () => {
 
   return (
     <div
-      className={`mt-[3.9rem] 2xl:mt-20   hidden xl:flex flex-col h-screen xl:w-[220px] xl:min-w-[220px] 2xl:min-w-[260px]  white pt-0 2xl:pt-0  ${
+      className={`mt-[3.9rem] 3xl:mt-20   hidden xl:flex flex-col h-screen xl:w-[220px] xl:min-w-[220px] 3xl:min-w-[260px]  white pt-0 2xl:pt-0  ${
         !isSideMenuOpen && "xl:!max-w-[3rem] !w-[3rem] xl:!min-w-[4.5rem] pr-0"
-      } `}
+      }   
+      `}
     >
       <div
-        className={` px-4 xl:px-6 pt-4 1xl:pt-6 2xl:pt-2 fixed xl:w-[220px] xl:min-w-[220px] 2xl:min-w-[260px] bg-primaryBg  dark:bg-primaryBgDark h-full border-r-[1px] border-mainBorder dark:border-mainBorderDark ${
+        className={` px-4 xl:px-6 pt-4 1xl:pt-3 2xl:pt-3 3xl:pt-2 fixed xl:w-[220px] xl:min-w-[220px] 3xl:min-w-[260px] bg-primaryBg  dark:bg-primaryBgDark h-full border-r-[1px] border-mainBorder dark:border-mainBorderDark ${
           !isSideMenuOpen &&
           "xl:!max-w-[3rem] xl:!w-[3rem] xl:!min-w-[4.5rem] justify-center items-center pr-0 pt-4"
-        } `}
+        } 
+  
+        `}
       >
         <MenuCategory title={t("main")} />
         <MenuItem title={t("dashboard")} icon={<DashboardIcon />} path="/" />
@@ -64,7 +68,7 @@ export const SideMenu = () => {
         <MenuItem title={t("scatter")} icon={<ScatterIcon />} path="/scatter" />
         <MenuItem title={t("line")} icon={<LineIcon />} path="/line" />
         <div
-          className={`z-50 fixed  xl:w-[205px] xl:min-w-[205px] 2xl:min-w-[245px]  flex gap-4 bottom-0 left-0 justify-center items-center flex items-center justify-center pb-4 2xl:pb-6 pl-4
+          className={`z-50 fixed  xl:w-[205px] xl:min-w-[205px] 3xl:min-w-[245px]  flex gap-4 bottom-0 left-0 justify-center items-center flex items-center justify-center pb-4 2xl:pb-6 pl-4
           ${!isSideMenuOpen && "!max-w-[3.5rem] !min-w-[3.5rem]"}
           `}
         >

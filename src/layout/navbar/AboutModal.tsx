@@ -43,7 +43,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
               <p className="mb-4 text-base">
                 Spireflow is an open source e-commerce analytic dashboard
                 application, written in NextJS and TypeScript. I built it with
-                intention of creating full-stack application that will resemble real-world analytic platforms
+                intention of creating full-stack application that will resemble real-world e-commerce platforms
                 <br />
                 <br /> The initial commits were pushed to GitHub in December
                 2022, and since then, I have been expanding pool of features and
@@ -80,7 +80,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             <p className="text-left w-full mt-4 text-xl text-primaryText dark:text-primaryTextDark  px-8 md:px-0">
               Links
             </p>
-            <div className="flex flex-row justify-start w-full mt-3 text-base gap-2  px-8 md:px-0">
+            <div className="flex flex-col sm:flex-row justify-start w-[14rem] sm:w-full mt-3 text-base gap-2 pl-8  sm:px-8 md:px-0 sm:h-12">
               <Link
                 href="https://github.com/matt765/spireflow"
                 className="text-primaryText dark:text-primaryTextDark"
@@ -110,8 +110,8 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
               You can reach out to me through the contact form on my personal
               website or via LinkedIn.
             </p>
-            <div className="flex justify-start gap-2 mt-4">
-              <div className="flex justify-start px-8  md:px-0">
+            <div className="flex justify-start items-center gap-2 mt-4 h-12 items-center mb-8 md:mb-0 pl-8 md:pl-0">
+              <div className="flex justify-start md:px-0">
                 <Link
                   href="https://matt765-portfolio.vercel.app/#contact"
                   className="text-primaryText dark:text-primaryTextDark mt-1"
@@ -120,7 +120,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                   <OutlinedButton text="Contact form" />
                 </Link>
               </div>
-              <div className="flex justify-start  px-8  md:px-0 mb-8 md:mb-0">
+              <div className="flex justify-start  md:px-0 ">
                 <Link
                   href="https://www.linkedin.com/in/mateusz-wyrebek/"
                   className="text-primaryText dark:text-primaryTextDark mt-1"

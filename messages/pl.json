@@ -23,9 +23,9 @@
       "traffic": "Wyświetlenia",
       "customers": "Klienci",
       "Last 3 weeks": "3 tygodnie",
-      "Last month": "Ostatni miesiąc",
+      "Last month": "30 dni",
       "Yesterday": "Wczoraj",
-      "Last week": "Ostatni tydzień"
+      "Last week": "7 dni"
     },
     "regions": {
       "title": "Regiony",

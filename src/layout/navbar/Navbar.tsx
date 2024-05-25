@@ -61,19 +61,19 @@ export const Navbar = () => {
   return (
     <>
       <div
-        className={`flex items-center justify-between fixed h-[4.5rem]  1xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
+        className={`flex items-center justify-between fixed h-[4.5rem]  3xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full z-30 border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
       >
         <div
           className={`${
             isPrismaticTheme
-              ? "backdrop-blur-md top-0 left-0 fixed w-screen h-[4.5rem] 1xl:h-20 z-[-50] border-b border-solid border-mainBorder dark:border-mainBorderDark"
+              ? "backdrop-blur-md top-0 left-0 fixed w-screen h-[4.5rem] 3xl:h-20 z-[-50] border-b border-solid border-mainBorder dark:border-mainBorderDark"
               : "hidden"
           }`}
         />
         <NavigationLink
           href="/"
-          className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 2xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark  ${
-            !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1"
+          className={`w-[180px] lg:ml-8 xl:ml-0 xl:w-[220px] 3xl:w-[260px] pr-4 xl:border-r border-mainBorder dark:border-mainBorderDark  ${
+            !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1 pl-2"
           }     
         `}
         >

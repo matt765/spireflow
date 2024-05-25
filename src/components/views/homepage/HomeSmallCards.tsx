@@ -29,7 +29,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
         return (
           <Card
             key={`${item.title}-${index}`}
-            className="h-46 sm:h-28 lg:h-32  !pr-[0.7rem] 2xl:!pr-[1.3rem]"
+            className="h-46 sm:h-28 lg:h-32  pr-[0.8rem] md:!pr-[0.5rem] lg:!pr-[0.8rem] xl:!pr-[0.1rem] 2xl:!pr-[1.2rem] pl-5 2xl:pl-7"
           >
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">
               <div className="flex flex-col  w-full sm:w-1/2 gap-1 pl-1 sm:pl-0">
@@ -56,7 +56,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
                   </div>
                 </div>
               </div>
-              <div className="w-full sm:w-1/2 md:pl-3 md:ml-2 2xl:ml-0 sm:flex mt-4 sm:mt-0 pr-0 2xl:pr-2 sm:pr-0">
+              <div className="w-full md:w-[45%] lg:w-[50%] xl:w-[40%] 2xl:w-1/2 md:pl-3 md:ml-2 2xl:ml-0 sm:flex mt-4 sm:mt-0 pr-0 2xl:pr-2 sm:pr-0">
                 <Chart chartData={chartArray} color={item.color} />
               </div>
             </div>

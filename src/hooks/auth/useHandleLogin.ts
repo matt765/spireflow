@@ -28,7 +28,7 @@ export const useHandleLogin = () => {
   // This function calls '/api/session' route to initialize session in encrypted cookie
   const updateSession = async (userData: LoginData) => {
     const formData = new FormData();
-    formData.append("username", userData.username);
+    formData.append("username", userData.email);
     formData.append("password", userData.password);
 
     try {
@@ -50,10 +50,7 @@ export const useHandleLogin = () => {
 
   const handleLogin = async (data: HandleLoginProps) => {
     setLoading(true);
-    const { username, password, isDemo } = data;
-
-    const email = isDemo ? "user@test.com" : username;
-    const passwordToUse = isDemo ? "user@test.com" : password;
+    const { email, password } = data;
 
     try {
       const userCredential = await auth.signInWithEmailAndPassword(
@@ -64,7 +61,7 @@ export const useHandleLogin = () => {
       const user = userCredential.user;
 
       if (user) {
-        await updateSession({ username: email, password: passwordToUse });
+        await updateSession({ email, password });
         currentPathname === "/pl/login" && router.push("/pl");
         currentPathname === "/login" && router.push("/");
         if (currentPathname !== "/login" && currentPathname !== "/pl/login") {
@@ -82,17 +79,22 @@ export const useHandleLogin = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string()
+    email: Yup.string()
       .required(t("emailFieldIsRequired"))
       .email(t("pleaseEnterAValidEmail")),
     password: Yup.string()
       .required(t("passwordFieldIsRequired"))
       .min(6, t("passwordMinimumLength")),
   });
-  
+
   // Hide error messages when user clicks anywhere on the screen
   useEffect(() => {
-    const handleDocumentClick = () => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      // This "error-hide" logic fixes bug that forces double clicking on register/sample button on mobile when errors are visible
+      const target = event.target as HTMLElement;
+      if (target.closest(".ignore-error-hide")) {
+        return;
+      }
       setShowEmailError(false);
       setShowPasswordError(false);
       if (clearAuthError) {
@@ -118,10 +120,10 @@ export const useHandleLogin = () => {
 
   // Effects necessary to not show both error messages at the same time if not needed
   useEffect(() => {
-    if (errors.username) {
+    if (errors.email) {
       setShowEmailError(true);
     }
-  }, [errors.username]);
+  }, [errors.email]);
 
   useEffect(() => {
     if (errors.password) {

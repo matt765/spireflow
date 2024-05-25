@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import { OrdersDateRangeProps } from "./types";
 import { CalendarIcon } from "../../../assets/icons/CalendarIcon";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 export const OrdersDateRange = ({
   startDate,
@@ -40,6 +41,8 @@ export const OrdersDateRange = ({
     setEndDate(date ? date.toISOString().split("T")[0] : null);
   };
 
+  const { width: windowWidth } = useWindowDimensions();
+
   return (
     <div className="mb-4 flex space-x-4 w-full md:w-[21rem]">
       <div className="flex relative">
@@ -47,6 +50,7 @@ export const OrdersDateRange = ({
           ref={startDatePickerRef}
           selected={startDateObj}
           onChange={handleStartDateChange}
+          popperPlacement={windowWidth < 640 ? "bottom-start" : undefined}
           className="pl-3 md:max-w-[10rem] md:min-w-[10rem] p-2 text-sm 1xl:text-base bg-inputBg dark:bg-inputBgDark  hover:dark:bg-inputBgHoverDark hover:bg-InputBgHover w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark hover:border-inputBorderHover transition"
         />
         <div
@@ -62,6 +66,7 @@ export const OrdersDateRange = ({
           ref={endDatePickerRef}
           selected={endDateObj}
           onChange={handleEndDateChange}
+          popperPlacement={windowWidth < 640 ? "bottom-start" : undefined}
           className="pl-3 md:max-w-[10rem] md:min-w-[10rem] p-2 text-sm 1xl:text-base bg-inputBg dark:bg-inputBgDark  hover:dark:bg-inputBgHoverDark hover:bg-InputBgHover w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark hover:border-inputBorderHover transition"
         />
         <div

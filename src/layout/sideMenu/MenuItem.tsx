@@ -9,6 +9,7 @@ import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 import { MenuItemProps } from "./types";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
@@ -23,6 +24,10 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
       toggleMobileMenu();
     }
   };
+  const { width: windowWidth, height: windowHeight } = useWindowDimensions();
+  const isLaptop1600x900 =
+    windowHeight < 820 && windowWidth < 1700 && windowWidth > 1536;
+
   useEffect(() => {
     // Handling active path is inside useEffect, because otherwise it won't work if it's prerendered as static HTML (SSG)
     const normalizedPathname = currentPathname?.endsWith("/")
@@ -58,7 +63,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
         className={`
-         flex relative items-center py-2 rounded-xl pl-4 mb-0 1xl:mb-1 2xl:mb-2 w-full pr-2  transition ${
+         flex relative items-center py-2 rounded-xl pl-4 mb-0 1xl:mb-1 3xl:mb-2 w-full pr-2  transition ${
            isActive
              ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark"
              : "bg-navItemBg dark:bg-navItemBgDark hover:bg-navItemBgHover dark:hover:bg-navItemBgHoverDark"
@@ -67,7 +72,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
            !isSideMenuOpen &&
            isDesktop &&
            "!pl-1 pl-8  justify-center items-center !w-10 rounded-full"
-         }
+         }    
         `}
       >
         <div
@@ -83,11 +88,12 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         </div>
         {(isSideMenuOpen || !isDesktop) && (
           <div
-            className={`text-sm xl:text-[12px] 2xl:text-sm tracking-wide font-bold  ${
+            className={`text-sm xl:text-[12px] 3xl:text-sm tracking-wide font-bold  ${
               isActive
                 ? "text-navItemTextActive dark:text-navItemTextActiveDark"
                 : "text-navItemText dark:text-navItemTextDark"
-            }`}
+            }        
+          `}
           >
             {title}
           </div>

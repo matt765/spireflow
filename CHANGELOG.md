@@ -51,3 +51,12 @@
 - fix console bugs
 - extract logic & types from components
 - refactor import statements
+- change license
+
+## 1.0.6 (24-05-2024)
+
+- change logo
+- mobile & laptop resolution adjustments
+- fix datepickers positioning
+- add useWindowDimensions hook
+- fix double click bug in login/signup form

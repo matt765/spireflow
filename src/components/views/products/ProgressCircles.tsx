@@ -1,7 +1,7 @@
 import { ProgressCircle } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
-import { useGetWindowWidth } from "../../../hooks/useGetWindowWidth";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 import { ProgressCirclesProps } from "./types";
 
 export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
@@ -14,7 +14,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
     t("conversionRate"),
   ];
 
-  const windowWidth = useGetWindowWidth();
+  const { width: windowWidth } = useWindowDimensions();
 
   const getCircleSize = () => {
     if (windowWidth < 490) {

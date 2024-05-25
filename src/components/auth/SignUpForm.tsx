@@ -124,7 +124,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           </p>
         )}
         <div className="flex justify-center items-center w-4/5 mt-6">
-          <ContainedButton disabled={loading} type="submit">
+          <ContainedButton disabled={loading} type="submit" className="ignore-error-hide">
             {loading ? <SpinnerIcon /> : t("createAccount")}
           </ContainedButton>
         </div>
@@ -134,7 +134,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           </div>
           <div
             onClick={switchToSignIn}
-            className="text-coloredText dark:text-coloredTextDark text-semibold cursor-pointer dark:hover:text-coloredTextHoverDark hover:text-coloredTextHover"
+            className="text-coloredText dark:text-coloredTextDark text-semibold cursor-pointer dark:hover:text-coloredTextHoverDark hover:text-coloredTextHover ignore-error-hide"
           >
             {t("signInHere")}
           </div>

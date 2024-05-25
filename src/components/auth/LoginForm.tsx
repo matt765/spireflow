@@ -10,7 +10,7 @@ import { ContainedButton } from "../common/ContainedButton";
 import { Input } from "../forms/Input";
 
 export interface LoginData {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -50,7 +50,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
       >
         <div className="mb-2 w-full relative">
           <Controller
-            name="username"
+            name="email"
             control={control}
             render={({ field }) => (
               <Input
@@ -64,11 +64,11 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
             )}
           />
         </div>
-        {errors.username && showEmailError && (
+        {errors.email && showEmailError && (
           <div className="hidden md:block absolute md:left-[25.8rem]  top-[10.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative">
               <div className="bg-secondaryBg dark:bg-inputBgDark text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
-                {errors.username.message}
+                {errors.email.message}
               </div>
             </div>
           </div>
@@ -99,9 +99,9 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
           </div>
         )}
         {/* On mobile I used standard red text for errors instead of tooltips to save space */}
-        {!authErrorDisplayed && errors.username && showEmailError && (
+        {!authErrorDisplayed && errors.email && showEmailError && (
           <p className="text-red-500 -mb-2 md:hidden">
-            {errors.username.message}
+            {errors.email.message}
           </p>
         )}
         {!authErrorDisplayed && errors.password && showPasswordError && (
@@ -129,10 +129,11 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
           <div className="w-full h-10 max-h-10">
             <ContainedButton
               disabled={loading}
+              className="ignore-error-hide"
               handleClick={() => {
                 handleLogin({
-                  username: "user@test.com",
-                  password: "user@test.com",
+                  email: process.env.NEXT_PUBLIC_SAMPLE_ACCOUNT_EMAIL as string,
+                  password: process.env.NEXT_PUBLIC_SAMPLE_ACCOUNT_PASSWORD as string,
                   isDemo: true,
                 });
                 setLoading(true);
@@ -154,7 +155,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
               <div
                 onClick={switchToSignUp}
                 className="text-coloredText dark:text-coloredTextDark text-semibold 
-                cursor-pointer dark:hover:text-coloredTextHoverDark hover:text-coloredTextHover"
+                cursor-pointer dark:hover:text-coloredTextHoverDark hover:text-coloredTextHover ignore-error-hide"
               >
                 {t("registerHere")}
               </div>

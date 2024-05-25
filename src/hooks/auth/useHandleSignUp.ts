@@ -70,7 +70,12 @@ export const useHandleSignUp = () => {
   };
 
   useEffect(() => {
-    const handleDocumentClick = () => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      // This "error-hide" logic fixes bug that forces double clicking on login button on mobile when errors are visible
+      const target = event.target as HTMLElement;
+      if (target.closest(".ignore-error-hide")) {
+        return;
+      }
       setShowEmailError(false);
       setShowPasswordError(false);
     };

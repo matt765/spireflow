@@ -69,6 +69,7 @@ module.exports = {
       'xl': '1280px',
       '1xl': '1400px',
       '2xl': '1536px',
+      '3xl': '1750px',
       '5xl': "2000px"
     },
   },
