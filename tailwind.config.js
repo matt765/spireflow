@@ -10,7 +10,7 @@ const { sapphireTheme } = require('./src/styles/themes/sapphire')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: ['class'],
   content: [
     "./src/layout/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -18,6 +18,8 @@ module.exports = {
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
     './public/**/*.html',
     './src/**/*.{js,jsx,ts,tsx,vue}',
+    "./.storybook/**/*.{html,js,ts,jsx,tsx}",
+    './src/components/common/stories/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     transparent: "transparent",
