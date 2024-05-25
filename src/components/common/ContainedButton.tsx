@@ -11,6 +11,8 @@ interface ContainedButtonProps {
   type?: "button" | "submit" | "reset";
   icon?: React.ReactNode;
   className?: string;
+  ariaLabel?: string;
+  ariaPressed?: boolean;
 }
 
 export const ContainedButton = ({
@@ -22,12 +24,18 @@ export const ContainedButton = ({
   type = "button",
   icon,
   className,
+  ariaLabel,
+  ariaPressed,
 }: ContainedButtonProps) => {
   return (
     <button
       onClick={handleClick}
       type={type}
       disabled={disabled || loading}
+      aria-disabled={disabled || loading}
+      aria-busy={loading}
+      aria-label={ariaLabel || text}
+      aria-pressed={ariaPressed}
       className={`transition text-nowrap w-full h-full flex items-center justify-center disabled:opacity-75 bg-containedButtonBg 
       dark:bg-containedButtonBgDark dark:hover:bg-containedButtonBgHoverDark hover:bg-containedButtonBgHover 
       text-white p-2 rounded-md focus:outline-none ${className}`}

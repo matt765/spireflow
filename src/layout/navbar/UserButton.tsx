@@ -39,6 +39,7 @@ export const UserButton = ({
       }}
       className="!rounded-full"
       icon={<UserIcon />}
+      ariaLabel={t("openUserMenu")}
     />
     {userTooltip.isTooltipVisible &&
       !userDropdown.isOpen &&
@@ -83,7 +84,7 @@ export const UserButton = ({
           <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem]">
             <InfoIcon />
           </div>
-          <button>{t("about")}</button>
+          <button aria-label={t("about")}>{t("about")}</button>
         </div>
         <div
           className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
@@ -95,7 +96,7 @@ export const UserButton = ({
           <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
             <LogoutIcon />
           </div>
-          <button>{t("signOut")}</button>
+          <button aria-label={t("signOut")}>{t("signOut")}</button>
         </div>
       </div>
     )}

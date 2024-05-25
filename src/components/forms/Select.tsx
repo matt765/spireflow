@@ -21,6 +21,7 @@ interface SelectProps {
   direction?: "top" | "bottom";
   isBottomPlaceholderVisible?: boolean;
   enableOptionsDropdownScroll?: boolean;
+  ariaLabel?: string;
 }
 
 export const Select = ({
@@ -31,6 +32,7 @@ export const Select = ({
   direction = "bottom",
   isBottomPlaceholderVisible = false,
   enableOptionsDropdownScroll = false,
+  ariaLabel,
 }: SelectProps) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | number>(
@@ -70,12 +72,15 @@ export const Select = ({
         <div
           className="text-sm 1xl:text-base rounded-md p-2 pl-3 pr-3 w-full cursor-pointer border border-mainBorder dark:border-mainBorderDark bg-selectBg dark:bg-selectBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark hover:dark:bg-inputBgHoverDark bg-selectBg dark:bg-selectBgDark hover:bg-selectBgHover dark:hover:bg-selectBgHoverDark"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
+          aria-expanded={isSelectOpen}
+          aria-label={ariaLabel || placeholder || "Select"}
         >
           {value || placeholder}
         </div>
         <div
           className="text-secondaryText absolute top-2 right-1 w-6 h-6 cursor-pointer"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
+          aria-label={isSelectOpen ? "Collapse dropdown" : "Expand dropdown"}
         >
           {isSelectOpen ? <ArrowUpSimpleIcon /> : <ArrowDownSimpleIcon />}
         </div>
@@ -102,6 +107,8 @@ export const Select = ({
                 }
                 `}
                   onClick={() => handleCustomChange(option)}
+                  role="option"
+                  aria-selected={value === option}
                 >
                   {option}
                   {value === option && (

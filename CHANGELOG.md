@@ -63,6 +63,8 @@
 
 ## 1.0.7 (25-05-2024)
 
-- minor bugfixes
 - add tests (Jest + RTL)
+- add CI pipeline
 - add Storybook
+- improve accessibility
+- add readme

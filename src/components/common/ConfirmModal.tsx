@@ -51,10 +51,15 @@ export const ConfirmModal = ({
             <OutlinedButton
               text={t(cancelButtonText)}
               handleClick={closeModal}
+              ariaLabel={t(cancelButtonText)}
             />
           </div>
           <div className="w-[6.5rem] h-[2.5rem] pb-0">
-            <ContainedButton handleClick={onConfirm} disabled={loading}>
+            <ContainedButton
+              handleClick={onConfirm}
+              disabled={loading}
+              ariaLabel={t(confirmButtonText)}
+            >
               {loading ? (
                 <div className="pt-[0.3rem]">
                   <SpinnerIcon width={45} height={45} />

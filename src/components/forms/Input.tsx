@@ -11,6 +11,7 @@ interface InputProps {
   name?: string;
   className?: string;
   autoComplete?: string;
+  ariaLabel?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -26,6 +27,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       name,
       className,
       autoComplete,
+      ariaLabel
     },
     ref
   ) => {
@@ -49,6 +51,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           id={id}
           name={name}
           autoComplete={autoComplete}
+          aria-label={ariaLabel || placeholder}
         />
         <style jsx>{``}</style>
       </div>

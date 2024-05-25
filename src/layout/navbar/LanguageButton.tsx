@@ -27,6 +27,7 @@ export const LanguageButton = ({
         languageDropdown.toggle();
         userDropdown.close();
       }}
+      aria-label={t("changeLanguage")} 
       className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
     >
       <LanguageIcon />

@@ -97,6 +97,7 @@ export const SideMenu = () => {
                 )
               }
               className="text-sm 2xl:text-base"
+              ariaLabel="Hide menu"
             />
           </div>
         </div>
