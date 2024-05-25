@@ -62,6 +62,7 @@ const Line = () => {
         colors={["emerald", "slate"]}
         valueFormatter={dataFormatter}
         yAxisWidth={40}
+        intervalType="preserveStartEnd"
       />
       <div className="w-full hidden sm:flex justify-between mx-auto mt-8 ml-8">
         {dragonPopulationInWesteros.map((item, index) => (
