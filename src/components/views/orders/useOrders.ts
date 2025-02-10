@@ -50,7 +50,7 @@ export const useOrders = ({ orders }: useOrdersProps) => {
   ];
 
   const initialFilters = {
-    startDate: null,
+    startDate: "2023-02-04",
     endDate: null,
     productName: "",
     user: "",
