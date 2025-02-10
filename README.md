@@ -1,23 +1,20 @@
 # Spireflow
-Open source e-commerce analytic dashboard application, written in NextJS 14 and TypeScript. It was designed to be full-stack application that resembles real-world e-commerce platforms
- 
+Open source e-commerce dashboard template, written in NextJS 14 and TypeScript. It is connected to NodeJS backend and PostgreSQL database containing AI generated data for fictional electronic store.
+
 ## Tech stack
 React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest, Storybook
 
 ##  Features
 - 14 data charts (Tremor.so)
-- 2 tables with filtering, sorting, searching, pagination and CSV export (Tanstack-ReactTable v8)
+- tables with filtering, sorting, searching, pagination and CSV export (Tanstack-ReactTable v8)
 - authentication (Firebase, Iron Session, React Hook Forms and Yup)
-- internationalization with 2 languages (next-intl)
-- calendar page that allows for moving, adding and deleting events (Fullcalendar.io)
+- calendar that allows for moving, adding and deleting events (Fullcalendar.io)
 - product gallery with Lightbox popup and PDF export (yet-another-react-lightbox, @react-pdf/renderer)
 - world map with tooltips (react-simple-maps)
+- internationalization: english and polish (next-intl)
 - CI pipeline for testing and linting, working on Github Actions
-- 7 color themes (next-themes, tw-colors)
-
-In progress:
-- unit and integration tests (currently 30, written with Jest and React Testing Library)
-- expanding Storybook
+- unit and integration tests (Jest, React Testing Library)
+- 4 themes (next-themes, tw-colors)
 
 ## Video preview
 https://github.com/matt765/spireflow/assets/63603595/08a28c0f-525e-4250-a664-a34f5f39fa94

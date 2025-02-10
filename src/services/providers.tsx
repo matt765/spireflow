@@ -12,20 +12,12 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       <ThemeProvider
         enableSystem={false}
         attribute="class"
-        themes={[
-          "charcoal",
-          "prismatic",
-          "light",
-          "dark",
-          "oceanic",
-          "sapphire",
-          "sandstone",
-        ]}
-        defaultTheme="prismatic"
+        themes={["charcoal", "light", "dark", "obsidian"]}
+        defaultTheme="charcoal"
         disableTransitionOnChange
       >
         <Layout>{children}</Layout>
       </ThemeProvider>
     </ApolloProvider>
   );
-}
+};

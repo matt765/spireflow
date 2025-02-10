@@ -224,11 +224,13 @@ a {
   @apply fill-chartSecondaryBg dark:fill-chartSecondaryBgDark;
 }
 
-/* Slightly lighter background for bar chart rectangles in Performance chart in Sandstone theme */
-.recharts-wrapper .fill-amber-500 {
-  @apply fill-amber-200;
+/* Slightly lighter background for bar chart rectangles in Performance chart in Obsidian theme */
+.performanceCard .recharts-wrapper .fill-blue-500 {
+  @apply fill-[#3c76c1] !important;
 }
-
+.performanceCard .tremor-Legend-root .text-blue-500 {
+  @apply fill-[#3c76c1] !important;
+}
 /* Main Tremor card component */
 .tremor-Card-root {
   @apply border border-mainBorder dark:!border-mainBorderDark bg-primaryBg dark:bg-primaryBgDark;
@@ -277,9 +279,9 @@ a {
 .recharts-tooltip-stable .recharts-tooltip-wrapper .bg-blue-500 {
   @apply bg-blue-600;
 }
-.recharts-tooltip-stable .recharts-wrapper .fill-blue-500 {
+/* .recharts-tooltip-stable .recharts-wrapper .fill-blue-500 {
   @apply !fill-blue-600;
-}
+} */
 .recharts-scatter-symbol {
   @apply stroke-none;
 }
@@ -291,14 +293,6 @@ a {
 /* Disable upper empty part of tooltip on Today Sales section on /analytics page */
 .todaySalesContainer .recharts-tooltip-wrapper .border-b {
   display: none;
-}
-
-/* Blur for tooltips and dropdowns in Prismatic theme. To be deleted in case of performance issues */
-.recharts-tooltip-wrapper {
-  backdrop-filter: blur(25px);
-}
-.shadow-tremor-dropdown {
-  backdrop-filter: blur(25px);
 }
 
 /* Active button in Year Overview section */
@@ -410,20 +404,6 @@ input:-webkit-autofill {
 }
 .react-datepicker__day--keyboard-selected:hover {
   @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
-}
-
-/* Gradient background for prismatic theme */
-.gradientBackground {
-  background-color: hsla(216, 32%, 16%, 1);
-  background-image: radial-gradient(
-      at 91% 92%,
-      hsla(213.7, 26%, 42.9%, 0.8) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 88% 16%, hsl(215.2, 31.7%, 39%) 0px, transparent 50%),
-    radial-gradient(at 34% 27%, hsl(213.4, 27.9%, 42.9%) 0px, transparent 50%),
-    radial-gradient(at 18% 86%, hsl(220.4, 38.5%, 28%) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, hsl(215.7, 28.8%, 32%) 0px, transparent 50%);
 }
 
 /* Class needed to display different colors for the content spinner on multiple themes and backgrounds (button/pageContainer) */

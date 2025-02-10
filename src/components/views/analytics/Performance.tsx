@@ -19,9 +19,8 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
   const { theme } = useTheme();
 
   const colorSchemes: { [key: string]: string[] } = {
-    sandstone: ["stone", "amber"],
+    obsidian: ["emerald", "blue"],
     midnight: ["indigo", "slate"],
-    oceanic: ["purple", "slate"],
     charcoal: ["purple", "gray"],
   };
 
@@ -30,7 +29,7 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
   const selectedColors = colorSchemes[theme || defaultTheme];
 
   return (
-    <Card>
+    <Card className="performanceCard">
       <Title>{t("title")}</Title>
       <Text>{t("subtitle")}</Text>
       <BarChart

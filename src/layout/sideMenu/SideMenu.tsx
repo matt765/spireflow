@@ -34,8 +34,7 @@ export const SideMenu = () => {
         className={` px-4 xl:px-6 pt-4 1xl:pt-3 2xl:pt-3 3xl:pt-2 fixed xl:w-[220px] xl:min-w-[220px] 3xl:min-w-[260px] bg-primaryBg  dark:bg-primaryBgDark h-full border-r-[1px] border-mainBorder dark:border-mainBorderDark ${
           !isSideMenuOpen &&
           "xl:!max-w-[3rem] xl:!w-[3rem] xl:!min-w-[4.5rem] justify-center items-center pr-0 pt-4"
-        } 
-  
+        }   
         `}
       >
         <MenuCategory title={t("main")} />
@@ -86,7 +85,7 @@ export const SideMenu = () => {
               />
             </a>
           )}
-          <div className="h-[2.45rem] 2xl:h-[2.7rem]">
+        <div className="h-[2.45rem] 2xl:h-[2.7rem]">
             <OutlinedButton
               handleClick={toggleSideMenu}
               icon={
@@ -99,7 +98,7 @@ export const SideMenu = () => {
               className="text-sm 2xl:text-base"
               ariaLabel="Hide menu"
             />
-          </div>
+          </div> 
         </div>
       </div>
     </div>

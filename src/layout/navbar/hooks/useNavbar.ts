@@ -12,8 +12,6 @@ export const useNavbar = () => {
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
   const t = useTranslations("navbar");
 
-  const [isPrismaticTheme, setIsPrismaticTheme] = useState(true);
-
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
       toggleMobileMenu();
@@ -22,24 +20,8 @@ export const useNavbar = () => {
 
   const { session } = useSession();
 
-  const themes = [
-    "light",
-    "dark",
-    "charcoal",
-    "sapphire",
-    "oceanic",
-    "sandstone",
-    "prismatic",
-  ];
-  const themesDisplayNames = [
-    "Snowlight",
-    "Midnight",
-    "Charcoal",
-    "Sapphire",
-    "Oceanic",
-    "Sandstone",
-    "Prismatic",
-  ];
+  const themes = ["light", "dark", "charcoal", "obsidian"];
+  const themesDisplayNames = ["Snowlight", "Midnight", "Charcoal", "Obsidian"];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -69,20 +51,7 @@ export const useNavbar = () => {
 
   const selectTheme = (themeName: string) => {
     setTheme(themeName);
-    if (theme && themeName === "prismatic") {
-      setIsPrismaticTheme(true);
-    } else {
-      setIsPrismaticTheme(false);
-    }
   };
-
-  useEffect(() => {
-    if (theme && theme === "prismatic") {
-      setIsPrismaticTheme(true);
-    } else {
-      setIsPrismaticTheme(false);
-    }
-  }, [theme]);
 
   const cycleThemeUp = () => {
     if (typeof theme === "string") {
@@ -110,8 +79,6 @@ export const useNavbar = () => {
     toggleMobileMenu,
     isSideMenuOpen,
     t,
-    isPrismaticTheme,
-    setIsPrismaticTheme,
     closeMobileMenu,
     session,
     themes,

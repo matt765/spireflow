@@ -38,9 +38,7 @@ export const SideMenuMobile = ({
     <div
       className={`z-50 overflow-auto flex fixed xl:hidden flex-col justify-between bg-primaryBg  border-r-[1px] border-mainBorder dark:border-mainBorderDark dark:bg-primaryBgDark white top-[4.5rem] xl:top-[4rem] 2xl:top-[4.5rem] mb-[2.5rem] left-0 items-center transform transition-transform ease-in-out  ${
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-      }
-      ${theme === "prismatic" && "backdrop-blur-xl"}
-      `}
+      } `}
       style={{ height: "calc(100% - 4.5rem)" }}
     >
       <div className="px-4 xl:px-6 pt-2 pr-6  transition w-[16rem] pb-2">

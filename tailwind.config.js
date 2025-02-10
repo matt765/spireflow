@@ -1,12 +1,9 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
 const { createThemes } = require('tw-colors');
-const { sandstoneTheme } = require('./src/styles/themes/sandstone')
+const { obsidianTheme } = require('./src/styles/themes/obsidian')
 const { midnightTheme } = require('./src/styles/themes/midnight')
 const { charcoalTheme } = require('./src/styles/themes/charcoal')
-const { oceanicTheme } = require('./src/styles/themes/oceanic')
-const { prismaticTheme } = require('./src/styles/themes/prismatic')
 const { snowlightTheme } = require('./src/styles/themes/snowlight')
-const { sapphireTheme } = require('./src/styles/themes/sapphire')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -110,10 +107,7 @@ module.exports = {
   createThemes({
     light: snowlightTheme,
     charcoal: charcoalTheme,
-    prismatic: prismaticTheme,
-    oceanic: oceanicTheme,
-    sapphire: sapphireTheme,
-    sandstone: sandstoneTheme
+    obsidian: obsidianTheme
   })
   ],
 };

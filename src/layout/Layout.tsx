@@ -17,7 +17,6 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const { isMobileMenuOpen, toggleMobileMenu } = useAppStore();
-  const { theme = "prismatic" } = useTheme();
   const [isLoadingScreenDisplayed, setIsLoadingScreenDisplayed] =
     useState(true);
 
@@ -39,8 +38,6 @@ export const Layout = ({ children }: LayoutProps) => {
     "/register",
     "/pl/register",
   ];
-
-  const isFirstRender = useIsFirstRender();
 
   return (
     <>
@@ -64,15 +61,6 @@ export const Layout = ({ children }: LayoutProps) => {
           />
         )}
       </div>
-      {!isFirstRender && (
-        <div
-          className={`${
-            theme === "prismatic"
-              ? "gradientBackground fixed bg-fixed bg-no-repeat bg-cover z-[-99] top-0 left-0 h-screen w-screen"
-              : "hidden"
-          }`}
-        />
-      )}
       <div className="w-screen fixed top-0 left-0 h-screen z-[-1]"></div>
     </>
   );

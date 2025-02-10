@@ -53,12 +53,8 @@ export const UserButton = ({
         </div>
       )}
     {userDropdown.isOpen && (
-      <div
-        className={`${
-          theme === "prismatic" && "backdrop-blur-xl"
-        } absolute right-[0.5rem] xl:right-0 top-10 xl:top-11 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow`}
-      >
-        <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder dark:border-mainBorderDark flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
+      <div className="absolute right-[0.5rem] xl:right-0 top-10 xl:top-11 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow">
+        <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder dark:border-mainBorderDark flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
           <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
             <MailIcon />
           </div>
@@ -67,7 +63,7 @@ export const UserButton = ({
         <Link
           href="https://github.com/matt765/spireflow/blob/main/CHANGELOG.md"
           target="_blank"
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
         >
           <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem]">
             <HistoryIcon />
@@ -75,7 +71,7 @@ export const UserButton = ({
           <button>{t("changelog")}</button>
         </Link>
         <div
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
           onClick={() => {
             userDropdown.close();
             showAboutModal();
@@ -87,7 +83,7 @@ export const UserButton = ({
           <button aria-label={t("about")}>{t("about")}</button>
         </div>
         <div
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-inputBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
           onClick={() => {
             userDropdown.close();
             showLogoutModal();
