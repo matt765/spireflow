@@ -7,8 +7,8 @@ import { RevenueOverTime } from "./RevenueOverTime";
 import { Regions } from "./Regions";
 import { BestSellingProducts } from "./BestSellingProducts";
 import { CustomerSatisfaction } from "./CustomerSatisfaction";
-import { TradersTable } from "./TradersTable";
 import { HomepageViewProps } from "./types";
+import { RevenuePerCountry } from "./RevenuePerCountry";
 
 export const HomepageView = ({ homepageData }: HomepageViewProps) => {
   return (
@@ -19,7 +19,6 @@ export const HomepageView = ({ homepageData }: HomepageViewProps) => {
           <HomeSmallCards homeSmallCardsData={homepageData.homeSmallCards} />
         )}
       </Grid>
-
       {/* Second row */}
       <Grid
         numItems={1}
@@ -66,9 +65,11 @@ export const HomepageView = ({ homepageData }: HomepageViewProps) => {
         </Col>
       </Grid>
       {/* Fourth row */}
-      {homepageData?.traders && (
-        <TradersTable tradersTableData={homepageData?.traders} />
-      )}
+      <div className="hidden md:flex w-full 1xl:w-full">
+        <RevenuePerCountry
+          revenuePerCountryData={homepageData.revenuePerCountry}
+        />
+      </div>
     </>
   );
 };
