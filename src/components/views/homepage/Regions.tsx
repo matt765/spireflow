@@ -1,51 +1,90 @@
 "use client";
 
-import {
-  BadgeDelta,
-  DonutChart,
-  Flex,
-  Legend,
-  List,
-  ListItem,
-} from "@tremor/react";
+import { BadgeDelta, DonutChart, Flex, List, ListItem } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RegionsProps } from "./types";
 import { Card } from "../../common/Card";
+import { useTheme } from "next-themes";
+import { useChartColors } from "../../../hooks/useChartColors";
+
+interface RegionData {
+  name: string;
+  regionKey: string;
+  sales: number;
+  delta?: string;
+  deltaType?: string;
+}
+
+const CustomRegionsLegend: React.FC<{ data: RegionData[] }> = ({ data }) => {
+  const { theme } = useTheme();
+  const chartColors = useChartColors(
+    theme as "charcoal" | "dark" | "obsidian" | "light"
+  );
+
+  const getColorForRegion = (regionKey: string) => {
+    if (regionKey === "northamerica") {
+      return chartColors.primary.stroke;
+    } else if (regionKey === "europe") {
+      return chartColors.secondary.stroke;
+    }
+    return "#A0AEC0";
+  };
+
+  return (
+    <div className="flex flex-row justify-start gap-8 text-white w-full mb-12 mt-8 text-xs">
+      {data.map((item, index) => (
+        <div key={index} className="flex items-center">
+          <div
+            className="w-3 h-3 mr-2 rounded"
+            style={{
+              backgroundColor: getColorForRegion(item.regionKey.toLowerCase()),
+            }}
+          />
+          <span className="text-sm">{item.name}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export const Regions = ({ regionsData }: RegionsProps) => {
   const t = useTranslations("homepage.regions");
 
-  const valueFormatter = (number: number) =>
-    `${Intl.NumberFormat("us").format(number).toString()} $`;
+  const processedData = regionsData.map((item: any) => ({
+    ...item,
+    regionKey: item.name.replace(/\s+/g, "").toLowerCase(),
+  }));
 
   const translations = {
     "North America": t("northAmerica"),
     Europe: t("europe"),
   };
 
-  const translatedData = useTranslateData(regionsData, translations);
+  const translatedData = useTranslateData(processedData, translations);
 
   return (
-    <Card>
+    <Card className="regionsCard">
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
         <BlockTitle title={t("title")} />
       </Flex>
-      <Legend
-        categories={translatedData.map((city) => city.name)}
-        className="mt-6"
-      />
+
+      <CustomRegionsLegend data={translatedData} />
+
       <DonutChart
         data={translatedData}
         category="sales"
         index="name"
-        valueFormatter={valueFormatter}
+        valueFormatter={(number: number) =>
+          `${Intl.NumberFormat("us").format(number)} $`
+        }
         className="mt-6"
       />
+
       <List className="mt-6">
-        {translatedData.map((city) => (
+        {translatedData.map((city: any) => (
           <ListItem key={city.name}>
             {city.name}
             <BadgeDelta deltaType={city.deltaType} size="xs">
