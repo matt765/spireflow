@@ -34,7 +34,8 @@
     },
     "bestSellingProducts": {
       "title": "Bestsellery",
-      "profitFromLastWeek": "Ostatni tydzień"
+      "profitFromLastWeek": "Zysk",
+      "revenueFromLastWeek": "Przychód"
     },
     "customerSatisfaction": {
       "title": "Zadowolenie klientów",
@@ -42,23 +43,16 @@
       "customerSatisfaction": "Zadowolenie klientów",
       "numberOfOrders": "Liczba zamówień"
     },
-    "tradersTable": {
-      "selectSalespeople": "Wybierz sprzedawców",
-      "search": "Szukaj",
-      "name": "Imię i nazwisko",
-      "leads": "Klienci",
+    "revenuePerCountry": {
+      "title": "Przychód według kraju",
+      "country": "Kraj",
       "sales": "Sprzedaż",
-      "quota": "Cel",
-      "variance": "Różnica",
-      "region": "Region",
-      "status": "Status",
-      "overperforming": "powyżej oczekiwań",
-      "underperforming": "poniżej poczekiwań",
-      "average": "przeciętnie",
-      "northAmerica": "Ameryka Północna",
-      "europe": "Europa",
-      "low": "niska",
-      "medium": "przeciętna"
+      "unitedStates": "Stany Zjednoczone",
+      "france": "Francja",
+      "unitedKingdom": "Wielka Brytania",
+      "norway": "Norwegia",
+      "australia": "Australia",
+      "poland": "Polska"
     }
   },
   "orders": {
@@ -254,17 +248,6 @@
       "dec": "Gru",
       "sales": "Sprzedaż"
     },
-    "revenuePerCountry": {
-      "title": "Przychód według kraju",
-      "country": "Kraj",
-      "sales": "Sprzedaż",
-      "unitedStates": "Stany Zjednoczone",
-      "france": "Francja",
-      "unitedKingdom": "Wielka Brytania",
-      "norway": "Norwegia",
-      "australia": "Australia",
-      "poland": "Polska"
-    },
     "performance": {
       "title": "Wydajność",
       "subtitle": "Porównanie między sprzedażą, a zyskiem",
@@ -285,13 +268,48 @@
     },
     "yearOverview": {
       "title": "Przegląd roczny",
+      "month": "Miesiąc",
       "phones": "Telefony",
       "tablets": "Tablety",
       "laptops": "Laptopy",
       "sales": "Sprzedaż",
       "revenue": "Przychód",
       "unitsSold": "Sprzedane sztuki",
-      "returns": "Zwroty"
+      "returns": "Zwroty",
+      "jan": "Sty",
+      "feb": "Lut",
+      "mar": "Mar",
+      "apr": "Kwi",
+      "may": "Maj",
+      "jun": "Cze",
+      "jul": "Lip",
+      "aug": "Sie",
+      "sep": "Wrz",
+      "oct": "Paź",
+      "nov": "Lis",
+      "dec": "Gru"
+    },
+    "marketMetrics": {
+      "title": "Wskażniki rynkowe",
+      "metrics": {
+        "salesVolume": "Wolumen sprzedaży",
+        "revenue": "Przychód",
+        "growthRate": "Wskaźnik wzrostu",
+        "marketShare": "Udział w rynku",
+        "customerRating": "Ocena klientów",
+        "profitMargin": "Marża"
+      }
+    },
+    "revenueDistribution": {
+      "title": "Rozkład przychodów",
+      "inStore": "Przychody stacjonarne",
+      "online": "Przychody online",
+      "laptops": "Laptopy",
+      "phones": "Telefony",
+      "chargers": "Ładowarki",
+      "headphones": "Słuchawki",
+      "tablets": "Tablety",
+      "accessories": "Akcesoria"
     }
   },
   "calendar": {
@@ -401,6 +419,7 @@
     "analytics": "Analityka",
     "calendar": "Kalendarz",
     "singleCharts": "Wykresy",
+    "pages": "Aplikacje",
     "area": "Obszar",
     "bars": "Słupki",
     "scatter": "Rozrzut",
@@ -435,6 +454,40 @@
     "logoutModalTitle": "Jesteś pewien?",
     "logoutModalDesc": "Kliknij \"tak\" aby wylogować się z aplikacji",
     "logoutModalCancelButton": "Anuluj",
-    "logoutModalConfirmButton": "Tak"
+    "logoutModalConfirmButton": "Tak",
+    "search": {
+      "placeholder": "Szukaj...",
+      "noResults": "Nie znaleziono wyników",
+      "sections": {
+        "revenueOverTime": "Dochód miesięczny",
+        "regions": "Regiony",
+        "bestsellingProducts": "Bestsellery",
+        "customerSatisfaction": "Zadowolenie klientów",
+        "revenueByCountry": "Przychód według kraju",
+        "salesSmallCard": "Sprzedaż",
+        "profitSmallCard": "Zysk",
+        "trafficSmallCard": "Wyświetlenia",
+        "customersSmallCard": "Klienci",
+        "assetPerformance": "Wydajność aktywów",
+        "todaysSales": "Dzisiejsza sprzedaż",
+        "totalProfit": "Całkowity zysk",
+        "performance": "Wydajność",
+        "yearOverview": "Przegląd roczny",
+        "marketMetrics": "Wskażniki rynkowe",
+        "revenueDistribution": "Rozkład przychodów",
+        "customers": "Klienci",
+        "events": "Kalendarz",
+        "orders": "Zamówienia",
+        "products": "Produkty"
+      },
+      "pages": {
+        "Homepage": "Panel główny",
+        "Analytics": "Analityka",
+        "Customers": "Klienci",
+        "Events": "Kalendarz",
+        "Orders": "Zamówienia",
+        "Products": "Produkty"
+      }
+    }
   }
 }

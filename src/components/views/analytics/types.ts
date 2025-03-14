@@ -23,15 +23,6 @@ export interface PerformanceProps {
   performanceData: MonthPerformance[];
 }
 
-export interface Country {
-  name: string;
-  price: number;
-}
-
-export interface RevenuePerCountryProps {
-  revenuePerCountryData: Country[];
-}
-
 export interface TodaySalesDataUnit {
   hour: string;
   today: number;
@@ -64,28 +55,67 @@ export interface SingleProductData {
   value: number;
 }
 
-export interface OverviewCategoryData {
+export interface OverviewMonthData {
   name: string;
-  sales: SingleProductData[];
-  revenue: SingleProductData[];
-  unitsSold: SingleProductData[];
-  returns: SingleProductData[];
+  phones: number;
+  tablets: number;
+  laptops: number;
 }
 
 export interface YearOverviewProps {
-  yearOverviewData: OverviewCategoryData[];
+  yearOverviewData: OverviewMonthData[];
 }
 
 interface AnalyticsData {
   assets: AssetPerformanceProps["assetPerformanceData"];
   monthPerformance: PerformanceProps["performanceData"];
-  revenuePerCountry: RevenuePerCountryProps["revenuePerCountryData"];
   todaySales: TodaySalesProps["todaySalesData"];
   totalProfitProducts: TotalProfitProps["totalProfitProducts"];
   totalProfitMonths: TotalProfitProps["totalProfitSales"];
   yearOverview: YearOverviewProps["yearOverviewData"];
+  marketMetrics: MarketMetricsProps["marketMetricsData"];
+  revenueDistribution: RevenueDistributionProps["revenueDistributionData"];
 }
 
 export interface AnalyticsViewProps {
   analyticsData: AnalyticsData;
+}
+
+export interface MetricPoint {
+  metric: string;
+  phones: number;
+  laptops: number;
+  maxValue: number;
+}
+
+export interface MarketMetricsProps {
+  marketMetricsData: MetricPoint[];
+}
+
+export interface MarketMetricsTooltipProps {
+  active?: boolean;
+  payload?: Array<{ name?: string; value?: number; color?: string }>;
+  label?: string;
+}
+
+export interface RevenueData {
+  category: string;
+  inStore: number;
+  online: number;
+}
+
+export interface RevenueDistributionProps {
+  revenueDistributionData: RevenueData[];
+}
+
+export interface RevenueTooltipPayloadItem {
+  name?: string;
+  value?: number;
+  color?: string;
+  dataKey?: string;
+}
+export interface RevenueDistributionTooltipProps {
+  active?: boolean;
+  payload?: RevenueTooltipPayloadItem[];
+  label?: string;
 }

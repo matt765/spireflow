@@ -3,15 +3,11 @@ import { DeltaType, Color } from "@tremor/react";
 export interface BestSellingProduct {
   name: string;
   profit: number;
+  revenue: number;
 }
 
 export interface BestSellingProductsProps {
   bestSellingProductsData: BestSellingProduct[];
-}
-
-export interface TransformedBestSellingProduct {
-  name: string;
-  "Profit from last week": number;
 }
 
 export interface ProductSatisfaction {
@@ -69,30 +65,24 @@ export interface RevenueOverTimeProps {
   revenueOverTimeData: Revenue[];
 }
 
-export interface Trader {
-  name: string;
-  leads: number;
-  sales: string;
-  quota: string;
-  variance: string;
-  region: string;
-  status: string;
-  deltaType: DeltaType;
-}
-
-export interface TradersTableProps {
-  tradersTableData: Trader[];
-}
-
 interface HomepageData {
   bestSellingProducts: BestSellingProductsProps["bestSellingProductsData"];
   customerSatisfaction: CustomerSatisfactionProps["customerSatisfactionData"];
   homeSmallCards: HomeSmallCardsProps["homeSmallCardsData"];
   regions: RegionsProps["regionsData"];
   revenueOverTime: RevenueOverTimeProps["revenueOverTimeData"];
-  traders: TradersTableProps["tradersTableData"];
+  revenuePerCountry: RevenuePerCountryProps["revenuePerCountryData"];
 }
 
 export interface HomepageViewProps {
   homepageData: HomepageData;
+}
+
+export interface Country {
+  name: string;
+  price: number;
+}
+
+export interface RevenuePerCountryProps {
+  revenuePerCountryData: Country[];
 }

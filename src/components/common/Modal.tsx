@@ -22,8 +22,8 @@ export const Modal = ({
 
   return (
     <>
-      <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0   backdrop-blur-md z-40" />
-      <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 z-50">
+      <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0   backdrop-blur-md z-[999]" />
+      <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 z-[9999]">
         <div
           ref={modalRef}
           role="dialog"

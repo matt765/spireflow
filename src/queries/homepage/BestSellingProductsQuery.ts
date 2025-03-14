@@ -5,6 +5,7 @@ export const BEST_SELLING_PRODUCTS_QUERY = gql`
     bestSellingProducts {
       name
       profit
+      revenue
     }
   }
 `;

@@ -5,6 +5,7 @@ export const HOMEPAGE_QUERY = gql`
     bestSellingProducts {
       name
       profit
+      revenue
     }
     customerSatisfaction {
       brandName
@@ -36,15 +37,9 @@ export const HOMEPAGE_QUERY = gql`
       websiteSales
       inStoreSales
     }
-    traders {
+    revenuePerCountry {
       name
-      leads
-      sales
-      quota
-      variance
-      region
-      status
-      deltaType
+      price
     }
   }
 `;

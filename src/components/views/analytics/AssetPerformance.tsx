@@ -26,7 +26,7 @@ export const AssetPerformance = ({
     `${Intl.NumberFormat("us").format(number).toString()} $`;
 
   return (
-    <Card className=" h-full">
+    <Card className="assetPerformanceCard h-full">
       <div>
         <Flex className="space-x-4" justifyContent="start" alignItems="center">
           <Title>{t("title")}</Title>

@@ -214,8 +214,9 @@ a {
   @apply dark:!fill-chartPrimaryBgDark !fill-chartPrimaryBg;
 }
 
-/* Primary chart background - for donut chart on Homepage */
-.recharts-wrapper .fill-blue-500 {
+/* Primary chart background - for donut charts on Homepage and Analytics page */
+.assetPerformanceCard .recharts-wrapper .fill-blue-500,
+.regionsCard .recharts-wrapper .fill-blue-500 {
   @apply dark:!fill-chartPrimaryBgDark !fill-chartPrimaryBg;
 }
 
@@ -285,19 +286,10 @@ a {
 .recharts-scatter-symbol {
   @apply stroke-none;
 }
-/* Checkbox background color for Multiselect component in TradersTable */
-.tremor-MultiSelectItem-root .accent-tremor-brand {
-  @apply accent-mainColor dark:accent-mainColorDark;
-}
 
 /* Disable upper empty part of tooltip on Today Sales section on /analytics page */
 .todaySalesContainer .recharts-tooltip-wrapper .border-b {
   display: none;
-}
-
-/* Active button in Year Overview section */
-.yearOverview .tremor-TabList-root button[data-headlessui-state="selected"] {
-  @apply text-mainColor dark:text-mainColorDark;
 }
 
 /* Active tab in Today Sales section */
@@ -305,6 +297,11 @@ a {
   .tremor-TabList-root
   button[data-headlessui-state="selected"] {
   @apply !text-blue-400 dark:!text-blue-400;
+}
+
+.menuItemIcon svg {
+  width: 22px;
+  height: 22px;
 }
 
 /* Hide unnecessary grid lines in Tremor bar charts */

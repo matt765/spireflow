@@ -51,7 +51,9 @@ export const ProductDetails = ({
             onClick={() => setIsPhotoOpen(true)}
             className="group relative min-w-[9rem] hover:bg-[rgb(255,255,255,0.02)] cursor-pointer min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-0 rounded-xl  flex justify-center items-center border border-mainBorder dark:border-mainBorderDark "
           >
-            <div className="relative w-full h-full flex justify-center items-center">
+            <div className="rounded-xl relative w-full h-full dark:bg-[rgb(0,0,0,0.01)] bg-[rgb(0,0,0,0.01)] flex justify-center items-center
+         
+            ">
               {!imageLoaded && (
                 <div className="w-full h-full flex items-center justify-center pl-2">
                   <SpinnerIcon

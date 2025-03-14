@@ -10,6 +10,7 @@ import { Tooltip } from "../../components/common/Tooltip";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 import { MenuItemProps } from "./types";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
+import { inter, plusJakartaSans, publicSans } from "../../styles/fonts";
 
 export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
@@ -54,7 +55,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
       href={path}
       className={`${
         !isSideMenuOpen || !isDesktop
-          ? "flex flex-col justify-center items-center"
+          ? "flex flex-col justify-center w-full py-0 items-center"
           : ""
       }`}
     >
@@ -63,10 +64,10 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
         className={`
-         flex relative items-center py-2 rounded-xl pl-4 mb-0 1xl:mb-1 3xl:mb-2 w-full pr-2  transition ${
+         flex relative rounded-md items-center py-[0.7rem] xl pl-4 mb-0 1xl:mb-1 3xl:mb-2 w-full pr-2  transition ${
            isActive
-             ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark"
-             : "bg-navItemBg dark:bg-navItemBgDark hover:bg-navItemBgHover dark:hover:bg-navItemBgHoverDark"
+             ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark border-l-2 border-transparent"
+             : "bg-navItemBg dark:bg-navItemBgDark hover:bg-navItemBgHover dark:hover:bg-navItemBgHoverDark border-l-2 border-transparent"
          }
          ${
            !isSideMenuOpen &&
@@ -76,7 +77,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         `}
       >
         <div
-          className={`pr-3 ${
+          className={`menuItemIcon pr-3 ${
             isActive
               ? "stroke-navItemIconActive dark:stroke-mainColorDark dark:fill-mainColorDark text-navItemIconActive dark:text-mainColorDark"
               : "stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400"
@@ -88,7 +89,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         </div>
         {(isSideMenuOpen || !isDesktop) && (
           <div
-            className={`text-sm xl:text-[12px] 3xl:text-sm tracking-wide font-bold  ${
+            className={`text-sm xl:text-[12px] 3xl:text-[0.88rem] font-semibold tracking-wide ${publicSans.className}  ${
               isActive
                 ? "text-navItemTextActive dark:text-navItemTextActiveDark"
                 : "text-navItemText dark:text-navItemTextDark"
@@ -99,7 +100,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
           </div>
         )}
         {isTooltipVisible && !isSideMenuOpen && (
-          <div className="absolute top-0 left-12 hidden xl:flex">
+          <div className={`absolute top-0 left-12 hidden xl:flex `}>
             <Tooltip text={title} className=" h-8 px-3  " />
           </div>
         )}

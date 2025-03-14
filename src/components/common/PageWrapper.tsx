@@ -15,7 +15,7 @@ export const PageWrapper = ({
   return (
     <main
       className={`flex pb-0 flex-col min-h-screen max-w-full h-full w-full pt-[4.5rem] md:pt-[6rem] xl:pt-[6.5rem] 3xl:pt-28 pb-0 md:pb-6 xl:pb-8 items-center
-      px-0 md:px-6  xl:pl-3 xl:pr-2 2xl:px-8
+      px-0 md:px-6  xl:pl-3 xl:pr-2 2xl:px-4
       ${hidePaper && ""}
       `}
       role="main"

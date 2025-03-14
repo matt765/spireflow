@@ -18,30 +18,6 @@ import { PerformanceProps } from "./types";
 import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-// ---------------------
-// 1) Definicja danych
-// ---------------------
-// interface DataItem {
-//   month: string; // np. "Jan", "Feb", ...
-//   sales: number;
-//   profit: number;
-// }
-
-// const performanceData2: DataItem[] = [
-//   { month: "Jan", sales: 2756, profit: 2234 },
-//   { month: "Feb", sales: 1967, profit: 1445 },
-//   { month: "Mar", sales: 3543, profit: 2367 },
-//   { month: "Apr", sales: 1823, profit: 1289 },
-//   { month: "May", sales: 2912, profit: 1378 },
-//   { month: "Jun", sales: 2145, profit: 1687 },
-//   { month: "Jul", sales: 4678, profit: 4198 },
-//   { month: "Aug", sales: 1945, profit: 1534 },
-//   { month: "Sep", sales: 3678, profit: 2845 },
-// ];
-
-// ---------------------
-// 2) Dedykowany tooltip dla Performance
-// ---------------------
 interface PerformanceTooltipProps {
   active?: boolean;
   payload?: Array<{ name: string; value: number; color?: string }>;
@@ -82,9 +58,6 @@ const PerformanceTooltip: React.FC<PerformanceTooltipProps> = ({
   );
 };
 
-// ---------------------
-// 3) Customowa legenda
-// ---------------------
 interface CustomLegendProps {
   payload?: Array<{ value: string; color?: string }>;
 }
@@ -105,9 +78,6 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
   );
 };
 
-// ---------------------
-// 4) Customowy tick dla osi X jako komponent React
-// ---------------------
 interface CustomXAxisTickProps {
   x?: number;
   y?: number;
@@ -117,7 +87,6 @@ interface CustomXAxisTickProps {
 const CustomXAxisTick: React.FC<CustomXAxisTickProps> = ({ x, y, payload }) => {
   const t = useTranslations("analytics.performance");
 
-  // payload.value np. "Jan", "Feb", ...
   const originalMonth = payload?.value || "";
   const translatedMonth = t(originalMonth.toLowerCase());
 
@@ -125,7 +94,7 @@ const CustomXAxisTick: React.FC<CustomXAxisTickProps> = ({ x, y, payload }) => {
     <text
       x={x}
       y={y}
-      dy={16} // przesunięcie w dół
+      dy={16}
       textAnchor="middle"
       fill="white"
       fontSize="0.8rem"
@@ -135,9 +104,6 @@ const CustomXAxisTick: React.FC<CustomXAxisTickProps> = ({ x, y, payload }) => {
   );
 };
 
-// ---------------------
-// 5) Główny komponent Performance
-// ---------------------
 export const Performance = ({ performanceData }: PerformanceProps) => {
   const t = useTranslations("analytics.performance");
   const chartData = performanceData.slice(-9);

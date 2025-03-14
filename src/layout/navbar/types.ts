@@ -57,7 +57,8 @@ export interface UserButtonProps {
   userTooltip: TooltipProps;
   showLogoutModal: () => void;
   showAboutModal: () => void;
-  session: { username?: string | null };
+  showChangelogModal: () => void;
+  session: any;
   theme: string | undefined;
-  t: (key: string) => string;
+  t: any;
 }

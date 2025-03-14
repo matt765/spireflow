@@ -60,7 +60,7 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
         handleShowAllProductsClick={handleShowAllProductsClick}
       />
       {/* Right Panel: List of products */}
-      <div className="h-fit hidden lg:flex flex-col w-1/4 p-4 border border-mainBorder dark:border-mainBorderDark ml-8 mt-1 2xl:mt-4 pt-1 rounded-md ">
+      <div className="h-fit hidden  dark:bg-[rgb(0,0,0,0.01)] bg-[rgb(0,0,0,0.01)] lg:flex flex-col w-1/4 p-4 border border-mainBorder dark:border-mainBorderDark ml-8 mt-1 2xl:mt-4 pt-1 rounded-md ">
         <div className="flex flex-col space-y-2">{renderedCategories}</div>
       </div>
       {/* Modal for mobile resolution: List of products */}

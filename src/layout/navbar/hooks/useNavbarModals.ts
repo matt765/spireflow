@@ -5,10 +5,13 @@ export const useNavbarModals = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [isChangelogModalOpen, setIsChangelogModalOpen] = useState(false);
+
   const closeLoginModal = () => setIsLoginModalOpen(false);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
   const closeLogoutModal = () => setIsLogoutModalOpen(false);
   const closeAboutModal = () => setIsAboutModalOpen(false);
+  const closeChangelogModal = () => setIsChangelogModalOpen(false);
 
   const showLogoutModal = () => {
     setIsLogoutModalOpen(true);
@@ -16,6 +19,10 @@ export const useNavbarModals = () => {
 
   const showAboutModal = () => {
     setIsAboutModalOpen(true);
+  };
+
+  const showChangelogModal = () => {
+    setIsChangelogModalOpen(true);
   };
 
   const switchToSignUp = () => {
@@ -37,12 +44,15 @@ export const useNavbarModals = () => {
     isSignUpModalOpen,
     isLogoutModalOpen,
     isAboutModalOpen,
+    isChangelogModalOpen,
     closeLoginModal,
     closeSignUpModal,
     closeLogoutModal,
     closeAboutModal,
+    closeChangelogModal,
     showLogoutModal,
     showAboutModal,
+    showChangelogModal,
     switchToSignUp,
     switchToSignIn,
     handleLoginButton,

@@ -1,7 +1,5 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Link from "next/link";
-
-import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { Tooltip } from "../../components/common/Tooltip";
 import { UserButtonProps } from "./types";
 import { UserIcon } from "../../assets/icons/UserIcon";
@@ -9,6 +7,7 @@ import { MailIcon } from "../../assets/icons/MailIcon";
 import { HistoryIcon } from "../../assets/icons/HistoryIcon";
 import { InfoIcon } from "../../assets/icons/InfoIcon";
 import { LogoutIcon } from "../../assets/icons/LogoutIcon";
+import { GithubIcon } from "../../assets/icons/GithubIcon";
 
 export const UserButton = ({
   userIconBtnRef,
@@ -19,6 +18,7 @@ export const UserButton = ({
   userTooltip,
   showLogoutModal,
   showAboutModal,
+  showChangelogModal,
   session,
   theme,
   t,
@@ -29,18 +29,22 @@ export const UserButton = ({
     onMouseEnter={userTooltip.showTooltip}
     onMouseLeave={userTooltip.hideTooltip}
   >
-    <OutlinedButton
-      ref={userIconBtnRef}
-      handleClick={() => {
-        closeMobileMenu();
-        userDropdown.toggle();
-        themeDropdown.close();
-        languageDropdown.close();
-      }}
-      className="!rounded-full"
-      icon={<UserIcon />}
-      ariaLabel={t("openUserMenu")}
-    />
+    <div className="h-10 w-10">
+      <button
+        ref={userIconBtnRef}
+        onClick={() => {
+          closeMobileMenu();
+          userDropdown.toggle();
+          themeDropdown.close();
+          languageDropdown.close();
+        }}
+        className="text-md flex rounded-full justify-center items-center gap-2 w-full h-full !outline-0 border border-mainBorder dark:border-mainBorderDark bg-outlinedButtonBg dark:bg-outlinedButtonBgDark hover:bg-outlinedButtonBgHover dark:hover:bg-outlinedButtonBgHoverDark text-primaryText dark:text-primaryTextDark dark:stroke-grayIconDark dark:fill-grayIconDark fill-grayIcon stroke-grayIcon"
+        type="button"
+        aria-label={t("openUserMenu")}
+      >
+        <UserIcon />
+      </button>
+    </div>
     {userTooltip.isTooltipVisible &&
       !userDropdown.isOpen &&
       !themeDropdown.isOpen &&
@@ -60,15 +64,28 @@ export const UserButton = ({
           </div>
           {session?.username || "Email"}
         </div>
-        <Link
-          href="https://github.com/matt765/spireflow/blob/main/CHANGELOG.md"
-          target="_blank"
+
+        <div
           className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          onClick={() => {
+            userDropdown.close();
+            showChangelogModal();
+          }}
         >
           <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem]">
             <HistoryIcon />
           </div>
           <button>{t("changelog")}</button>
+        </div>
+        <Link
+          href="https://github.com/matt765/spireflow"
+          target="_blank"
+          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+        >
+          <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem] stroke-grayIcon fill-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+            <GithubIcon />
+          </div>
+          <button>GitHub</button>
         </Link>
         <div
           className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"

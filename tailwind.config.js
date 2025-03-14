@@ -26,7 +26,8 @@ module.exports = {
       fontFamily: {
         inter: ["var(--inter-font)", ...fontFamily.sans],
         nunito: ["var(--nunito-font)", ...fontFamily.sans],
-      },     
+        publicSans: ["var(--publicSans-font)", ...fontFamily.sans],
+      },
       boxShadow: {
         // light
         "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
@@ -103,8 +104,7 @@ module.exports = {
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  plugins: [require("@headlessui/tailwindcss"),
-  createThemes({
+  plugins: [createThemes({
     light: snowlightTheme,
     charcoal: charcoalTheme,
     obsidian: obsidianTheme

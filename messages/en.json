@@ -33,8 +33,9 @@
       "europe": "Europe"
     },
     "bestSellingProducts": {
-      "title": "Best selling products",
-      "profitFromLastWeek": "Profit from last week"
+      "title": "Bestselling products",
+      "profitFromLastWeek": "Profit from last week",
+      "revenueFromLastWeek": "Revenue from last week"
     },
     "customerSatisfaction": {
       "title": "Customer satisfaction",
@@ -42,23 +43,16 @@
       "customerSatisfaction": "Customer satisfaction",
       "numberOfOrders": "Number of orders"
     },
-    "tradersTable": {
-      "selectSalespeople": "Select salespeople",
-      "search": "Search",
-      "name": "Name",
-      "leads": "Leads",
+    "revenuePerCountry": {
+      "title": "Revenue per country",
+      "country": "Country",
       "sales": "Sales",
-      "quota": "Quota",
-      "variance": "Variance",
-      "region": "Region",
-      "status": "Status",
-      "overperforming": "overperforming",
-      "underperforming": "underperforming",
-      "average": "average",
-      "northAmerica": "North America",
-      "europe": "Europe",
-      "low": "low",
-      "medium": "medium"
+      "unitedStates": "United States",
+      "france": "France",
+      "unitedKingdom": "United Kingdom",
+      "norway": "Norway",
+      "australia": "Australia",
+      "poland": "Poland"
     }
   },
   "orders": {
@@ -254,17 +248,6 @@
       "dec": "Dec",
       "sales": "Sales"
     },
-    "revenuePerCountry": {
-      "title": "Revenue per country",
-      "country": "Country",
-      "sales": "Sales",
-      "unitedStates": "United States",
-      "france": "France",
-      "unitedKingdom": "United Kingdom",
-      "norway": "Norway",
-      "australia": "Australia",
-      "poland": "Poland"
-    },
     "performance": {
       "title": "Performance",
       "subtitle": "Comparison between sales and profit",
@@ -285,13 +268,48 @@
     },
     "yearOverview": {
       "title": "Year overview",
+      "month": "Month",
       "phones": "Phones",
       "tablets": "Tablets",
       "laptops": "Laptops",
       "sales": "Sales",
       "revenue": "Revenue",
       "unitsSold": "Units sold",
-      "returns": "Returns"
+      "returns": "Returns",
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "marketMetrics": {
+      "title": "Market metrics",
+      "metrics": {
+        "salesVolume": "Sales Volume",
+        "revenue": "Revenue",
+        "growthRate": "Growth Rate",
+        "marketShare": "Market Share",
+        "customerRating": "Customer Rating",
+        "profitMargin": "Profit Margin"
+      }
+    },
+    "revenueDistribution": {
+      "title": "Revenue distribution",
+      "inStore": "In-store revenue",
+      "online": "Online revenue",
+      "laptops": "Laptops",
+      "phones": "Phones",
+      "chargers": "Chargers",
+      "headphones": "Headphones",
+      "tablets": "Tablets",
+      "accessories": "Accessories"
     }
   },
   "calendar": {
@@ -402,6 +420,7 @@
     "analytics": "Analytics",
     "calendar": "Calendar",
     "singleCharts": "Single Charts",
+    "pages": "Pages",
     "area": "Area",
     "bars": "Bars",
     "scatter": "Scatter",
@@ -436,6 +455,40 @@
     "logoutModalTitle": "Are you sure?",
     "logoutModalDesc": "Click yes to sign out from application",
     "logoutModalCancelButton": "Cancel",
-    "logoutModalConfirmButton": "Yes"
+    "logoutModalConfirmButton": "Yes",
+    "search": {
+      "placeholder": "Search...",
+      "noResults": "No results found",
+      "sections": {
+        "revenueOverTime": "Revenue over time",
+        "regions": "Regions",
+        "bestsellingProducts": "Bestselling products",
+        "customerSatisfaction": "Customer satisfaction",
+        "revenueByCountry": "Revenue by country",
+        "salesSmallCard": "Sales",
+        "profitSmallCard": "Profit",
+        "trafficSmallCard": "Traffic",
+        "customersSmallCard": "Customers",
+        "assetPerformance": "Asset performance",
+        "todaysSales": "Today's sales",
+        "totalProfit": "Total profit",
+        "performance": "Performance",
+        "yearOverview": "Year overview",
+        "marketMetrics": "Market metrics",
+        "revenueDistribution": "Revenue distribution",
+        "customers": "Customers",
+        "events": "Events",
+        "orders": "Orders",
+        "products": "Products"
+      },
+      "pages": {
+        "Homepage": "Dashboard",
+        "Analytics": "Analytics",
+        "Customers": "Customers",
+        "Events": "Calendar",
+        "Orders": "Orders",
+        "Products": "Products"
+      }
+    }
   }
 }

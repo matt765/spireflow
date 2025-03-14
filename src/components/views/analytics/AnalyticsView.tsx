@@ -5,10 +5,11 @@ import { Grid, Col } from "@tremor/react";
 import { AssetPerformance } from "./AssetPerformance";
 import { TodaySales } from "./TodaySales";
 import { TotalProfit } from "./TotalProfit";
-import { RevenuePerCountry } from "./RevenuePerCountry";
 import { Performance } from "./Performance";
 import { YearOverview } from "./YearOverview";
 import { AnalyticsViewProps } from "./types";
+import { MarketMetrics } from "./MarketMetrics";
+import { RevenueDistribution } from "./RevenueDistribution";
 
 export const AnalyticsView = ({ analyticsData }: AnalyticsViewProps) => {
   return (
@@ -44,31 +45,36 @@ export const AnalyticsView = ({ analyticsData }: AnalyticsViewProps) => {
             )}
         </div>
         <div className="hidden md:flex w-full 1xl:w-2/3">
-          {analyticsData?.revenuePerCountry && (
-            <RevenuePerCountry
-              revenuePerCountryData={analyticsData.revenuePerCountry}
-            />
+          {analyticsData?.monthPerformance && (
+            <Performance performanceData={analyticsData.monthPerformance} />
           )}
         </div>
       </div>
       {/* Third row */}
-      <Grid
-        numItems={1}
-        numItemsSm={1}
-        numItemsMd={1}
-        numItemsLg={1}
-        className="gap-x-6 gap-y-6"
-      >
-        <Col numColSpan={1} numColSpanLg={1}>
-          {analyticsData?.monthPerformance && (
-            <Performance performanceData={analyticsData.monthPerformance} />
-          )}
-        </Col>
-      </Grid>
-      {/* Fourth row */}
       {analyticsData?.yearOverview && (
         <YearOverview yearOverviewData={analyticsData.yearOverview} />
       )}
+      {/* Fourth row */}
+      <Grid
+        numItems={1}
+        numItemsSm={1}
+        numItemsMd={2}
+        numItemsLg={2}
+        className="gap-x-6 gap-y-6"
+      >
+        <Col numColSpan={1} numColSpanSm={1} numColSpanLg={1}>
+          {analyticsData?.marketMetrics && (
+            <MarketMetrics marketMetricsData={analyticsData.marketMetrics} />
+          )}
+        </Col>
+        <Col numColSpan={1} numColSpanSm={1}>
+          {analyticsData?.revenueDistribution && (
+            <RevenueDistribution
+              revenueDistributionData={analyticsData.revenueDistribution}
+            />
+          )}
+        </Col>
+      </Grid>
     </>
   );
 };

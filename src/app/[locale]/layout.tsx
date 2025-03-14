@@ -4,7 +4,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
 import "../../styles/globals.css";
-import { inter } from "../../styles/fonts";
+import { inter, nunito, plusJakartaSans, publicSans } from "../../styles/fonts";
 import { Providers } from "../../services/providers";
 import { locales } from "../../i18n/navigation";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className}`}>
+      <body className={`${publicSans.className}`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
@@ -32,7 +32,7 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: "Spireflow",
   description:
-    "Open-source e-commerce analytic dashboard built with Next.js and TypeScript.",
+    "Open source and free e-commerce dashboard template, written in NextJS and Tailwind",
 };
 
 export function generateStaticParams() {

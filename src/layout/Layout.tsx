@@ -10,6 +10,8 @@ import { useAppStore } from "../store/appStore";
 import { Loader } from "../components/common/Loader";
 import { useSession } from "../hooks/auth/useSession";
 import { useIsFirstRender } from "../hooks/useIsFirstRender";
+import { Input } from "../components/forms/Input";
+import { SearchIcon } from "../assets/icons/SearchIcon";
 
 interface LayoutProps {
   children: ReactNode;
@@ -41,7 +43,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <div className=" flex h-full w-full bg-secondaryBg dark:bg-secondaryBgDark overflow-x-hidden z-50">
+      <div className=" flex h-full w-full bg-secondaryBg dark:bg-secondaryBgDark overflow-x-hidden">
         {isLoadingScreenDisplayed && <Loader />}
         {!pathsWithNoLayout.includes(currentPathname) && (
           <>
@@ -49,7 +51,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <Navbar />
           </>
         )}
-        <div className="flex flex-col w-full xl:max-w-[80%] 1xl:max-w-[82%] 2xl:max-w-[85vw] 5xl:max-w-[102rem] h-full mx-auto">
+        <div className="flex flex-col w-full xl:max-w-[80%] 1xl:max-w-[82%] 2xl:max-w-[82vw] 5xl:max-w-[102rem] h-full mx-auto relative">
           <div className="w-full flex justify-center max-w-full">
             {children}
           </div>
