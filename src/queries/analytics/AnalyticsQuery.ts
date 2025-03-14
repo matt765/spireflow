@@ -15,10 +15,6 @@ export const ANALYTICS_QUERY = gql`
       sales
       profit
     }
-    revenuePerCountry {
-      name
-      price
-    }
     todaySales {
       hour
       today
@@ -36,10 +32,20 @@ export const ANALYTICS_QUERY = gql`
     }
     yearOverview {
       name
-      sales
-      revenue
-      unitsSold
-      returns
+      phones
+      tablets
+      laptops
+    }
+    marketMetrics {
+      metric
+      phones
+      laptops
+      maxValue
+    }
+    revenueDistribution {
+      category
+      inStore
+      online
     }
   }
 `;
