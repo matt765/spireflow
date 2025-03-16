@@ -1,11 +1,11 @@
 # Spireflow
-Open source e-commerce dashboard template, written in NextJS 14 and TypeScript. It is connected to NodeJS backend and PostgreSQL database containing AI generated data for fictional electronic store.
+Open source and free e-commerce dashboard template, written in NextJS 14 and TypeScript. It is connected to NodeJS backend with PostgreSQL database containing AI generated data for fictional electronic store.
 
 ## Tech stack
 React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest, Storybook
 
-##  Features
-- 14 data charts (Tremor.so)
+## Features
+- 14 data charts (Tremor.so, Recharts)
 - tables with filtering, sorting, searching, pagination and CSV export (Tanstack-ReactTable v8)
 - authentication (Firebase, Iron Session, React Hook Forms and Yup)
 - calendar that allows for moving, adding and deleting events (Fullcalendar.io)
@@ -13,7 +13,7 @@ React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest,
 - world map with tooltips (react-simple-maps)
 - internationalization: english and polish (next-intl)
 - CI pipeline for testing and linting, working on Github Actions
-- unit and integration tests (Jest, React Testing Library)
+- unit and integration tests (Jest, React Testing Library) [in progress]
 - 4 themes (next-themes, tw-colors)
 
 ## Video preview
@@ -68,10 +68,8 @@ Application is connected to NodeJS backend, which is also open source and availa
 └── package.json
 ```
 
-
-
 ##  How to run
-All commands are run from the root of the project, from a terminal. Please remember, that application needs working backend to run. 
+All commands are run from the root of the project, from a terminal. Please remember, that the application needs working backend to run. 
 
 | Command                | Action                                             |
 | :--------------------- | :------------------------------------------------- |

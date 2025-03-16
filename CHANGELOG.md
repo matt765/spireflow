@@ -68,3 +68,19 @@
 - add Storybook
 - improve accessibility
 - add readme
+
+## 1.0.8 (14-03-2025)
+
+- adjust themes color palette
+- fix orders date range
+- change license
+- add 3 new sections on analytics page
+- redesign 2 data graphs
+
+## 1.0.9 (16-03-2025)
+
+- add common graph tooltip
+- redesign side menu
+- add changelog modal
+- add search input
+- add env example
