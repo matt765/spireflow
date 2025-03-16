@@ -1,4 +1,6 @@
 import { DocumentNode } from "graphql";
+import fs from "fs";
+import path from "path";
 
 import { client } from "./apolloClient";
 import { ORDERS_QUERY } from "../queries/OrdersQuery";
@@ -21,19 +23,41 @@ const QUERY_MAP: QueryMap = {
   products: PRODUCTS_QUERY,
 };
 
-export const getData = async (pageName: string) => {
-  const query = QUERY_MAP[pageName];
+const switchToBackupData = true;
 
+export const getData = async (pageName: string) => {
+  // Use this if you don't want to setup NodeJS/GraphQL backend
+  // Application will read data from public/backendBackup.json instead of fetching it from backend
+  // I created this solution with a thought that if this is open source project, not "real" production application,
+  // perhaps the time will come when the backend will be shut down
+  if (switchToBackupData) {
+    const backupFilePath = path.join(
+      process.cwd(),
+      "public",
+      "backendBackup.json"
+    );
+    try {
+      const raw = fs.readFileSync(backupFilePath, "utf-8");
+      const allData = JSON.parse(raw);
+      if (!allData[pageName]) {
+        throw new Error(`No backup data for page ${pageName}`);
+      }
+      return allData[pageName];
+    } catch (error) {
+      throw new Error(`Error reading backup: ${error}`);
+    }
+  }
+
+  // Use this if you have working backend
+  const query = QUERY_MAP[pageName];
   if (!query) {
     throw new Error(`Query not found for page: ${pageName}`);
   }
-
   try {
     const { data } = await client.query({ query });
 
     switch (pageName) {
       case "homepage":
-        return data;
       case "analytics":
         return data;
       default:

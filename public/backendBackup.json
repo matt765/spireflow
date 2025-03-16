@@ -1,0 +1,2667 @@
+{
+  "analytics": {
+    "assets": [
+      {
+        "name": "Off Running Inc.",
+        "industry": "tech",
+        "sales": 984888,
+        "delta": 61.3,
+        "deltaType": "increase",
+        "status": "emerald"
+      },
+      {
+        "name": "Swan Holding",
+        "industry": "health",
+        "sales": 456700,
+        "delta": 32.8,
+        "deltaType": "moderateDecrease",
+        "status": "emerald"
+      },
+      {
+        "name": "Blingtech Inc.",
+        "industry": "Tech",
+        "sales": 390800,
+        "delta": -18.3,
+        "deltaType": "moderateDecrease",
+        "status": "rose"
+      },
+      {
+        "name": "Cortina Steal AG",
+        "industry": "manufacturing",
+        "sales": 240000,
+        "delta": 19.4,
+        "deltaType": "moderateIncrease",
+        "status": "emerald"
+      },
+      {
+        "name": "Rain Drop Holding",
+        "industry": "health",
+        "sales": 190800,
+        "delta": -19.4,
+        "deltaType": "moderateIncrease",
+        "status": "rose"
+      },
+      {
+        "name": "Pas Crazy Inc.",
+        "industry": "tech",
+        "sales": 164400,
+        "delta": -32.8,
+        "deltaType": "decrease",
+        "status": "rose"
+      },
+      {
+        "name": "Hype Room Inc.",
+        "industry": "manufacturing",
+        "sales": 139800,
+        "delta": -40.1,
+        "deltaType": "moderateIncrease",
+        "status": "rose"
+      },
+      {
+        "name": "Black Swan Holding",
+        "industry": "health",
+        "sales": 456700,
+        "delta": 32.8,
+        "deltaType": "moderateDecrease",
+        "status": "emerald"
+      }
+    ],
+    "monthPerformance": [
+      {
+        "month": "Jan",
+        "sales": 2756,
+        "profit": 2234
+      },
+      {
+        "month": "Feb",
+        "sales": 1967,
+        "profit": 1445
+      },
+      {
+        "month": "Mar",
+        "sales": 3543,
+        "profit": 2367
+      },
+      {
+        "month": "Apr",
+        "sales": 1823,
+        "profit": 1289
+      },
+      {
+        "month": "May",
+        "sales": 2912,
+        "profit": 1378
+      },
+      {
+        "month": "Jun",
+        "sales": 2145,
+        "profit": 1687
+      },
+      {
+        "month": "Jul",
+        "sales": 4678,
+        "profit": 4198
+      },
+      {
+        "month": "Aug",
+        "sales": 1945,
+        "profit": 1534
+      },
+      {
+        "month": "Sep",
+        "sales": 3678,
+        "profit": 2845
+      }
+    ],
+    "todaySales": [
+      {
+        "hour": "00:00",
+        "today": 90,
+        "average": 66,
+        "yesterday": 23
+      },
+      {
+        "hour": "02:00",
+        "today": 45,
+        "average": 40,
+        "yesterday": 32
+      },
+      {
+        "hour": "04:00",
+        "today": 68,
+        "average": 55,
+        "yesterday": 29
+      },
+      {
+        "hour": "06:00",
+        "today": 73,
+        "average": 83,
+        "yesterday": 68
+      },
+      {
+        "hour": "08:00",
+        "today": 79,
+        "average": 102,
+        "yesterday": 43
+      },
+      {
+        "hour": "10:00",
+        "today": 70,
+        "average": 75,
+        "yesterday": 39
+      },
+      {
+        "hour": "12:00",
+        "today": 50,
+        "average": 20,
+        "yesterday": 34
+      },
+      {
+        "hour": "14:00",
+        "today": 81,
+        "average": 66,
+        "yesterday": 59
+      },
+      {
+        "hour": "16:00",
+        "today": 90,
+        "average": 92,
+        "yesterday": 78
+      },
+      {
+        "hour": "18:00",
+        "today": 101,
+        "average": 88,
+        "yesterday": 65
+      },
+      {
+        "hour": "20:00",
+        "today": 50,
+        "average": 63,
+        "yesterday": 34
+      },
+      {
+        "hour": "22:00",
+        "today": 35,
+        "average": 25,
+        "yesterday": 21
+      },
+      {
+        "hour": "23:59",
+        "today": 43,
+        "average": 23,
+        "yesterday": 12
+      }
+    ],
+    "totalProfitProducts": [
+      {
+        "title": "iPhone 80A",
+        "value": 38,
+        "metric": "$ 100,838"
+      },
+      {
+        "title": "OnePlus 30T",
+        "value": 34,
+        "metric": "$ 90,224"
+      },
+      {
+        "title": "MacBook Air X",
+        "value": 28,
+        "metric": "$ 74,301"
+      }
+    ],
+    "totalProfitMonths": [
+      {
+        "month": "Jan 21",
+        "sales": 2890
+      },
+      {
+        "month": "Feb 21",
+        "sales": 2009
+      },
+      {
+        "month": "Mar 21",
+        "sales": 2200
+      },
+      {
+        "month": "Apr 21",
+        "sales": 2550
+      },
+      {
+        "month": "May 21",
+        "sales": 2800
+      },
+      {
+        "month": "Jun 21",
+        "sales": 3050
+      },
+      {
+        "month": "Jul 21",
+        "sales": 2000
+      },
+      {
+        "month": "Aug 21",
+        "sales": 3100
+      },
+      {
+        "month": "Sep 21",
+        "sales": 3000
+      },
+      {
+        "month": "Oct 21",
+        "sales": 3150
+      },
+      {
+        "month": "Nov 21",
+        "sales": 2800
+      },
+      {
+        "month": "Dec 21",
+        "sales": 3350
+      }
+    ],
+    "yearOverview": [
+      {
+        "name": "Jan",
+        "phones": 3200,
+        "tablets": 850,
+        "laptops": 850
+      },
+      {
+        "name": "Feb",
+        "phones": 2260,
+        "tablets": 920,
+        "laptops": 980
+      },
+      {
+        "name": "Mar",
+        "phones": 5100,
+        "tablets": 1150,
+        "laptops": 2890
+      },
+      {
+        "name": "Apr",
+        "phones": 5780,
+        "tablets": 980,
+        "laptops": 3650
+      },
+      {
+        "name": "May",
+        "phones": 7600,
+        "tablets": 1280,
+        "laptops": 4100
+      },
+      {
+        "name": "Jun",
+        "phones": 4150,
+        "tablets": 1080,
+        "laptops": 2780
+      },
+      {
+        "name": "Jul",
+        "phones": 5680,
+        "tablets": 1420,
+        "laptops": 3350
+      },
+      {
+        "name": "Aug",
+        "phones": 5250,
+        "tablets": 1180,
+        "laptops": 2950
+      },
+      {
+        "name": "Sep",
+        "phones": 6100,
+        "tablets": 1580,
+        "laptops": 3580
+      },
+      {
+        "name": "Oct",
+        "phones": 3820,
+        "tablets": 1340,
+        "laptops": 3250
+      },
+      {
+        "name": "Nov",
+        "phones": 6350,
+        "tablets": 1680,
+        "laptops": 3780
+      },
+      {
+        "name": "Dec",
+        "phones": 3800,
+        "tablets": 1890,
+        "laptops": 2120
+      }
+    ],
+    "marketMetrics": [
+      {
+        "metric": "salesVolume",
+        "phones": 95,
+        "laptops": 48,
+        "maxValue": 100
+      },
+      {
+        "metric": "revenue",
+        "phones": 75,
+        "laptops": 65,
+        "maxValue": 100
+      },
+      {
+        "metric": "growthRate",
+        "phones": 88,
+        "laptops": 30,
+        "maxValue": 100
+      },
+      {
+        "metric": "marketShare",
+        "phones": 60,
+        "laptops": 80,
+        "maxValue": 100
+      },
+      {
+        "metric": "customerRating",
+        "phones": 85,
+        "laptops": 62,
+        "maxValue": 100
+      },
+      {
+        "metric": "profitMargin",
+        "phones": 87,
+        "laptops": 68,
+        "maxValue": 100
+      }
+    ],
+    "revenueDistribution": [
+      {
+        "category": "laptops",
+        "inStore": 28000,
+        "online": 23200
+      },
+      {
+        "category": "phones",
+        "inStore": 82000,
+        "online": 24500
+      },
+      {
+        "category": "chargers",
+        "inStore": 15000,
+        "online": 13900
+      },
+      {
+        "category": "headphones",
+        "inStore": 18000,
+        "online": 19000
+      },
+      {
+        "category": "tablets",
+        "inStore": 64000,
+        "online": 58000
+      },
+      {
+        "category": "accessories",
+        "inStore": 27000,
+        "online": 20200
+      }
+    ]
+  },
+  "events": [
+    {
+      "eventId": 1,
+      "title": "Market strategy"
+    },
+    {
+      "eventId": 2,
+      "title": "Team Sync"
+    },
+    {
+      "eventId": 3,
+      "title": "Product review"
+    },
+    {
+      "eventId": 4,
+      "title": "Supplier Meeting"
+    },
+    {
+      "eventId": 5,
+      "title": "Daily Inventory Check"
+    },
+    {
+      "eventId": 6,
+      "title": "Marketing Strategy Review"
+    },
+    {
+      "eventId": 7,
+      "title": "SEO Strategy Meeting"
+    },
+    {
+      "eventId": 8,
+      "title": "Client Meeting"
+    },
+    {
+      "eventId": 9,
+      "title": "Sales Promotion Planning"
+    },
+    {
+      "eventId": 10,
+      "title": "1-on-1 Meeting"
+    },
+    {
+      "eventId": 11,
+      "title": "Sales Review"
+    },
+    {
+      "eventId": 12,
+      "title": "Product Launch Webinar"
+    },
+    {
+      "eventId": 13,
+      "title": "E-commerce Platform Training"
+    }
+  ],
+  "customers": [
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user1_wgcdiv.png",
+      "firstName": "John",
+      "lastName": "Doe",
+      "city": "New York",
+      "country": "USA",
+      "phone": "+1-555-1234",
+      "totalBuys": 2487
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user2_xmli04.png",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "city": "Los Angeles",
+      "country": "USA",
+      "phone": "+1-555-5678",
+      "totalBuys": 3875
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330268/spireflow/user3_odzqfk.png",
+      "firstName": "Alex",
+      "lastName": "Smith",
+      "city": "Chicago",
+      "country": "Australia",
+      "phone": "+1-555-9876",
+      "totalBuys": 1254
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330269/spireflow/user4_e91vts.png",
+      "firstName": "Amélie",
+      "lastName": "Martin",
+      "city": "San Francisco",
+      "country": "France",
+      "phone": "+1-555-4321",
+      "totalBuys": 3092
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330270/spireflow/user5_htcbsc.png",
+      "firstName": "Henrik",
+      "lastName": "Larsen",
+      "city": "Houston",
+      "country": "Norway",
+      "phone": "+1-555-8765",
+      "totalBuys": 4321
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user1_wgcdiv.png",
+      "firstName": "Sarah",
+      "lastName": "Johnson",
+      "city": "Miami",
+      "country": "USA",
+      "phone": "+1-555-2345",
+      "totalBuys": 2176
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user2_xmli04.png",
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "city": "Seattle",
+      "country": "USA",
+      "phone": "+1-555-6543",
+      "totalBuys": 3890
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330268/spireflow/user3_odzqfk.png",
+      "firstName": "Robert",
+      "lastName": "Williams",
+      "city": "Boston",
+      "country": "Australia",
+      "phone": "+1-555-7890",
+      "totalBuys": 3210
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330269/spireflow/user4_e91vts.png",
+      "firstName": "Claire",
+      "lastName": "Bernard",
+      "city": "Houston",
+      "country": "France",
+      "phone": "+1-555-3456",
+      "totalBuys": 475
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330270/spireflow/user5_htcbsc.png",
+      "firstName": "Anders",
+      "lastName": "Haugen",
+      "city": "Seattle",
+      "country": "Norway",
+      "phone": "+1-555-6789",
+      "totalBuys": 1324
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user1_wgcdiv.png",
+      "firstName": "Jonas",
+      "lastName": "Johansen",
+      "city": "Berlin",
+      "country": "Norway",
+      "phone": "+49-123-4567",
+      "totalBuys": 1500
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user2_xmli04.png",
+      "firstName": "Emilie",
+      "lastName": "Halvorsen",
+      "city": "Hamburg",
+      "country": "Norway",
+      "phone": "+49-987-6543",
+      "totalBuys": 2800
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330268/spireflow/user3_odzqfk.png",
+      "firstName": "Oskar",
+      "lastName": "Nilsen",
+      "city": "Munich",
+      "country": "Norway",
+      "phone": "+49-567-8901",
+      "totalBuys": 2150
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330269/spireflow/user4_e91vts.png",
+      "firstName": "Thea",
+      "lastName": "Lund",
+      "city": "Cologne",
+      "country": "Norway",
+      "phone": "+49-234-5678",
+      "totalBuys": 1800
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330270/spireflow/user5_htcbsc.png",
+      "firstName": "William",
+      "lastName": "Harris",
+      "city": "London",
+      "country": "United Kingdom",
+      "phone": "+44-20-1234-5678",
+      "totalBuys": 3100
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user1_wgcdiv.png",
+      "firstName": "Emily",
+      "lastName": "Baker",
+      "city": "Manchester",
+      "country": "United Kingdom",
+      "phone": "+44-20-9876-5432",
+      "totalBuys": 4100
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user2_xmli04.png",
+      "firstName": "Magnus",
+      "lastName": "Bakken",
+      "city": "Berlin",
+      "country": "Norway",
+      "phone": "+49-345-6789",
+      "totalBuys": 1950
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330268/spireflow/user3_odzqfk.png",
+      "firstName": "Sofie",
+      "lastName": "Eriksen",
+      "city": "Frankfurt",
+      "country": "Norway",
+      "phone": "+49-678-9012",
+      "totalBuys": 2400
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330269/spireflow/user4_e91vts.png",
+      "firstName": "Grace",
+      "lastName": "Robinson",
+      "city": "Oxford",
+      "country": "United Kingdom",
+      "phone": "+44-20-4567-8901",
+      "totalBuys": 2900
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330270/spireflow/user5_htcbsc.png",
+      "firstName": "Thomas",
+      "lastName": "Clark",
+      "city": "Liverpool",
+      "country": "United Kingdom",
+      "phone": "+44-20-7890-1234",
+      "totalBuys": 3600
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user1_wgcdiv.png",
+      "firstName": "Jonas",
+      "lastName": "Johansen",
+      "city": "Berlin",
+      "country": "Norway",
+      "phone": "+49-123-4567",
+      "totalBuys": 1500
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user2_xmli04.png",
+      "firstName": "Emilie",
+      "lastName": "Halvorsen",
+      "city": "Hamburg",
+      "country": "Norway",
+      "phone": "+49-987-6543",
+      "totalBuys": 2800
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330268/spireflow/user3_odzqfk.png",
+      "firstName": "Oskar",
+      "lastName": "Nilsen",
+      "city": "Munich",
+      "country": "Norway",
+      "phone": "+49-567-8901",
+      "totalBuys": 2150
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330269/spireflow/user4_e91vts.png",
+      "firstName": "Thea",
+      "lastName": "Lund",
+      "city": "Cologne",
+      "country": "Norway",
+      "phone": "+49-234-5678",
+      "totalBuys": 1800
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330270/spireflow/user5_htcbsc.png",
+      "firstName": "William",
+      "lastName": "Harris",
+      "city": "London",
+      "country": "United Kingdom",
+      "phone": "+44-20-1234-5678",
+      "totalBuys": 3100
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user1_wgcdiv.png",
+      "firstName": "Emily",
+      "lastName": "Baker",
+      "city": "Manchester",
+      "country": "United Kingdom",
+      "phone": "+44-20-9876-5432",
+      "totalBuys": 4100
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330266/spireflow/user2_xmli04.png",
+      "firstName": "Magnus",
+      "lastName": "Bakken",
+      "city": "Berlin",
+      "country": "Norway",
+      "phone": "+49-345-6789",
+      "totalBuys": 1950
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330268/spireflow/user3_odzqfk.png",
+      "firstName": "Sofie",
+      "lastName": "Eriksen",
+      "city": "Frankfurt",
+      "country": "Norway",
+      "phone": "+49-678-9012",
+      "totalBuys": 2400
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330269/spireflow/user4_e91vts.png",
+      "firstName": "Grace",
+      "lastName": "Robinson",
+      "city": "Oxford",
+      "country": "United Kingdom",
+      "phone": "+44-20-4567-8901",
+      "totalBuys": 2900
+    },
+    {
+      "photo": "https://res.cloudinary.com/dvor7ybke/image/upload/v1702330270/spireflow/user5_htcbsc.png",
+      "firstName": "Thomas",
+      "lastName": "Clark",
+      "city": "Liverpool",
+      "country": "United Kingdom",
+      "phone": "+44-20-7890-1234",
+      "totalBuys": 3600
+    }
+  ],
+  "homepage": {
+    "bestSellingProducts": [
+      {
+        "name": "iPad Z50",
+        "profit": 1800,
+        "revenue": 3600
+      },
+      {
+        "name": "Apple TV 4K",
+        "profit": 3000,
+        "revenue": 2000
+      },
+      {
+        "name": "Dell XLS 30",
+        "profit": 1143,
+        "revenue": 2500
+      }
+    ],
+    "customerSatisfaction": [
+      {
+        "brandName": "iPhone 80A",
+        "customerSatisfaction": 92.3,
+        "totalSales": 50437,
+        "numberOfOrders": 17417
+      },
+      {
+        "brandName": "Samsung Galaxy Z99",
+        "customerSatisfaction": 85.8,
+        "totalSales": 16554,
+        "numberOfOrders": 10589
+      },
+      {
+        "brandName": "Google Pixel X20",
+        "customerSatisfaction": 71.5,
+        "totalSales": 33665,
+        "numberOfOrders": 8633
+      },
+      {
+        "brandName": "OnePlus 30T",
+        "customerSatisfaction": 97.4,
+        "totalSales": 55022,
+        "numberOfOrders": 2110
+      },
+      {
+        "brandName": "Xiaomi Mi 20X",
+        "customerSatisfaction": 82.3,
+        "totalSales": 14974,
+        "numberOfOrders": 3705
+      },
+      {
+        "brandName": "iPad Z50",
+        "customerSatisfaction": 93.9,
+        "totalSales": 40746,
+        "numberOfOrders": 1379
+      },
+      {
+        "brandName": "Samsung Galaxy Note S20",
+        "customerSatisfaction": 77.7,
+        "totalSales": 55675,
+        "numberOfOrders": 5754
+      },
+      {
+        "brandName": "Microsoft Surface X7",
+        "customerSatisfaction": 71.8,
+        "totalSales": 5744,
+        "numberOfOrders": 9842
+      },
+      {
+        "brandName": "Amazon Fire HDX 20",
+        "customerSatisfaction": 81.1,
+        "totalSales": 42032,
+        "numberOfOrders": 5529
+      },
+      {
+        "brandName": "Lenovo Tab Z10",
+        "customerSatisfaction": 71,
+        "totalSales": 14680,
+        "numberOfOrders": 8279
+      },
+      {
+        "brandName": "MacBook Air X",
+        "customerSatisfaction": 89.4,
+        "totalSales": 45191,
+        "numberOfOrders": 1641
+      },
+      {
+        "brandName": "Dell XLS 30",
+        "customerSatisfaction": 84.1,
+        "totalSales": 40551,
+        "numberOfOrders": 1260
+      },
+      {
+        "brandName": "HP Phantom x500",
+        "customerSatisfaction": 80.5,
+        "totalSales": 47924,
+        "numberOfOrders": 5759
+      },
+      {
+        "brandName": "Lenovo ThinkPad Z1 Ultra",
+        "customerSatisfaction": 81.5,
+        "totalSales": 49088,
+        "numberOfOrders": 1712
+      },
+      {
+        "brandName": "ASUS ZenBook Pro 30",
+        "customerSatisfaction": 70.5,
+        "totalSales": 12582,
+        "numberOfOrders": 3788
+      },
+      {
+        "brandName": "Samsung Pro L40",
+        "customerSatisfaction": 73.4,
+        "totalSales": 26290,
+        "numberOfOrders": 4673
+      },
+      {
+        "brandName": "Motorola V8",
+        "customerSatisfaction": 91.1,
+        "totalSales": 21345,
+        "numberOfOrders": 1047
+      }
+    ],
+    "homeSmallCards": [
+      {
+        "title": "Sales",
+        "metric": "$12,699",
+        "metricPrev": "$ 9,456",
+        "delta": "34.3%",
+        "deltaType": "moderateIncrease",
+        "color": "purple",
+        "increased": true,
+        "changeValue": 12.5,
+        "changeText": "Last 3 weeks",
+        "chartData": [
+          {
+            "date": "08.10.23",
+            "metric": 445
+          },
+          {
+            "date": "11.10.23",
+            "metric": 743
+          },
+          {
+            "date": "14.10.23",
+            "metric": 488
+          },
+          {
+            "date": "17.10.23",
+            "metric": 788
+          },
+          {
+            "date": "20.10.23",
+            "metric": 1488
+          },
+          {
+            "date": "23.10.23",
+            "metric": 2088
+          },
+          {
+            "date": "26.10.23",
+            "metric": 1188
+          },
+          {
+            "date": "29.10.23",
+            "metric": 420
+          },
+          {
+            "date": "01.11.23",
+            "metric": 650
+          }
+        ]
+      },
+      {
+        "title": "Profit",
+        "metric": "$40,598",
+        "metricPrev": "$ 45,564",
+        "delta": "10.9%",
+        "deltaType": "moderateDecrease",
+        "color": "cyan",
+        "increased": true,
+        "changeValue": 36.5,
+        "changeText": "Last month",
+        "chartData": [
+          {
+            "date": "02.10.23",
+            "metric": 2850
+          },
+          {
+            "date": "06.10.23",
+            "metric": 4150
+          },
+          {
+            "date": "10.10.23",
+            "metric": 2350
+          },
+          {
+            "date": "14.10.23",
+            "metric": 1950
+          },
+          {
+            "date": "18.10.23",
+            "metric": 3150
+          },
+          {
+            "date": "22.10.23",
+            "metric": 2550
+          },
+          {
+            "date": "26.10.23",
+            "metric": 4350
+          },
+          {
+            "date": "30.10.23",
+            "metric": 3450
+          },
+          {
+            "date": "01.11.23",
+            "metric": 4850
+          }
+        ]
+      },
+      {
+        "title": "Traffic",
+        "metric": "12072",
+        "metricPrev": "856",
+        "delta": "25.3%",
+        "deltaType": "moderateIncrease",
+        "color": "purple",
+        "increased": false,
+        "changeValue": 5.4,
+        "changeText": "Yesterday",
+        "chartData": [
+          {
+            "date": "26.10.23 00:00",
+            "metric": 3100
+          },
+          {
+            "date": "26.10.23 03:00",
+            "metric": 3900
+          },
+          {
+            "date": "26.10.23 06:00",
+            "metric": 2700
+          },
+          {
+            "date": "26.10.23 09:00",
+            "metric": 4300
+          },
+          {
+            "date": "26.10.23 12:00",
+            "metric": 4500
+          },
+          {
+            "date": "26.10.23 15:00",
+            "metric": 1800
+          },
+          {
+            "date": "26.10.23 18:00",
+            "metric": 2600
+          },
+          {
+            "date": "26.10.23 21:00",
+            "metric": 3200
+          },
+          {
+            "date": "26.10.23 23:59",
+            "metric": 2300
+          }
+        ]
+      },
+      {
+        "title": "Customers",
+        "metric": "1042",
+        "metricPrev": "856",
+        "delta": "25.3%",
+        "deltaType": "moderateIncrease",
+        "color": "cyan",
+        "increased": true,
+        "changeValue": 22.7,
+        "changeText": "Last week",
+        "chartData": [
+          {
+            "date": "02.10.23",
+            "metric": 1050
+          },
+          {
+            "date": "06.10.23",
+            "metric": 1780
+          },
+          {
+            "date": "10.10.23",
+            "metric": 890
+          },
+          {
+            "date": "14.10.23",
+            "metric": 1520
+          },
+          {
+            "date": "18.10.23",
+            "metric": 980
+          },
+          {
+            "date": "22.10.23",
+            "metric": 1210
+          },
+          {
+            "date": "26.10.23",
+            "metric": 440
+          },
+          {
+            "date": "30.10.23",
+            "metric": 730
+          },
+          {
+            "date": "01.11.23",
+            "metric": 1390
+          }
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "name": "North America",
+        "region": "us",
+        "sales": 875000,
+        "delta": "5.7%",
+        "deltaType": "increase"
+      },
+      {
+        "name": "Europe",
+        "region": "europe",
+        "sales": 560000,
+        "delta": "2.8%",
+        "deltaType": "moderateDecrease"
+      }
+    ],
+    "revenueOverTime": [
+      {
+        "date": "Apr 23",
+        "websiteSales": 2200,
+        "inStoreSales": 3700
+      },
+      {
+        "date": "May 23",
+        "websiteSales": 5400,
+        "inStoreSales": 2000
+      },
+      {
+        "date": "Jun 23",
+        "websiteSales": 2000,
+        "inStoreSales": 4600
+      },
+      {
+        "date": "Jul 23",
+        "websiteSales": 7200,
+        "inStoreSales": 4900
+      },
+      {
+        "date": "Aug 23",
+        "websiteSales": 5500,
+        "inStoreSales": 2100
+      },
+      {
+        "date": "Sep 23",
+        "websiteSales": 6900,
+        "inStoreSales": 5300
+      }
+    ],
+    "revenuePerCountry": [
+      {
+        "name": "United States of America",
+        "price": 9155
+      },
+      {
+        "name": "France",
+        "price": 8140
+      },
+      {
+        "name": "United Kingdom",
+        "price": 7134
+      },
+      {
+        "name": "Norway",
+        "price": 2122
+      },
+      {
+        "name": "Australia",
+        "price": 2411
+      },
+      {
+        "name": "Poland",
+        "price": 1640
+      },
+      {
+        "name": "India",
+        "price": 2620
+      },
+      {
+        "name": "Kazakhstan",
+        "price": 3120
+      },
+      {
+        "name": "Brazil",
+        "price": 4120
+      },
+      {
+        "name": "Namibia",
+        "price": 5162
+      }
+    ]
+  },
+  "orders": [
+    {
+      "orderId": 75676,
+      "productName": "iPhone XR",
+      "user": "John Doe",
+      "price": 799,
+      "deliveryType": "Two-day shipping",
+      "date": "2023-08-15",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 82583,
+      "productName": "Macbook Pro",
+      "user": "Jane Doe",
+      "price": 1299,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-14",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 38294,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-13",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 12957,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-12",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 87461,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-11",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 49375,
+      "productName": "AirPods Pro",
+      "user": "Sarah Johnson",
+      "price": 249,
+      "deliveryType": "Two-day shipping",
+      "date": "2023-08-10",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 63124,
+      "productName": "iMac Pro",
+      "user": "Michael Brown",
+      "price": 1999,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-09",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 25798,
+      "productName": "Apple TV 4K",
+      "user": "Emily Davis",
+      "price": 199,
+      "deliveryType": "Two-day shipping",
+      "date": "2023-08-08",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 90834,
+      "productName": "Mac Mini",
+      "user": "Alex Smith",
+      "price": 699,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-07",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 73648,
+      "productName": "Macbook Pro",
+      "user": "Jane Doe",
+      "price": 1299,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-06",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 88321,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 48217,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 74908,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 69047,
+      "productName": "AirPods Pro",
+      "user": "Sarah Johnson",
+      "price": 249,
+      "deliveryType": "Two-day shipping",
+      "date": "2023-08-02",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 50432,
+      "productName": "iMac Pro",
+      "user": "Michael Brown",
+      "price": 1999,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-01",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 14826,
+      "productName": "Apple TV 4K",
+      "user": "Emily Davis",
+      "price": 199,
+      "deliveryType": "Two-day shipping",
+      "date": "2023-07-31",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 52221,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 16217,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 92908,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 12321,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 46637,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 92655,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 79321,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 46268,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 21908,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 42821,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 11217,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 91908,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 97321,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 46227,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 51708,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 27321,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 98217,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 48908,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    },
+    {
+      "orderId": 57321,
+      "productName": "Beats Solo Pro",
+      "user": "Alex Smith",
+      "price": 299,
+      "deliveryType": "Free shipping",
+      "date": "2023-08-05",
+      "status": "Shipped"
+    },
+    {
+      "orderId": 46217,
+      "productName": "iPad Pro",
+      "user": "Emily Davis",
+      "price": 3799,
+      "deliveryType": "Express shipping",
+      "date": "2023-08-04",
+      "status": "Delivered"
+    },
+    {
+      "orderId": 52808,
+      "productName": "Apple Watch 6",
+      "user": "Daniel Lee",
+      "price": 399,
+      "deliveryType": "Standard shipping",
+      "date": "2023-08-03",
+      "status": "In Transit"
+    }
+  ],
+  "products": [
+    {
+      "productId": "NCUB439034G2J",
+      "name": "iPhone 80A",
+      "price": 2400,
+      "type": "Phone",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448320/phone_hfscvi.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "6.1 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "A15 Bionic chip"
+        },
+        {
+          "title": "Memory",
+          "value": "6 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "128 GB / 256 GB / 512 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 19 hours talk time"
+        },
+        {
+          "title": "Operating System",
+          "value": "iOS 15"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "Dual 12MP camera system"
+        },
+        {
+          "title": "Port Types",
+          "value": "Lightning connector"
+        },
+        {
+          "title": "Graphics",
+          "value": "Apple GPU (4-core graphics)"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2532x1170 pixels at 460 ppi"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "146.7x71.5x7.65, 174 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Blue, Moonlight, Pink"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 360,
+          "secondValue": 438
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 30,
+          "secondValue": 46
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 128,
+          "secondValue": 146
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 236,
+          "secondValue": 881
+        }
+      ]
+    },
+    {
+      "productId": "KDLB520045H3K",
+      "name": "Samsung Galaxy Z99",
+      "price": 3400,
+      "type": "Phone",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448320/phone_hfscvi.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "6.2 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Exynos 2100"
+        },
+        {
+          "title": "Memory",
+          "value": "8 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "128 GB / 256 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 22 hours talk time"
+        },
+        {
+          "title": "Operating System",
+          "value": "Android 11"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "Triple 12MP + 64MP + 12MP"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C"
+        },
+        {
+          "title": "Graphics",
+          "value": "Mali-G78 MP14"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2400x1080 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "151.7x71.2x7.9, 169 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Black, Silver"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 328,
+          "secondValue": 439
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 10,
+          "secondValue": 34
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 109,
+          "secondValue": 126
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 217,
+          "secondValue": 890
+        }
+      ]
+    },
+    {
+      "productId": "MVEQ631056R4L",
+      "name": "Google Pixel X20",
+      "price": 1400,
+      "type": "Phone",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448320/phone_hfscvi.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "6 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Qualcomm Snapdragon 765G"
+        },
+        {
+          "title": "Memory",
+          "value": "8 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 18 hours talk time"
+        },
+        {
+          "title": "Operating System",
+          "value": "Android 12"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "12.2 MP dual-pixel"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C"
+        },
+        {
+          "title": "Graphics",
+          "value": "Adreno 620"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2340x1080 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "144.7x70.4x8.0, 151 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Black, Purple"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 358,
+          "secondValue": 433
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 27,
+          "secondValue": 63
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 116,
+          "secondValue": 138
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 241,
+          "secondValue": 883
+        }
+      ]
+    },
+    {
+      "productId": "OPFW742067S5M",
+      "name": "OnePlus 30T",
+      "price": 2500,
+      "type": "Phone",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448320/phone_hfscvi.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "6.55 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Qualcomm Snapdragon 865"
+        },
+        {
+          "title": "Memory",
+          "value": "12 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "256 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 23 hours talk time"
+        },
+        {
+          "title": "Operating System",
+          "value": "OxygenOS based on Android 11"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "48MP Triple Camera"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C"
+        },
+        {
+          "title": "Graphics",
+          "value": "Adreno 650"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2400x1080 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "160.7x74.1x8.4, 188 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Green, Silver"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 330,
+          "secondValue": 447
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 15,
+          "secondValue": 28
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 102,
+          "secondValue": 148
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 245,
+          "secondValue": 852
+        }
+      ]
+    },
+    {
+      "productId": "PQGX853078T6N",
+      "name": "Xiaomi Mi 20X",
+      "price": 1600,
+      "type": "Phone",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448320/phone_hfscvi.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "6.67 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Qualcomm Snapdragon 870"
+        },
+        {
+          "title": "Memory",
+          "value": "6 GB / 8 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "128 GB / 256 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 20 hours talk time"
+        },
+        {
+          "title": "Operating System",
+          "value": "MIUI 12 based on Android 11"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "48MP AI Triple Camera"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C"
+        },
+        {
+          "title": "Graphics",
+          "value": "Adreno 650"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2400x1080 FHD+"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "163.7x76.4x7.8, 196 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Black, White"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 342,
+          "secondValue": 459
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 32,
+          "secondValue": 28
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 139,
+          "secondValue": 125
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 230,
+          "secondValue": 862
+        }
+      ]
+    },
+    {
+      "productId": "QRHY964089U7O",
+      "name": "iPad Z50",
+      "price": 2400,
+      "type": "Tablet",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1716321179/tablet_navnx9.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "10.9 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "A14 Bionic chip"
+        },
+        {
+          "title": "Memory",
+          "value": "4 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "64 GB / 256 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 10 hours video playback"
+        },
+        {
+          "title": "Operating System",
+          "value": "iPadOS 14"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "12MP Wide camera"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB-C"
+        },
+        {
+          "title": "Graphics",
+          "value": "Apple GPU"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2360x1640 pixels at 264 ppi"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "247x178x6.1, 458 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Silver, Grey"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 342,
+          "secondValue": 434
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 42,
+          "secondValue": 52
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 139,
+          "secondValue": 133
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 239,
+          "secondValue": 856
+        }
+      ]
+    },
+    {
+      "productId": "RSIZ075190V8P",
+      "name": "Samsung Galaxy Note S20",
+      "price": 2400,
+      "type": "Tablet",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1716321179/tablet_navnx9.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "12.4 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Qualcomm Snapdragon 865+"
+        },
+        {
+          "title": "Memory",
+          "value": "8 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "128 GB / 256 GB / 512 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 14 hours video playback"
+        },
+        {
+          "title": "Operating System",
+          "value": "Android 10"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "13MP front-facing"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C"
+        },
+        {
+          "title": "Graphics",
+          "value": "Adreno 650"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2800x1752 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "285x185x5.7, 575 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Black, White"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 349,
+          "secondValue": 453
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 33,
+          "secondValue": 41
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 131,
+          "secondValue": 127
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 249,
+          "secondValue": 889
+        }
+      ]
+    },
+    {
+      "productId": "STJA186201W9Q",
+      "name": "Microsoft Surface X7",
+      "price": 2400,
+      "type": "Tablet",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1716321179/tablet_navnx9.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "13 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Microsoft SQ1"
+        },
+        {
+          "title": "Memory",
+          "value": "16 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "256 GB SSD"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 15 hours video playback"
+        },
+        {
+          "title": "Operating System",
+          "value": "Windows 10 Home"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "10MP rear-facing, 5MP front-facing"
+        },
+        {
+          "title": "Port Types",
+          "value": "2xUSB-C, 1xSurface Connect port"
+        },
+        {
+          "title": "Graphics",
+          "value": "Microsoft SQ1 Adreno 685 GPU"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2880x1920 (267 PPI)"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "287x208x7.3, 774 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "White"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 344,
+          "secondValue": 464
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 41,
+          "secondValue": 44
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 114,
+          "secondValue": 134
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 216,
+          "secondValue": 861
+        }
+      ]
+    },
+    {
+      "productId": "TUKB297312X0A",
+      "name": "Amazon Fire HDX 20",
+      "price": 2400,
+      "type": "Tablet",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1716321179/tablet_navnx9.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "8.9 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Quad-core Snapdragon 800"
+        },
+        {
+          "title": "Memory",
+          "value": "2 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "32 GB / 64 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 12 hours video playback"
+        },
+        {
+          "title": "Operating System",
+          "value": "Fire OS 5"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "8 MP rear-facing camera"
+        },
+        {
+          "title": "Port Types",
+          "value": "Micro USB 2.0"
+        },
+        {
+          "title": "Graphics",
+          "value": "Adreno 330"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2560x1600 (339 ppi)"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "231x158x7.8, 374 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Black"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 351,
+          "secondValue": 458
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 35,
+          "secondValue": 54
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 131,
+          "secondValue": 111
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 220,
+          "secondValue": 864
+        }
+      ]
+    },
+    {
+      "productId": "UVLC308423Y1B",
+      "name": "Lenovo Tab Z10",
+      "price": 2400,
+      "type": "Tablet",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1716321179/tablet_navnx9.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "10.3 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "MediaTek Helio P22T"
+        },
+        {
+          "title": "Memory",
+          "value": "4 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "64 GB"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 9 hours video playback"
+        },
+        {
+          "title": "Operating System",
+          "value": "Android 9 Pie"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "8 MP rear-facing, 5 MP front-facing"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C 2.0"
+        },
+        {
+          "title": "Graphics",
+          "value": "IMG PowerVR GE8320 GPU"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "1920x1200"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "244x153x8, 460 grams"
+        },
+        {
+          "title": "Color Options",
+          "value": "Grey"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 321,
+          "secondValue": 440
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 38,
+          "secondValue": 51
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 116,
+          "secondValue": 141
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 223,
+          "secondValue": 858
+        }
+      ]
+    },
+    {
+      "productId": "VWMD419534Z2C",
+      "name": "MacBook Air X",
+      "price": 2400,
+      "type": "Laptop",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448319/laptop_s8p3uy.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "13.3 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Apple M1 chip"
+        },
+        {
+          "title": "Memory",
+          "value": "8 GB"
+        },
+        {
+          "title": "Storage",
+          "value": "256 GB / 512 GB SSD"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 18 hours of mixed usage"
+        },
+        {
+          "title": "Operating System",
+          "value": "macOS"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "640×480 (0.3 MP)"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C 2.0, 3.0, HDMI"
+        },
+        {
+          "title": "Graphics",
+          "value": "Integrated 7-core GPU"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "2560x1600 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "304.1x212.4x16.1, 1.29 kg"
+        },
+        {
+          "title": "Color Options",
+          "value": "Silver, Grey"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 321,
+          "secondValue": 446
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 8,
+          "secondValue": 41
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 112,
+          "secondValue": 113
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 211,
+          "secondValue": 879
+        }
+      ]
+    },
+    {
+      "productId": "WXNE520645A3D",
+      "name": "Dell XLS 30",
+      "price": 2400,
+      "type": "Laptop",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448319/laptop_s8p3uy.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "15.6 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Intel Core i7-10750H"
+        },
+        {
+          "title": "Memory",
+          "value": "16 GB DDR4"
+        },
+        {
+          "title": "Storage",
+          "value": "512 GB SSD"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 10 hours of mixed usage"
+        },
+        {
+          "title": "Operating System",
+          "value": "Windows 10 Pro"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "640×480 (0.3 MP)"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C 2.0, 3.0, HDMI"
+        },
+        {
+          "title": "Graphics",
+          "value": "NVIDIA GeForce GTX 1650 Ti"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "1920x1080 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "357.1x235.8x18, 1.83 kg"
+        },
+        {
+          "title": "Color Options",
+          "value": "Black"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 353,
+          "secondValue": 449
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 12,
+          "secondValue": 41
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 108,
+          "secondValue": 140
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 247,
+          "secondValue": 884
+        }
+      ]
+    },
+    {
+      "productId": "XYOF631756B4E",
+      "name": "HP Phantom x500",
+      "price": 2400,
+      "type": "Laptop",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448319/laptop_s8p3uy.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "15.6 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "AMD Ryzen 7 4800H"
+        },
+        {
+          "title": "Memory",
+          "value": "16 GB DDR4"
+        },
+        {
+          "title": "Storage",
+          "value": "1 TB SSD"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 12 hours of mixed usage"
+        },
+        {
+          "title": "Operating System",
+          "value": "Windows 10 Home"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "640×480 (0.3 MP)"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C 2.0, 3.0, HDMI"
+        },
+        {
+          "title": "Graphics",
+          "value": "NVIDIA GeForce RTX 2060"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "1920x1080 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "360x262x24, 2.45 kg"
+        },
+        {
+          "title": "Color Options",
+          "value": "Green, Black"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 333,
+          "secondValue": 444
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 15,
+          "secondValue": 56
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 117,
+          "secondValue": 144
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 241,
+          "secondValue": 864
+        }
+      ]
+    },
+    {
+      "productId": "YZPG742867C5F",
+      "name": "Lenovo ThinkPad Z1 Ultra",
+      "price": 2400,
+      "type": "Laptop",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448319/laptop_s8p3uy.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "14 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Intel Core i5-10210U"
+        },
+        {
+          "title": "Memory",
+          "value": "8 GB DDR4"
+        },
+        {
+          "title": "Storage",
+          "value": "256 GB SSD"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 14.1 hours of mixed usage"
+        },
+        {
+          "title": "Operating System",
+          "value": "Windows 10 Pro"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "640×480 (0.3 MP)"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C 2.0, 3.0, HDMI"
+        },
+        {
+          "title": "Graphics",
+          "value": "Integrated Intel UHD Graphics"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "1920x1080 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "329x227x17.9, 1.46 kg"
+        },
+        {
+          "title": "Color Options",
+          "value": "Yellow, Black"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 347,
+          "secondValue": 434
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 26,
+          "secondValue": 64
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 134,
+          "secondValue": 126
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 219,
+          "secondValue": 863
+        }
+      ]
+    },
+    {
+      "productId": "ZAHQ853978D6G",
+      "name": "ASUS ZenBook Pro 30",
+      "price": 2400,
+      "type": "Laptop",
+      "image": "https://res.cloudinary.com/dvor7ybke/image/upload/v1710448319/laptop_s8p3uy.png",
+      "parameters": [
+        {
+          "title": "Screen Size",
+          "value": "15.6 inches"
+        },
+        {
+          "title": "Processor",
+          "value": "Intel Core i7-9750H"
+        },
+        {
+          "title": "Memory",
+          "value": "16 GB DDR4"
+        },
+        {
+          "title": "Storage",
+          "value": "1 TB SSD"
+        },
+        {
+          "title": "Battery Life",
+          "value": "Up to 9 hours of mixed usage"
+        },
+        {
+          "title": "Operating System",
+          "value": "Windows 10 Pro"
+        },
+        {
+          "title": "Camera Resolution",
+          "value": "640×480 (0.3 MP)"
+        },
+        {
+          "title": "Port Types",
+          "value": "USB Type-C 2.0, 3.0, HDMI"
+        },
+        {
+          "title": "Graphics",
+          "value": "NVIDIA GeForce RTX 2060"
+        },
+        {
+          "title": "Display Resolution",
+          "value": "3840x2160 pixels"
+        },
+        {
+          "title": "Dimensions & weight",
+          "value": "354x220x18.9, 1.8 kg"
+        },
+        {
+          "title": "Color Options",
+          "value": "Blue"
+        }
+      ],
+      "metrics": [
+        {
+          "title": "Inventory Status",
+          "firstValue": 342,
+          "secondValue": 466
+        },
+        {
+          "title": "Monthly Target",
+          "firstValue": 12,
+          "secondValue": 40
+        },
+        {
+          "title": "Order Fullfillment",
+          "firstValue": 130,
+          "secondValue": 133
+        },
+        {
+          "title": "Conversion Rate",
+          "firstValue": 218,
+          "secondValue": 863
+        }
+      ]
+    }
+  ]
+}
