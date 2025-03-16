@@ -106,7 +106,7 @@ export const BestSellingProducts: React.FC<BestSellingProductsProps> = ({
   );
 
   return (
-    <Card className="h-full">
+    <Card className="h-full" id="bestsellingProducts">
       <BlockTitle title={t("title")} />
       <div className="h-[350px] relative">
         <ResponsiveContainer width="100%" height="100%">

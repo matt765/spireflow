@@ -27,7 +27,10 @@ export const CustomerSatisfaction = ({
   const numberOfOrdersScaleFactor = 1.1;
 
   return (
-    <Card className="max-w-full h-full max-h-full flex flex-col ">
+    <Card
+      className="max-w-full h-full max-h-full flex flex-col"
+      id="customerSatisfaction"
+    >
       <BlockTitle title={t("title")} />
       <ScatterChart
         className="h-72 md:h-full mt-8"

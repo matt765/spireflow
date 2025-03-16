@@ -66,7 +66,7 @@ export const Regions = ({ regionsData }: RegionsProps) => {
   const translatedData = useTranslateData(processedData, translations);
 
   return (
-    <Card className="regionsCard">
+    <Card className="regionsCard" id="regions">
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
         <BlockTitle title={t("title")} />
       </Flex>

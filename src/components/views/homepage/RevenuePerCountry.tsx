@@ -65,10 +65,13 @@ export const RevenuePerCountry = ({
     theme as "charcoal" | "dark" | "obsidian" | "light"
   );
 
-  const HIGHLIGHT_COLOR = chartColors.primary.fill
+  const HIGHLIGHT_COLOR = chartColors.primary.fill;
 
   return (
-    <Card className="h-full relative overflow-hidden flex flex-col">
+    <Card
+      className="h-full relative overflow-hidden flex flex-col"
+      id="revenuePerCountry"
+    >
       <BlockTitle title={t("title")} />
       <div className="flex justify-between -ml-8 2xl:-ml-48 gap-16  mt-10 pr-12 -mb-4 ">
         <Suspense

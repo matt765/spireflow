@@ -1,21 +1,23 @@
-import { ProgressCircle } from "@tremor/react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
-
 import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 import { ProgressCirclesProps } from "./types";
 
+// Dynamically import ProgressCircle with SSR disabled
+const ProgressCircle = dynamic(
+  () => import("@tremor/react").then((mod) => mod.ProgressCircle),
+  { ssr: false }
+);
+
 export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
   const t = useTranslations("products.metrics");
-
   const titles = [
     t("inventoryStatus"),
     t("monthlyTarget"),
     t("orderFullfillment"),
     t("conversionRate"),
   ];
-
   const { width: windowWidth } = useWindowDimensions();
-
   const getCircleSize = () => {
     if (windowWidth < 490) {
       return "md";

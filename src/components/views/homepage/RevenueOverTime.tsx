@@ -124,7 +124,7 @@ export const RevenueOverTime: React.FC<RevenueOverTimeProps> = ({
   );
 
   return (
-    <Card className="h-full">
+    <Card className="h-full" id="revenueOverTime">
       <div className="p-1">
         <BlockTitle title={t("title")} />
       </div>

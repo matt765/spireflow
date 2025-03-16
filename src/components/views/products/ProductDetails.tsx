@@ -20,12 +20,10 @@ import { ProductParameter } from "./ProductParameter";
 import { ProductPDF } from "./ProductPDF";
 import { ProductDetailsProps } from "./types";
 
-const PDFDownloadLink = dynamic(
-  () => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
-  {
-    ssr: false,
-    loading: () => <p>Loading...</p>,
-  }
+const DynamicPDFDownloadLink = dynamic(
+  () =>
+    import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
+  { ssr: false }
 );
 
 export const ProductDetails = ({
@@ -205,7 +203,7 @@ export const ProductDetails = ({
           )}
         </div>
         <div className="hidden sm:flex w-[15rem] h-12  items-center justify-end">
-          <PDFDownloadLink
+          <DynamicPDFDownloadLink
             document={<ProductPDF product={activeProduct} />}
             fileName={`${activeProduct.name}.pdf`}
           >
@@ -219,7 +217,7 @@ export const ProductDetails = ({
                 />
               )
             }
-          </PDFDownloadLink>
+          </DynamicPDFDownloadLink>
         </div>
       </div>
       <div className="flex lg:hidden w-[100%] text-sm sm:text-md xsm:w-[90%] h-12 mx-auto mt-8 xsm:mt-14 items-center justify-center gap-4">
@@ -230,7 +228,7 @@ export const ProductDetails = ({
           />
         </div>
         <div className="flex sm:hidden  w-1/2">
-          <PDFDownloadLink
+          <DynamicPDFDownloadLink
             document={<ProductPDF product={activeProduct} />}
             fileName={`${activeProduct.name}.pdf`}
             style={{ width: "100%" }}
@@ -245,7 +243,7 @@ export const ProductDetails = ({
                 />
               )
             }
-          </PDFDownloadLink>
+          </DynamicPDFDownloadLink>
         </div>
       </div>
     </div>

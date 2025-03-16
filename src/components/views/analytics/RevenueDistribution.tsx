@@ -92,7 +92,7 @@ export const RevenueDistribution: React.FC<RevenueDistributionProps> = ({
   }));
 
   return (
-    <Card className="h-full">
+    <Card className="h-full" id="revenueDistribution">
       <BlockTitle title={t("title")} />
       <div className="w-full h-[20rem] mt-8 -ml-4">
         <ResponsiveContainer width="100%" height="100%">

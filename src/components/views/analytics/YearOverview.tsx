@@ -142,7 +142,7 @@ export const YearOverview: React.FC<YearOverviewProps> = ({
   );
 
   return (
-    <Card className="h-full">
+    <Card className="h-full" id="yearOverview">
       <BlockTitle title={t("title")} />
       <div className="flex gap-8">
         <div className="w-3/4 h-[24rem]">

@@ -28,7 +28,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
   const translatedData = useTranslateData(todaySalesData, backendTranslations);
 
   return (
-    <Card className="w-full h-full recharts-tooltip-stable todaySalesContainer">
+    <Card className="w-full h-full recharts-tooltip-stable todaySalesContainer" id="todaysSales">
       <Text>{t("title")}</Text>
       <Metric className="mt-1">$ 2276</Metric>
       <TabGroup>

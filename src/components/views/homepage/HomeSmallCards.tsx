@@ -22,6 +22,8 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
 
   const translatedData = useTranslateData(homeSmallCardsData, translations);
 
+  const cardIds = ["salesCard", "profitCard", "trafficCard", "customersCard"];
+
   return (
     <>
       {translatedData.map((item, index) => {
@@ -29,6 +31,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
         return (
           <Card
             key={`${item.title}-${index}`}
+            id={cardIds[index]}
             className="h-46 sm:h-28 lg:h-32  pr-[0.8rem] md:!pr-[0.5rem] lg:!pr-[0.8rem] xl:!pr-[0.1rem] 2xl:!pr-[1.2rem] pl-5 2xl:pl-7"
           >
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">

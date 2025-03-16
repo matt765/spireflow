@@ -31,9 +31,9 @@ const MarketMetricsTooltip: React.FC<MarketMetricsTooltipProps> = ({
   };
 
   if (!active || !payload || !payload.length || !label) return null;
-  
+
   const tooltipTitle = translateMetric(label);
-  
+
   return (
     <BaseTooltip title={tooltipTitle}>
       {payload.map((entry, index) => {
@@ -101,7 +101,7 @@ export const MarketMetrics: React.FC<MarketMetricsProps> = ({
   );
 
   return (
-    <Card className="h-full">
+    <Card className="h-full" id="marketMetrics">
       <BlockTitle title={t("title")} />
       <div className="w-full h-[24rem]">
         <ResponsiveContainer width="100%" height="100%">

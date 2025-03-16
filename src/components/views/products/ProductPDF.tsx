@@ -25,7 +25,8 @@ export const ProductPDF = ({ product }: ProductPDFProps) => (
       <View style={styles.section}>
         <Text>Product ID: {product.productId}</Text>
         <Text>Name: {product.name}</Text>
-        <Text>Price: ${product.price}</Text>F<Text>Type: {product.type}</Text>
+        <Text>Price: ${product.price}</Text>
+        <Text>Type: {product.type}</Text>
         {product.parameters.map((param, index) => (
           <Text key={index}>
             {param.title}: {param.value}

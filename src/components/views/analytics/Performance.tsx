@@ -115,7 +115,7 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
   );
 
   return (
-    <Card className="performanceCard">
+    <Card className="performanceCard" id="performance">
       <div className="mb-0">
         <BlockTitle title={t("title")} />
         <p className="text-sm text-secondaryText">{t("subtitle")}</p>
