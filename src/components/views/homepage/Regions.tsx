@@ -43,7 +43,7 @@ const CustomRegionsLegend: React.FC<{ data: RegionData[] }> = ({ data }) => {
               backgroundColor: getColorForRegion(item.regionKey.toLowerCase()),
             }}
           />
-          <span className="text-sm">{item.name}</span>
+          <span className="text-sm text-primaryText dark:text-primaryTextDark">{item.name}</span>
         </div>
       ))}
     </div>

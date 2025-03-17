@@ -29,7 +29,7 @@ export const getData = async (pageName: string) => {
   // Use this if you don't want to setup NodeJS/GraphQL backend
   // Application will read data from public/backendBackup.json instead of fetching it from backend
   // I created this solution with a thought that if this is open source project, not "real" production application,
-  // perhaps the time will come when the backend will be shut down
+  // perhaps the time will come when I will shut down backend server
   if (switchToBackupData) {
     const backupFilePath = path.join(
       process.cwd(),

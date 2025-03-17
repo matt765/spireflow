@@ -285,11 +285,16 @@ a {
 .recharts-tooltip-stable .recharts-tooltip-wrapper .bg-blue-500 {
   @apply bg-blue-600;
 }
-/* .recharts-tooltip-stable .recharts-wrapper .fill-blue-500 {
-  @apply !fill-blue-600;
-} */
+
 .recharts-scatter-symbol {
   @apply stroke-none;
+}
+
+/* Font color for axis ticks in Recharts charts */
+.recharts-cartesian-axis-tick-value tspan,
+.recharts-polar-angle-axis-tick-value tspan,
+.recharts-cartesian-axis-tick text {
+  @apply fill-secondaryText dark:fill-secondaryTextDark;
 }
 
 /* Disable upper empty part of tooltip on Today Sales section on /analytics page */

@@ -96,7 +96,7 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
               className="w-3 h-3 mr-2 rounded"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm">{entry.value}</span>
+            <span className="text-sm text-primaryText dark:text-primaryTextDark">{entry.value}</span>
           </div>
         )
       )}

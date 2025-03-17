@@ -34,7 +34,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
             <CloseIcon />
           </button>
           <div className="md:max-h-[60vh] w-full -mr-4 overflow-auto pr-4 max-w-full md:max-w-[36rem]">
-            <div className="flex items-center justify-center w-full flex-col gap-2 mt-8 md:-mt-2 px-8 md:px-0">
+            <div className="flex items-center justify-center w-full flex-col gap-2 mt-8 md:-mt-4 px-8 md:px-0">
               <h2 className="text-primaryText dark:text-primaryTextDark text-3xl w-full text-left mt-2">
                 About
               </h2>
@@ -98,6 +98,33 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
               >
                 <OutlinedButton text="Storybook" />
               </Link>
+            </div>
+            <p className="text-left w-full mt-4 text-xl text-primaryText dark:text-primaryTextDark  px-8  md:px-0">
+              Contact author
+            </p>
+            <p className=" text-primaryText dark:text-primaryTextDark text-left mt-2 w-full px-8  md:px-0">
+              You can reach out to me through the contact form on my personal
+              website or via LinkedIn.
+            </p>
+            <div className="flex justify-start items-center gap-2 mt-4 h-12 items-center mb-8 md:mb-0 pl-8 md:pl-0">
+              <div className="flex justify-start md:px-0">
+                <Link
+                  href="https://matt765-portfolio.vercel.app/#contact"
+                  className="text-primaryText dark:text-primaryTextDark mt-1"
+                  target="_blank"
+                >
+                  <OutlinedButton text="Contact form" />
+                </Link>
+              </div>
+              <div className="flex justify-start  md:px-0 ">
+                <Link
+                  href="https://www.linkedin.com/in/mateusz-wyrebek/"
+                  className="text-primaryText dark:text-primaryTextDark mt-1"
+                  target="_blank"
+                >
+                  <OutlinedButton text="LinkedIn" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
