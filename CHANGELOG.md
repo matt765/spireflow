@@ -84,3 +84,10 @@
 - add changelog modal
 - add search input
 - add env example
+
+## 1.0.10 (17-03-2025)
+
+- adjust charts on snowlight theme
+- fix 404 page bug
+- add option to use local data
+- adjust table buttons

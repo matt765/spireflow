@@ -5,7 +5,7 @@ Open source and free e-commerce dashboard template, written in NextJS 14 and Typ
 React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest, Storybook
 
 ## Features
-- 14 data charts (Tremor.so, Recharts)
+- 14 data charts (Recharts, Tremor.so)
 - tables with filtering, sorting, searching, pagination and CSV export (Tanstack-ReactTable v8)
 - authentication (Firebase, Iron Session, React Hook Forms and Yup)
 - calendar that allows for moving, adding and deleting events (Fullcalendar.io)

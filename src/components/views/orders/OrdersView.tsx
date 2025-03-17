@@ -84,17 +84,20 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
         />
       </div>
       <div className="flex justify-between flex-wrap pb-4">
-        <div className="w-[13rem] mt-8 sm:mb-0 flex gap-4 h-11">
+        <div className="w-[14rem] mt-8 sm:mb-0 flex gap-4 h-11">
           <OutlinedButton
             handleClick={resetFilters}
             text={t("button.clearFilters")}
           />
           <div
-            className="h-11 w-16 relative"
+            className="h-11 w-12 relative"
             onMouseEnter={csvTooltip.showTooltip}
             onMouseLeave={csvTooltip.hideTooltip}
           >
-            <OutlinedButton handleClick={handleExportToCSV}>
+            <OutlinedButton
+              handleClick={handleExportToCSV}
+              className="!px-[0.8rem]"
+            >
               <DownloadIcon />
             </OutlinedButton>
             {csvTooltip.isTooltipVisible && (

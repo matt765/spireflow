@@ -11,12 +11,13 @@ import { CustomersCountryDropdown } from "./CustomersCountryDropdown";
 import { CustomersPagination } from "./CustomersPagination";
 import { CustomersSortDropdown } from "./CustomersSortDropdown";
 import { CustomersTable } from "./CustomersTable";
-import { useCustomers, Customer } from "./useCustomers";
+import { useCustomers } from "./useCustomers";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { DownloadIcon } from "../../../assets/icons/DownloadIcon";
 import { Tooltip } from "../../common/Tooltip";
 import { exportToCSV } from "../../../utils/exportToCSV";
+import { Customer } from "./types";
 
 interface CustomersViewProps {
   customers: Customer[];
@@ -128,17 +129,20 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
         <CustomersTable table={table} />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap pb-4">
-        <div className="w-[13rem] mt-8 sm:mb-0 flex gap-4 h-11">
+        <div className="w-[14rem] mt-8 sm:mb-0 flex gap-4 h-11">
           <OutlinedButton
             handleClick={clearFilters}
             text={t("button.clearFilters")}
           />
           <div
-            className="h-11 w-16 relative"
+            className="h-11 w-12 relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <OutlinedButton handleClick={handleExportToCSV}>
+            <OutlinedButton
+              handleClick={handleExportToCSV}
+              className="!px-[0.8rem]"
+            >
               <DownloadIcon />
             </OutlinedButton>
             <div
