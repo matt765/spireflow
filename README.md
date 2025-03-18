@@ -94,6 +94,8 @@ Dual-approach architecture leverages the strengths of both systems:
 - Firebase's robust identity platform handles the complexities of user authentication
 - Iron Session provides a lightweight, secure session layer optimized for Next.js applications
 
+This approach is necessary as Firebase alone cannot maintain server-side session state when used in API routes
+
 ##  How to run
 All commands are run from the root of the project, from a terminal. Please remember, that the application needs working backend to run. 
 
