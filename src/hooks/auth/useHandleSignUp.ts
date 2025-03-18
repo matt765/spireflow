@@ -1,7 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
 import * as Yup from "yup";
-
-import { auth } from "../../services/firebaseClient";
 import { useTranslations } from "next-intl";
 import { SignUpData } from "../../components/auth/SignUpForm";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,21 +11,27 @@ export const useHandleSignUp = () => {
   const [showPasswordError, setShowPasswordError] = useState(false);
   const t = useTranslations("navbar");
 
-  const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const email = form.username.value;
-    const password = form.password.value;
-
+  const handleSignUp = async (data: SignUpData) => {
     try {
-      const userCredential = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      const user = userCredential.user;
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
+        credentials: "include",
+      });
 
-      if (user) {
-        console.log("Successfully signed up:", user);
+      if (!response.ok) {
+        throw new Error("Signup failed");
+      }
+
+      const result = await response.json();
+      if (result.success) {
+        console.log("Successfully signed up");
       }
     } catch (error) {
       console.error("An error occurred:", error);
@@ -79,9 +83,7 @@ export const useHandleSignUp = () => {
       setShowEmailError(false);
       setShowPasswordError(false);
     };
-
     document.addEventListener("mousedown", handleDocumentClick);
-
     return () => {
       document.removeEventListener("mousedown", handleDocumentClick);
     };

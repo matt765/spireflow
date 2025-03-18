@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import * as Yup from "yup";
 
-import { auth } from "../../services/firebaseClient";
 import { LoginData } from "../../components/auth/LoginForm";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -25,48 +24,30 @@ export const useHandleLogin = () => {
 
   const currentPathname = usePathname();
 
-  // This function calls '/api/session' route to initialize session in encrypted cookie
-  const updateSession = async (userData: LoginData) => {
-    const formData = new FormData();
-    formData.append("username", userData.email);
-    formData.append("password", userData.password);
+  const handleLogin = async (data: HandleLoginProps) => {
+    setLoading(true);
+    const { email, password, isDemo } = data;
 
     try {
-      const response = await fetch("/api/session", {
+      const response = await fetch("/api/auth/signin", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          password,
+          isDemo: isDemo || false,
+        }),
         credentials: "include",
       });
 
-      if (!response.ok) throw new Error("Failed to update session");
+      if (!response.ok) {
+        throw new Error("Authentication failed");
+      }
 
-      const sessionData = await response.json();
-      console.log("Session updated:", sessionData);
-    } catch (error) {
-      console.error("Session update error:", error);
-      throw new Error("Session update failed");
-    }
-  };
-
-  const handleLogin = async (data: HandleLoginProps) => {
-    setLoading(true);
-    const { email, password } = data;
-
-    try {
-      const userCredential = await auth.signInWithEmailAndPassword(
-        email,
-        password
-      );
-
-      const user = userCredential.user;
-
-      if (user) {
-        await updateSession({ email, password });
-        currentPathname === "/pl/login" && router.push("/pl");
-        currentPathname === "/login" && router.push("/");
-        if (currentPathname !== "/login" && currentPathname !== "/pl/login") {
-          location.reload();
-        }
+      currentPathname === "/pl/login" && router.push("/pl");
+      currentPathname === "/login" && router.push("/");
+      if (currentPathname !== "/login" && currentPathname !== "/pl/login") {
+        location.reload();
       }
     } catch (error) {
       console.error("Firebase login error:", error);

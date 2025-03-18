@@ -68,6 +68,32 @@ Application is connected to NodeJS backend, which is also open source and availa
 └── package.json
 ```
 
+## Authentication architecture
+
+Spireflow implements a dual-layer authentication approach combining Firebase Authentication with Iron Session for secure, stateful session management.
+
+### Firebase Authentication
+
+Firebase handles identity verification and user management:
+- Provides user database and authentication logic
+- Takes care of user account creation and management
+- Handles password hashing, credential verification
+
+### Iron Session
+
+Iron Session provides secure session management:
+- Encrypted session cookies for maintaining auth state
+- Server-side session verification
+- Route protection via middleware
+
+### API-based Auth Flow
+
+All authentication operations (login, signup, logout) are handled server-side through secure API routes, ensuring Firebase credentials remain protected and never exposed to the client.
+
+Dual-approach architecture leverages the strengths of both systems:
+- Firebase's robust identity platform handles the complexities of user authentication
+- Iron Session provides a lightweight, secure session layer optimized for Next.js applications
+
 ##  How to run
 All commands are run from the root of the project, from a terminal. Please remember, that the application needs working backend to run. 
 

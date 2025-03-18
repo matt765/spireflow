@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import { auth } from "../../services/firebaseClient";
-
 export const useHandleLogout = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -22,11 +20,18 @@ export const useHandleLogout = () => {
   const handleLogout = async () => {
     setLoading(true);
     try {
-      await auth.signOut();
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        throw new Error("Logout failed");
+      }
+
       await destroySession();
     } catch (err) {
       console.error("Logout error:", err);
-
       if (err instanceof Error) {
         setError(`Logout error: ${err.message}`);
       } else {

@@ -100,9 +100,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
         )}
         {/* On mobile I used standard red text for errors instead of tooltips to save space */}
         {!authErrorDisplayed && errors.email && showEmailError && (
-          <p className="text-red-500 -mb-2 md:hidden">
-            {errors.email.message}
-          </p>
+          <p className="text-red-500 -mb-2 md:hidden">{errors.email.message}</p>
         )}
         {!authErrorDisplayed && errors.password && showPasswordError && (
           <p className="text-red-500 -mb-3  md:hidden">
@@ -132,13 +130,13 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
               className="ignore-error-hide"
               handleClick={() => {
                 handleLogin({
-                  email: process.env.NEXT_PUBLIC_SAMPLE_ACCOUNT_EMAIL as string,
-                  password: process.env.NEXT_PUBLIC_SAMPLE_ACCOUNT_PASSWORD as string,
+                  email: "",
+                  password: "",
                   isDemo: true,
                 });
                 setLoading(true);
               }}
-              type="submit"
+              type="button"
             >
               {loading ? (
                 <div className="w-6 h-6 -mt-4 -ml-5">

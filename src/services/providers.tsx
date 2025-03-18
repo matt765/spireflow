@@ -13,7 +13,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
         enableSystem={false}
         attribute="class"
         themes={["charcoal", "light", "dark", "obsidian"]}
-        defaultTheme="charcoal"
+        defaultTheme="obsidian"
         disableTransitionOnChange
       >
         <Layout>{children}</Layout>

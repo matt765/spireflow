@@ -91,3 +91,10 @@
 - fix 404 page bug
 - add option to use local data
 - adjust table buttons
+
+## 1.0.11 (19-03-2025)
+
+- replace loader in changelog modal
+- move authentication logic to api routes
+- adjust env local variables
+- add security headers
