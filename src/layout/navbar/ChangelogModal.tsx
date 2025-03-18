@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect, useRef } from "react";
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
+import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
 
 interface ChangelogModalProps {
   closeModal: () => void;
@@ -115,7 +116,7 @@ export const ChangelogModal = ({ closeModal }: ChangelogModalProps) => {
             <div className="text-primaryText text-base w-full h-full dark:text-primaryTextDark -mt-4 text-left px-8 md:px-0">
               {isLoading ? (
                 <div className="flex justify-center items-center py-10 w-full h-full">
-                  <div className="w-6 h-6 border-2 border-t-mainColor dark:border-t-mainColorDark border-gray-200 dark:border-gray-700 rounded-full animate-spin"></div>
+                  <SpinnerIcon className="contentSpinner" />
                 </div>
               ) : error ? (
                 <div className="text-red-500 text-center py-5">{error}</div>
@@ -123,7 +124,7 @@ export const ChangelogModal = ({ closeModal }: ChangelogModalProps) => {
                 <div
                   dangerouslySetInnerHTML={{
                     __html: formatMarkdown(changelogContent),
-                  }}
+                  }}             
                 />
               )}
             </div>
