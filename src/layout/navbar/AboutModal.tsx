@@ -13,7 +13,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
 
   return (
     // I didn't use common modal component here because this modal needs unique padding values for mobile and tablet
-    <div className="aboutModal">
+    <div className="aboutModal alternativeScrollbar">
       <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0   backdrop-blur-md z-40" />
       <div className="fixed w-screen h-full flex justify-center items-center top-0 left-0 z-50">
         <div

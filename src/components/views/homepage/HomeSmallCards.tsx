@@ -40,7 +40,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
                   <div className="text-[#a3aed0] font-medium text-md sm:text-lg lg:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
                     {item.title}
                   </div>
-                  <div className="text-md sm:text-lg xl:text-xl font-bold text-primaryText dark:text-primaryTextDark flex">
+                  <div className="text-md sm:text-lg xl:text-xl font-semibold text-primaryText dark:text-primaryTextDark flex">
                     {item.metric}
                   </div>
                 </div>

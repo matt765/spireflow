@@ -52,6 +52,8 @@ export const obsidianTheme = {
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
   datepickerHeaderBg: "rgb(41, 43, 48)",
   tooltipBg: "rgb(53, 58, 66)",
+  scrollbarThumb: "rgba(94, 98, 105, 0.7)",
+  scrollbarBg: "#22252a",
 
   tremor: {
     brand: {

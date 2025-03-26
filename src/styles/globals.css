@@ -237,6 +237,7 @@ a {
 .performanceCard .tremor-Legend-root .text-blue-500 {
   @apply fill-[#3c76c1] !important;
 }
+
 /* Main Tremor card component */
 .tremor-Card-root {
   @apply border border-mainBorder dark:!border-mainBorderDark bg-primaryBg dark:bg-primaryBgDark;
@@ -418,15 +419,31 @@ input:-webkit-autofill {
   @apply fill-primaryText dark:fill-primaryTextDark;
 }
 
-/* Custom scrollbar for About modal */
-.aboutModal * {
-  scrollbar-width: thin;
+:root {
+  --scrollbar-thumb: theme("colors.scrollbarThumb");
+  --scrollbar-bg: theme("colors.scrollbarBg");
 }
 
-.aboutModal ::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 168, 231, 0.5);
+.dark {
+  --scrollbar-thumb: theme("colors.scrollbarThumbDark");
+  --scrollbar-bg: theme("colors.scrollbarBgDark");
 }
 
-.aboutModal {
-  scrollbar-color: rgb(94, 98, 105, 0.7) rgb(94, 98, 105, 0.2) !important;
+* {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg) !important;
+  scrollbar-width: thin !important;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.alternativeScrollbar {
+  --scrollbar-bg: theme("colors.primaryBg");
+
+  .dark & {
+    --scrollbar-bg: theme("colors.primaryBgDark");
+  }
 }

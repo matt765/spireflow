@@ -158,29 +158,10 @@ export const SearchInput = () => {
 
   return (
     <>
-      <style jsx>{`
-        .search-dropdown::-webkit-scrollbar {
-          width: 6px;
-          height: 6px;
-          background-color: transparent;
-        }
-
-        .search-dropdown::-webkit-scrollbar-track {
-          background-color: transparent;
-        }
-
-        .search-dropdown::-webkit-scrollbar-thumb {
-          background-color: rgba(156, 163, 175, 0.3);
-          border-radius: 6px;
-        }
-
-        .search-dropdown::-webkit-scrollbar-button {
-          display: none;
-          width: 0;
-          height: 0;
-        }
-      `}</style>
-      <div className="w-[15rem] h-[2.5rem]" ref={dropdownRef}>
+      <div
+        className="w-[15rem] h-[2.5rem] alternativeScrollbar"
+        ref={dropdownRef}
+      >
         <div className="relative w-full h-full">
           <input
             type="text"
@@ -195,13 +176,7 @@ export const SearchInput = () => {
           </div>
 
           {isDropdownOpen && (
-            <div
-              className="search-dropdown absolute top-full left-0 w-[200%] mt-1 bg-dropdownBg dark:bg-dropdownBgDark border dark:border-inputBorderDark border-inputBorder rounded-md shadow-md z-40 max-h-64 overflow-y-auto"
-              style={{
-                scrollbarWidth: "thin",
-                scrollbarColor: "rgba(156, 163, 175, 0.3) transparent",
-              }}
-            >
+            <div className="absolute top-full left-0 w-[200%] mt-1 bg-dropdownBg dark:bg-dropdownBgDark border dark:border-inputBorderDark border-inputBorder rounded-md shadow-md z-40 max-h-64 overflow-y-auto">
               {filteredSections.length > 0 ? (
                 filteredSections.map((item, index) => (
                   <div
@@ -212,7 +187,7 @@ export const SearchInput = () => {
                     <span className="text-primaryText dark:text-primaryTextDark font-medium">
                       {item.translatedSection}
                     </span>
-                    <div className="bg-outlinedButtonBg dark:bg-outlinedButtonBgDark text-secondaryText dark:text-secondaryTextDark text-xs px-2 py-1 rounded">
+                    <div className="bg-outlinedButtonBg dark:bg-outlinedButtonBgDark text-secondaryText dark:text-secondaryTextDark text-xs px-2 py-1 rounded border border-mainBorder dark:border-mainBorderDark">
                       {item.translatedPage}
                     </div>
                   </div>

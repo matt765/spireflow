@@ -46,13 +46,15 @@ export const midnightTheme = {
   orangeBadgeTextDark: "rgb(253, 186, 116)",
   selectBgDark: "rgb(58, 62, 72)",
   selectBgHoverDark:"rgb(67, 71, 81)",
-  loginModalBgDark: "rgb(53, 59, 72)",
+  loginModalBgDark: "rgb(48, 52, 62)",
   navbarButtonBgDark: "rgb(255, 255, 255, 0)",
   navbarButtonBgHoverDark: "rgb(255, 255, 255, 0.08)",
   galleryBgDark: "rgb(0,0,0,0.5)",
   galleryThumbnailBgDark: "rgb(255, 255, 255, 0.02)",
   datepickerHeaderBgDark: "rgb(52, 60, 74)",
   tooltipBgDark: "rgb(57, 64, 77)",
+  scrollbarThumbDark: "rgba(94, 98, 105, 0.7)",
+  scrollbarBgDark: "#17191c",
 
   // Primary dark mode for graphs
   "dark-tremor": {

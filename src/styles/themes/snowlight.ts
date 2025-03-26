@@ -52,6 +52,8 @@ export const snowlightTheme = {
   galleryThumbnailBg: "rgb(255, 255, 255, 0.2)",
   datepickerHeaderBg: "rgb(240, 240, 245, 0.4)",
   tooltipBg: "rgb(249, 249, 251)",
+  scrollbarThumb: "rgba(94, 98, 105, 0.5)",
+  scrollbarBg: "rgb(249, 249, 251)",
 
   tremor: {
     brand: {

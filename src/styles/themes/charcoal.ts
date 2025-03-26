@@ -52,6 +52,8 @@ export const charcoalTheme = {
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
   datepickerHeaderBg: "rgb(45,50,57)",
   tooltipBg: "rgb(44, 47, 53)",
+  scrollbarThumb: "rgba(94, 98, 105, 0.7)",
+  scrollbarBg: "#17191c",
 
   tremor: {
     brand: {

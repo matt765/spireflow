@@ -70,31 +70,40 @@ Application is connected to NodeJS backend, which is also open source and availa
 
 ## Authentication architecture
 
-Spireflow implements a dual-layer authentication approach combining Firebase Authentication with Iron Session for secure, stateful session management.
+Spireflow implements a dual-layer authentication approach combining Firebase Authentication with Iron Session for stateful session management. 
 
-### Firebase Authentication
+- **Firebase** handles user account creation, credential verification, and password hashing 
+- **Iron Session** maintains encrypted, server-verified session cookies for route protection and persistent login state
 
-Firebase handles identity verification and user management:
-- Provides user database and authentication logic
-- Takes care of user account creation and management
-- Handles password hashing, credential verification
+All authentication operations (login, signup, logout) are handled server-side through API routes, ensuring Firebase credentials remain protected and never exposed to the client. This makes dual-approach necessary as Firebase alone cannot maintain server-side session state when used in API routes.
 
-### Iron Session
+### Data Flow
 
-Iron Session provides secure session management:
-- Encrypted session cookies for maintaining auth state
-- Server-side session verification
-- Route protection via middleware
+1. **Login Process**:
+   - User submits credentials through `LoginForm` component
+   - `useHandleLogin` hook validates input and calls `/api/auth/signin` API route
+   - Server authenticates with Firebase and creates an Iron Session
+   - User is redirected to the dashboard
 
-### API-based Auth Flow
+2. **Sign-Up Process**:
+   - User submits registration details through `SignUpForm`
+   - `useHandleSignUp` hook validates input and calls `/api/auth/signup` API route
+   - Server creates account in Firebase and establishes an Iron Session
+   - Note: Account creation is disabled in the demo
 
-All authentication operations (login, signup, logout) are handled server-side through secure API routes, ensuring Firebase credentials remain protected and never exposed to the client.
+3. **Logout Process**:
+   - User confirms logout in `LogoutModal`
+   - `useHandleLogout` hook calls `/api/auth/logout` and destroys the session
+   - Page is reloaded, returning to the unauthenticated state
 
-Dual-approach architecture leverages the strengths of both systems:
-- Firebase's robust identity platform handles the complexities of user authentication
-- Iron Session provides a lightweight, secure session layer optimized for Next.js applications
+4. **Session Management**:
+   - `useSession` hook fetches session state on application load
+   - Components conditionally render based on authentication state
 
-This approach is necessary as Firebase alone cannot maintain server-side session state when used in API routes
+### Demo vs Production Notes
+
+- In the demo version, modals are used for authentication to simplify the user experience. In production, dedicated login/signup pages at `/login` and `/signup` would be used instead of modals. You can find them in src/app folder
+- Route protection in middleware.ts and account creation logic in `useHandleSignUp` hook are commented out for demonstration purposes
 
 ##  How to run
 All commands are run from the root of the project, from a terminal. Please remember, that the application needs working backend to run. 
