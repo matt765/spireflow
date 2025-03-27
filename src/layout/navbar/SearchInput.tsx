@@ -109,7 +109,6 @@ export const SearchInput = () => {
   };
   const router = useRouter();
   const handleSectionClick = (section: Section) => {
-    console.log("Selected section:", section);
     setIsDropdownOpen(false);
 
     const baseUrl = `/${currentLanguage}`;

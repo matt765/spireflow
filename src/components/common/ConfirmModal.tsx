@@ -30,8 +30,6 @@ export const ConfirmModal = ({
   cancelButtonText,
   type = "default",
 }: ConfirmModalProps) => {
-  const t = useTranslations();
-
   return (
     <div>
       <Modal onClose={closeModal}>
@@ -40,32 +38,32 @@ export const ConfirmModal = ({
             {type === "delete" ? <DeleteIcon /> : <ConfirmIcon />}
           </div>
           <h2 className="text-primaryText text-3xl w-full text-center mt-2">
-            {t(title)}
+            {title}
           </h2>
         </div>
         <h2 className="text-primaryText text-base w-full text-secondaryText mt-4 max-w-[24rem] text-center">
-          {t(subtitle)}
+          {subtitle}
         </h2>
         <div className="flex w-full justify-center mt-12 gap-4">
           <div className="w-[6rem] h-[2.5rem]">
             <OutlinedButton
-              text={t(cancelButtonText)}
+              text={cancelButtonText}
               handleClick={closeModal}
-              ariaLabel={t(cancelButtonText)}
+              ariaLabel={cancelButtonText}
             />
           </div>
           <div className="w-[6.5rem] h-[2.5rem] pb-0">
             <ContainedButton
               handleClick={onConfirm}
               disabled={loading}
-              ariaLabel={t(confirmButtonText)}
+              ariaLabel={confirmButtonText}
             >
               {loading ? (
                 <div className="pt-[0.3rem]">
                   <SpinnerIcon width={45} height={45} />
                 </div>
               ) : (
-                t(confirmButtonText)
+                confirmButtonText
               )}
             </ContainedButton>
           </div>
