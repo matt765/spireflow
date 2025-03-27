@@ -19,8 +19,11 @@ export default function RootLayout({
   const messages = useMessages();
 
   return (
-    <html lang={locale}>
-      <body className={`${publicSans.className}`}>
+    <html lang={locale} suppressHydrationWarning={true}>
+      <body
+        className={`${publicSans.className}`}
+        suppressHydrationWarning={true}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>

@@ -36,7 +36,7 @@ const securityHeaders = [
         // limiting potential vectors for cross-site scripting (XSS) attacks
         // by explicitly whitelisting trusted sources for various content types
         key: 'Content-Security-Policy',
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com; font-src 'self' data:; connect-src 'self' https://*; frame-ancestors 'none'"
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com; font-src 'self' data:; connect-src 'self' https://* data:; frame-ancestors 'none'"
     },
     {
         // X-Frame-Options prevents our application from being embedded within iframes

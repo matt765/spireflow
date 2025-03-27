@@ -9,6 +9,7 @@ import { RegionsProps } from "./types";
 import { Card } from "../../common/Card";
 import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
+import { useEffect, useState } from "react";
 
 interface RegionData {
   name: string;
@@ -24,11 +25,17 @@ const CustomRegionsLegend: React.FC<{ data: RegionData[] }> = ({ data }) => {
     theme as "charcoal" | "dark" | "obsidian" | "light"
   );
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const getColorForRegion = (regionKey: string) => {
     if (regionKey === "northamerica") {
-      return chartColors.primary.stroke;
+      return chartColors.primary.fill;
     } else if (regionKey === "europe") {
-      return chartColors.secondary.stroke;
+      return chartColors.secondary.fill;
     }
     return "#A0AEC0";
   };
@@ -37,13 +44,21 @@ const CustomRegionsLegend: React.FC<{ data: RegionData[] }> = ({ data }) => {
     <div className="flex flex-row justify-start gap-8 text-white w-full mb-12 mt-8 text-xs">
       {data.map((item, index) => (
         <div key={index} className="flex items-center">
-          <div
-            className="w-3 h-3 mr-2 rounded"
-            style={{
-              backgroundColor: getColorForRegion(item.regionKey.toLowerCase()),
-            }}
-          />
-          <span className="text-sm text-primaryText dark:text-primaryTextDark">{item.name}</span>
+          {isMounted ? (
+            <div
+              className="w-3 h-3 mr-2 rounded"
+              style={{
+                backgroundColor: getColorForRegion(
+                  item.regionKey.toLowerCase()
+                ),
+              }}
+            />
+          ) : (
+            <div className="w-3 h-3 mr-2 rounded bg-transparent"></div>
+          )}
+          <span className="text-sm text-primaryText dark:text-primaryTextDark">
+            {item.name}
+          </span>
         </div>
       ))}
     </div>

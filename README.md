@@ -102,7 +102,7 @@ All authentication operations (login, signup, logout) are handled server-side th
 
 ### Demo vs Production Notes
 
-- In the demo version, modals are used for authentication to simplify the user experience. In production, dedicated login/signup pages at `/login` and `/signup` would be used instead of modals. You can find them in src/app folder
+- In the demo version, modals are used for authentication to simplify the user experience. In production, dedicated login/signup pages at `/login` and `/register` would be used instead of modals. You can find them in src/app folder
 - Route protection in middleware.ts and account creation logic in `useHandleSignUp` hook are commented out for demonstration purposes
 
 ##  How to run
