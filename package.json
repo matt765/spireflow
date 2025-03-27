@@ -16,8 +16,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --config src/tests/config/jest.config.js",
+    "test:watch": "jest --watch --config src/tests/config/jest.config.js"
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
