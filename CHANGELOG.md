@@ -98,3 +98,11 @@
 - move authentication logic to api routes
 - adjust env local variables
 - add security headers
+
+## 1.0.12 (27-03-2025)
+
+- adjust scrollbar styles
+- fix console errors
+- fix calendar translations
+- move Jest config to tests folder
+- adjust auth inputs

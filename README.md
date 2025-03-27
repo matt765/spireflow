@@ -75,7 +75,7 @@ Spireflow implements a dual-layer authentication approach combining Firebase Aut
 - **Firebase** handles user account creation, credential verification, and password hashing 
 - **Iron Session** maintains encrypted, server-verified session cookies for route protection and persistent login state
 
-All authentication operations (login, signup, logout) are handled server-side through API routes, ensuring Firebase credentials remain protected and never exposed to the client. This makes dual-approach necessary as Firebase alone cannot maintain server-side session state when used in API routes.
+All authentication operations (login, signup, logout) are handled server-side through API routes.
 
 ### Data Flow
 
@@ -104,6 +104,14 @@ All authentication operations (login, signup, logout) are handled server-side th
 
 - In the demo version, modals are used for authentication to simplify the user experience. In production, dedicated login/signup pages at `/login` and `/register` would be used instead of modals. You can find them in src/app folder
 - Route protection in middleware.ts and account creation logic in `useHandleSignUp` hook are commented out for demonstration purposes
+
+### Why API routes and Iron Session?
+
+By moving session creation, validation, and expiration to secure API routes, we keep essential authentication operations on the server. This separation ensures that business logic, Firebase credentials and session control are not exposed to client-side manipulation or inspection. 
+
+It's true that Firebase’s API key is public by design — it merely identifies your project. However, managing sessions solely on the client means that tokens and related state are more exposed. With Iron Session, we store the authenticated state in encrypted cookies, ensuring that only validated sessions grant access to protected routes without relying on client-stored tokens.
+
+Iron Session logic in middleware leverages the secure, server-managed session for route protection. This approach avoids the complexity and potential pitfalls of verifying Firebase tokens on every request, leading to a cleaner and more maintainable security model.
 
 ##  How to run
 All commands are run from the root of the project, from a terminal. Please remember, that the application needs working backend to run. 

@@ -42,7 +42,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
         className="w-full flex flex-col gap-4 items-center"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="mb-1 w-full relative">
+        <div className="mb-1 w-full relative h-[2.7rem]">
           <Controller
             name="email"
             control={control}
@@ -77,7 +77,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
             </div>
           </div>
         )}
-        <div className="mb-1 w-full relative">
+        <div className="mb-1 w-full relative h-[2.7rem]">
           <Controller
             name="password"
             control={control}
@@ -124,7 +124,11 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           </p>
         )}
         <div className="flex justify-center items-center w-4/5 mt-6">
-          <ContainedButton disabled={loading} type="submit" className="ignore-error-hide">
+          <ContainedButton
+            disabled={loading}
+            type="submit"
+            className="ignore-error-hide"
+          >
             {loading ? <SpinnerIcon /> : t("createAccount")}
           </ContainedButton>
         </div>

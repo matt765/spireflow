@@ -48,7 +48,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
         onSubmit={handleSubmit(onSubmit)}
         autoComplete="new-password"
       >
-        <div className="mb-2 w-full relative">
+        <div className="mb-2 w-full relative h-[2.7rem]">
           <Controller
             name="email"
             control={control}
@@ -73,7 +73,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
             </div>
           </div>
         )}
-        <div className="mb-2 relative">
+        <div className="mb-2 relative h-[2.7rem]">
           <Controller
             name="password"
             control={control}
