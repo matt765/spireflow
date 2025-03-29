@@ -6,6 +6,7 @@ export type CalendarEvent = {
   start: string | undefined;
   end?: string | undefined;
 };
+
 export interface FullCalendarEvent extends CalendarEvent {
   remove: () => void;
 }
@@ -24,11 +25,15 @@ export interface EventChange {
 
 export interface AddEventModalProps {
   closeModal: () => void;
-  onConfirm: () => void;
   loading: boolean;
-  setEventTitle: (title: string) => void;
-  setEventStart: (start: string) => void;
-  setEventEnd: (end: string) => void;
+  title?: string;
+  startTime?: string;
+  endTime?: string;
+  error?: string;
+  onTitleChange: (title: string) => void;
+  onStartTimeChange: (start: string) => void;
+  onEndTimeChange: (end: string) => void;
+  handleConfirmClick: () => void;
   IconComponent?: React.ElementType;
   type?: "delete" | "default";
 }

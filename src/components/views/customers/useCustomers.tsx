@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import {
   createColumnHelper,
   getCoreRowModel,
@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 import { useTable } from "../../../hooks/useTable";
 import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 import { Customer, CustomerColumns, CustomerFilters } from "./types";
+import { exportToCSV } from "../../../utils/exportToCSV";
 
 const columnHelper = createColumnHelper<CustomerColumns>();
 
@@ -50,6 +51,7 @@ export const useCustomers = (customers: Customer[]) => {
   } = useTable<CustomerFilters>({});
   const [customersData, setCustomersData] = useState<Customer[]>();
   const t = useTranslations("customers");
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   const customerColumns = [
     columnHelper.accessor("col0", {
@@ -178,6 +180,28 @@ export const useCustomers = (customers: Customer[]) => {
     { value: "col6", label: t("tableHeader.totalBuys") },
   ];
 
+  const countryOptions = useMemo(() => {
+    return Array.from(
+      new Set(customersData?.map((customer) => customer.country))
+    );
+  }, [customersData]);
+
+  const handleExportToCSV = useCallback((data: Customer[]) => {
+    exportToCSV(data, "customers");
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    if (tooltipRef.current) {
+      tooltipRef.current.style.visibility = "visible";
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (tooltipRef.current) {
+      tooltipRef.current.style.visibility = "hidden";
+    }
+  }, []);
+
   return {
     table,
     searchQuery,
@@ -198,5 +222,10 @@ export const useCustomers = (customers: Customer[]) => {
     customersData,
     clearFilters,
     sortOptions,
+    countryOptions,
+    handleExportToCSV,
+    handleMouseEnter,
+    handleMouseLeave,
+    tooltipRef,
   };
 };

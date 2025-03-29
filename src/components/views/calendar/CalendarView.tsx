@@ -34,10 +34,14 @@ export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
     selectedEvent,
     addEventModalOpen,
     handleAddEventModalClose,
-    handleAddEventConfirm,
+    handleAddEventModalConfirm,
+    eventTitle,
     setEventTitle,
+    eventStart,
     setEventStart,
+    eventEnd,
     setEventEnd,
+    addEventError,
   } = useCalendar({ calendarEvents: translatedData });
 
   const locale = useLocale();
@@ -80,11 +84,15 @@ export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
       {addEventModalOpen && (
         <AddEventModal
           closeModal={handleAddEventModalClose}
-          onConfirm={handleAddEventConfirm}
-          setEventTitle={setEventTitle}
-          setEventStart={setEventStart}
-          setEventEnd={setEventEnd}
           loading={false}
+          title={eventTitle}
+          startTime={eventStart}
+          endTime={eventEnd}
+          error={addEventError}
+          onTitleChange={setEventTitle}
+          onStartTimeChange={setEventStart}
+          onEndTimeChange={setEventEnd}
+          handleConfirmClick={handleAddEventModalConfirm}
         />
       )}
     </div>

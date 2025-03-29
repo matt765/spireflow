@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useCallback, useMemo, useRef } from "react";
 
 import { SearchIcon } from "../../../assets/icons/SearchIcon";
 import { OutlinedButton } from "../../common/OutlinedButton";
@@ -16,7 +15,6 @@ import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { DownloadIcon } from "../../../assets/icons/DownloadIcon";
 import { Tooltip } from "../../common/Tooltip";
-import { exportToCSV } from "../../../utils/exportToCSV";
 import { Customer } from "./types";
 
 interface CustomersViewProps {
@@ -44,34 +42,14 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
     setSorting,
     sorting,
     filters,
-    customersData,
     clearFilters,
     sortOptions,
+    countryOptions,
+    handleExportToCSV,
+    handleMouseEnter,
+    handleMouseLeave,
+    tooltipRef,
   } = useCustomers(translatedData);
-
-  const countryOptions = useMemo(() => {
-    return Array.from(
-      new Set(customersData?.map((customer) => customer.country))
-    );
-  }, [customersData]);
-
-  const handleExportToCSV = useCallback(() => {
-    exportToCSV(translatedData, "customers");
-  }, [translatedData]);
-
-  const handleMouseEnter = useCallback(() => {
-    if (tooltipRef.current) {
-      tooltipRef.current.style.visibility = "visible";
-    }
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    if (tooltipRef.current) {
-      tooltipRef.current.style.visibility = "hidden";
-    }
-  }, []);
-
-  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div className="flex flex-col w-full h-full">
@@ -140,7 +118,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
             onMouseLeave={handleMouseLeave}
           >
             <OutlinedButton
-              handleClick={handleExportToCSV}
+              handleClick={() => handleExportToCSV(translatedData)}
               className="!px-[0.8rem]"
             >
               <DownloadIcon />

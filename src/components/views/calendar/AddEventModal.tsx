@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useTranslations } from "next-intl";
 
 import { Modal } from "../../common/Modal";
@@ -11,61 +11,21 @@ import { Select } from "../../forms/Select";
 import { OrderModalIcon } from "../../../assets/icons/OrderModalIcon";
 import { AddEventModalProps } from "./types";
 
-const hours = Array.from({ length: 9 }, (_, i) => `${i + 8}:00`);
-
 export const AddEventModal = ({
   closeModal,
-  onConfirm,
   loading,
-  setEventTitle,
-  setEventStart,
-  setEventEnd,
+  title,
+  startTime,
+  endTime,
+  error,
+  onTitleChange,
+  onStartTimeChange,
+  onEndTimeChange,
+  handleConfirmClick,
   type = "default",
 }: AddEventModalProps) => {
   const t = useTranslations("calendar");
-  const [title, updateTitle] = useState("");
-  const [startTime, updateStartTime] = useState(hours[0]);
-  const [endTime, updateEndTime] = useState(hours[0]);
-  const [error, setError] = useState("");
-  const [isReadyToConfirm, setIsReadyToConfirm] = useState(false);
-
-  const handleConfirmClick = useCallback(() => {
-    let validationError = "";
-
-    if (title === "") {
-      validationError = t("addEventTitleRequiredError");
-    } else if (title.length > 20) {
-      validationError = t("addEventLengthError");
-    } else {
-      const startDate = new Date();
-      const endDate = new Date();
-      const [startHour, startMinute] = startTime.split(":").map(Number);
-      const [endHour, endMinute] = endTime.split(":").map(Number);
-      startDate.setHours(startHour, startMinute);
-      endDate.setHours(endHour, endMinute);
-
-      if (startDate >= endDate) {
-        validationError = t("addEventIncorrectTime");
-      }
-    }
-
-    setError(validationError);
-
-    if (!validationError) {
-      setEventTitle(title);
-      setEventStart(startTime);
-      setEventEnd(endTime);
-      setIsReadyToConfirm(true);
-    }
-  }, [title, startTime, endTime, setEventTitle, setEventStart, setEventEnd]);
-
-  // This useEffect is necessary so user doesn't have to click confirm button twice
-  useEffect(() => {
-    if (isReadyToConfirm) {
-      onConfirm();
-      setIsReadyToConfirm(false);
-    }
-  }, [title, startTime, endTime, isReadyToConfirm, onConfirm]);
+  const hours = Array.from({ length: 9 }, (_, i) => `${i + 8}:00`);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -78,7 +38,7 @@ export const AddEventModal = ({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [title, startTime, endTime, handleConfirmClick]);
+  }, [handleConfirmClick]);
 
   return (
     <div>
@@ -103,14 +63,14 @@ export const AddEventModal = ({
             type="text"
             placeholder={t("addEventModalPlaceholder")}
             value={title}
-            onChange={(e) => updateTitle(e.target.value)}
+            onChange={(e) => onTitleChange(e.target.value)}
             className="text-input"
           />
           <div className="flex gap-4 w-full justify-between mt-1">
             <div className="w-1/2">
               <Select
                 value={startTime}
-                onChange={(e) => updateStartTime(e.target.value)}
+                onChange={(e) => onStartTimeChange(e.target.value)}
                 customOnDesktop
                 customOptions={hours}
                 enableOptionsDropdownScroll
@@ -125,7 +85,7 @@ export const AddEventModal = ({
             <div className="w-1/2">
               <Select
                 value={endTime}
-                onChange={(e) => updateEndTime(e.target.value)}
+                onChange={(e) => onEndTimeChange(e.target.value)}
                 customOnDesktop
                 customOptions={hours}
                 enableOptionsDropdownScroll
