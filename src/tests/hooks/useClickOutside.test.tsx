@@ -1,5 +1,6 @@
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import { useRef } from "react";
+
 import { useClickOutside } from "../../hooks/useClickOutside";
 
 const TestComponent = ({ onClickOutside }: { onClickOutside: () => void }) => {

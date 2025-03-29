@@ -1,5 +1,3 @@
-"use client";
-
 import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { useSearchInput } from "./hooks/useSearchInput";

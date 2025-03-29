@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
+
 import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 import { ProgressCirclesProps } from "./types";
 

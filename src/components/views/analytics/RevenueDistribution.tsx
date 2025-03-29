@@ -1,7 +1,4 @@
-"use client";
 import React from "react";
-import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
 import {
   BarChart,
   Bar,
@@ -12,6 +9,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useTranslations } from "next-intl";
+
+import { Card } from "../../common/Card";
+import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import {
   RevenueDistributionProps,

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 
 import { Loader } from "../../common/Loader";
-
 import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 import { CustomerModal } from "./CustomerModal";

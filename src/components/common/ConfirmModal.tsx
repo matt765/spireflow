@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslations } from "next-intl";
 
 import { ContainedButton } from "../common/ContainedButton";
 import { OutlinedButton } from "../common/OutlinedButton";

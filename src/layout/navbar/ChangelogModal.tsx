@@ -1,7 +1,6 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
+
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
 import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";

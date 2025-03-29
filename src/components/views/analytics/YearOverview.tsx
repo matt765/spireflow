@@ -1,6 +1,4 @@
-"use client";
 import React from "react";
-import { Card } from "../../common/Card";
 import { useTranslations } from "next-intl";
 import {
   AreaChart,
@@ -12,10 +10,12 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useTheme } from "next-themes";
+
+import { Card } from "../../common/Card";
 import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { OverviewMonthData, YearOverviewProps } from "./types";
-import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
 
 export interface DataPoint {

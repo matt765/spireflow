@@ -1,8 +1,5 @@
-"use client";
 import React from "react";
-import { Card } from "../../common/Card";
 import { useTranslations } from "next-intl";
-import { BlockTitle } from "../../common/BlockTitle";
 import {
   ResponsiveContainer,
   BarChart,
@@ -13,9 +10,12 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { useTheme } from "next-themes";
+
+import { Card } from "../../common/Card";
+import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { PerformanceProps } from "./types";
-import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
 
 interface PerformanceTooltipProps {
@@ -71,7 +71,9 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
             className="w-3 h-3 mr-2"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-sm text-primaryText dark:text-primaryTextDark">{entry.value}</span>
+          <span className="text-sm text-primaryText dark:text-primaryTextDark">
+            {entry.value}
+          </span>
         </div>
       ))}
     </div>

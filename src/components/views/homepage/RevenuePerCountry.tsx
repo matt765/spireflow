@@ -1,10 +1,10 @@
-"use client";
-
 import React, { Suspense, lazy } from "react";
 import { Geographies, Geography } from "react-simple-maps";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 import "react-tooltip/dist/react-tooltip.css";
+import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { EnglishIcon } from "../../../assets/icons/EnglishIcon";
@@ -13,14 +13,11 @@ import { UnitedStatesIcon } from "../../../assets/icons/UnitedStatesIcon";
 import { FranceIcon } from "../../../assets/icons/FranceIcon";
 import { NorwayIcon } from "../../../assets/icons/NorwayIcon";
 import { AustraliaIcon } from "../../../assets/icons/AustraliaIcon";
-import { useTranslations } from "next-intl";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-
 import { Card } from "../../common/Card";
 import { SpinnerIcon } from "../../../assets/icons/SpinnerIcon";
 import { RevenuePerCountryProps } from "./types";
-import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
 
 const ComposableMapLazy = lazy(() =>

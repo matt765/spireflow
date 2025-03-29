@@ -1,5 +1,6 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import Link from "next/link";
+
 import { Tooltip } from "../../components/common/Tooltip";
 import { UserButtonProps } from "./types";
 import { UserIcon } from "../../assets/icons/UserIcon";

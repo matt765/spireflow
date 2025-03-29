@@ -1,6 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import { useTable } from "../../hooks/useTable";
 import { SortingState } from "@tanstack/react-table";
+
+import { useTable } from "../../hooks/useTable";
 
 type TestFilters = {
   status: string;

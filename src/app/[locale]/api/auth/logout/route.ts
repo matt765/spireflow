@@ -1,12 +1,12 @@
-import { NextRequest } from "next/server";
 import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
 import {
   SessionData,
   sessionOptions,
 } from "../../../../../services/ironSessionConfig";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
 
 // Server-side Firebase initialization
 const firebaseConfig = {
@@ -27,7 +27,7 @@ try {
 
 const auth = firebase.auth(firebaseApp);
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
   try {

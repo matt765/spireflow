@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { useNavbar } from "./useNavbar";
 import { useTranslations } from "next-intl";
+
+import { useNavbar } from "./useNavbar";
 
 interface Section {
   section: string;

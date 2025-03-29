@@ -1,7 +1,4 @@
-"use client";
 import React from "react";
-import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
 import {
   AreaChart,
   Area,
@@ -12,12 +9,15 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+
+import { Card } from "../../common/Card";
+import { BlockTitle } from "../../common/BlockTitle";
 import { RevenueOverTimeProps } from "./types";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { useTranslations } from "next-intl";
 import { BaseTooltip } from "../../common/BaseTooltip";
-import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
 
 interface RevenueOverTimeTooltipPayloadItem {
@@ -96,7 +96,9 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
               className="w-3 h-3 mr-2 rounded"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm text-primaryText dark:text-primaryTextDark">{entry.value}</span>
+            <span className="text-sm text-primaryText dark:text-primaryTextDark">
+              {entry.value}
+            </span>
           </div>
         )
       )}

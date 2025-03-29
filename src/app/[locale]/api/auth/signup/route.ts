@@ -1,12 +1,13 @@
 import { NextRequest } from "next/server";
 import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
 import {
   SessionData,
   sessionOptions,
 } from "../../../../../services/ironSessionConfig";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
 
 // Server-side Firebase initialization
 const firebaseConfig = {

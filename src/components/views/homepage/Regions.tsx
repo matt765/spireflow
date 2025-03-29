@@ -1,15 +1,13 @@
-"use client";
-
+import { useEffect, useState } from "react";
 import { BadgeDelta, DonutChart, Flex, List, ListItem } from "@tremor/react";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RegionsProps } from "./types";
 import { Card } from "../../common/Card";
-import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
-import { useEffect, useState } from "react";
 
 interface RegionData {
   name: string;

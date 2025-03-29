@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -10,7 +11,7 @@ import { Tooltip } from "../../components/common/Tooltip";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 import { MenuItemProps } from "./types";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
-import { inter, plusJakartaSans, publicSans } from "../../styles/fonts";
+import { publicSans } from "../../styles/fonts";
 
 export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
@@ -89,7 +90,9 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         </div>
         {(isSideMenuOpen || !isDesktop) && (
           <div
-            className={`text-sm xl:text-[12px] 3xl:text-[0.88rem] font-semibold tracking-wide ${publicSans.className}  ${
+            className={`text-sm xl:text-[12px] 3xl:text-[0.88rem] font-semibold tracking-wide ${
+              publicSans.className
+            }  ${
               isActive
                 ? "text-navItemTextActive dark:text-navItemTextActiveDark"
                 : "text-navItemText dark:text-navItemTextDark"

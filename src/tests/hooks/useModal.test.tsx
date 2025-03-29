@@ -1,6 +1,5 @@
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import { useModal } from "../../hooks/useModal";
-import { useEffect } from "react";
 
 const TestComponent = () => {
   const { isOpen, toggle, close, ref } = useModal();

@@ -1,9 +1,10 @@
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useTranslations } from "next-intl";
+import { useForm } from "react-hook-form";
+
 import { SignUpData } from "../../components/auth/SignUpForm";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 
 export const useHandleSignUp = () => {
   const [loading, setLoading] = useState(false);

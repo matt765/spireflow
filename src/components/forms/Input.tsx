@@ -27,7 +27,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       name,
       className,
       autoComplete,
-      ariaLabel
+      ariaLabel,
     },
     ref
   ) => {

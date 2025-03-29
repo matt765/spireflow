@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 
 import { Navbar } from "./navbar/Navbar";
@@ -9,9 +8,6 @@ import { SideMenu } from "./sideMenu/SideMenu";
 import { useAppStore } from "../store/appStore";
 import { Loader } from "../components/common/Loader";
 import { useSession } from "../hooks/auth/useSession";
-import { useIsFirstRender } from "../hooks/useIsFirstRender";
-import { Input } from "../components/forms/Input";
-import { SearchIcon } from "../assets/icons/SearchIcon";
 
 interface LayoutProps {
   children: ReactNode;

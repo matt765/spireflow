@@ -1,21 +1,20 @@
-"use client";
 import React from "react";
-import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
+import { useTheme } from "next-themes";
 import {
   Radar,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
   Legend,
   Tooltip,
 } from "recharts";
 import { useTranslations } from "next-intl";
+
+import { Card } from "../../common/Card";
+import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { MarketMetricsProps, MarketMetricsTooltipProps } from "./types";
-import { useTheme } from "next-themes";
 import { useChartColors } from "../../../hooks/useChartColors";
 
 const MarketMetricsTooltip: React.FC<MarketMetricsTooltipProps> = ({

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
 

@@ -2,22 +2,17 @@ import { useTranslations } from "next-intl";
 
 import { AnalyticsIcon } from "../../assets/icons/AnalyticsIcon";
 import { AreaIcon } from "../../assets/icons/AreaIcon";
-import { ArrowLeftDoubleIcon } from "../../assets/icons/ArrowLeftDoubleIcon";
-import { ArrowRightDoubleIcon } from "../../assets/icons/ArrowRightDoubleIcon";
 import { BarsIcon } from "../../assets/icons/BarsIcon";
 import { CalendarIcon } from "../../assets/icons/CalendarIcon";
 import { CustomersIcon } from "../../assets/icons/CustomersIcon";
 import { DashboardIcon } from "../../assets/icons/DashboardIcon";
-import { GithubIcon } from "../../assets/icons/GithubIcon";
 import { LineIcon } from "../../assets/icons/LineIcon";
 import { OrdersIcon } from "../../assets/icons/OrdersIcon";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
 import { ScatterIcon } from "../../assets/icons/ScatterIcon";
-import { OutlinedButton } from "../../components/common/OutlinedButton";
 import { useAppStore } from "../../store/appStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
-import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 import { Link } from "../../i18n/navigation";
 import { Logo } from "./Logo";
 import { ArrowLeftIcon } from "../../assets/icons/ArrowLeftIcon";
@@ -78,7 +73,7 @@ export const SideMenu = () => {
         <MenuItem title={t("area")} icon={<AreaIcon />} path="/area" />
         <MenuItem title={t("bars")} icon={<BarsIcon />} path="/bars" />
         <MenuItem title={t("scatter")} icon={<ScatterIcon />} path="/scatter" />
-        <MenuItem title={t("line")} icon={<LineIcon />} path="/line" />      
+        <MenuItem title={t("line")} icon={<LineIcon />} path="/line" />
         <div
           onClick={toggleSideMenu}
           className="-mr-4 transition border-mainBorder hover:border-mainBorderHover dark:hover:border-mainBorderDarkHover dark:border-mainBorderDark border absolute w-7 h-7 bg-primaryBg dark:bg-primaryBgDark rounded-full top-6 right-0 text-grayIcon dark:text-secondaryTextDark flex justify-center items-center cursor-pointer"

@@ -1,5 +1,3 @@
-"use client";
-
 import { ScatterChart } from "@tremor/react";
 import { useTranslations } from "next-intl";
 

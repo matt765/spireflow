@@ -1,13 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 
 import { LoginModal } from "../../components/auth/LoginModal";
-import { Logo } from "../sideMenu/Logo";
 import { SignUpModal } from "../../components/auth/SignUpModal";
 import { SideMenuMobile } from "../sideMenu/SideMenuMobile";
-import { Link as NavigationLink } from "../../i18n/navigation";
 import { LogoutModal } from "../../components/auth/LogoutModal";
 import { AboutModal } from "./AboutModal";
 import { ChangelogModal } from "./ChangelogModal";
@@ -18,7 +15,6 @@ import { HamburgerButton } from "./HamburgerButton";
 import { useNavbar } from "./hooks/useNavbar";
 import { useNavbarModals } from "./hooks/useNavbarModals";
 import { useNavbarTooltips } from "./hooks/useNavbarTooltips";
-import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { SearchInput } from "./SearchInput";
 
 export const Navbar = () => {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import * as Yup from "yup";
-
-import { LoginData } from "../../components/auth/LoginForm";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
+import { LoginData } from "../../components/auth/LoginForm";
 
 export interface HandleLoginProps extends LoginData {
   isDemo?: boolean;

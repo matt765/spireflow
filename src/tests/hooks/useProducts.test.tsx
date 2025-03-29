@@ -1,10 +1,10 @@
 import { renderHook, act } from "@testing-library/react-hooks";
+import { useTranslations } from "next-intl";
 
 import { useModal } from "../../hooks/useModal";
 import { useTooltip } from "../../hooks/useTooltip";
 import { useTranslateData } from "../../hooks/useTranslateData";
 import { useBackendTranslations } from "../../hooks/useBackendTranslations";
-import { useTranslations } from "next-intl";
 import { Product } from "../../components/views/products/types";
 import { useProducts } from "../../components/views/products/useProducts";
 

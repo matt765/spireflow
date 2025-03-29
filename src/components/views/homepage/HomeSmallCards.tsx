@@ -1,5 +1,3 @@
-"use client";
-
 import { BarChart, Color } from "@tremor/react";
 import { useTranslations } from "next-intl";
 

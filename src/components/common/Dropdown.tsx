@@ -1,4 +1,3 @@
-import { useTheme } from "next-themes";
 import React, { forwardRef } from "react";
 
 interface DropdownProps {
