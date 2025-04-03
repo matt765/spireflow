@@ -21,7 +21,6 @@ export const UserButton = ({
   showAboutModal,
   showChangelogModal,
   session,
-  theme,
   t,
 }: UserButtonProps) => (
   <div

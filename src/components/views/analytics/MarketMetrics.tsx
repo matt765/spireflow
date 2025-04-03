@@ -17,11 +17,11 @@ import { BaseTooltip } from "../../common/BaseTooltip";
 import { MarketMetricsProps, MarketMetricsTooltipProps } from "./types";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-const MarketMetricsTooltip: React.FC<MarketMetricsTooltipProps> = ({
+const MarketMetricsTooltip = ({
   active,
   payload,
   label,
-}) => {
+}: MarketMetricsTooltipProps) => {
   const tMetrics = useTranslations("analytics.marketMetrics.metrics");
 
   const translateMetric = (key: string): string => {
@@ -58,7 +58,14 @@ const MarketMetricsTooltip: React.FC<MarketMetricsTooltipProps> = ({
   );
 };
 
-const CustomLegend: React.FC<any> = (props) => {
+interface LegendProps {
+  payload?: Array<{
+    color: string;
+    value: string;
+  }>;
+}
+
+const CustomLegend = (props: LegendProps) => {
   const { payload } = props;
   const tMetrics = useTranslations("analytics.marketMetrics.metrics");
 
@@ -69,7 +76,7 @@ const CustomLegend: React.FC<any> = (props) => {
 
   return (
     <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
-      {payload?.map((entry: any, index: number) => (
+      {payload?.map((entry, index: number) => (
         <div key={index} className="flex items-center">
           <div
             className="w-3 h-3 mr-2"
@@ -84,9 +91,7 @@ const CustomLegend: React.FC<any> = (props) => {
   );
 };
 
-export const MarketMetrics: React.FC<MarketMetricsProps> = ({
-  marketMetricsData,
-}) => {
+export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
   const t = useTranslations("analytics.marketMetrics");
   const tMetrics = useTranslations("analytics.marketMetrics.metrics");
 

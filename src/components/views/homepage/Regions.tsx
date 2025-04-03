@@ -5,19 +5,11 @@ import { useTheme } from "next-themes";
 
 import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { RegionsProps } from "./types";
+import { RegionData, RegionsProps } from "./types";
 import { Card } from "../../common/Card";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-interface RegionData {
-  name: string;
-  regionKey: string;
-  sales: number;
-  delta?: string;
-  deltaType?: string;
-}
-
-const CustomRegionsLegend: React.FC<{ data: RegionData[] }> = ({ data }) => {
+const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
   const { theme } = useTheme();
   const chartColors = useChartColors(
     theme as "charcoal" | "dark" | "obsidian" | "light"
@@ -66,7 +58,7 @@ const CustomRegionsLegend: React.FC<{ data: RegionData[] }> = ({ data }) => {
 export const Regions = ({ regionsData }: RegionsProps) => {
   const t = useTranslations("homepage.regions");
 
-  const processedData = regionsData.map((item: any) => ({
+  const processedData = regionsData.map((item) => ({
     ...item,
     regionKey: item.name.replace(/\s+/g, "").toLowerCase(),
   }));
@@ -83,9 +75,7 @@ export const Regions = ({ regionsData }: RegionsProps) => {
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
         <BlockTitle title={t("title")} />
       </Flex>
-
       <CustomRegionsLegend data={translatedData} />
-
       <DonutChart
         data={translatedData}
         category="sales"
@@ -95,9 +85,8 @@ export const Regions = ({ regionsData }: RegionsProps) => {
         }
         className="mt-6"
       />
-
       <List className="mt-6">
-        {translatedData.map((city: any) => (
+        {translatedData.map((city) => (
           <ListItem key={city.name}>
             {city.name}
             <BadgeDelta deltaType={city.deltaType} size="xs">

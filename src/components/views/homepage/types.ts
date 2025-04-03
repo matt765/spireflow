@@ -86,3 +86,48 @@ export interface Country {
 export interface RevenuePerCountryProps {
   revenuePerCountryData: Country[];
 }
+
+export interface BestSellingCustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    name?: string;
+    value?: number;
+    color?: string;
+    dataKey?: string;
+  }>;
+  label?: string;
+}
+
+export interface RegionData {
+  name: string;
+  regionKey: string;
+  sales: number;
+  delta?: string;
+  deltaType?: string;
+}
+
+export interface RevenueOverTimeTooltipPayloadItem {
+  name: string;
+  value: number;
+  color: string;
+  dataKey?: string;
+}
+
+export interface RevenueOverTimeTooltipProps {
+  active?: boolean;
+  payload?: RevenueOverTimeTooltipPayloadItem[];
+  label?: string;
+}
+
+export interface RevenueOverTimeCustomLegendProps {
+  payload?: Array<{
+    value: string;
+    color?: string;
+  }>;
+}
+
+export type TranslatedProduct = {
+  name: string;
+  profit: number;
+  revenue: number;
+};

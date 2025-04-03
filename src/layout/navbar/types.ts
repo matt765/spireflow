@@ -58,7 +58,11 @@ export interface UserButtonProps {
   showLogoutModal: () => void;
   showAboutModal: () => void;
   showChangelogModal: () => void;
-  session: any;
+  session: { username?: string } | null;
   theme: string | undefined;
-  t: any;
+  t: (key: string) => string;
+}
+
+export interface ChangelogModalProps {
+  closeModal: () => void;
 }

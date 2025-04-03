@@ -14,30 +14,21 @@ import { useTranslations } from "next-intl";
 
 import { Card } from "../../common/Card";
 import { BlockTitle } from "../../common/BlockTitle";
-import { RevenueOverTimeProps } from "./types";
+import {
+  RevenueOverTimeCustomLegendProps,
+  RevenueOverTimeProps,
+  RevenueOverTimeTooltipProps,
+} from "./types";
 import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-interface RevenueOverTimeTooltipPayloadItem {
-  name: string;
-  value: number;
-  color: string;
-  dataKey?: string;
-}
-
-interface RevenueOverTimeTooltipProps {
-  active?: boolean;
-  payload?: RevenueOverTimeTooltipPayloadItem[];
-  label?: string;
-}
-
-const RevenueOverTimeTooltip: React.FC<RevenueOverTimeTooltipProps> = ({
+const RevenueOverTimeTooltip = ({
   active,
   payload,
   label,
-}) => {
+}: RevenueOverTimeTooltipProps) => {
   if (!active || !payload || payload.length === 0 || !label) return null;
 
   const websiteEntry =
@@ -79,14 +70,7 @@ const RevenueOverTimeTooltip: React.FC<RevenueOverTimeTooltipProps> = ({
   );
 };
 
-interface CustomLegendProps {
-  payload?: Array<{
-    value: string;
-    color?: string;
-  }>;
-}
-
-const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
+const CustomLegend = ({ payload }: RevenueOverTimeCustomLegendProps) => {
   return (
     <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
       {payload?.map(
@@ -106,9 +90,9 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
   );
 };
 
-export const RevenueOverTime: React.FC<RevenueOverTimeProps> = ({
+export const RevenueOverTime = ({
   revenueOverTimeData,
-}) => {
+}: RevenueOverTimeProps) => {
   const t = useTranslations("homepage.revenueOverTime");
   const backendTranslations = useBackendTranslations(
     "homepage.revenueOverTime"

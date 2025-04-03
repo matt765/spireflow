@@ -1,17 +1,12 @@
-import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
 import { CloseIcon } from "../../assets/icons/CloseIcon";
 import { useCloseModal } from "../../hooks/useCloseModal";
 import { SpinnerIcon } from "../../assets/icons/SpinnerIcon";
 import { useChangelogModal } from "./hooks/useChangelogModal";
-
-interface ChangelogModalProps {
-  closeModal: () => void;
-}
+import { ChangelogModalProps } from "./types";
 
 export const ChangelogModal = ({ closeModal }: ChangelogModalProps) => {
-  const t = useTranslations("navbar");
   const { changelogContent, isLoading, error, formatMarkdown } =
     useChangelogModal();
   const modalRef = useRef<HTMLDivElement>(null);

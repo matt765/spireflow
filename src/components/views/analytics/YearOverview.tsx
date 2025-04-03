@@ -15,31 +15,19 @@ import { useTheme } from "next-themes";
 import { Card } from "../../common/Card";
 import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
-import { OverviewMonthData, YearOverviewProps } from "./types";
+import {
+  OverviewMonthData,
+  YearOverviewCustomLegendProps,
+  YearOverviewCustomTooltipProps,
+  YearOverviewProps,
+} from "./types";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-export interface DataPoint {
-  name: string;
-  Phones: number;
-  Tablets: number;
-  Laptops: number;
-}
-
-interface CustomTooltipProps {
-  active?: boolean;
-  payload?: Array<{ name: string; value: number; color: string }>;
-  label?: string;
-}
-
-interface CustomLegendProps {
-  payload?: Array<{ value: string; color: string }>;
-}
-
-const YearOverviewTooltip: React.FC<CustomTooltipProps> = ({
+const YearOverviewTooltip = ({
   active,
   payload,
   label,
-}) => {
+}: YearOverviewCustomTooltipProps) => {
   const t = useTranslations("analytics.yearOverview");
 
   if (!active || !payload || !payload.length || !label) return null;
@@ -67,7 +55,7 @@ const YearOverviewTooltip: React.FC<CustomTooltipProps> = ({
   );
 };
 
-const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
+const CustomLegend = ({ payload }: YearOverviewCustomLegendProps) => {
   const tDevices = useTranslations("analytics.yearOverview");
 
   return (
@@ -87,7 +75,7 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
   );
 };
 
-const DataTable: React.FC<{ data: OverviewMonthData[] }> = ({ data }) => {
+const DataTable = ({ data }: { data: OverviewMonthData[] }) => {
   const t = useTranslations("analytics.yearOverview");
   const lastSixMonths = data.slice(-8);
 
@@ -127,9 +115,7 @@ const DataTable: React.FC<{ data: OverviewMonthData[] }> = ({ data }) => {
   );
 };
 
-export const YearOverview: React.FC<YearOverviewProps> = ({
-  yearOverviewData,
-}) => {
+export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
   const t = useTranslations("analytics.yearOverview");
 
   const translatedData = yearOverviewData.map((item) => ({

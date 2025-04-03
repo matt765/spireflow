@@ -18,11 +18,11 @@ import {
   RevenueDistributionTooltipProps,
 } from "./types";
 
-const RevenueDistributionTooltip: React.FC<RevenueDistributionTooltipProps> = ({
+const RevenueDistributionTooltip = ({
   active,
   payload,
   label,
-}) => {
+}: RevenueDistributionTooltipProps) => {
   if (!active || !payload || payload.length === 0 || !label) return null;
 
   const inStoreEntry = payload.find((p) => p.dataKey === "inStore");
@@ -62,28 +62,9 @@ const RevenueDistributionTooltip: React.FC<RevenueDistributionTooltipProps> = ({
   );
 };
 
-const CustomLegend: React.FC<any> = (props) => {
-  const { payload } = props;
-  const tDevices = useTranslations("analytics.revenueDistribution");
-
-  return (
-    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
-      {payload?.map((entry: any, index: number) => (
-        <div key={index} className="flex items-center">
-          <div
-            className="w-3 h-3 mr-2"
-            style={{ backgroundColor: entry.color }}
-          />
-          <span className="text-sm">{tDevices(entry.value)}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export const RevenueDistribution: React.FC<RevenueDistributionProps> = ({
+export const RevenueDistribution = ({
   revenueDistributionData,
-}) => {
+}: RevenueDistributionProps) => {
   const t = useTranslations("analytics.revenueDistribution");
 
   const translatedData = revenueDistributionData.map((item) => ({

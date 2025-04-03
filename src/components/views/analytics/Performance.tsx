@@ -15,20 +15,19 @@ import { useTheme } from "next-themes";
 import { Card } from "../../common/Card";
 import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
-import { PerformanceProps } from "./types";
+import {
+  PerformanceCustomLegendProps,
+  PerformanceCustomXAxisTickProps,
+  PerformanceProps,
+  PerformanceTooltipProps,
+} from "./types";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-interface PerformanceTooltipProps {
-  active?: boolean;
-  payload?: Array<{ name: string; value: number; color?: string }>;
-  label?: string;
-}
-
-const PerformanceTooltip: React.FC<PerformanceTooltipProps> = ({
+const PerformanceTooltip = ({
   active,
   payload,
   label,
-}) => {
+}: PerformanceTooltipProps) => {
   const t = useTranslations("analytics.performance");
 
   if (!active || !payload || !payload.length || !label) return null;
@@ -58,11 +57,7 @@ const PerformanceTooltip: React.FC<PerformanceTooltipProps> = ({
   );
 };
 
-interface CustomLegendProps {
-  payload?: Array<{ value: string; color?: string }>;
-}
-
-const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
+const CustomLegend = ({ payload }: PerformanceCustomLegendProps) => {
   return (
     <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
       {payload?.map((entry, index) => (
@@ -80,13 +75,11 @@ const CustomLegend: React.FC<CustomLegendProps> = ({ payload }) => {
   );
 };
 
-interface CustomXAxisTickProps {
-  x?: number;
-  y?: number;
-  payload?: { value: string };
-}
-
-const CustomXAxisTick: React.FC<CustomXAxisTickProps> = ({ x, y, payload }) => {
+const CustomXAxisTick = ({
+  x,
+  y,
+  payload,
+}: PerformanceCustomXAxisTickProps) => {
   const t = useTranslations("analytics.performance");
 
   const originalMonth = payload?.value || "";

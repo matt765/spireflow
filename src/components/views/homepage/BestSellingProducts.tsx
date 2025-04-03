@@ -10,29 +10,24 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useTranslations } from "next-intl";
 
 import { Card } from "../../common/Card";
-import { useTranslations } from "next-intl";
 import { useTranslateData } from "../../../hooks/useTranslateData";
-import { BestSellingProductsProps } from "./types";
+import {
+  BestSellingCustomTooltipProps,
+  BestSellingProductsProps,
+  TranslatedProduct,
+} from "./types";
 import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { useChartColors } from "../../../hooks/useChartColors";
 
-interface CustomTooltipProps {
-  active?: boolean;
-  payload?: Array<{
-    name?: string;
-    value?: number;
-    color?: string;
-    dataKey?: string;
-  }>;
-  label?: string;
-}
-
-const CustomLegend: React.FC<{
+const BestSellingCustomLegend = ({
+  payload,
+}: {
   payload?: Array<{ value: string; color?: string }>;
-}> = ({ payload }) => {
+}) => {
   return (
     <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
       {payload?.map((entry, index) => (
@@ -50,11 +45,11 @@ const CustomLegend: React.FC<{
   );
 };
 
-const BestSellingTooltip: React.FC<CustomTooltipProps> = ({
+const BestSellingTooltip = ({
   active,
   payload,
   label,
-}) => {
+}: BestSellingCustomTooltipProps) => {
   if (!active || !payload || !payload.length || !label) return null;
 
   return (
@@ -80,9 +75,9 @@ const BestSellingTooltip: React.FC<CustomTooltipProps> = ({
   );
 };
 
-export const BestSellingProducts: React.FC<BestSellingProductsProps> = ({
+export const BestSellingProducts = ({
   bestSellingProductsData,
-}) => {
+}: BestSellingProductsProps) => {
   const t = useTranslations("homepage.bestSellingProducts");
 
   const translations = {
@@ -95,7 +90,7 @@ export const BestSellingProducts: React.FC<BestSellingProductsProps> = ({
     translations
   );
 
-  const chartData = translatedData.map((product: any) => ({
+  const chartData = translatedData.map((product: TranslatedProduct) => ({
     name: product.name,
     [t("profitFromLastWeek")]: product.profit,
     [t("revenueFromLastWeek")]: product.revenue,
@@ -119,7 +114,7 @@ export const BestSellingProducts: React.FC<BestSellingProductsProps> = ({
             <Legend
               verticalAlign="top"
               align="center"
-              content={<CustomLegend />}
+              content={<BestSellingCustomLegend />}
             />
             <CartesianGrid strokeDasharray="0" stroke="rgba(255,255,255,0.1)" />
             <XAxis

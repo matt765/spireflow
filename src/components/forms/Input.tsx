@@ -15,22 +15,19 @@ interface InputProps {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      icon,
-      type,
-      placeholder,
-      value,
-      onChange,
-      onInput,
-      id,
-      name,
-      className,
-      autoComplete,
-      ariaLabel,
-    },
-    ref
-  ) => {
+  ({
+    icon,
+    type,
+    placeholder,
+    value,
+    onChange,
+    onInput,
+    id,
+    name,
+    className,
+    autoComplete,
+    ariaLabel,
+  }) => {
     return (
       <div className="relative w-full h-full ">
         <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.5rem] xl:top-[0.55rem] 2xl:top-[0.65rem] left-3 ">

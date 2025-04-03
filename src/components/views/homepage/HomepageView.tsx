@@ -40,7 +40,6 @@ export const HomepageView = ({ homepageData }: HomepageViewProps) => {
           )}
         </Col>
       </Grid>
-
       {/* Third row */}
       <Grid
         numItems={1}

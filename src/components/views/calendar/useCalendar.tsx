@@ -179,7 +179,7 @@ export const useCalendar = ({ calendarEvents }: CalendarViewProps) => {
     setCurrentAction("delete");
   };
 
-  const handleEventDrop = (dropInfo: EventDropArg) => {
+  const handleEventDrop = () => {
     return true;
   };
 

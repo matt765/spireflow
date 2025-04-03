@@ -114,8 +114,35 @@ export interface RevenueTooltipPayloadItem {
   color?: string;
   dataKey?: string;
 }
+
 export interface RevenueDistributionTooltipProps {
   active?: boolean;
   payload?: RevenueTooltipPayloadItem[];
   label?: string;
+}
+
+export interface PerformanceTooltipProps {
+  active?: boolean;
+  payload?: Array<{ name: string; value: number; color?: string }>;
+  label?: string;
+}
+
+export interface YearOverviewCustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{ name: string; value: number; color: string }>;
+  label?: string;
+}
+
+export interface YearOverviewCustomLegendProps {
+  payload?: Array<{ value: string; color: string }>;
+}
+
+export interface PerformanceCustomLegendProps {
+  payload?: Array<{ value: string; color?: string }>;
+}
+
+export interface PerformanceCustomXAxisTickProps {
+  x?: number;
+  y?: number;
+  payload?: { value: string };
 }
