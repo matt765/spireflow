@@ -21,7 +21,7 @@ export const obsidianTheme = {
   mainBorder: "rgb(255,255,255,0.09)",
   mainBorderHover: "rgb(255,255,255, 0.25)",
   inputBg: "rgb(255, 255, 255, 0.05)",
-  inputBgHover: "rgb(35, 42, 49)",
+  inputBgHover: "rgb(255, 255, 255, 0.07)",
   inputBorder: "rgb(255,255,255,0.15)",
   inputBorderHover: "rgb(255,255,255,0.25)",
   buttonActiveBg: "rgb(35, 42, 49)",
@@ -54,6 +54,7 @@ export const obsidianTheme = {
   tooltipBg: "rgb(53, 58, 66)",
   scrollbarThumb: "rgba(94, 98, 105, 0.7)",
   scrollbarBg: "#22252a",
+  activeProductBg: "rgb(255,255,255,0.07)",
 
   tremor: {
     brand: {

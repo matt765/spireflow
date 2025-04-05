@@ -30,15 +30,15 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
           <Card
             key={`${item.title}-${index}`}
             id={cardIds[index]}
-            className="h-46 sm:h-28 lg:h-32  pr-[0.8rem] md:!pr-[0.5rem] lg:!pr-[0.8rem] xl:!pr-[0.1rem] 2xl:!pr-[1.2rem] pl-5 2xl:pl-7"
+            className="h-46 sm:h-28 lg:h-32 pr-[0.8rem] md:!pr-[0.5rem] lg:!pr-[0.8rem] xl:!pr-[0.1rem] 2xl:!pr-[1.2rem] pl-5 2xl:pl-7"
           >
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">
-              <div className="flex flex-col  w-full sm:w-1/2 gap-1 pl-1 sm:pl-0">
+              <div className="flex flex-col w-full sm:w-1/2 gap-1 pl-1 sm:pl-0">
                 <div className="flex flex-row lg:flex-col">
                   <div className="text-[#a3aed0] font-medium text-md sm:text-lg lg:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
                     {item.title}
                   </div>
-                  <div className="text-md sm:text-lg xl:text-xl font-semibold text-primaryText dark:text-primaryTextDark flex">
+                  <div className="text-md sm:text-lg xl:text-xl font-semibold text-primaryText flex">
                     {item.metric}
                   </div>
                 </div>

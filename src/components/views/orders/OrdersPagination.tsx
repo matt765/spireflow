@@ -12,7 +12,7 @@ export const OrdersPagination = ({
   prevPage,
   nextPage,
 }: OrdersPaginationProps) => (
-  <div className="flex items-center mt-8 gap-4 w-full sm:w-auto sm:gap-8 justify-between sm:justify-end text-primaryText dark:text-primaryTextDark">
+  <div className="flex items-center mt-8 gap-4 w-full sm:w-auto sm:gap-8 justify-between sm:justify-end text-primaryText">
     <div className="w-[4.5rem]">
       <Select
         value={itemsPerPage}
@@ -44,8 +44,8 @@ export const OrdersPagination = ({
             onClick={() => goToPage(page)}
             className={
               currentPage === page
-                ? "bg-inputBg dark:bg-inputBgDark px-1 text-primaryText dark:text-primaryTextDark"
-                : "px-1 text-primaryText dark:text-primaryTextDark"
+                ? "bg-inputBg bg-inputBg px-1 text-primaryText text-primaryText"
+                : "px-1 text-primaryText text-primaryText"
             }
             disabled={currentPage === page}
           >

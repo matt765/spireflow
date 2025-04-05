@@ -70,7 +70,7 @@ export const Select = ({
     <>
       <div className={`relative `} ref={dropdownRef}>
         <div
-          className="text-sm 1xl:text-base rounded-md p-2 pl-3 pr-3 w-full cursor-pointer border border-mainBorder dark:border-mainBorderDark bg-selectBg dark:bg-selectBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:!border-inputBorderHoverDark hover:dark:bg-inputBgHoverDark bg-selectBg dark:bg-selectBgDark hover:bg-selectBgHover dark:hover:bg-selectBgHoverDark"
+          className="text-sm 1xl:text-base rounded-md p-2 pl-3 pr-3 w-full cursor-pointer border border-mainBorder bg-selectBg text-primaryText placeholder-secondaryText hover:!border-inputBorderHover hover:bg-inputBgHover hover:bg-selectBgHover"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
           aria-expanded={isSelectOpen}
           aria-label={ariaLabel || placeholder || "Select"}
@@ -94,16 +94,16 @@ export const Select = ({
               enableOptionsDropdownScroll ? "max-h-[13rem] overflow-y-auto" : ""
             }
             border border-inputBorder
-           dark:border-inputBorderDark z-10 bg-dropdownBg dark:bg-dropdownBgDark text-primaryText dark:text-primaryTextDark`}
+           border-inputBorder z-10 bg-dropdownBg bg-dropdownBg text-primaryText text-primaryText`}
           >
             <>
               {customOptions?.map((option, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-between text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
+                  className={`flex items-center justify-between text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover hover:bg-dropdownBgHover
                 ${
                   value === option &&
-                  "bg-dropdownBgHover dark:bg-dropdownBgHoverDark pointer-events-none"
+                  "bg-dropdownBgHover bg-dropdownBgHover pointer-events-none"
                 }
                 `}
                   onClick={() => handleCustomChange(option)}
@@ -112,7 +112,7 @@ export const Select = ({
                 >
                   {option}
                   {value === option && (
-                    <div className="text-secondaryText dark:text-secondaryTextDark">
+                    <div className="text-secondaryText">
                       <CheckIcon />
                     </div>
                   )}
@@ -120,10 +120,10 @@ export const Select = ({
               ))}
               {isBottomPlaceholderVisible && (
                 <div
-                  className={`text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover dark:hover:bg-dropdownBgHoverDark
+                  className={`text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover hover:bg-dropdownBgHover
                 ${
                   !selectedValue &&
-                  "bg-dropdownBgHover dark:bg-dropdownBgHoverDark pointer-events-none"
+                  "bg-dropdownBgHover bg-dropdownBgHover pointer-events-none"
                 }
                 `}
                   onClick={clearSelection}

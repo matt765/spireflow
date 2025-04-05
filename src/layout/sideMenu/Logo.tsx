@@ -10,7 +10,7 @@ export const Logo = () => {
   return (
     <div
       className={`-ml-1 h-20  
-        text-mainColor dark:text-mainColorDark dark:fill-mainColorDark text-center flex justify-center items-center text-[1.4rem] xl:text-[1.2rem] 3xl:text-[1.3rem] font-bold ${nunito.className}`}
+        text-mainColor fill-mainColor text-center flex justify-center items-center text-[1.4rem] xl:text-[1.2rem] 3xl:text-[1.3rem] font-bold ${nunito.className}`}
     >
       <div className="-mt-1">
         <LogoIcon />
@@ -18,13 +18,10 @@ export const Logo = () => {
 
       {(isSideMenuOpen || !isDesktop) && (
         <>
-          <div className="ml-[0.7rem] text-primaryText dark:text-primaryTextDark mr-[1px] tracking-wider">
+          <div className="ml-[0.7rem] text-primaryText mr-[1px] tracking-wider">
             Spire
           </div>
-
-          <div className="text-mainColor dark:text-mainColorDark tracking-wider">
-            flow
-          </div>
+          <div className="text-mainColor tracking-wider">flow</div>
         </>
       )}
     </div>

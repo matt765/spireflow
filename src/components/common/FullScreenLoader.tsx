@@ -1,7 +1,7 @@
-export const Loader = () => {
+export const FullScreenLoader = () => {
   return (
     <div
-      className="w-screen h-screen flex justify-center items-center fixed top-0 left-0 z-50 bg-loaderBg dark:bg-loaderBgDark"
+      className="w-screen h-screen flex justify-center items-center fixed top-0 left-0 z-50 bg-loaderBg"
       role="alert"
       aria-live="assertive"
       aria-busy="true"

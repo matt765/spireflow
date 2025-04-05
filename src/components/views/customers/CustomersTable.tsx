@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 
-import { Loader } from "../../common/Loader";
 import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 import { CustomerModal } from "./CustomerModal";
@@ -19,7 +18,7 @@ const columnWidths = {
 
 const SortingArrow = ({ isSortedDesc }: { isSortedDesc: boolean }) => {
   return (
-    <div className="inline-flex text-mainColor dark:text-mainColorDark">
+    <div className="inline-flex text-mainColor">
       {!isSortedDesc ? (
         <ArrowDownIcon width={18} height={18} />
       ) : (
@@ -34,13 +33,13 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
   const [selectedCustomer, setSelectedCustomer] =
     useState<CustomerColumns | null>(null);
 
-  if (loading) {
-    return (
-      <div className="w-full min-h-[50vh] flex justify-center items-center">
-        <Loader />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="w-full min-h-[50vh] flex justify-center items-center">
+  //       <Loader />
+  //     </div>
+  //   );
+  // }
 
   const closeCustomerModal = () => setIsCustomerModalOpen(false);
 
@@ -56,8 +55,8 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
                   colSpan={header.colSpan}
                   className={
                     header.column.getCanSort()
-                      ? "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
-                      : "text-secondaryText dark:text-secondaryTextDark font-normal text-center text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
+                      ? "text-secondaryText font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg  border-inputBorder "
+                      : "text-secondaryText font-normal text-center text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg border-inputBorder"
                   }
                   onClick={header.column.getToggleSortingHandler()}
                   style={{
@@ -99,7 +98,7 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className="text-tableCellText dark:text-primaryTextDark font-medium text-base p-4 border  border-inputBorder dark:border-inputBorderDark"
+                  className="text-tableCellText text-primaryText font-medium text-base p-4 border border-inputBorder"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

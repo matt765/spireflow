@@ -29,12 +29,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ariaLabel,
   }) => {
     return (
-      <div className="relative w-full h-full ">
-        <div className="absolute stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark top-[0.5rem] xl:top-[0.55rem] 2xl:top-[0.65rem] left-3 ">
+      <div className="relative w-full h-full">
+        <div className="absolute stroke-grayIcon fill-grayIcon top-[0.5rem] xl:top-[0.55rem] 2xl:top-[0.65rem] left-3">
           {icon}
         </div>
         <input
-          className={`p-2 text-sm 1xl:text-base bg-inputBg dark:bg-inputBgDark  hover:dark:bg-inputBgHoverDark hover:bg-InputBgHover w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark hover:border-inputBorderHover transition
+          className={`p-2 text-sm 1xl:text-base bg-inputBg hover:bg-inputBgHover w-full h-full border rounded-md border-inputBorder text-primaryText placeholder-secondaryText  hover:border-inputBorderHover transition
         ${icon ? "pl-11" : "pl-3"}  
         ${className}   
         autofill:!bg-inputBg

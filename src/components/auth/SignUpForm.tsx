@@ -35,7 +35,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
 
   return (
     <div className="min-w-full sm:min-w-[20rem] flex flex-col items-center mb-2">
-      <h1 className="text-4xl font-bold mb-16 mt-4 text-primaryText dark:text-primaryTextDark">
+      <h1 className="text-4xl font-bold mb-16 mt-4 text-primaryText">
         {t("signUp")}
       </h1>
       <form
@@ -60,16 +60,16 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
         {errors.email && showEmailError && (
           <div className="hidden md:block absolute left-[23.5rem] top-[11rem] z-50 min-w-[20rem] w-auto">
             <div className="relative">
-              <div className="bg-secondaryBg dark:bg-inputBgDark text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
+              <div className="bg-secondaryBg bg-inputBg text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.email.message}
                 <svg
-                  className="absolute text-inputBg dark:text-inputBgDark h-0 left-0 ml-3 top-[1.9rem] "
+                  className="absolute text-inputBg h-0 left-0 ml-3 top-[1.9rem]"
                   x="0px"
                   y="0px"
                   viewBox="0 0 255 255"
                 >
                   <polygon
-                    className="fill-current border border-inputBorder dark:border-inputBorderDark"
+                    className="fill-current border border-inputBorder"
                     points="0,0 127.5,127.5 255,0"
                   />
                 </svg>
@@ -93,18 +93,18 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           />
         </div>
         {errors.password && showPasswordError && (
-          <div className="absolute  hidden md:block left-[23.5rem] top-[14.5rem] 1xl:top-[14.9rem] z-50 min-w-[20rem] w-auto">
+          <div className="absolute hidden md:block left-[23.5rem] top-[14.5rem] 1xl:top-[14.9rem] z-50 min-w-[20rem] w-auto">
             <div className="relative mb-8">
-              <div className="bg-secondaryBg dark:bg-inputBgDark text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
+              <div className="bg-secondaryBg bg-inputBg text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.password.message}
                 <svg
-                  className="absolute text-inputBg dark:text-inputBgDark h-0 left-0 ml-3 top-[1.9rem] "
+                  className="absolute text-inputBg h-0 left-0 ml-3 top-[1.9rem]"
                   x="0px"
                   y="0px"
                   viewBox="0 0 255 255"
                 >
                   <polygon
-                    className="fill-current border border-inputBorder dark:border-inputBorderDark"
+                    className="fill-current border border-inputBorder"
                     points="0,0 127.5,127.5 255,0"
                   />
                 </svg>
@@ -119,7 +119,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           </p>
         )}
         {errors.password && showPasswordError && (
-          <p className="text-red-500 -mb-3  md:hidden  text-left w-full">
+          <p className="text-red-500 -mb-3 md:hidden text-left w-full">
             {errors.password.message}
           </p>
         )}
@@ -133,12 +133,12 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           </ContainedButton>
         </div>
         <div className="w-full text-sm flex justify-center gap-2 mt-6">
-          <div className="text-primaryText dark:text-primaryTextDark">
+          <div className="text-primaryText">
             {t("alreadyHaveAccount")}
           </div>
           <div
             onClick={switchToSignIn}
-            className="text-coloredText dark:text-coloredTextDark text-semibold cursor-pointer dark:hover:text-coloredTextHoverDark hover:text-coloredTextHover ignore-error-hide"
+            className="text-coloredText text-semibold cursor-pointer hover:text-coloredTextHover ignore-error-hide"
           >
             {t("signInHere")}
           </div>

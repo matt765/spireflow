@@ -39,7 +39,7 @@ const RevenueOverTimeTooltip = ({
   return (
     <BaseTooltip title={label}>
       {websiteEntry && (
-        <p className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between">
+        <p className="px-3 pb-1 text-primaryText flex items-center justify-between">
           <span>
             <span
               className="w-2 h-2 mr-2 rounded inline-block"
@@ -53,7 +53,7 @@ const RevenueOverTimeTooltip = ({
         </p>
       )}
       {inStoreEntry && (
-        <p className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between">
+        <p className="px-3 pb-1 text-primaryText flex items-center justify-between">
           <span>
             <span
               className="w-2 h-2 mr-2 rounded inline-block"
@@ -80,7 +80,7 @@ const CustomLegend = ({ payload }: RevenueOverTimeCustomLegendProps) => {
               className="w-3 h-3 mr-2 rounded"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm text-primaryText dark:text-primaryTextDark">
+            <span className="text-sm text-primaryText">
               {entry.value}
             </span>
           </div>
@@ -106,7 +106,7 @@ export const RevenueOverTime = ({
   const { theme } = useTheme();
 
   const chartColors = useChartColors(
-    theme as "charcoal" | "dark" | "obsidian" | "light"
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
   return (

@@ -18,7 +18,7 @@ export const snowlightTheme = {
   navItemTextActive: "rgb(101, 150, 231)",
   navItemIconActive: "rgb(101, 150, 231)",
   navigationBg: "white",
-  mainBorder: "rgb(0,0,0,0.1)",
+  mainBorder: "rgb(0,0,0,0.12)",
   mainBorderHover: "rgb(0,0,0,0.2)",
   inputBg: "rgb(240, 240, 245, 0.1)",
   inputBgHover: "white",
@@ -54,6 +54,7 @@ export const snowlightTheme = {
   tooltipBg: "rgb(249, 249, 251)",
   scrollbarThumb: "rgba(94, 98, 105, 0.5)",
   scrollbarBg: "rgb(249, 249, 251)",
+  activeProductBg: "rgb(242, 241, 241, 0.8)",
 
   tremor: {
     brand: {

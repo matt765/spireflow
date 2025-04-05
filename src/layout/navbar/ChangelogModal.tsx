@@ -19,23 +19,16 @@ export const ChangelogModal = ({ closeModal }: ChangelogModalProps) => {
       <div className="fixed w-screen h-full flex justify-center items-center top-0 left-0 z-50">
         <div
           ref={modalRef}
-          className="w-screen h-full md:w-auto md:h-auto bg-loginModalBg dark:bg-loginModalBgDark shadow-xl px-[0vw] md:px-10 pt-0 md:pt-[3rem] md:pb-12 flex flex-col items-center justify-start md:rounded-2xl relative"
+          className="w-screen h-full md:w-auto md:h-auto bg-loginModalBg shadow-xl px-[0vw] md:px-10 pt-0 md:pt-[3rem] md:pb-12 flex flex-col items-center justify-start md:rounded-2xl relative"
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-4 text-xl
-            fill-secondaryText
-            dark:stroke-secondaryTextDark       
-            dark:fill-secondaryTextDark
-            hover:dark:stroke-secondaryTextHoverDark
-            hover:dark:fill-secondaryTextHoverDark
-            hover:fill-secondaryTextHover          
-            hover:stroke-secondaryTextHover"
+            className="absolute top-4 right-4 text-xl fill-secondaryText stroke-secondaryText hover:stroke-secondaryTextHover hover:fill-secondaryTextHover"
           >
             <CloseIcon />
           </button>
           <div className="md:max-h-[60vh] md:min-h-[60vh] h-full w-full md:h-[60vh] -mr-4 overflow-auto pr-4 max-w-full md:max-w-[50vw] min-w-[32.7vw]">
-            <div className="text-primaryText text-base w-full h-full dark:text-primaryTextDark -mt-4 text-left px-8 md:px-0">
+            <div className="text-primaryText text-base w-full h-full -mt-4 text-left px-8 md:px-0">
               {isLoading ? (
                 <div className="flex justify-center items-center py-10 w-full h-full">
                   <SpinnerIcon className="contentSpinner" />

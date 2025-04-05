@@ -31,7 +31,7 @@ export const SideMenu = () => {
       `}
     >
       <div
-        className={`px-3 pt-4 1xl:pt-3 z-[40] 2xl:pt-3 3xl:pt-0 fixed xl:w-[220px] xl:min-w-[220px] 3xl:min-w-[270px] bg-navigationBg  dark:bg-navigationBgDark h-full border-r-[1px] border-mainBorder dark:border-mainBorderDark ${
+        className={`px-3 pt-4 1xl:pt-3 z-[40] 2xl:pt-3 3xl:pt-0 fixed xl:w-[220px] xl:min-w-[220px] 3xl:min-w-[270px] bg-navigationBg h-full border-r-[1px] border-mainBorder border-mainBorder ${
           !isSideMenuOpen &&
           "xl:!max-w-[3rem] xl:!w-[3rem] xl:!min-w-[4.5rem] justify-center items-center pr-0 pt-4 pl-0 transition"
         }   
@@ -76,7 +76,7 @@ export const SideMenu = () => {
         <MenuItem title={t("line")} icon={<LineIcon />} path="/line" />
         <div
           onClick={toggleSideMenu}
-          className="-mr-4 transition border-mainBorder hover:border-mainBorderHover dark:hover:border-mainBorderDarkHover dark:border-mainBorderDark border absolute w-7 h-7 bg-primaryBg dark:bg-primaryBgDark rounded-full top-6 right-0 text-grayIcon dark:text-secondaryTextDark flex justify-center items-center cursor-pointer"
+          className="-mr-4 transition border-mainBorder hover:border-mainBorderHover border absolute w-7 h-7 bg-primaryBg rounded-full top-6 right-0 text-grayIcon text-secondaryText flex justify-center items-center cursor-pointer"
         >
           {isSideMenuOpen ? <ArrowLeftIcon /> : <ArrowRightIcon />}
         </div>

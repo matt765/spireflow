@@ -41,7 +41,7 @@ const MarketMetricsTooltip = ({
         return (
           <p
             key={`marketmetrics-tooltip-${index}`}
-            className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between"
+            className="px-3 pb-1 text-primaryText flex items-center justify-between"
           >
             <span>
               <span
@@ -82,7 +82,7 @@ const CustomLegend = (props: LegendProps) => {
             className="w-3 h-3 mr-2"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-sm text-primaryText dark:text-primaryTextDark">
+          <span className="text-sm text-primaryText">
             {translateMetric(entry.value)}
           </span>
         </div>
@@ -103,7 +103,7 @@ export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
   const { theme } = useTheme();
 
   const chartColors = useChartColors(
-    theme as "charcoal" | "dark" | "obsidian" | "light"
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
   return (

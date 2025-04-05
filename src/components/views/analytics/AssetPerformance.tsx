@@ -46,7 +46,7 @@ export const AssetPerformance = ({
               <Bold>+/-% {t("sinceTransaction")} </Bold>
             </Text>
           </Flex>
-          <div className="sm:max-h-32 lg:max-h-full overflow-auto pr-2 ">
+          <div className="sm:max-h-32 lg:max-h-full overflow-auto pr-2">
             <List className="mt-2">
               {assetPerformanceData.map((asset) => (
                 <ListItem key={asset.name}>

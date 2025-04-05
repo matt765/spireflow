@@ -27,13 +27,12 @@ export const CustomersCountryDropdown = ({
         className="text-sm"
       />
       {isOpen && (
-        <Dropdown className="-right-4 md:-right-4  w-[12rem] top-[3.3rem]">
+        <Dropdown className="-right-4 md:-right-4 w-[12rem] top-[3.3rem]">
           {options.map((option) => (
             <div
               key={option}
-              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 ${
-                activeFilter === option &&
-                "bg-dropdownBgHover dark:bg-dropdownBgHoverDark"
+              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover py-2 ${
+                activeFilter === option && "bg-dropdownBgHover"
               }  `}
               onClick={() => {
                 setFilter(filterKey, option);
@@ -42,14 +41,14 @@ export const CustomersCountryDropdown = ({
             >
               {option}
               {activeFilter === option && (
-                <div className="text-secondaryText dark:text-secondaryTextDark">
+                <div className="text-secondaryText">
                   <CheckIcon />
                 </div>
               )}
             </div>
           ))}
           <div
-            className="px-4 py-2 cursor-pointer hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark border-t border-mainBorder dark:border-mainBorderDark"
+            className="px-4 py-2 cursor-pointer hover:bg-dropdownBgHover border-t border-mainBorder"
             onClick={() => {
               setFilter(filterKey, undefined);
               close();

@@ -3,7 +3,7 @@ interface BlockTitleProps {
 }
 
 export const BlockTitle = ({ title }: BlockTitleProps) => (
-  <div className="text-[1.1rem] font-medium  text-primaryText dark:text-primaryTextDark">
+  <div className="text-[1.1rem] font-medium text-primaryText">
     {title}
   </div>
 );

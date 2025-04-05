@@ -21,8 +21,7 @@ module.exports = {
   theme: {
     transparent: "transparent",
     current: "currentColor",
-    extend: {
-      colors: midnightTheme,
+    extend: {   
       fontFamily: {
         inter: ["var(--inter-font)", ...fontFamily.sans],
         nunito: ["var(--nunito-font)", ...fontFamily.sans],
@@ -105,7 +104,8 @@ module.exports = {
     },
   ],
   plugins: [createThemes({
-    light: snowlightTheme,
+    snowlight: snowlightTheme, 
+    midnight: midnightTheme,   
     charcoal: charcoalTheme,
     obsidian: obsidianTheme
   })

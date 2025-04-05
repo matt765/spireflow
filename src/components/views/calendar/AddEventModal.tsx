@@ -44,7 +44,7 @@ export const AddEventModal = ({
     <div>
       <Modal onClose={closeModal}>
         <div className="flex items-center justify-center w-full flex-col gap-2 -mt-2">
-          <div className="text-grayIcon rounded-full border border-mainBorder dark:border-mainBorderDark p-4 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem] ">
+          <div className="text-grayIcon rounded-full border border-mainBorder p-4 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem]">
             {type === "delete" ? (
               <DeleteIcon />
             ) : (

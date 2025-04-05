@@ -103,7 +103,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
           />
         )}
       </div>
-      <div className="w-full overflow-auto ">
+      <div className="w-full overflow-auto">
         <CustomersTable table={table} />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap pb-4">

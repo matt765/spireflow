@@ -12,7 +12,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       <ThemeProvider
         enableSystem={false}
         attribute="class"
-        themes={["charcoal", "light", "dark", "obsidian"]}
+        themes={["snowlight", "midnight", "charcoal", "obsidian"]}
         defaultTheme="obsidian"
         disableTransitionOnChange
       >

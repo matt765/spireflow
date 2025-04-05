@@ -4,6 +4,7 @@ import { LineChart } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
 import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
+import { useTheme } from "next-themes";
 
 const Line = () => {
   const t = useTranslations("singleCharts.line");
@@ -49,9 +50,22 @@ const Line = () => {
   const dataFormatter = (number: number) =>
     `${Intl.NumberFormat("us").format(number).toString()}`;
 
+  const { theme } = useTheme();
+
+  const colorSchemes: { [key: string]: string } = {
+    obsidian: "emerald",
+    midnight: "cyan",
+    charcoal: "blue",
+    snowlight: "blue",
+  };
+
+  const defaultTheme = "midnight";
+
+  const mainLineColor = colorSchemes[theme || defaultTheme];
+
   return (
     <CenteredPageWrapper>
-      <div className="text-2xl w-full text-left mb-6 text-primaryText dark:text-primaryTextDark">
+      <div className="text-2xl w-full text-left mb-6 text-primaryText">
         {t("title")}
       </div>
       <LineChart
@@ -59,7 +73,7 @@ const Line = () => {
         data={dragonPopulationInWesteros}
         index="year"
         categories={[t("houseTargaryen"), t("houseVelaryon")]}
-        colors={["emerald", "slate"]}
+        colors={[mainLineColor, "slate"]}
         valueFormatter={dataFormatter}
         yAxisWidth={40}
         intervalType="preserveStartEnd"
@@ -68,7 +82,7 @@ const Line = () => {
         {dragonPopulationInWesteros.map((item, index) => (
           <div
             key={index}
-            className="text-xs text-primaryText dark:text-primaryTextDark"
+            className="text-xs text-primaryText"
           >
             {item.title}
           </div>

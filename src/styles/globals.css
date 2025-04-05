@@ -40,7 +40,7 @@ a {
 }
 
 .circle {
-  @apply w-4 h-4 my-12 mx-1 bg-mainColor dark:bg-loaderCircleBgDark rounded-full;
+  @apply w-4 h-4 my-12 mx-1 bg-mainColor rounded-full;
 }
 
 /* Calendar  */
@@ -49,73 +49,73 @@ a {
   @apply hidden;
 }
 .fc-button {
-  @apply !outline-0 border border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:!border-inputBorderHover hover:dark:!border-inputBorderHoverDark transition hover:dark:bg-inputBgHoverDark hover:!bg-outlinedButtonBgHover !bg-inputBg dark:!bg-inputBgDark !border-inputBorder dark:!border-inputBorderDark;
+  @apply !outline-0 border border-inputBorder text-primaryText placeholder-secondaryText placeholder-secondaryText text-primaryText hover:!border-inputBorderHover hover:!border-inputBorderHover transition hover:bg-inputBgHover hover:!bg-outlinedButtonBgHover !bg-inputBg !bg-inputBg !border-inputBorder !border-inputBorder;
 }
 .fc-button-primary {
-  @apply !text-primaryText dark:!text-primaryTextDark;
+  @apply !text-primaryText;
 }
 .fc th,
 .fc td,
 .fc table {
-  @apply border-calendarBorder dark:!border-calendarBorderDark;
+  @apply border-calendarBorder;
 }
 .fc td {
   @apply max-h-12;
 }
 .fc-daygrid-day {
-  @apply hover:dark:!bg-[rgb(255,255,255,0.02)] transition;
+  @apply hover:!bg-[rgb(255,255,255,0.02)] transition;
 }
 .fc-day-disabled {
-  @apply dark:bg-[rgb(0,0,0,0)] !bg-[rgb(255,255,255,0.05)];
+  @apply !bg-[rgb(255,255,255,0.05)];
 }
 .fc-daygrid-day-number {
   font-size: 1.5rem;
 }
 .fc-daygrid-block-event {
-  @apply dark:bg-calendarMainColorDark bg-calendarMainColor border-none;
+  @apply bg-calendarMainColor border-none;
 }
 .fc-daygrid-event-dot {
-  @apply dark:border-calendarMainColorDark  border-calendarMainColor;
+  @applyborder-calendarmaincolor;
 }
 .fc-list-event-dot {
-  @apply dark:!border-calendarMainColorDark  !border-calendarMainColor;
+  @apply !border-calendarMainColor;
 }
 .fc-v-event {
-  @apply dark:bg-calendarMainColorDark bg-calendarMainColor  border-none;
+  @apply bg-calendarMainColor  border-none;
 }
 .fc-list-day-cushion,
 .fc-list-day {
-  @apply dark:bg-secondaryBgDark dark:!border-calendarBorderDark !bg-calendarListDayHeaderBg;
+  @apply !border-calendarBorder !bg-calendarListDayHeaderBg;
 }
 .fc-list {
-  @apply dark:!border-calendarBorderDark border-mainBorder;
+  @apply !border-calendarBorder;
 }
 .fc {
-  --fc-page-bg-color: calendarBorderDark !important;
+  --fc-page-bg-color: calendarBorder !important;
   --fc-list-event-hover-bg-color: rgb(255, 255, 255, 0.02);
 }
 .fc-day-today {
-  @apply dark:!bg-inputBgDark dark:hover:!bg-inputBgDark !bg-calendarTodayBg;
+  @apply hover:!bg-inputBg !bg-calendarTodayBg;
 }
 .fc-view-harness,
 .fc-scrollgrid-sync-table {
   @apply max-h-[35rem] md:max-h-[55rem];
 }
 .fc-toolbar-title {
-  @apply text-primaryText dark:text-primaryTextDark;
+  @apply text-primaryText;
 }
 .fc-col-header-cell-cushion {
-  @apply text-primaryText dark:text-primaryTextDark;
+  @apply text-primaryText;
 }
 .fc-event-time,
 .fc-event-title {
-  @apply text-primaryText dark:text-primaryTextDark;
+  @apply text-primaryText;
 }
 .fc-daygrid-day-number {
-  @apply text-primaryText dark:text-primaryTextDark;
+  @apply text-primaryText;
 }
 .fc-cell-shaded {
-  @apply !bg-calendarListDayHeaderBg dark:!bg-calendarListDayHeaderBgDark;
+  @apply !bg-calendarListDayHeaderBg;
 }
 .fc-list-day-text,
 .fc-list-day-side-text,
@@ -123,19 +123,19 @@ a {
 .fc-list-event-title,
 .fc-timegrid-axis-cushion,
 .fc-timegrid-slot-label-cushion {
-  @apply text-primaryText dark:text-primaryTextDark;
+  @apply text-primaryText;
 }
 .fc-theme-standard .fc-scrollgrid {
-  @apply border-mainBorder dark:border-mainBorderDark;
+  @apply border-mainBorder;
 }
 .fc-listMonth-view {
-  @apply !border-mainBorder dark:border-mainBorderDark;
+  @apply !border-mainBorder;
 }
 .fc-list-empty-cushion {
-  @apply text-primaryText dark:text-primaryTextDark;
+  @apply text-primaryText;
 }
 .fc-list-empty {
-  @apply !bg-calendarListDayHeaderBg dark:!bg-calendarListDayHeaderBgDark;
+  @apply !bg-calendarListDayHeaderBg;
 }
 .fc-toolbar-chunk .fc-toolbar-title {
   @apply capitalize;
@@ -216,18 +216,18 @@ a {
 
 /* Primary chart background for bar chart rectangles, e.g. 1st and 3rd chart in HomeSmallCards component*/
 .recharts-wrapper .fill-purple-500 {
-  @apply dark:!fill-chartPrimaryBgDark !fill-chartPrimaryBg;
+  @apply !fill-chartPrimaryBg;
 }
 
 /* Primary chart background - for donut charts on Homepage and Analytics page */
 .assetPerformanceCard .recharts-wrapper .fill-blue-500,
 .regionsCard .recharts-wrapper .fill-blue-500 {
-  @apply dark:!fill-chartPrimaryBgDark !fill-chartPrimaryBg;
+  @apply !fill-chartPrimaryBg;
 }
 
 /* Secondary chart background for bar chart rectangles, e.g. 2nd and 4th chart in HomeSmallCards component */
 .recharts-wrapper .fill-cyan-500 {
-  @apply fill-chartSecondaryBg dark:fill-chartSecondaryBgDark;
+  @apply fill-chartSecondaryBg;
 }
 
 /* Slightly lighter background for bar chart rectangles in Performance chart in Obsidian theme */
@@ -240,45 +240,45 @@ a {
 
 /* Main Tremor card component */
 .tremor-Card-root {
-  @apply border border-mainBorder dark:!border-mainBorderDark bg-primaryBg dark:bg-primaryBgDark;
+  @apply border !border-mainBorder bg-primaryBg;
 }
 
 /* Better contrast for Tremor reddish badge */
 .tremor-TableCell-root .text-red-600,
 .tremor-ListItem-root .text-red-600 {
-  @apply text-redBadgeText dark:text-redBadgeTextDark;
+  @apply text-redBadgeText;
 }
 
 /* Better contrast for Tremor warning badge */
 .tremor-TableCell-root .text-orange-600,
 .tremor-ListItem-root .text-orange-600 {
-  @apply text-orangeBadgeText dark:text-orangeBadgeTextDark;
+  @apply text-orangeBadgeText;
 }
 
 /* Better contrast for Tremor greenish badge */
 .tremor-TableCell-root .text-emerald-600,
 .tremor-ListItem-root .text-emerald-600 {
-  @apply text-greenBadgeText dark:text-greenBadgeTextDark;
+  @apply text-greenBadgeText;
 }
 
 /* Chart backgrounds for dots in Tremor legend/tooltip components */
 .tremor-Legend-root .text-cyan-500 {
-  @apply text-chartSecondaryBg dark:text-chartSecondaryBgDark;
+  @apply text-chartSecondaryBg;
 }
 .tremor-Legend-root .text-blue-500 {
-  @apply text-chartPrimaryBg dark:text-chartPrimaryBgDark;
+  @apply text-chartPrimaryBg;
 }
 .recharts-tooltip-wrapper .bg-blue-500 {
-  @apply bg-chartPrimaryBg dark:bg-chartPrimaryBgDark;
+  @apply bg-chartPrimaryBg;
 }
 .tremor-Legend-root .text-purple-500 {
-  @apply text-chartPrimaryBg dark:text-chartPrimaryBgDark;
+  @apply text-chartPrimaryBg;
 }
 .recharts-tooltip-wrapper .bg-purple-500 {
-  @apply bg-chartPrimaryBg dark:bg-chartPrimaryBgDark;
+  @apply bg-chartPrimaryBg;
 }
 .recharts-tooltip-wrapper .bg-cyan-500 {
-  @apply bg-chartSecondaryBg dark:bg-chartSecondaryBgDark;
+  @apply bg-chartSecondaryBg;
 }
 .recharts-tooltip-stable .tremor-Legend-root .text-blue-500 {
   @apply text-blue-600;
@@ -295,7 +295,7 @@ a {
 .recharts-cartesian-axis-tick-value tspan,
 .recharts-polar-angle-axis-tick-value tspan,
 .recharts-cartesian-axis-tick text {
-  @apply fill-secondaryText dark:fill-secondaryTextDark;
+  @apply fill-secondaryText;
 }
 
 /* Disable upper empty part of tooltip on Today Sales section on /analytics page */
@@ -307,7 +307,7 @@ a {
 .todaySalesContainer
   .tremor-TabList-root
   button[data-headlessui-state="selected"] {
-  @apply !text-blue-400 dark:!text-blue-400;
+  @apply !text-blue-400;
 }
 
 .menuItemIcon svg {
@@ -344,13 +344,6 @@ a {
 /* Overwrite autofill styles for inputs to ensure consistent appearance on multiple themes */
 :root {
   --primary-text-color: theme("colors.primaryText");
-  --primary-text-color-dark: theme("colors.primaryTextDark");
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-text-color: var(--primary-text-color-dark);
-  }
 }
 
 input:-webkit-autofill,
@@ -360,7 +353,7 @@ input:-webkit-autofill:active {
   -webkit-background-clip: text;
   box-shadow: inset 0 0 20px 20px rgb(255, 255, 255, 0.03);
   -webkit-text-fill-color: var(--primary-text-color) !important;
-  @apply !bg-inputBg dark:!bg-inputBgDark;
+  @apply !bg-inputBg;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -370,16 +363,16 @@ input:-webkit-autofill {
 
 /* Colors for lightbox gallery on products page */
 .yarl__container {
-  @apply !bg-galleryBg dark:!bg-galleryBgDark  backdrop-blur-md dark:bg-secondaryBgDark;
+  @apply !bg-galleryBg  backdrop-blur-md;
 }
 .yarl__thumbnails_container {
-  @apply !bg-galleryBg dark:!bg-galleryBgDark   backdrop-blur-md dark:bg-secondaryBgDark;
+  @apply !bg-galleryBg   backdrop-blur-md;
 }
 .yarl__thumbnails_vignette {
   background: none !important;
 }
 .yarl__thumbnails_thumbnail {
-  @apply !border-mainBorder dark:!border-mainBorderDark !bg-galleryThumbnailBg dark:!bg-galleryThumbnailBgDark backdrop-blur-md dark:bg-secondaryBgDark;
+  @apply !border-mainBorder !bg-galleryThumbnailBg backdrop-blur-md;
 }
 
 /* React Datepicker adjustments */
@@ -387,36 +380,42 @@ input:-webkit-autofill {
   margin-left: 0 !important;
 }
 .react-datepicker {
-  @apply backdrop-blur-md !bg-primaryBg dark:!bg-primaryBgDark !border-mainBorder dark:!border-mainBorderDark !text-primaryText dark:text-primaryTextDark;
+  @apply backdrop-blur-md !bg-primaryBg !border-mainBorder text-primaryText;
 }
 .react-datepicker * {
-  @apply !text-primaryText dark:text-primaryTextDark;
+  @apply !text-primaryText;
 }
 .react-datepicker__header {
-  @apply !bg-datepickerHeaderBg dark:!bg-secondaryBgDark !border-mainBorder dark:!border-mainBorderDark;
+  @apply !bg-datepickerHeaderBg !border-mainBorder !text-primaryText;
+}
+.react-datepicker__current-month {
+  @apply !text-primaryText;
+}
+.react-datepicker__day {
+  @apply !text-primaryText;
 }
 .react-datepicker__day-name {
-  @apply !text-gray-400 dark:text-secondaryTextDark;
+  @apply !text-secondaryText;
 }
 .react-datepicker__day:hover {
-  @apply !bg-mainBorder dark:!bg-navItemBgHoverDark;
+  @apply !bg-navItemBgHover;
 }
 .react-datepicker__day--selected {
-  @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
+  @apply !bg-mainColor !text-white;
 }
 .react-datepicker__day--keyboard-selected {
-  @apply !bg-mainColor dark:!bg-mainColor !text-white dark:!text-white;
+  @apply !bg-mainColor !text-white;
 }
 .react-datepicker__day--selected:hover {
-  @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
+  @apply !bg-mainColor !text-white;
 }
 .react-datepicker__day--keyboard-selected:hover {
-  @apply !bg-mainColor dark:!bg-mainColorDark !text-white dark:!text-white;
+  @apply !bg-mainColor !text-white;
 }
 
 /* Class needed to display different colors for the content spinner on multiple themes and backgrounds (button/pageContainer) */
 .contentSpinner {
-  @apply fill-primaryText dark:fill-primaryTextDark;
+  @apply fill-primaryText;
 }
 
 :root {
@@ -425,8 +424,8 @@ input:-webkit-autofill {
 }
 
 .dark {
-  --scrollbar-thumb: theme("colors.scrollbarThumbDark");
-  --scrollbar-bg: theme("colors.scrollbarBgDark");
+  --scrollbar-thumb: theme("colors.scrollbarThumb");
+  --scrollbar-bg: theme("colors.scrollbarBg");
 }
 
 * {
@@ -442,8 +441,4 @@ input:-webkit-autofill {
 
 .alternativeScrollbar {
   --scrollbar-bg: theme("colors.primaryBg");
-
-  .dark & {
-    --scrollbar-bg: theme("colors.primaryBgDark");
-  }
 }

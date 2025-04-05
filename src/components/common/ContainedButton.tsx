@@ -37,8 +37,7 @@ export const ContainedButton = ({
       aria-label={ariaLabel || text}
       aria-pressed={ariaPressed}
       className={`transition text-nowrap w-full h-full flex items-center justify-center disabled:opacity-75 bg-containedButtonBg 
-      dark:bg-containedButtonBgDark dark:hover:bg-containedButtonBgHoverDark hover:bg-containedButtonBgHover 
-      text-white p-2 rounded-md focus:outline-none ${className}`}
+      hover:bg-containedButtonBgHover text-white p-2 rounded-md focus:outline-none ${className}`}
     >
       {icon && <div className="mr-2"> {icon}</div>}
       {loading ? <SpinnerIcon /> : children || text}

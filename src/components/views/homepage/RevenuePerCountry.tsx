@@ -59,7 +59,7 @@ export const RevenuePerCountry = ({
   const { theme } = useTheme();
 
   const chartColors = useChartColors(
-    theme as "charcoal" | "dark" | "obsidian" | "light"
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
   const HIGHLIGHT_COLOR = chartColors.primary.fill;
@@ -70,7 +70,7 @@ export const RevenuePerCountry = ({
       id="revenuePerCountry"
     >
       <BlockTitle title={t("title")} />
-      <div className="flex justify-between -ml-8 2xl:-ml-48 gap-16  mt-10 pr-12 -mb-4 ">
+      <div className="flex justify-between -ml-8 2xl:-ml-48 gap-16 mt-10 pr-12 -mb-4">
         <Suspense
           fallback={
             <div className="w-full flex items-center justify-center pb-10">
@@ -108,6 +108,8 @@ export const RevenuePerCountry = ({
                         fill={
                           countryData
                             ? HIGHLIGHT_COLOR
+                            : theme === "snowlight"
+                            ? "rgb(0,0,0,0.13)"
                             : "rgba(255, 255, 255, 0.1)"
                         }
                         style={{
@@ -123,29 +125,21 @@ export const RevenuePerCountry = ({
             </Geographies>
           </ComposableMapLazy>
         </Suspense>
-        <div className="flex flex-col p-0 overflow-auto min-w-[20rem] gap-3 overflow-hidden  px-2  mr-20">
+        <div className="flex flex-col p-0 overflow-auto min-w-[20rem] gap-3 overflow-hidden px-2 mr-20">
           <div className="w-full flex justify-between">
-            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">
-              {t("country")}
-            </h3>
-            <h3 className="font-semibold text-primaryText dark:text-primaryTextDark">
-              {t("sales")}
-            </h3>
+            <h3 className="font-semibold text-primaryText">{t("country")}</h3>
+            <h3 className="font-semibold text-primaryText">{t("sales")}</h3>
           </div>
           {dataWithIcons.map((data, index) => (
             <div
               key={index}
-              className="flex justify-between items-center py-1 border-t dark:border-mainBorderDark border-mainBorder pt-4"
+              className="flex justify-between items-center py-1 border-t border-mainBorder pt-4"
             >
               <div className="flex items-center space-x-3">
-                <div className="flex ">
-                  {data.FlagIcon && <data.FlagIcon />}
-                </div>
-                <span className="text-sm text-primaryText dark:text-primaryTextDark">
-                  {data.name}
-                </span>
+                <div className="flex">{data.FlagIcon && <data.FlagIcon />}</div>
+                <span className="text-sm text-primaryText">{data.name}</span>
               </div>
-              <span className="font-semibold text-sm text-primaryText dark:text-primaryTextDark">
+              <span className="font-semibold text-sm text-primaryText">
                 ${data.price}
               </span>
             </div>

@@ -63,7 +63,7 @@ export const Navbar = () => {
   return (
     <>
       <div
-        className={`w-screen flex items-center z-30  fixed h-[4.5rem]  3xl:h-20 bg-primaryBg dark:bg-primaryBgDark w-full border-b border-solid border-mainBorder dark:border-mainBorderDark pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
+        className={`w-screen flex items-center z-30  fixed h-[4.5rem]  3xl:h-20 bg-primaryBg w-full border-b border-solid border-mainBorder pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
       >
         <div
           className={`z-40 w-full flex justify-between items-center gap-4 xl:gap-7 pr-10
@@ -117,7 +117,7 @@ export const Navbar = () => {
               ) : (
                 <button
                   onClick={handleLoginButton}
-                  className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor dark:!border-mainColorDark text-primaryText dark:text-primaryTextDark  dark:hover:bg-navbarButtonBgHoverDark bg-navbarButtonBg text-white dark:bg-navbarButtonBgDark hover:bg-navbarButtonBgHover"
+                  className="transition text-sm 2xl:text-base ml-2 hidden xl:block rounded-xl w-36 2xl:w-40 h-9 2xl:h-10 flex justify-center items-center font-medium border !border-mainColor text-primaryText hover:bg-navbarButtonBgHover bg-navbarButtonBg text-white"
                 >
                   {t("signIn")}
                 </button>

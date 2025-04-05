@@ -104,7 +104,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
               <div className="absolute bottom-2 left-14 pointer-events-none">
                 <Tooltip
                   text={t("button.csv")}
-                  className=" h-8 px-2  min-w-[7rem] pointer-events-none"
+                  className="h-8 px-2 min-w-[7rem] pointer-events-none"
                 />
               </div>
             )}

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { flexRender } from "@tanstack/react-table";
 
 import { OrderType, OrdersTableProps } from "./types";
-import { Loader } from "../../common/Loader";
 import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
 import { ArrowUpIcon } from "../../../assets/icons/ArrowUpIcon";
 import { OrderModal } from "./OrderModal";
@@ -19,7 +18,7 @@ const columnWidths = {
 
 const SortingArrow = ({ isSortedDesc }: { isSortedDesc: boolean }) => {
   return (
-    <div className="inline-flex text-mainColor dark:text-mainColorDark">
+    <div className="inline-flex text-mainColor">
       {!isSortedDesc ? (
         <ArrowDownIcon width={18} height={18} />
       ) : (
@@ -38,14 +37,6 @@ export const OrdersTable = ({
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState<OrderType | null>(null);
 
-  if (loading) {
-    return (
-      <div className="w-full min-h-[50vh] flex justify-center items-center">
-        <Loader />
-      </div>
-    );
-  }
-
   const closeOrderModal = () => setIsOrderModalOpen(false);
 
   return (
@@ -60,8 +51,8 @@ export const OrdersTable = ({
                   colSpan={header.colSpan}
                   className={
                     header.column.getCanSort()
-                      ? "text-secondaryText dark:text-secondaryTextDark font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg dark:bg-inputBgDark border-inputBorder dark:border-inputBorderDark"
-                      : "text-secondaryText dark:text-secondaryTextDark font-medium text-left pl-4 py-3 border"
+                      ? "text-secondaryText font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg bg-inputBg border-inputBorder border-inputBorder"
+                      : "text-secondaryText font-medium text-left pl-4 py-3 border"
                   }
                   onClick={header.column.getToggleSortingHandler()}
                   style={{
@@ -109,7 +100,7 @@ export const OrdersTable = ({
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
-                    className="text-tableCellText dark:text-primaryTextDark font-medium text-base p-4 border  border-inputBorder dark:border-inputBorderDark"
+                    className="text-tableCellText font-medium text-base p-4 border border-inputBorder"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>

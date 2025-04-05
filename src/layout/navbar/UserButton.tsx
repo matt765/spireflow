@@ -38,7 +38,7 @@ export const UserButton = ({
           themeDropdown.close();
           languageDropdown.close();
         }}
-        className="text-md flex rounded-full justify-center items-center gap-2 w-full h-full !outline-0 border border-mainBorder dark:border-mainBorderDark bg-outlinedButtonBg dark:bg-outlinedButtonBgDark hover:bg-outlinedButtonBgHover dark:hover:bg-outlinedButtonBgHoverDark text-primaryText dark:text-primaryTextDark dark:stroke-grayIconDark dark:fill-grayIconDark fill-grayIcon stroke-grayIcon"
+        className="text-md flex rounded-full justify-center items-center gap-2 w-full h-full !outline-0 border border-mainBorder bg-outlinedButtonBg hover:bg-outlinedButtonBgHover text-primaryText stroke-grayIcon fill-grayIcon"
         type="button"
         aria-label={t("openUserMenu")}
       >
@@ -57,22 +57,22 @@ export const UserButton = ({
         </div>
       )}
     {userDropdown.isOpen && (
-      <div className="absolute right-[0.5rem] xl:right-0 top-10 xl:top-11 mt-2 w-[13rem] border border-inputBorder dark:border-inputBorderDark bg-dropdownBg dark:bg-dropdownBgDark text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark border rounded-md shadow">
-        <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder dark:border-mainBorderDark flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
-          <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+      <div className="absolute right-[0.5rem] xl:right-0 top-10 xl:top-11 mt-2 w-[13rem] border border-inputBorder bg-dropdownBg text-primaryText placeholder-secondaryText rounded-md shadow">
+        <div className="px-4 pr-5 py-2 pl-[0.9rem] border-b border-mainBorder flex hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
+          <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon fill-grayIcon">
             <MailIcon />
           </div>
           {session?.username || "Email"}
         </div>
 
         <div
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex hover:bg-dropdownBgHover cursor-pointer"
           onClick={() => {
             userDropdown.close();
             showChangelogModal();
           }}
         >
-          <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem]">
+          <div className="w-5 flex justify-center items-center text-grayIcon mr-[0.8rem]">
             <HistoryIcon />
           </div>
           <button>{t("changelog")}</button>
@@ -80,33 +80,33 @@ export const UserButton = ({
         <Link
           href="https://github.com/matt765/spireflow"
           target="_blank"
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex hover:bg-dropdownBgHover cursor-pointer"
         >
-          <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem] stroke-grayIcon fill-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+          <div className="w-5 flex justify-center items-center text-grayIcon mr-[0.8rem] stroke-grayIcon fill-grayIcon">
             <GithubIcon />
           </div>
           <button>GitHub</button>
         </Link>
         <div
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex hover:bg-dropdownBgHover cursor-pointer"
           onClick={() => {
             userDropdown.close();
             showAboutModal();
           }}
         >
-          <div className="w-5 flex justify-center items-center text-grayIcon dark:text-grayIconDark mr-[0.8rem]">
+          <div className="w-5 flex justify-center items-center text-grayIcon mr-[0.8rem]">
             <InfoIcon />
           </div>
           <button aria-label={t("about")}>{t("about")}</button>
         </div>
         <div
-          className="px-4 py-2 pr-5 pl-[1rem] flex dark:hover:bg-dropdownBgHoverDark hover:bg-dropdownBgHover cursor-pointer"
+          className="px-4 py-2 pr-5 pl-[1rem] flex hover:bg-dropdownBgHover cursor-pointer"
           onClick={() => {
             userDropdown.close();
             showLogoutModal();
           }}
         >
-          <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon dark:stroke-grayIconDark dark:fill-grayIconDark">
+          <div className="w-6 flex justify-center items-center mr-[0.6rem] stroke-grayIcon fill-grayIcon">
             <LogoutIcon />
           </div>
           <button aria-label={t("signOut")}>{t("signOut")}</button>

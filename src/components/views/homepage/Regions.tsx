@@ -12,7 +12,7 @@ import { useChartColors } from "../../../hooks/useChartColors";
 const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
   const { theme } = useTheme();
   const chartColors = useChartColors(
-    theme as "charcoal" | "dark" | "obsidian" | "light"
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
   const [isMounted, setIsMounted] = useState(false);
@@ -46,7 +46,7 @@ const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
           ) : (
             <div className="w-3 h-3 mr-2 rounded bg-transparent"></div>
           )}
-          <span className="text-sm text-primaryText dark:text-primaryTextDark">
+          <span className="text-sm text-primaryText">
             {item.name}
           </span>
         </div>

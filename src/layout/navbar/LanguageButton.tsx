@@ -28,7 +28,7 @@ export const LanguageButton = ({
         userDropdown.close();
       }}
       aria-label={t("changeLanguage")} 
-      className="flex justify-center items-center text-secondaryText dark:text-secondaryTextDark dark:hover:text-primaryTextDark hover:text-primaryText"
+      className="flex justify-center items-center text-secondaryText hover:text-primaryText"
     >
       <LanguageIcon />
     </button>
@@ -45,11 +45,11 @@ export const LanguageButton = ({
         <NavigationLink
           href="/"
           locale="en"
-          className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+          className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
         >
           {t("english")}
           {currentLanguage === "en" && (
-            <div className="text-secondaryText dark:text-secondaryTextDark">
+            <div className="text-secondaryText">
               <CheckIcon />
             </div>
           )}
@@ -57,11 +57,11 @@ export const LanguageButton = ({
         <NavigationLink
           href="/"
           locale="pl"
-          className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark py-2 flex justify-between"
+          className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
         >
           {t("polish")}
           {currentLanguage === "pl" && (
-            <div className="text-secondaryText dark:text-secondaryTextDark">
+            <div className="text-secondaryText">
               <CheckIcon />
             </div>
           )}

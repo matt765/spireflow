@@ -21,9 +21,9 @@ export const charcoalTheme = {
   mainBorder: "rgb(255,255,255,0.07)",
   mainBorderHover: "rgb(255,255,255,0.2)",
   inputBg: "rgb(255, 255, 255, 0.05)",
-  inputBgHover: "rgb(35, 42, 49)",
+  inputBgHover: "rgb(255, 255, 255, 0.07)",
   inputBorder: "rgb(255,255,255,0.15)",
-  inputBorderHover: "rgb(255,255,255,0.3)",
+  inputBorderHover: "rgb(255,255,255,0.23)",
   buttonActiveBg: "rgb(35, 42, 49)",
   calendarBorder: "rgb(255,255,255,0.1)",
   calendarMainColor: "rgb(98, 136, 227)",
@@ -54,6 +54,7 @@ export const charcoalTheme = {
   tooltipBg: "rgb(44, 47, 53)",
   scrollbarThumb: "rgba(94, 98, 105, 0.7)",
   scrollbarBg: "#17191c",
+  activeProductBg: "rgb(255,255,255,0.07)",
 
   tremor: {
     brand: {

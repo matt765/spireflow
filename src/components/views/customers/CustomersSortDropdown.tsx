@@ -51,22 +51,21 @@ export const CustomersSortDropdown = ({
           {options.map((option) => (
             <div
               key={option.value}
-              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark px-4 py-2 ${
-                selectedSort === option.value &&
-                "bg-dropdownBgHover dark:bg-dropdownBgHoverDark"
+              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover px-4 py-2 ${
+                selectedSort === option.value && "bg-dropdownBgHover"
               } `}
               onClick={() => handleSortClick(option.value)}
             >
               {option.label}
               {selectedSort === option.value && (
-                <div className="text-secondaryText dark:text-secondaryTextDark">
+                <div className="text-secondaryText">
                   <CheckIcon />
                 </div>
               )}
             </div>
           ))}
           <div
-            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer border-t border-mainBorder dark:border-mainBorderDark"
+            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer border-t border-mainBorder"
             onClick={() => handleDirectionClick(false)}
           >
             {t("button.ascending")}
@@ -78,7 +77,7 @@ export const CustomersSortDropdown = ({
             {t("button.descending")}
           </div>
           <div
-            className="px-4 py-2  hover:bg-dropdownBgHover hover:dark:bg-dropdownBgHoverDark cursor-pointer"
+            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => {
               setSelectedSort(null);
               setSorting([]);

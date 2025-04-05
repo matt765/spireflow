@@ -51,12 +51,12 @@ export const OrdersDateRange = ({
           selected={startDateObj}
           onChange={handleStartDateChange}
           popperPlacement={windowWidth < 640 ? "bottom-start" : undefined}
-          className="pl-3 md:max-w-[10rem] md:min-w-[10rem] p-2 text-sm 1xl:text-base bg-inputBg dark:bg-inputBgDark  hover:dark:bg-inputBgHoverDark hover:bg-InputBgHover w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark hover:border-inputBorderHover transition"
+          className="pl-3 md:max-w-[10rem] md:min-w-[10rem] p-2 text-sm 1xl:text-base bg-inputBg hover:bg-inputBgHover hover:bg-InputBgHover w-full h-full border rounded-md border-inputBorder text-primaryText placeholder-secondaryText hover:border-inputBorderHover transition"
         />
         <div
           // @ts-ignore
           onClick={() => startDatePickerRef.current.setOpen(true)}
-          className="absolute right-2 top-[0.5rem] md:top-[0.6rem] stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400 hover:stroke-secondaryText dark:hover:stroke-secondaryTextDark cursor-pointer"
+          className="absolute right-2 top-[0.5rem] md:top-[0.6rem] stroke-gray-400 fill-gray-400 text-gray-400 hover:stroke-secondaryText cursor-pointer"
         >
           <CalendarIcon />
         </div>
@@ -67,12 +67,12 @@ export const OrdersDateRange = ({
           selected={endDateObj}
           onChange={handleEndDateChange}
           popperPlacement={windowWidth < 640 ? "bottom-start" : undefined}
-          className="pl-3 md:max-w-[10rem] md:min-w-[10rem] p-2 text-sm 1xl:text-base bg-inputBg dark:bg-inputBgDark  hover:dark:bg-inputBgHoverDark hover:bg-InputBgHover w-full h-full border rounded-md border-inputBorder dark:border-inputBorderDark  text-primaryText placeholder-secondaryText dark:placeholder-secondaryTextDark dark:text-primaryTextDark hover:dark:border-inputBorderHoverDark hover:border-inputBorderHover transition"
+          className="pl-3 md:max-w-[10rem] md:min-w-[10rem] p-2 text-sm 1xl:text-base bg-inputBg hover:bg-inputBgHover w-full h-full border rounded-md border-inputBorder text-primaryText placeholder-secondaryText hover:border-inputBorderHover transition"
         />
         <div
           // @ts-ignore
           onClick={() => endDatePickerRef.current.setOpen(true)}
-          className="absolute right-2 top-[0.5rem] md:top-[0.6rem] stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400 hover:stroke-secondaryText dark:hover:stroke-secondaryTextDark cursor-pointer"
+          className="absolute right-2 top-[0.5rem] md:top-[0.6rem] stroke-gray-400 fill-gray-400 text-gray-400 hover:stroke-secondaryText cursor-pointer"
         >
           <CalendarIcon />
         </div>

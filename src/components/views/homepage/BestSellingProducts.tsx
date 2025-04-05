@@ -36,7 +36,7 @@ const BestSellingCustomLegend = ({
             className="w-3 h-3 mr-2"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-sm text-primaryText dark:text-primaryTextDark">
+          <span className="text-sm text-primaryText">
             {entry.value.split(" ")[0]}
           </span>
         </div>
@@ -57,7 +57,7 @@ const BestSellingTooltip = ({
       {payload.map((entry, index) => (
         <p
           key={`item-${index}`}
-          className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between"
+          className="px-3 pb-1 text-primaryText flex items-center justify-between"
         >
           <span>
             <span
@@ -99,7 +99,7 @@ export const BestSellingProducts = ({
   const { theme } = useTheme();
 
   const chartColors = useChartColors(
-    theme as "charcoal" | "dark" | "obsidian" | "light"
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
   return (

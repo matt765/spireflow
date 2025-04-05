@@ -20,19 +20,17 @@ export const PageWrapper = ({
       `}
       role="main"
     >
-      <div className="flex flex-col gap-y-6 max-w-full w-full min-h-full lg:h-unset ">
+      <div className="flex flex-col gap-y-6 max-w-full w-full min-h-full lg:h-unset">
         {hidePaper ? (
           <div
-            className="flex flex-col w-full  gap-y-6 max-w-full h-full p-4 pt-6 sm:p-6 md:p-0"
+            className="flex flex-col w-full gap-y-6 max-w-full h-full p-4 pt-6 sm:p-6 md:p-0"
             aria-hidden="true"
           >
             {children}
           </div>
         ) : (
           <div
-            className="flex w-full  max-w-full p-6 pt-8 sm:p-10 bg-primaryBg xl:rounded-[12px]
-            shadow-lg dark:bg-primaryBgDark md:border dark:border-mainBorderDark border-mainBorder min-h-[100vh] xl:min-h-unset       
-            bg-primaryBg md:rounded-[12px] shadow-lg dark:bg-primaryBgDark border dark:border-mainBorderDark border-mainBorder"
+            className="flex w-full max-w-full p-6 pt-8 sm:p-10 bg-primaryBg xl:rounded-[12px] shadow-lg md:border border-mainBorder min-h-[100vh] xl:min-h-unset md:rounded-[12px] border"
           >
             {children}
           </div>

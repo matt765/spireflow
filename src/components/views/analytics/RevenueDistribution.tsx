@@ -31,7 +31,7 @@ const RevenueDistributionTooltip = ({
   return (
     <BaseTooltip title={label}>
       {inStoreEntry && (
-        <p className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between">
+        <p className="px-3 pb-1 text-primaryText flex items-center justify-between">
           <span>
             <span
               className="w-2 h-2 mr-2 rounded inline-block"
@@ -45,7 +45,7 @@ const RevenueDistributionTooltip = ({
         </p>
       )}
       {onlineEntry && (
-        <p className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between">
+        <p className="px-3 pb-1 text-primaryText flex items-center justify-between">
           <span>
             <span
               className="w-2 h-2 mr-2 rounded inline-block"

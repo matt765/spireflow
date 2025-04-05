@@ -12,7 +12,7 @@ interface ChartColors {
 }
 
 export const useChartColors = (
-  theme: "charcoal" | "dark" | "obsidian" | "light"
+  theme: "charcoal" | "midnight" | "obsidian" | "snowlight"
 ): ChartColors => {
   const themeColors = {
     charcoal: {
@@ -27,7 +27,7 @@ export const useChartColors = (
         disabled: "rgb(255,255,255,0.1)",
       },
     },
-    dark: {
+    midnight: {
       primary: {
         stroke: "rgb(6, 182, 212)",
         fill: "rgb(6, 182, 212)",
@@ -51,7 +51,7 @@ export const useChartColors = (
         disabled: "rgb(255,255,255,0.1)",
       },
     },
-    light: {
+    snowlight: {
       primary: {
         stroke: "rgb(118, 167, 247)",
         fill: "rgb(118, 167, 247)",
@@ -65,21 +65,21 @@ export const useChartColors = (
     },
   };
 
-  // If theme is undefined, return the colors for the theme that was actually applied to the document
   if (!theme) {
-    // Check which theme class is currently on the document
     if (typeof document !== "undefined") {
       if (document.documentElement.classList.contains("obsidian")) {
         return themeColors.obsidian;
-      } else if (document.documentElement.classList.contains("light")) {
-        return themeColors.light;
-      } else if (document.documentElement.classList.contains("dark")) {
-        return themeColors.dark;
+      } else if (document.documentElement.classList.contains("snowlight")) {
+        return themeColors.snowlight;
+      } else if (document.documentElement.classList.contains("midnight")) {
+        return themeColors.midnight;
+      } else if (document.documentElement.classList.contains("charcoal")) {
+        return themeColors.charcoal;
       }
     }
-    // Default to charcoal if we can't determine from the DOM
-    return themeColors.charcoal;
+
+    return themeColors.obsidian;
   }
 
-  return themeColors[theme];
+  return themeColors[theme] || themeColors.obsidian;
 };

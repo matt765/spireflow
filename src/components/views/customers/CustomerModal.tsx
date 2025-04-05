@@ -57,7 +57,7 @@ export const CustomerModal = ({
             {customerDetails.map((customer) => (
               <p
                 key={customer?.label}
-                className="border-b border-mainBorder dark:border-mainBorderDark w-[47%] my-[0.6rem] pb-2 flex text-nowrap"
+                className="border-b border-mainBorder w-[47%] my-[0.6rem] pb-2 flex text-nowrap"
               >
                 <div className="text-secondaryText mr-1">
                   {customer?.label}:

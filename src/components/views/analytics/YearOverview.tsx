@@ -37,7 +37,7 @@ const YearOverviewTooltip = ({
       {payload.map((entry, index) => (
         <p
           key={`yearoverview-tooltip-${index}`}
-          className="px-3 pb-1 text-primaryText dark:text-primaryTextDark flex items-center justify-between"
+          className="px-3 pb-1 text-primaryText flex items-center justify-between"
         >
           <span>
             <span
@@ -66,7 +66,7 @@ const CustomLegend = ({ payload }: YearOverviewCustomLegendProps) => {
             className="w-3 h-3 mr-2"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-sm text-primaryText dark:text-primaryTextDark">
+          <span className="text-sm text-primaryText">
             {tDevices(entry.value)}
           </span>
         </div>
@@ -84,13 +84,13 @@ const DataTable = ({ data }: { data: OverviewMonthData[] }) => {
       <table className="w-full">
         <thead>
           <tr>
-            <th className="text-secondaryText dark:text-secondaryTextDark text-xs text-left text-base pl-4 py-3 border-b border-inputBorder dark:border-inputBorderDark">
+            <th className="text-secondaryText text-xs text-left text-base pl-4 py-3 border-b border-inputBorder">
               {t("month")}
             </th>
-            <th className="text-secondaryText dark:text-secondaryTextDark text-xs text-left text-base pl-4 py-3 border-b border-inputBorder dark:border-inputBorderDark">
+            <th className="text-secondaryText text-xs text-left text-base pl-4 py-3 border-b border-inputBorder">
               {t("phones")}
             </th>
-            <th className="text-secondaryText dark:text-secondaryTextDark text-xs text-left text-base pl-4 py-3 border-b border-inputBorder dark:border-inputBorderDark">
+            <th className="text-secondaryText text-xs text-left text-base pl-4 py-3 border-b border-inputBorder">
               {t("laptops")}
             </th>
           </tr>
@@ -98,13 +98,13 @@ const DataTable = ({ data }: { data: OverviewMonthData[] }) => {
         <tbody>
           {lastSixMonths.map((row) => (
             <tr key={row.name} className="hover:bg-[rgb(255,255,255,0.03)]">
-              <td className="text-tableCellText dark:text-primaryTextDark font-medium text-sm p-2 pl-4 border-b border-inputBorder dark:border-inputBorderDark">
+              <td className="text-tableCellText  font-medium text-sm p-2 pl-4 border-b border-inputBorder">
                 {row.name}
               </td>
-              <td className="text-tableCellText dark:text-primaryTextDark font-medium text-sm pl-4 border-b border-inputBorder dark:border-inputBorderDark text-left">
+              <td className="text-tableCellText  font-medium text-sm pl-4 border-b border-inputBorder text-left">
                 ${Intl.NumberFormat("us").format(row.phones)}
               </td>
-              <td className="text-tableCellText dark:text-primaryTextDark font-medium text-sm pl-4 border-b border-inputBorder dark:border-inputBorderDark text-left">
+              <td className="text-tableCellText  font-medium text-sm pl-4 border-b border-inputBorder text-left">
                 ${Intl.NumberFormat("us").format(row.laptops)}
               </td>
             </tr>
@@ -126,7 +126,7 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
   const { theme } = useTheme();
 
   const chartColors = useChartColors(
-    theme as "charcoal" | "dark" | "obsidian" | "light"
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
   return (

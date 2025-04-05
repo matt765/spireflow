@@ -20,7 +20,7 @@ export const useNavbar = () => {
 
   const { session } = useSession();
 
-  const themes = ["light", "dark", "charcoal", "obsidian"];
+  const themes = ["snowlight", "midnight", "charcoal", "obsidian"];
   const themesDisplayNames = ["Snowlight", "Midnight", "Charcoal", "Obsidian"];
 
   useEffect(() => {

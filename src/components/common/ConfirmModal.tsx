@@ -33,7 +33,7 @@ export const ConfirmModal = ({
     <div>
       <Modal onClose={closeModal}>
         <div className="flex items-center justify-center w-full flex-col gap-2 -mt-2">
-          <div className="text-grayIcon rounded-full border border-mainBorder dark:border-mainBorderDark p-4 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem] ">
+          <div className="text-grayIcon rounded-full border border-mainBorder p-4 pl-4 w-16 h-16 flex justify-center items-center mr-[0rem]">
             {type === "delete" ? <DeleteIcon /> : <ConfirmIcon />}
           </div>
           <h2 className="text-primaryText text-3xl w-full text-center mt-2">

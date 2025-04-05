@@ -61,7 +61,7 @@ const Area = () => {
   return (
     <CenteredPageWrapper>
       <>
-        <div className="text-2xl w-full text-left mb-6 text-primaryText dark:text-primaryTextDark">
+        <div className="text-2xl w-full text-left mb-6 text-primaryText">
           {t("title")}
         </div>
         <AreaChart

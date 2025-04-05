@@ -67,8 +67,8 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         className={`
          flex relative rounded-md items-center py-[0.7rem] xl pl-4 mb-0 1xl:mb-1 3xl:mb-2 w-full pr-2  transition ${
            isActive
-             ? "bg-navItemActiveBg dark:bg-navItemActiveBgDark hover:bg-navItemActiveBgHover dark:hover:bg-navItemActiveBgHoverDark border-l-2 border-transparent"
-             : "bg-navItemBg dark:bg-navItemBgDark hover:bg-navItemBgHover dark:hover:bg-navItemBgHoverDark border-l-2 border-transparent"
+             ? "bg-navItemActiveBg hover:bg-navItemActiveBgHover hover:bg-navItemActiveBgHover border-l-2 border-transparent"
+             : "bg-navItemBg hover:bg-navItemBgHover hover:bg-navItemBgHover border-l-2 border-transparent"
          }
          ${
            !isSideMenuOpen &&
@@ -80,8 +80,8 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         <div
           className={`menuItemIcon pr-3 ${
             isActive
-              ? "stroke-navItemIconActive dark:stroke-mainColorDark dark:fill-mainColorDark text-navItemIconActive dark:text-mainColorDark"
-              : "stroke-gray-400 fill-gray-400 text-gray-400 dark:text-gray-400"
+              ? "stroke-mainColor fill-mainColor text-mainColor text-mainColor"
+              : "stroke-gray-400 fill-gray-400 text-gray-400 text-gray-400"
           }
         ${!isSideMenuOpen && isDesktop && "pl-4"}
          `}
@@ -94,8 +94,8 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
               publicSans.className
             }  ${
               isActive
-                ? "text-navItemTextActive dark:text-navItemTextActiveDark"
-                : "text-navItemText dark:text-navItemTextDark"
+                ? "text-navItemTextActive text-navItemTextActive"
+                : "text-navItemText text-navItemText"
             }        
           `}
           >
@@ -104,7 +104,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         )}
         {isTooltipVisible && !isSideMenuOpen && (
           <div className={`absolute top-0 left-12 hidden xl:flex `}>
-            <Tooltip text={title} className=" h-8 px-3  " />
+            <Tooltip text={title} className="h-8 px-3" />
           </div>
         )}
       </div>

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Navbar } from "./navbar/Navbar";
 import { SideMenu } from "./sideMenu/SideMenu";
 import { useAppStore } from "../store/appStore";
-import { Loader } from "../components/common/Loader";
+import { FullScreenLoader } from "../components/common/FullScreenLoader";
 import { useSession } from "../hooks/auth/useSession";
 
 interface LayoutProps {
@@ -39,8 +39,8 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <div className=" flex h-full w-full bg-secondaryBg dark:bg-secondaryBgDark overflow-x-hidden">
-        {isLoadingScreenDisplayed && <Loader />}
+      <div className="flex h-full w-full bg-secondaryBg overflow-x-hidden">
+        {isLoadingScreenDisplayed && <FullScreenLoader />}
         {!pathsWithNoLayout.includes(currentPathname) && (
           <>
             <SideMenu />
@@ -54,7 +54,7 @@ export const Layout = ({ children }: LayoutProps) => {
         </div>
         {isMobileMenuOpen && (
           <div
-            className="block xl:hidden h-screen w-screen fixed top-0 left-0 dark:bg-[rgb(0,0,0,0.4)] z-[1]"
+            className="block xl:hidden h-screen w-screen fixed top-0 left-0 bg-[rgb(0,0,0,0.4)] z-[1]"
             onClick={toggleMobileMenu}
           />
         )}

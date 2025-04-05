@@ -38,7 +38,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
         return (
           <div
             key={index}
-            className="hover:bg-[rgb(255,255,255,0.01)] transition mx-auto sm:mx-unset w-[90%] sm:w-[48%] px-4 flex justify-center items-center border border-mainBorder dark:border-mainBorderDark py-12 rounded-md"
+            className="hover:bg-[rgb(255,255,255,0.01)] transition mx-auto sm:mx-unset w-[90%] sm:w-[48%] px-4 flex justify-center items-center border border-mainBorder py-12 rounded-md"
           >
             <div className="flex gap-8 sm:gap-4 md:gap-8 items-center">
               <ProgressCircle
@@ -46,19 +46,19 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
                 size={getCircleSize()}
                 color="slate"
               >
-                <span className="text-md 1xl:text-xl text-secondaryText dark:text-secondaryTextDark font-medium">
+                <span className="text-md 1xl:text-xl text-secondaryText font-medium">
                   {percentage}%
                 </span>
               </ProgressCircle>
               <div className="flex flex-col">
-                <div className="font-medium text-xl sm:text-md md:text-xl 2xl:text-2xl text-primaryText dark:text-primaryTextDark">
+                <div className="font-medium text-xl sm:text-md md:text-xl 2xl:text-2xl text-primaryText">
                   {index === 1 && "$"}
                   {firstValue}
                   {index === 1 && "k"} / {index === 1 && "$"}
                   {secondValue}
                   {index === 1 && "k"}
                 </div>
-                <div className="text-sm text-secondaryText dark:text-secondaryTextDark">
+                <div className="text-sm text-secondaryText">
                   {titles[index]}
                 </div>
               </div>

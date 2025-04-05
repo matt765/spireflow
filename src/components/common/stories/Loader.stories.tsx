@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import "../../../styles/globals.css";
-import { Loader } from "../Loader";
+import { FullScreenLoader } from "../FullScreenLoader";
 
-const meta: Meta<typeof Loader> = {
-  title: "Common/Loader",
-  component: Loader,
+const meta: Meta<typeof FullScreenLoader> = {
+  title: "Common/FullScreenLoader",
+  component: FullScreenLoader,
   parameters: {
     layout: "centered",
     backgrounds: { disable: true },
@@ -19,7 +19,7 @@ const meta: Meta<typeof Loader> = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Loader>;
+} satisfies Meta<typeof FullScreenLoader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

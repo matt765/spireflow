@@ -30,7 +30,7 @@ export const OrderModal = ({ closeModal, orderData }: OrderModalProps) => {
     <div className="hidden md:flex">
       <Modal onClose={closeModal}>
         <div className="flex items-center justify-center w-full flex-col gap-2 min-w-[20rem]">
-          <div className="rounded-full border border-mainBorder dark:border-mainBorderDark p-4 w-18 flex justify-center items-center mr-[0rem] text-secondaryText dark:text-secondaryTextDark -mt-1">
+          <div className="rounded-full border border-mainBorder p-4 w-18 flex justify-center items-center mr-[0rem] text-secondaryText -mt-1">
             <OrderModalIcon width={30} height={30} />
           </div>
           <h2 className="text-primaryText text-3xl w-full text-center mt-3 mb-2">
@@ -40,7 +40,7 @@ export const OrderModal = ({ closeModal, orderData }: OrderModalProps) => {
             {orderDetails.map((detail) => (
               <p
                 key={detail.label}
-                className="border-b border-mainBorder dark:border-mainBorderDark w-[47%] my-2 pb-2 flex text-nowrap"
+                className="border-b border-mainBorder w-[47%] my-2 pb-2 flex text-nowrap"
               >
                 <div className="text-secondaryText mr-1">{detail.label}:</div>
                 {detail.value}

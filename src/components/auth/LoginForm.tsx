@@ -39,7 +39,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
   return (
     <div className="w-full xsm:w-[22rem] flex flex-col items-center py-4">
       <h1
-        className={`text-4xl font-bold text-primaryText dark:text-primaryTextDark`}
+        className={`text-4xl font-bold text-primaryText`}
       >
         {t("signIn")}
       </h1>
@@ -65,9 +65,9 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
           />
         </div>
         {errors.email && showEmailError && (
-          <div className="hidden md:block absolute md:left-[25.8rem]  top-[10.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
+          <div className="hidden md:block absolute md:left-[25.8rem] top-[10.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative">
-              <div className="bg-secondaryBg dark:bg-inputBgDark text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
+              <div className="bg-secondaryBg bg-inputBg text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.email.message}
               </div>
             </div>
@@ -92,7 +92,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
         {errors.password && showPasswordError && (
           <div className="hidden md:block absolute left-[25.8rem] top-[14rem] 1xl:top-[14.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative mb-8">
-              <div className="bg-secondaryBg dark:bg-inputBgDark text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md dark:border-inputBorderDark">
+              <div className="bg-secondaryBg bg-inputBg text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.password.message}
               </div>
             </div>
@@ -103,7 +103,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
           <p className="text-red-500 -mb-2 md:hidden">{errors.email.message}</p>
         )}
         {!authErrorDisplayed && errors.password && showPasswordError && (
-          <p className="text-red-500 -mb-3  md:hidden">
+          <p className="text-red-500 -mb-3 md:hidden">
             {errors.password.message}
           </p>
         )}
@@ -146,14 +146,13 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
                 t("sampleAccount")
               )}
             </ContainedButton>
-            <div className="w-full text-xs sm:text-sm flex justify-center gap-2 mt-10 ">
-              <div className="text-primaryText dark:text-primaryTextDark">
+            <div className="w-full text-xs sm:text-sm flex justify-center gap-2 mt-10">
+              <div className="text-primaryText">
                 {t("noAccount")}
               </div>
               <div
                 onClick={switchToSignUp}
-                className="text-coloredText dark:text-coloredTextDark text-semibold 
-                cursor-pointer dark:hover:text-coloredTextHoverDark hover:text-coloredTextHover ignore-error-hide"
+                className="text-coloredText text-semibold cursor-pointer hover:text-coloredTextHover ignore-error-hide"
               >
                 {t("registerHere")}
               </div>
