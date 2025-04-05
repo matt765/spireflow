@@ -106,3 +106,11 @@
 - fix calendar translations
 - move Jest config to tests folder
 - adjust auth inputs
+
+## 1.0.13 (05-04-2025)
+
+- extract logic from components
+- reorganize imports
+- rewrite dark theme implementation
+- extract types from components
+- reorganize themes
