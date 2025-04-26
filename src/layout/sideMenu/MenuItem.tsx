@@ -65,7 +65,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
         className={`
-         flex relative rounded-md items-center py-[0.7rem] xl pl-4 mb-0 1xl:mb-1 3xl:mb-2 w-full pr-2  transition ${
+         flex relative rounded-md items-center py-[0.5rem] 1xl:py-[0.55rem] 3xl:py-[0.7rem]  pl-4 mb-[1px] 1xl:mb-1 3xl:mb-2 w-full pr-2  transition ${
            isActive
              ? "bg-navItemActiveBg hover:bg-navItemActiveBgHover hover:bg-navItemActiveBgHover border-l-2 border-transparent"
              : "bg-navItemBg hover:bg-navItemBgHover hover:bg-navItemBgHover border-l-2 border-transparent"
@@ -90,7 +90,7 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
         </div>
         {(isSideMenuOpen || !isDesktop) && (
           <div
-            className={`text-sm xl:text-[12px] 3xl:text-[0.88rem] font-semibold tracking-wide ${
+            className={`text-xs xl:text-[12px] 3xl:text-[0.88rem] font-semibold tracking-wide ${
               publicSans.className
             }  ${
               isActive

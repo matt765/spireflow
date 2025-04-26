@@ -16,6 +16,7 @@ import { useNavbar } from "./hooks/useNavbar";
 import { useNavbarModals } from "./hooks/useNavbarModals";
 import { useNavbarTooltips } from "./hooks/useNavbarTooltips";
 import { SearchInput } from "./SearchInput";
+import { Logo } from "../sideMenu/Logo";
 
 export const Navbar = () => {
   const t = useTranslations("navbar");
@@ -37,6 +38,7 @@ export const Navbar = () => {
     selectTheme,
     cycleThemeUp,
     cycleThemeDown,
+    searchDropdown,
   } = useNavbar();
 
   const {
@@ -63,16 +65,38 @@ export const Navbar = () => {
   return (
     <>
       <div
-        className={`w-screen flex items-center z-30  fixed h-[4.5rem]  3xl:h-20 bg-primaryBg w-full border-b border-solid border-mainBorder pr-4 sm:pr-6 xl:pr-10 2xl:pr-12 lg:pl-0 pl-4 xsm:pl-5`}
+        className={`w-screen flex items-center z-30  fixed h-[4.5rem]  3xl:h-20 bg-primaryBg w-full border-b border-solid border-mainBorder `}
       >
+        {/* Placeholder for maintaining consistent spacing with page wrapper  */}
         <div
-          className={`z-40 w-full flex justify-between items-center gap-4 xl:gap-7 pr-10
-          ${isSideMenuOpen ? "pl-[19.8rem]" : "pl-[13.5rem]"}
-          ${isSideMenuOpen ? "pr-[1.5rem]" : "pr-[8rem]"}
+          className={`hidden xl:block xl:w-[210px] 1xl:min-w-[220px] 3xl:min-w-[270px] h-[3rem]  ${
+            !isSideMenuOpen && "xl:!max-w-[3rem] !w-[3rem] xl:!min-w-[4.5rem] "
+          }   
+          `}
+        ></div>
+        <div
+          className={`px-6 pr-4 md:px-6  xl:pl-3 xl:pr-2 2xl:px-4 z-40 w-full flex justify-between xl:mx-auto items-center gap-4 xl:gap-7 
+         xl:max-w-[82%] 1xl:max-w-[82%] 2xl:max-w-[83vw] 3xl:max-w-[82vw] 5xl:max-w-[102rem]
           `}
         >
-          <SearchInput />
-          <div className="flex items-center gap-4 xl:gap-7 z-[99]">
+          <div className="flex items-center gap-10">
+            <div className="flex sm:pl-2  xl:hidden">
+              <Logo />
+            </div>
+            <SearchInput
+              isOpen={searchDropdown.isOpen}
+              ref={searchDropdown.ref}
+              open={searchDropdown.open}
+              close={searchDropdown.close}
+              closeOthers={() => {
+                themeDropdown.close();
+                languageDropdown.close();
+                userDropdown.close();
+                closeMobileMenu();
+              }}
+            />
+          </div>
+          <div className="flex items-center gap-3 md:gap-2 xl:gap-7 z-[99]">
             <ThemeButton
               theme={theme}
               isMobileMenuOpen={isMobileMenuOpen}
@@ -87,6 +111,7 @@ export const Navbar = () => {
               themes={themes}
               themesDisplayNames={themesDisplayNames}
               t={t}
+              searchClose={searchDropdown.close}
             />
             <div className="hidden xl:flex">
               <LanguageButton
@@ -98,7 +123,7 @@ export const Navbar = () => {
                 t={t}
               />
             </div>
-            <div className="-mr-2 xl:-mr-unset">
+            <div className="mr-1 2xl:-mr-unset">
               {session && session.username ? (
                 <UserButton
                   userIconBtnRef={userIconBtnRef}
@@ -112,6 +137,7 @@ export const Navbar = () => {
                   showChangelogModal={showChangelogModal}
                   session={session}
                   theme={theme}
+                  searchClose={searchDropdown.close}
                   t={t}
                 />
               ) : (
@@ -125,11 +151,13 @@ export const Navbar = () => {
             </div>
             <HamburgerButton
               isMobileMenuOpen={isMobileMenuOpen}
-              toggleMobileMenu={toggleMobileMenu}
+              toggleMobileMenu={() => {
+                searchDropdown.close();
+                toggleMobileMenu();
+              }}
             />
           </div>
         </div>
-
         <SideMenuMobile
           isMobileMenuOpen={isMobileMenuOpen}
           onLoginButtonClick={handleLoginButton}
