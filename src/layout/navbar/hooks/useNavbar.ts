@@ -36,6 +36,7 @@ export const useNavbar = () => {
   const themeDropdown = useDropdown();
   const userDropdown = useDropdown();
   const languageDropdown = useDropdown();
+  const searchDropdown = useDropdown();
 
   useEffect(() => {
     const getCurrentLanguage = () => {
@@ -90,5 +91,6 @@ export const useNavbar = () => {
     selectTheme,
     cycleThemeUp,
     cycleThemeDown,
+    searchDropdown
   };
 };

@@ -21,6 +21,7 @@ export const ThemeButton = ({
   themes,
   themesDisplayNames,
   t,
+  searchClose
 }: ThemeButtonProps) => (
   <div
     className="relative"
@@ -35,6 +36,7 @@ export const ThemeButton = ({
         closeMobileMenu();
         languageDropdown.close();
         userDropdown.close();
+        searchClose();
       }}
     >
       <PaletteIcon />
@@ -55,7 +57,7 @@ export const ThemeButton = ({
         {themes.map((themeName, index) => (
           <div
             key={themeName}
-            className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
+            className="h-10 text-sm 1xl:text-sm 2xl:text-base cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
             onClick={() => selectTheme(themeName)}
           >
             {themesDisplayNames[index]}

@@ -46,6 +46,7 @@ export interface ThemeButtonProps {
   themes: string[];
   themesDisplayNames: string[];
   t: (key: string) => string;
+  searchClose: () => void;
 }
 
 export interface UserButtonProps {
@@ -61,6 +62,7 @@ export interface UserButtonProps {
   session: { username?: string } | null;
   theme: string | undefined;
   t: (key: string) => string;
+  searchClose: () => void;
 }
 
 export interface ChangelogModalProps {

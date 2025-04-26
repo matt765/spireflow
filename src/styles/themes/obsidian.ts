@@ -19,7 +19,7 @@ export const obsidianTheme = {
 
   // Backgrounds
   primaryBg: "rgb(51, 55, 62)",
-  secondaryBg: "rgb(45, 49, 55)",
+  secondaryBg: "rgb(43, 47, 53)",
   mainColor: "rgb(61, 185, 133)",
   navigationBg: "rgb(51, 55, 62)",
   navItemBg: "rgb(12, 18, 24, 0)",
@@ -57,7 +57,7 @@ export const obsidianTheme = {
   scrollbarThumb: "rgba(94, 98, 105, 0.7)",
 
   // Borders
-  mainBorder: "rgb(255,255,255,0.09)",
+  mainBorder: "rgb(255,255,255,0.08)",
   mainBorderHover: "rgb(255,255,255, 0.25)",
   inputBorder: "rgb(255,255,255,0.15)",
   inputBorderHover: "rgb(255,255,255,0.25)",

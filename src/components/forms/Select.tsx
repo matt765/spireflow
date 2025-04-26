@@ -70,7 +70,7 @@ export const Select = ({
     <>
       <div className={`relative `} ref={dropdownRef}>
         <div
-          className="text-sm 1xl:text-base rounded-md p-2 pl-3 pr-3 w-full cursor-pointer border border-mainBorder bg-selectBg text-primaryText placeholder-secondaryText hover:!border-inputBorderHover hover:bg-inputBgHover hover:bg-selectBgHover"
+          className="text-sm 3xl:text-base rounded-md p-2 pl-3 pr-3 w-full cursor-pointer border border-mainBorder bg-selectBg text-primaryText placeholder-secondaryText hover:!border-inputBorderHover hover:bg-inputBgHover hover:bg-selectBgHover"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
           aria-expanded={isSelectOpen}
           aria-label={ariaLabel || placeholder || "Select"}
@@ -100,7 +100,7 @@ export const Select = ({
               {customOptions?.map((option, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-between text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover hover:bg-dropdownBgHover
+                  className={`flex items-center justify-between text-sm 3xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover hover:bg-dropdownBgHover
                 ${
                   value === option &&
                   "bg-dropdownBgHover bg-dropdownBgHover pointer-events-none"
@@ -120,7 +120,7 @@ export const Select = ({
               ))}
               {isBottomPlaceholderVisible && (
                 <div
-                  className={`text-sm 2xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover hover:bg-dropdownBgHover
+                  className={`text-sm 3xl:text-base p-2 cursor-pointer hover:bg-dropdownBgHover hover:bg-dropdownBgHover
                 ${
                   !selectedValue &&
                   "bg-dropdownBgHover bg-dropdownBgHover pointer-events-none"

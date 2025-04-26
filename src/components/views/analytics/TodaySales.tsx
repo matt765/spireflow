@@ -31,9 +31,9 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
       id="todaysSales"
     >
       <Text>{t("title")}</Text>
-      <Metric className="mt-1">$ 2276</Metric>
+      <Metric className="mt-1 text-xl 1xl:text-2xl 3xl:text-3xl">$ 2276</Metric>
       <TabGroup>
-        <TabList defaultValue="average" className="mt-6">
+        <TabList defaultValue="average" className="mt-1 1xl:mt-2 3xl:mt-6">
           <Tab value="yesterday" className="!text-[12px] 1xl:!text-sm">
             {t("todayVsYesterday")}
           </Tab>
@@ -51,13 +51,13 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-4 h-56"
+              className="mt-6 3xl:mt-4 h-52 lg:h-36 1xl:h-44 3xl:h-56"
             />
             <Flex justifyContent="end">
               <Legend
                 categories={[t("today"), t("yesterday")]}
                 colors={["blue", "slate"]}
-                className="mt-3"
+                className="mt-0 1xl:mt-3"
               />
             </Flex>
           </TabPanel>
@@ -70,13 +70,13 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-4 h-56"
+              className="mt-6 3xl:mt-4 h-52 lg:h-36 1xl:h-44 3xl:h-56"
             />
             <Flex justifyContent="end">
               <Legend
                 categories={[t("today"), t("average")]}
                 colors={["blue", "slate"]}
-                className="mt-3"
+                className="mt-0 1xl:mt-3"
               />
             </Flex>
           </TabPanel>

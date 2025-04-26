@@ -26,7 +26,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
           >
             <CloseIcon />
           </button>
-          <div className="md:max-h-[60vh] w-full -mr-4 overflow-auto pr-4 max-w-full md:max-w-[36rem]">
+          <div className="md:max-h-[70vh] 1xl-max-h-[60vh] w-full -mr-4 overflow-auto pr-4 max-w-full md:max-w-[36rem]">
             <div className="flex items-center justify-center w-full flex-col gap-2 mt-8 md:-mt-4 px-8 md:px-0">
               <h2 className="text-primaryText text-3xl w-full text-left mt-2">
                 About

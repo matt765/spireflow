@@ -31,7 +31,7 @@ export const CustomersCountryDropdown = ({
           {options.map((option) => (
             <div
               key={option}
-              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover py-2 ${
+              className={`flex text-sm 3xl:text-base justify-between cursor-pointer px-4 hover:bg-dropdownBgHover py-2 ${
                 activeFilter === option && "bg-dropdownBgHover"
               }  `}
               onClick={() => {
@@ -48,7 +48,7 @@ export const CustomersCountryDropdown = ({
             </div>
           ))}
           <div
-            className="px-4 py-2 cursor-pointer hover:bg-dropdownBgHover border-t border-mainBorder"
+            className="px-4 py-2 text-sm 3xl:text-base cursor-pointer hover:bg-dropdownBgHover border-t border-mainBorder"
             onClick={() => {
               setFilter(filterKey, undefined);
               close();

@@ -45,7 +45,7 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
 
   return (
     <>
-      <table className="w-full mt-8 min-w-[58rem]">
+      <table className="w-full mt-8 min-w-[58rem] customersTable">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
@@ -55,8 +55,8 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
                   colSpan={header.colSpan}
                   className={
                     header.column.getCanSort()
-                      ? "text-secondaryText font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg  border-inputBorder "
-                      : "text-secondaryText font-normal text-center text-base pl-3 2xl:pl-5 py-3 border cursor-pointer select-none  bg-inputBg border-inputBorder"
+                      ? "text-secondaryText font-normal text-left text-sm 3xl:text-base pl-4 py-3 3xl:py-3 border cursor-pointer select-none  bg-inputBg  border-inputBorder "
+                      : "text-secondaryText font-normal text-center text-sm 3xl:text-base pl-3 2xl:pl-5 py-3 3xl:py-3 border cursor-pointer select-none  bg-inputBg border-inputBorder"
                   }
                   onClick={header.column.getToggleSortingHandler()}
                   style={{
@@ -98,7 +98,7 @@ export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className="text-tableCellText text-primaryText font-medium text-base p-4 border border-inputBorder"
+                  className="text-tableCellText text-primaryText font-medium text-sm 3xl:text-base p-4 py-2 3xl:py-4 border border-inputBorder"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

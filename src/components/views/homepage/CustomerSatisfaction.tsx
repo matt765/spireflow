@@ -31,7 +31,7 @@ export const CustomerSatisfaction = ({
     >
       <BlockTitle title={t("title")} />
       <ScatterChart
-        className="h-72 md:h-full mt-8"
+        className="h-[16rem] 1xl:h-[17.5rem] 3xl:h-full mt-8"
         yAxisWidth={50}
         data={translatedData}
         category="brandName"

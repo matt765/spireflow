@@ -37,14 +37,14 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
   const t = useTranslations("navbar");
 
   return (
-    <div className="w-full xsm:w-[22rem] flex flex-col items-center py-4">
+    <div className="w-full md:w-[19rem] 1xl:w-[22rem] flex flex-col items-center py-0 1xl:py-4">
       <h1
-        className={`text-4xl font-bold text-primaryText`}
+        className={`text-3xl 1xl:text-4xl font-bold text-primaryText`}
       >
         {t("signIn")}
       </h1>
       <form
-        className="w-full flex flex-col gap-3 py-12 pt-14"
+        className="w-full flex flex-col gap-3 py-12 pt-10 1xl:pt-14"
         onSubmit={handleSubmit(onSubmit)}
         autoComplete="new-password"
       >
@@ -65,7 +65,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
           />
         </div>
         {errors.email && showEmailError && (
-          <div className="hidden md:block absolute md:left-[25.8rem] top-[10.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
+          <div className="hidden md:block absolute left-[23rem] 1xl:left-[25.8rem] top-[8.4rem] 1xl:top-[10.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative">
               <div className="bg-secondaryBg bg-inputBg text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.email.message}
@@ -90,7 +90,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
           />
         </div>
         {errors.password && showPasswordError && (
-          <div className="hidden md:block absolute left-[25.8rem] top-[14rem] 1xl:top-[14.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
+          <div className="hidden md:block absolute left-[23rem] 1xl:left-[25.8rem] top-[12rem] 1xl:top-[14rem] 1xl:top-[14.4rem] z-50 min-w-[20rem] w-auto pointer-events-none">
             <div className="relative mb-8">
               <div className="bg-secondaryBg bg-inputBg text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.password.message}
@@ -100,19 +100,19 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
         )}
         {/* On mobile I used standard red text for errors instead of tooltips to save space */}
         {!authErrorDisplayed && errors.email && showEmailError && (
-          <p className="text-red-500 -mb-2 md:hidden">{errors.email.message}</p>
+          <p className="text-sm text-red-500 -mb-2 md:hidden">{errors.email.message}</p>
         )}
         {!authErrorDisplayed && errors.password && showPasswordError && (
-          <p className="text-red-500 -mb-3 md:hidden">
+          <p className="text-sm text-red-500 -mb-3 md:hidden">
             {errors.password.message}
           </p>
         )}
         {authErrorDisplayed && (
-          <p className="text-red-500 -mb-3">
+          <p className="text-sm text-red-500 -mb-3">
             {t("eitherEmailOrPasswordIsIncorrect")}
           </p>
         )}
-        <div className="w-10/12 lg:w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-6">
+        <div className="w-10/12 lg:w-12/12 flex gap-4 justify-center flex-col items-center mx-auto mt-4 1xl:mt-6">
           <div className="w-full h-10 max-h-10">
             <ContainedButton disabled={loading} type="submit">
               {loading ? (
@@ -146,7 +146,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
                 t("sampleAccount")
               )}
             </ContainedButton>
-            <div className="w-full text-xs sm:text-sm flex justify-center gap-2 mt-10">
+            <div className="w-full text-xs 1xl:text-sm flex justify-center gap-2 mt-8 1xl:mt-10">
               <div className="text-primaryText">
                 {t("noAccount")}
               </div>

@@ -31,7 +31,7 @@ const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
   };
 
   return (
-    <div className="flex flex-row justify-start gap-8 text-white w-full mb-12 mt-8 text-xs">
+    <div className="flex flex-row justify-start gap-8 text-white w-full mb-6 1xl:mb-8 mt-4 1xl:mt-5 3xl:mb-12 3xl:mt-8 text-xs">
       {data.map((item, index) => (
         <div key={index} className="flex items-center">
           {isMounted ? (
@@ -46,7 +46,7 @@ const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
           ) : (
             <div className="w-3 h-3 mr-2 rounded bg-transparent"></div>
           )}
-          <span className="text-sm text-primaryText">
+          <span className="text-xs 1xl:text-sm text-primaryText">
             {item.name}
           </span>
         </div>
@@ -83,9 +83,9 @@ export const Regions = ({ regionsData }: RegionsProps) => {
         valueFormatter={(number: number) =>
           `${Intl.NumberFormat("us").format(number)} $`
         }
-        className="mt-6"
+        className="mt-2 1xl:mt-6 h-32 1xl:h-36 3xl:h-40 text-[0.9rem] 3xl:text-[1rem]"
       />
-      <List className="mt-6">
+      <List className="mt-4 3xl:mt-6">
         {translatedData.map((city) => (
           <ListItem key={city.name}>
             {city.name}

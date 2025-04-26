@@ -51,8 +51,8 @@ export const OrdersTable = ({
                   colSpan={header.colSpan}
                   className={
                     header.column.getCanSort()
-                      ? "text-secondaryText font-normal text-left text-base pl-4 py-3 border cursor-pointer select-none  bg-inputBg bg-inputBg border-inputBorder border-inputBorder"
-                      : "text-secondaryText font-medium text-left pl-4 py-3 border"
+                      ? "text-secondaryText font-normal text-left text-sm 3xl:text-base pl-4 py-2 3xl:py-3 border cursor-pointer select-none  bg-inputBg bg-inputBg border-inputBorder border-inputBorder"
+                      : "text-secondaryText font-medium text-left text-sm 3xl:text-base pl-4 py-2 3xl:py-3 border"
                   }
                   onClick={header.column.getToggleSortingHandler()}
                   style={{
@@ -100,7 +100,7 @@ export const OrdersTable = ({
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
-                    className="text-tableCellText font-medium text-base p-4 border border-inputBorder"
+                    className="text-tableCellText font-medium text-sm 3xl:text-base p-4 py-3 3xl:py-4 border border-inputBorder"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>

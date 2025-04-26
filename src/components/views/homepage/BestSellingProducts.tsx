@@ -22,6 +22,7 @@ import {
 import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { useChartColors } from "../../../hooks/useChartColors";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 const BestSellingCustomLegend = ({
   payload,
@@ -36,7 +37,7 @@ const BestSellingCustomLegend = ({
             className="w-3 h-3 mr-2"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-sm text-primaryText">
+          <span className="text-xs 1xl:text-sm text-primaryText">
             {entry.value.split(" ")[0]}
           </span>
         </div>
@@ -102,14 +103,29 @@ export const BestSellingProducts = ({
     theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
+  const { width: windowWidth } = useWindowDimensions();
+
+  const getBarSize = () => {
+    if (windowWidth  > 1400) return 25;
+    if (windowWidth  > 1024) return 20;
+    if (windowWidth  > 720) return 20;
+    if (windowWidth  > 640) return 15
+    return 25;
+  };
+
   return (
     <Card className="h-full" id="bestsellingProducts">
       <BlockTitle title={t("title")} />
-      <div className="h-[350px] relative">
+      <div className="h-[17.5rem] 1xl:h-[19.5rem] 3xl:h-[21.8rem] relative mt-2 3xl:mt-0">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={chartData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            margin={{
+              top: 20,
+              right: windowWidth > 700 ? 30 : 10,
+              left: windowWidth > 700 ? 20 : 5,
+              bottom: 5,
+            }}
           >
             <Legend
               verticalAlign="top"
@@ -140,14 +156,14 @@ export const BestSellingProducts = ({
               dataKey={t("profitFromLastWeek")}
               fill={chartColors.secondary.fill}
               radius={[4, 4, 0, 0]}
-              barSize={30}
+              barSize={getBarSize()}
               isAnimationActive={false}
             />
             <Bar
               dataKey={t("revenueFromLastWeek")}
               fill={chartColors.primary.fill}
               radius={[4, 4, 0, 0]}
-              barSize={30}
+              barSize={getBarSize()}
               isAnimationActive={false}
             />
           </BarChart>

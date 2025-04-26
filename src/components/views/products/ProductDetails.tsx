@@ -46,7 +46,7 @@ export const ProductDetails = ({
         <div className="flex gap-6 md:gap-8 items-center justify-start mb-16">
           <div
             onClick={() => setIsPhotoOpen(true)}
-            className="group relative min-w-[9rem] hover:bg-[rgb(255,255,255,0.02)] cursor-pointer min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10rem] sm:w-[10rem] md:h-[11rem] md:w-[11rem] 2xl:h-[15rem] 2xl:w-[15rem] p-0 rounded-xl flex justify-center items-center border border-mainBorder"
+            className="group relative min-w-[9rem] hover:bg-[rgb(255,255,255,0.02)] cursor-pointer min-h-[9rem] w-[9rem] h-[9rem] xsm:min-h-[10rem] xsm:min-w-[10rem] sm:h-[10.5rem] sm:w-[10.5rem] 1xl:h-[12.5rem] 1xl:w-[12.5rem] 3xl:h-[15rem] 3xl:w-[15rem] p-0 rounded-xl flex justify-center items-center border border-mainBorder"
           >
             <div className="rounded-xl relative w-full h-full bg-[rgb(0,0,0,0.01)] flex justify-center items-center">
               {!imageLoaded && (
@@ -122,7 +122,7 @@ export const ProductDetails = ({
             }}
           />
           <div>
-            <h2 className="text-lg md:text-3xl lg:text-3xl 2xl:text-4xl mb-3 xsm:mb-4 text-primaryText">
+            <h2 className="text-lg md:text-2xl 1xl:text-3xl 3xl:text-4xl mb-3 xsm:mb-4 text-primaryText">
               {activeProduct.name}
             </h2>
             <div className="flex gap-1">
@@ -133,7 +133,7 @@ export const ProductDetails = ({
                 {activeProduct.type}
               </p>
             </div>
-            <div className="flex text-sm md:text-base 2xl:text-xl gap-2 xsm:gap-4 md:gap-8 mt-2 xsm:mt-3 2xl:mt-4 flex-col xsm:flex-row">
+            <div className="flex text-sm md:text-base 3xl:text-xl gap-2 xsm:gap-4 md:gap-8 mt-2 xsm:mt-3 2xl:mt-4 flex-col xsm:flex-row">
               <div className="flex gap-2">
                 <p className="text-secondaryText">{t("header.price")}:</p>
                 <p className="text-primaryText">

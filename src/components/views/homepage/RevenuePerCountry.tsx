@@ -70,80 +70,88 @@ export const RevenuePerCountry = ({
       id="revenuePerCountry"
     >
       <BlockTitle title={t("title")} />
-      <div className="flex justify-between -ml-8 2xl:-ml-48 gap-16 mt-10 pr-12 -mb-4">
-        <Suspense
-          fallback={
-            <div className="w-full flex items-center justify-center pb-10">
-              <SpinnerIcon width={100} height={100} />
-            </div>
-          }
-        >
-          <ComposableMapLazy
-            width={1100}
-            height={450}
-            stroke="rgb(255,255,255, 0.1)"
-          >
-            <Geographies geography="/geographies.json">
-              {({ geographies }) =>
-                geographies.map((geo) => {
-                  const countryName = geo.properties.name;
-                  if (countryName === "Antarctica") {
-                    return null;
-                  }
-                  const countryData = revenuePerCountryData.find(
-                    (s) => s.name === countryName
-                  );
-                  const tooltipContent = countryData
-                    ? `${countryName} - ${countryData.price}$`
-                    : `${countryName}`;
-
-                  return (
-                    <Tooltip
-                      placement="top"
-                      overlay={<span>{tooltipContent}</span>}
-                      key={geo.rsmKey}
-                    >
-                      <Geography
-                        geography={geo}
-                        fill={
-                          countryData
-                            ? HIGHLIGHT_COLOR
-                            : theme === "snowlight"
-                            ? "rgb(0,0,0,0.13)"
-                            : "rgba(255, 255, 255, 0.1)"
-                        }
-                        style={{
-                          default: { outline: "none" },
-                          hover: { fill: HIGHLIGHT_COLOR, outline: "none" },
-                          pressed: { outline: "none" },
-                        }}
-                      />
-                    </Tooltip>
-                  );
-                })
-              }
-            </Geographies>
-          </ComposableMapLazy>
-        </Suspense>
-        <div className="flex flex-col p-0 overflow-auto min-w-[20rem] gap-3 overflow-hidden px-2 mr-20">
-          <div className="w-full flex justify-between">
-            <h3 className="font-semibold text-primaryText">{t("country")}</h3>
-            <h3 className="font-semibold text-primaryText">{t("sales")}</h3>
-          </div>
-          {dataWithIcons.map((data, index) => (
-            <div
-              key={index}
-              className="flex justify-between items-center py-1 border-t border-mainBorder pt-4"
-            >
-              <div className="flex items-center space-x-3">
-                <div className="flex">{data.FlagIcon && <data.FlagIcon />}</div>
-                <span className="text-sm text-primaryText">{data.name}</span>
+      <div className="flex justify-between">
+        <div className="w-[65%] worldMap flex items-center justify-center h-[25rem]">
+          <Suspense
+            fallback={
+              <div className="w-full flex items-center justify-center pb-10">
+                <SpinnerIcon width={100} height={100} />
               </div>
-              <span className="font-semibold text-sm text-primaryText">
-                ${data.price}
-              </span>
+            }
+          >
+            <ComposableMapLazy
+              width={1100}
+              height={500}
+              stroke="rgb(255,255,255, 0.1)"
+            >
+              <Geographies geography="/geographies.json">
+                {({ geographies }) =>
+                  geographies.map((geo) => {
+                    const countryName = geo.properties.name;
+                    if (countryName === "Antarctica") {
+                      return null;
+                    }
+                    const countryData = revenuePerCountryData.find(
+                      (s) => s.name === countryName
+                    );
+                    const tooltipContent = countryData
+                      ? `${countryName} - ${countryData.price}$`
+                      : `${countryName}`;
+
+                    return (
+                      <Tooltip
+                        placement="top"
+                        overlay={<span>{tooltipContent}</span>}
+                        key={geo.rsmKey}
+                      >
+                        <Geography
+                          geography={geo}
+                          fill={
+                            countryData
+                              ? HIGHLIGHT_COLOR
+                              : theme === "snowlight"
+                              ? "rgb(0,0,0,0.13)"
+                              : "rgba(255, 255, 255, 0.1)"
+                          }
+                          style={{
+                            default: { outline: "none" },
+                            hover: { fill: HIGHLIGHT_COLOR, outline: "none" },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      </Tooltip>
+                    );
+                  })
+                }
+              </Geographies>
+            </ComposableMapLazy>
+          </Suspense>
+        </div>
+        <div className="w-[35%] flex  overflow-auto pt-[1rem] items-start justify-start ">
+          <div className="flex flex-col w-full pl-[10%] pr-[20%]">
+            <div className="w-full flex justify-between mb-[0.5rem] text-[14px] 3xl:text-[16px]">
+              <h3 className="font-semibold text-primaryText">{t("country")}</h3>
+              <h3 className="font-semibold text-primaryText">{t("sales")}</h3>
             </div>
-          ))}
+            {dataWithIcons.map((data, index) => (
+              <div
+                key={index}
+                className="flex justify-between items-center border-t border-mainBorder pt-3 pb-3"
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="flex">
+                    {data.FlagIcon && <data.FlagIcon />}
+                  </div>
+                  <span className="text-xs 3xl:text-sm text-primaryText">
+                    {data.name}
+                  </span>
+                </div>
+                <span className="font-semibold text-sm 3xl:text-sm text-primaryText">
+                  ${data.price}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Card>

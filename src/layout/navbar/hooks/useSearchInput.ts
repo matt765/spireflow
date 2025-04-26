@@ -11,12 +11,19 @@ interface Section {
   translatedSection: string;
   translatedPage: string;
 }
+interface UseSearchInputOptions {
+  closeOthers?: () => void;
+  open: () => void;
+  close: () => void;
+}
 
-export const useSearchInput = () => {
+export const useSearchInput = ({
+  closeOthers,
+  open,
+  close,
+}: UseSearchInputOptions) => {
   const t = useTranslations("navbar");
   const [searchText, setSearchText] = useState("");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const { currentLanguage } = useNavbar();
   const router = useRouter();
 
@@ -99,15 +106,17 @@ export const useSearchInput = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
-    setIsDropdownOpen(true);
+    if (closeOthers) closeOthers();
+    open();
   };
 
   const handleInputFocus = () => {
-    setIsDropdownOpen(true);
+    if (closeOthers) closeOthers();
+    open();
   };
 
   const handleSectionClick = (section: Section) => {
-    setIsDropdownOpen(false);
+    close();
 
     const baseUrl = `/${currentLanguage}`;
     const normalizedPath = window.location.pathname.replace(/\/$/, "");
@@ -135,10 +144,6 @@ export const useSearchInput = () => {
     }
   };
 
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
-  };
-
   let searchPlaceholder;
   try {
     searchPlaceholder = t("search.placeholder");
@@ -155,8 +160,6 @@ export const useSearchInput = () => {
 
   return {
     searchText,
-    isDropdownOpen,
-    dropdownRef,
     sections,
     translatedSections,
     filteredSections,
@@ -165,6 +168,5 @@ export const useSearchInput = () => {
     handleSearchChange,
     handleInputFocus,
     handleSectionClick,
-    closeDropdown,
   };
 };

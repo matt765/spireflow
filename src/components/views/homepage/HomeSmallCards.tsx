@@ -30,15 +30,15 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
           <Card
             key={`${item.title}-${index}`}
             id={cardIds[index]}
-            className="h-46 sm:h-28 lg:h-32 pr-[0.8rem] md:!pr-[0.5rem] lg:!pr-[0.8rem] xl:!pr-[0.1rem] 2xl:!pr-[1.2rem] pl-5 2xl:pl-7"
+            className="h-46 sm:h-24 1xl:h-28 pt-4 1xl:pt-5 3xl:p-6 3xl:h-32 pr-[0.8rem] md:!pr-[0.5rem] lg:!pr-[0.8rem] xl:!pr-[0.1rem] 2xl:!pr-[1.2rem] pl-5 2xl:pl-7"
           >
-            <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row">
-              <div className="flex flex-col w-full sm:w-1/2 gap-1 pl-1 sm:pl-0">
-                <div className="flex flex-row lg:flex-col">
-                  <div className="text-[#a3aed0] font-medium text-md sm:text-lg lg:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
+            <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row justify-between md:justify-normal">
+              <div className="flex flex-col w-full sm:w-1/2 mt-[0.35rem] lg:mt-0 lg:gap-1 pl-1 sm:pl-0">
+                <div className="flex flex-row lg:flex-col items-center lg:items-start">
+                  <div className="text-[#a3aed0] font-medium text-md sm:text-md lg:text-xs 1xl:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
                     {item.title}
                   </div>
-                  <div className="text-md sm:text-lg xl:text-xl font-semibold text-primaryText flex">
+                  <div className="pb-1 lg:pb-0 text-[1.1rem] lg:text-[1.2rem] lg:text-md 1xl:text-[1.15rem] 3xl:text-xl font-semibold text-primaryText flex">
                     {item.metric}
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-[45%] lg:w-[50%] xl:w-[40%] 2xl:w-1/2 md:pl-3 md:ml-2 2xl:ml-0 sm:flex mt-4 sm:mt-0 pr-0 2xl:pr-2 sm:pr-0">
+              <div className="w-full sm:w-[40%] md:w-[45%] lg:w-[50%] xl:w-[40%] 2xl:w-1/2 md:pl-3 md:ml-2 2xl:ml-0 sm:flex mt-4 sm:mt-0 pr-0 2xl:pr-2 sm:pr-0">
                 <Chart chartData={chartArray} color={item.color} />
               </div>
             </div>
@@ -80,7 +80,7 @@ const Chart = ({ color, chartData }: ChartProps) => (
     categories={["metric"]}
     colors={[color]}
     showLegend={false}
-    className="h-16"
+    className="h-14 1xl:h-16"
     showTooltip={false}
     showXAxis={false}
     showYAxis={false}

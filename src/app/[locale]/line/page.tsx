@@ -65,11 +65,11 @@ const Line = () => {
 
   return (
     <CenteredPageWrapper>
-      <div className="text-2xl w-full text-left mb-6 text-primaryText">
+      <div className="text-lg 1xl:text-xl 3xl:text-2xl w-full text-left mb-6 text-primaryText">
         {t("title")}
       </div>
       <LineChart
-        className="mt-6"
+        className="mt-2 1xl:mt-6 h-56 1xl:h-72 3xl:h-80"
         data={dragonPopulationInWesteros}
         index="year"
         categories={[t("houseTargaryen"), t("houseVelaryon")]}
@@ -78,11 +78,11 @@ const Line = () => {
         yAxisWidth={40}
         intervalType="preserveStartEnd"
       />
-      <div className="w-full hidden sm:flex justify-between mx-auto mt-8 ml-8">
+      <div className="w-full hidden sm:flex justify-between mx-auto mt-6 1xl:mt-8 ml-8">
         {dragonPopulationInWesteros.map((item, index) => (
           <div
             key={index}
-            className="text-xs text-primaryText"
+            className="text-xs text-primaryText px-2"
           >
             {item.title}
           </div>

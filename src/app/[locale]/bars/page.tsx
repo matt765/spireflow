@@ -54,11 +54,11 @@ const Bars = () => {
   return (
     <CenteredPageWrapper>
       <>
-        <div className="text-2xl w-full text-left sm:mb-6 text-primaryText">
+        <div className="text-lg 1xl:text-xl 3xl:text-2xl w-full text-left mb-6 md:mb-6 text-primaryText">
           {t("title")}
         </div>
         <BarChart
-          className="mt-6 single-chart-bars"
+          className="h-64 1xl:h-80 3xl:mt-6 single-chart-bars"
           data={barChartData}
           index="name"
           categories={[

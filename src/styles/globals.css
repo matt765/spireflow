@@ -311,18 +311,24 @@ a {
 }
 
 .menuItemIcon svg {
-  width: 22px;
-  height: 22px;
+  @apply w-[20px] h-[20px] 3xl:w-[22px] 3xl:h-[22px]
 }
+
+.menuItemLogo svg {
+  @apply w-[22px] h-[22px] 3xl:w-[25px] 3xl:h-[25px]
+}
+
+.worldMap svg {
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+}
+
+
 
 /* Hide unnecessary grid lines in Tremor bar charts */
 .small-box .recharts-cartesian-grid-horizontal {
   display: none;
-}
-
-/* Hide colored bar on mobile in Analytics/Assset Performance component */
-.text-tremor-default .w-44 {
-  @apply hidden sm:flex;
 }
 
 /* Add margin for mobile resolution of legend section im bars single chart page */
@@ -441,4 +447,10 @@ input:-webkit-autofill {
 
 .alternativeScrollbar {
   --scrollbar-bg: theme("colors.primaryBg");
+}
+
+/* Prevent stretching customer photo vertically */
+.customersTable img {
+  min-width: 40px;
+  min-height: 40px;
 }

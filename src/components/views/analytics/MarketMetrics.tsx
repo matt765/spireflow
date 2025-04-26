@@ -75,7 +75,7 @@ const CustomLegend = (props: LegendProps) => {
   };
 
   return (
-    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
+    <div className="flex flex-row justify-end gap-8 text-white w-full mt-[0rem] lg:mt-0 mb-12 3xl:mb-6">
       {payload?.map((entry, index: number) => (
         <div key={index} className="flex items-center">
           <div
@@ -107,15 +107,16 @@ export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
   );
 
   return (
-    <Card className="h-full" id="marketMetrics">
+    <Card className="hidden lg:block h-full" id="marketMetrics">
       <BlockTitle title={t("title")} />
-      <div className="w-full h-[24rem]">
+      <div className="w-full h-[19rem] lg:h-[21rem] 3x:h-[24rem]">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart
             cx="50%"
             cy="50%"
             outerRadius="80%"
             data={marketMetricsData}
+            className="pt-4 mt-[1rem] lg:mt-0"
           >
             <PolarGrid stroke="rgba(255,255,255,0.1)" />
             <PolarAngleAxis

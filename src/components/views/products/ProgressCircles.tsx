@@ -18,14 +18,16 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
     t("orderFullfillment"),
     t("conversionRate"),
   ];
+  
   const { width: windowWidth } = useWindowDimensions();
+
   const getCircleSize = () => {
     if (windowWidth < 490) {
       return "md";
     } else if (windowWidth < 640) {
       return "xl";
     } else if (windowWidth < 1400) {
-      return "md";
+      return "lg";
     } else {
       return "xl";
     }
@@ -38,7 +40,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
         return (
           <div
             key={index}
-            className="hover:bg-[rgb(255,255,255,0.01)] transition mx-auto sm:mx-unset w-[90%] sm:w-[48%] px-4 flex justify-center items-center border border-mainBorder py-12 rounded-md"
+            className="hover:bg-[rgb(255,255,255,0.01)] transition mx-auto sm:mx-unset w-[90%] sm:w-[48%] px-4 flex justify-center items-center border border-mainBorder py-8 1xl:py-12 rounded-md"
           >
             <div className="flex gap-8 sm:gap-4 md:gap-8 items-center">
               <ProgressCircle
@@ -51,7 +53,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
                 </span>
               </ProgressCircle>
               <div className="flex flex-col">
-                <div className="font-medium text-xl sm:text-md md:text-xl 2xl:text-2xl text-primaryText">
+                <div className="font-medium text-xl sm:text-md md:text-xl 3xl:text-2xl text-primaryText">
                   {index === 1 && "$"}
                   {firstValue}
                   {index === 1 && "k"} / {index === 1 && "$"}

@@ -22,6 +22,7 @@ import {
   YearOverviewProps,
 } from "./types";
 import { useChartColors } from "../../../hooks/useChartColors";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 const YearOverviewTooltip = ({
   active,
@@ -80,17 +81,17 @@ const DataTable = ({ data }: { data: OverviewMonthData[] }) => {
   const lastSixMonths = data.slice(-8);
 
   return (
-    <div className="overflow-auto h-[24rem] mr-8 mt-2">
+    <div className="overflow-auto h-[19rem] 1xl:h-[22rem] 3xl:h-[24rem] mr-8 mt-2">
       <table className="w-full">
         <thead>
           <tr>
-            <th className="text-secondaryText text-xs text-left text-base pl-4 py-3 border-b border-inputBorder">
+            <th className="text-secondaryText text-xs text-left text-base pl-4 py-2 1xl:py-3 border-b border-inputBorder">
               {t("month")}
             </th>
-            <th className="text-secondaryText text-xs text-left text-base pl-4 py-3 border-b border-inputBorder">
+            <th className="text-secondaryText text-xs text-left text-base pl-4  py-2 1xl:py-3 border-b border-inputBorder">
               {t("phones")}
             </th>
-            <th className="text-secondaryText text-xs text-left text-base pl-4 py-3 border-b border-inputBorder">
+            <th className="text-secondaryText text-xs text-left text-base pl-4  py-2 1xl:py-3 border-b border-inputBorder">
               {t("laptops")}
             </th>
           </tr>
@@ -98,13 +99,13 @@ const DataTable = ({ data }: { data: OverviewMonthData[] }) => {
         <tbody>
           {lastSixMonths.map((row) => (
             <tr key={row.name} className="hover:bg-[rgb(255,255,255,0.03)]">
-              <td className="text-tableCellText  font-medium text-sm p-2 pl-4 border-b border-inputBorder">
+              <td className="text-tableCellText  font-medium text-xs 1xl:text-sm p-[0.4rem] 1xl:p-2 pl-4 border-b border-inputBorder">
                 {row.name}
               </td>
-              <td className="text-tableCellText  font-medium text-sm pl-4 border-b border-inputBorder text-left">
+              <td className="text-tableCellText  font-medium text-xs 1xl:text-sm pl-4 border-b border-inputBorder text-left">
                 ${Intl.NumberFormat("us").format(row.phones)}
               </td>
-              <td className="text-tableCellText  font-medium text-sm pl-4 border-b border-inputBorder text-left">
+              <td className="text-tableCellText  font-medium text-xs 1xl:text-sm pl-4 border-b border-inputBorder text-left">
                 ${Intl.NumberFormat("us").format(row.laptops)}
               </td>
             </tr>
@@ -129,15 +130,22 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
     theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
+  const { width: windowWidth } = useWindowDimensions();
+
   return (
     <Card className="h-full" id="yearOverview">
       <BlockTitle title={t("title")} />
       <div className="flex gap-8">
-        <div className="w-3/4 h-[24rem]">
+        <div className="w-full lg:w-3/4 h-[19rem] 1xl:h-[22rem] 3xl:h-[24rem]">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={translatedData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+              margin={{
+                top: 20,
+                right: windowWidth > 400 ? 30 : 15,
+                left: windowWidth > 400 ? 20 : 10,
+                bottom: 5,
+              }}
             >
               <defs>
                 <linearGradient id="colorPhones" x1="0" y1="0" x2="0" y2="1">
@@ -215,7 +223,7 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <div className="w-1/4">
+        <div className="hidden lg:inline lg:w-1/4">
           <DataTable data={translatedData} />
         </div>
       </div>

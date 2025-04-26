@@ -38,11 +38,11 @@ export const TotalProfit = ({
         alignItems="baseline"
         className="space-x-3 truncate"
       >
-        <Metric>$ 442,276</Metric>
+        <Metric className="text-2xl 3xl:text-3xl">$ 442,276</Metric>
         <Text>{t("thisYear")}</Text>
       </Flex>
       <AreaChart
-        className="mt-10 h-48"
+        className="mt-8 3xl:mt-10 h-48 1xl:h-44 3xl:h-48"
         data={translatedData}
         index="month"
         categories={[t("sales")]}
@@ -52,8 +52,15 @@ export const TotalProfit = ({
         startEndOnly={true}
         valueFormatter={valueFormatter}
       />
-      {totalProfitProducts.map((item: ProductProfit) => (
-        <div key={item.title} className="mt-4 space-y-2">
+      {totalProfitProducts.map((item: ProductProfit, index: number) => (
+        <div
+          key={item.title}
+          className={`mt-4 space-y-2 
+            ${index === 0 ? "hidden 1xl:block" : ""}
+            ${index === 1 ? "hidden 1xl:block" : ""}
+            ${index === 2 ? "hidden 3xl:block" : ""}
+          `}
+        >
           <Flex>
             <Text>{item.title}</Text>
             <Text>{`${item.value}% (${item.metric})`}</Text>

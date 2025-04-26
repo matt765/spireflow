@@ -45,7 +45,7 @@ export const LanguageButton = ({
         <NavigationLink
           href="/"
           locale="en"
-          className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
+          className="text-sm 1xl:text-sm 2xl:text-base h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
         >
           {t("english")}
           {currentLanguage === "en" && (
@@ -57,7 +57,7 @@ export const LanguageButton = ({
         <NavigationLink
           href="/"
           locale="pl"
-          className="h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
+          className="text-sm 1xl:text-sm 2xl:text-base h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between"
         >
           {t("polish")}
           {currentLanguage === "pl" && (

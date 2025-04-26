@@ -61,11 +61,11 @@ const Area = () => {
   return (
     <CenteredPageWrapper>
       <>
-        <div className="text-2xl w-full text-left mb-6 text-primaryText">
+        <div className="text-lg 1xl:text-xl 3xl:text-2xl w-full text-left mb-4 1xl:mb-6 text-primaryText">
           {t("title")}
         </div>
         <AreaChart
-          className="h-96 mt-4"
+          className="h-72 1xl:h-80 3xl:h-96 3xl:mt-4"
           data={chartdata}
           index="date"
           categories={[t("views"), t("uniqueVisitors")]}

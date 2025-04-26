@@ -22,6 +22,7 @@ import {
   PerformanceTooltipProps,
 } from "./types";
 import { useChartColors } from "../../../hooks/useChartColors";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 const PerformanceTooltip = ({
   active,
@@ -66,9 +67,7 @@ const CustomLegend = ({ payload }: PerformanceCustomLegendProps) => {
             className="w-3 h-3 mr-2"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-sm text-primaryText">
-            {entry.value}
-          </span>
+          <span className="text-sm text-primaryText">{entry.value}</span>
         </div>
       ))}
     </div>
@@ -101,7 +100,6 @@ const CustomXAxisTick = ({
 
 export const Performance = ({ performanceData }: PerformanceProps) => {
   const t = useTranslations("analytics.performance");
-  const chartData = performanceData.slice(-9);
 
   const { theme } = useTheme();
 
@@ -109,17 +107,36 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
     theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
+  const { width: windowWidth } = useWindowDimensions();
+
+  const getBarSize = () => {
+    if (windowWidth > 1180) return 24;
+    if (windowWidth > 720) return 18;
+    if (windowWidth > 600) return 15;
+    return 10;
+  };
+
+  const chartData =
+    windowWidth > 500 ? performanceData.slice(-9) : performanceData.slice(-4);
+
   return (
     <Card className="performanceCard" id="performance">
-      <div className="mb-0">
+      <div className="-mb-2 1xl:mb-0">
         <BlockTitle title={t("title")} />
-        <p className="text-sm text-secondaryText">{t("subtitle")}</p>
+        <p className="text-sm hidden sm:block text-secondaryText">
+          {t("subtitle")}
+        </p>
       </div>
-      <div className="h-[24rem]">
+      <div className="h-[16rem] 1xl:h-[21rem] 3xl:h-[24rem]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={chartData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            margin={{
+              top: 20,
+              right: windowWidth > 400 ? 30 : 15,
+              left: windowWidth > 400 ? 20 : 10,
+              bottom: 5,
+            }}
           >
             <CartesianGrid strokeDasharray="0" stroke="rgba(255,255,255,0.1)" />
             <XAxis dataKey="month" tick={<CustomXAxisTick />} />
@@ -148,7 +165,7 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
               name={t("sales")}
               fill="rgb(83,133,198)"
               radius={[4, 4, 0, 0]}
-              barSize={24}
+              barSize={getBarSize()}
               minPointSize={5}
               isAnimationActive={false}
             />
@@ -158,7 +175,7 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
               // fill="rgb(61,185,133)"
               fill={chartColors.primary.stroke}
               radius={[4, 4, 0, 0]}
-              barSize={24}
+              barSize={getBarSize()}
               minPointSize={5}
               isAnimationActive={false}
             />

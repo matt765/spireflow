@@ -27,14 +27,14 @@ export const ProductsView = ({ products }: { products: Product[] }) => {
 
   const renderedCategories = productCategories.map((category) => (
     <div key={category.name} className="flex flex-col gap-1">
-      <h4 className="text-md lg:text-sm 2xl:text-[16px] mt-3 mb-2 font-semibold text-secondaryText">
+      <h4 className="text-md lg:text-sm 3xl:text-[16px] mt-3 mb-2 font-semibold text-secondaryText">
         {category.name}
       </h4>
-      {category.sales.map((product) => (
+      {category.sales.map((product: Product) => (
         <div
           key={product.name}
           onClick={() => handleProductClick(product)}
-          className={`text-md lg:text-sm 2xl:text-[16px] p-2 pl-6 cursor-pointer rounded-md ${
+          className={`text-md lg:text-sm 3xl:text-[16px] p-2 pl-6 cursor-pointer rounded-md ${
             activeProduct.name === product.name
               ? "bg-activeProductBg text-primaryText"
               : "hover:bg-activeProductBg text-primaryText"

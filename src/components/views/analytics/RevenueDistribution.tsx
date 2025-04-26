@@ -17,6 +17,7 @@ import {
   RevenueDistributionProps,
   RevenueDistributionTooltipProps,
 } from "./types";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 const RevenueDistributionTooltip = ({
   active,
@@ -72,15 +73,22 @@ export const RevenueDistribution = ({
     category: t(item.category.toLowerCase()),
   }));
 
+  const { width: windowWidth } = useWindowDimensions();
+
   return (
     <Card className="h-full" id="revenueDistribution">
       <BlockTitle title={t("title")} />
-      <div className="w-full h-[20rem] mt-8 -ml-4">
+      <div className="w-full h-[19rem] 3xl:h-[20rem] mt-4 1xl:mt-8 -ml-4">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={translatedData}
             layout="vertical"
-            margin={{ top: 20, right: 30, left: 40, bottom: 5 }}
+            margin={{
+              top: 20,
+              right: windowWidth > 400 ? 30 : 5,
+              left: windowWidth > 400 ? 40 : 30,
+              bottom: 5,
+            }}
           >
             <CartesianGrid
               strokeDasharray="0"

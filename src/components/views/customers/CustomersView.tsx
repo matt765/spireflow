@@ -54,7 +54,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="flex justify-between flex-wrap md:flex-wrap w-full">
-        <div className="w-full md:w-1/3 lg:w-1/4 relative flex h-10">
+        <div className="w-full md:w-1/3 lg:w-1/4 relative flex h-[2.3rem] 3xl:h-[2.6rem]">
           <Input
             type="text"
             value={searchQuery}
@@ -64,7 +64,7 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
           />
         </div>
         <div className="flex gap-6 flex-wrap w-full md:w-auto mt-6 md:mt-0">
-          <div className="flex w-full md:w-auto justify-between gap-4 md:gap-4 h-10">
+          <div className="flex w-full md:w-auto justify-between gap-4 md:gap-4 h-9 3xl:h-10">
             <CustomersCountryDropdown
               options={countryOptions}
               filterKey="country"
@@ -107,13 +107,13 @@ export const CustomersView = ({ customers }: CustomersViewProps) => {
         <CustomersTable table={table} />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap pb-4">
-        <div className="w-[14rem] mt-8 sm:mb-0 flex gap-4 h-11">
+        <div className="w-[14rem] mt-8 sm:mb-0 flex gap-4 h-10 3xl:h-11">
           <OutlinedButton
             handleClick={clearFilters}
             text={t("button.clearFilters")}
           />
           <div
-            className="h-11 w-12 relative"
+            className="h-10 3xl:h-11 w-12 relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >

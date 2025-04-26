@@ -122,12 +122,12 @@ const Scatter = () => {
 
   return (
     <CenteredPageWrapper>
-      <div className="text-2xl w-full text-left mb-6 text-primaryText">
+      <div className="text-lg 1xl:text-xl 3xl:text-2xl w-full text-left mb-6 text-primaryText">
         {t("title")}
       </div>
       <Text>{t("subtitle")} </Text>
       <ScatterChart
-        className="h-80 mt-6 -ml-2"
+        className="h-56 1xl:h-72 3xl:h-80 mt-6 -ml-2"
         yAxisWidth={50}
         data={chartdata}
         category={t("country")}

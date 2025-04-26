@@ -23,6 +23,7 @@ import { useBackendTranslations } from "../../../hooks/useBackendTranslations";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { useChartColors } from "../../../hooks/useChartColors";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 const RevenueOverTimeTooltip = ({
   active,
@@ -72,7 +73,7 @@ const RevenueOverTimeTooltip = ({
 
 const CustomLegend = ({ payload }: RevenueOverTimeCustomLegendProps) => {
   return (
-    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
+    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6 1xl:mb-6">
       {payload?.map(
         (entry: { value: string; color?: string }, index: number) => (
           <div key={`legend-${index}`} className="flex items-center">
@@ -80,7 +81,7 @@ const CustomLegend = ({ payload }: RevenueOverTimeCustomLegendProps) => {
               className="w-3 h-3 mr-2 rounded"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm text-primaryText">
+            <span className="text-xs 1xl:text-sm text-primaryText">
               {entry.value}
             </span>
           </div>
@@ -109,16 +110,23 @@ export const RevenueOverTime = ({
     theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
   );
 
+  const { width: windowWidth } = useWindowDimensions();
+
   return (
     <Card className="h-full" id="revenueOverTime">
       <div className="p-1">
         <BlockTitle title={t("title")} />
       </div>
-      <div className="h-[20rem] w-full mt-4">
+      <div className="h-[17rem] 1xl:h-[18.8rem] 3xl:h-[20rem] w-full mt-0 3xl:mt-4">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={translatedData}
-            margin={{ top: 10, right: 30, left: 20, bottom: 5 }}
+            margin={{
+              top: 10,
+              right: windowWidth > 700 ? 30 : 10,
+              left: windowWidth > 700 ? 20 : 5,
+              bottom: 5,
+            }}
           >
             <defs>
               <linearGradient id="colorWebsite" x1="0" y1="0" x2="0" y2="1">

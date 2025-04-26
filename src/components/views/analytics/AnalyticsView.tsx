@@ -20,7 +20,7 @@ export const AnalyticsView = ({ analyticsData }: AnalyticsViewProps) => {
         numItemsSm={1}
         numItemsMd={2}
         numItemsLg={3}
-        className="gap-x-6 gap-y-6"
+        className="gap-x-4 1xl:gap-x-6 gap-y-6"
       >
         <Col numColSpan={1} numColSpanSm={1} numColSpanLg={2}>
           {analyticsData?.assets && (
@@ -34,8 +34,8 @@ export const AnalyticsView = ({ analyticsData }: AnalyticsViewProps) => {
         </Col>
       </Grid>
       {/* Second row */}
-      <div className="w-full flex flex-col 1xl:flex-row justify-between gap-6">
-        <div className="w-full 1xl:w-1/3">
+      <div className="w-full flex flex-col lg:flex-row justify-between gap-4 1xl:gap-6">
+        <div className="w-full lg:w-1/3">
           {analyticsData?.totalProfitProducts &&
             analyticsData?.totalProfitMonths && (
               <TotalProfit
@@ -44,7 +44,7 @@ export const AnalyticsView = ({ analyticsData }: AnalyticsViewProps) => {
               />
             )}
         </div>
-        <div className="hidden md:flex w-full 1xl:w-2/3">
+        <div className=" w-full lg:w-2/3">
           {analyticsData?.monthPerformance && (
             <Performance performanceData={analyticsData.monthPerformance} />
           )}
@@ -58,16 +58,16 @@ export const AnalyticsView = ({ analyticsData }: AnalyticsViewProps) => {
       <Grid
         numItems={1}
         numItemsSm={1}
-        numItemsMd={2}
+        numItemsMd={1}
         numItemsLg={2}
-        className="gap-x-6 gap-y-6"
+        className="gap-y-0 gap-x-4 1xl:gap-x-6  lg:gap-y-6"
       >
-        <Col numColSpan={1} numColSpanSm={1} numColSpanLg={1}>
+        <Col numColSpan={0} numColSpanSm={0} numColSpanLg={1}>
           {analyticsData?.marketMetrics && (
             <MarketMetrics marketMetricsData={analyticsData.marketMetrics} />
           )}
         </Col>
-        <Col numColSpan={1} numColSpanSm={1}>
+        <Col numColSpan={1} numColSpanLg={1}>
           {analyticsData?.revenueDistribution && (
             <RevenueDistribution
               revenueDistributionData={analyticsData.revenueDistribution}

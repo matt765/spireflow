@@ -34,8 +34,8 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
   const t = useTranslations("navbar");
 
   return (
-    <div className="min-w-full sm:min-w-[20rem] flex flex-col items-center mb-2">
-      <h1 className="text-4xl font-bold mb-16 mt-4 text-primaryText">
+    <div className="min-w-full md:min-w-[18.5rem] 1xl:min-w-[20rem] flex flex-col items-center mb-2">
+      <h1 className="text-3xl 1xl:text-4xl font-bold mb-12 1xl:mb-16 mt-2 1xl:mt-4 text-primaryText">
         {t("signUp")}
       </h1>
       <form
@@ -58,7 +58,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           />
         </div>
         {errors.email && showEmailError && (
-          <div className="hidden md:block absolute left-[23.5rem] top-[11rem] z-50 min-w-[20rem] w-auto">
+          <div className="hidden md:block absolute left-[22.2rem] 1xl:left-[23.5rem] top-[9.4rem] 1xl:top-[11rem] z-50 min-w-[20rem] w-auto">
             <div className="relative">
               <div className="bg-secondaryBg bg-inputBg text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.email.message}
@@ -93,7 +93,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
           />
         </div>
         {errors.password && showPasswordError && (
-          <div className="absolute hidden md:block left-[23.5rem] top-[14.5rem] 1xl:top-[14.9rem] z-50 min-w-[20rem] w-auto">
+          <div className="absolute hidden md:block left-[22.2rem] 1xl:left-[23.5rem] top-[13rem] 1xl:top-[14.5rem] 1xl:top-[14.9rem] z-50 min-w-[20rem] w-auto">
             <div className="relative mb-8">
               <div className="bg-secondaryBg bg-inputBg text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.password.message}
@@ -114,16 +114,16 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
         )}
         {/* On mobile I used for errors standard red text instead of tooltips to save space */}
         {errors.email && showEmailError && (
-          <p className="text-red-500 -mb-2 md:hidden text-left w-full">
+          <p className="text-sm text-red-500 -mb-2 md:hidden text-left w-full">
             {errors.email.message}
           </p>
         )}
         {errors.password && showPasswordError && (
-          <p className="text-red-500 -mb-3 md:hidden text-left w-full">
+          <p className="text-sm text-red-500 -mb-3 md:hidden text-left w-full">
             {errors.password.message}
           </p>
         )}
-        <div className="flex justify-center items-center w-4/5 mt-6">
+        <div className="flex justify-center items-center w-4/5 mt-4 1xl:mt-6">
           <ContainedButton
             disabled={loading}
             type="submit"
@@ -132,10 +132,8 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
             {loading ? <SpinnerIcon /> : t("createAccount")}
           </ContainedButton>
         </div>
-        <div className="w-full text-sm flex justify-center gap-2 mt-6">
-          <div className="text-primaryText">
-            {t("alreadyHaveAccount")}
-          </div>
+        <div className="w-full text-xs 1xl:text-sm flex justify-center gap-2 mt-4 1xl:mt-6">
+          <div className="text-primaryText">{t("alreadyHaveAccount")}</div>
           <div
             onClick={switchToSignIn}
             className="text-coloredText text-semibold cursor-pointer hover:text-coloredTextHover ignore-error-hide"

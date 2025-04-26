@@ -50,7 +50,7 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="w-full flex justify-between flex-wrap md:flex-nowrap">
-        <div className="w-full md:w-1/4 mb-4 relative min-w-[15rem]">
+        <div className="w-full md:w-1/4 mb-4 relative min-w-[15rem] h-[2.3rem] 3xl:h-[2.6rem]">
           <Input
             type="text"
             value={searchQuery}
@@ -84,13 +84,13 @@ export const OrdersView = ({ ordersData }: OrdersViewProps) => {
         />
       </div>
       <div className="flex justify-between flex-wrap pb-4">
-        <div className="w-[14rem] mt-8 sm:mb-0 flex gap-4 h-11">
+        <div className="w-[14rem] mt-8 sm:mb-0 flex gap-4 h-10 3xl:h-11">
           <OutlinedButton
             handleClick={resetFilters}
             text={t("button.clearFilters")}
           />
           <div
-            className="h-11 w-12 relative"
+            className="h-10 3xl:h-11 w-12 relative"
             onMouseEnter={csvTooltip.showTooltip}
             onMouseLeave={csvTooltip.hideTooltip}
           >

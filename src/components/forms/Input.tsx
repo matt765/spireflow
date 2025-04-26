@@ -34,7 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {icon}
         </div>
         <input
-          className={`p-2 text-sm 1xl:text-base bg-inputBg hover:bg-inputBgHover w-full h-full border rounded-md border-inputBorder text-primaryText placeholder-secondaryText  hover:border-inputBorderHover transition
+          className={`p-2 text-sm 3xl:text-base bg-inputBg hover:bg-inputBgHover w-full h-full border rounded-md border-inputBorder text-primaryText placeholder-secondaryText  hover:border-inputBorderHover transition
         ${icon ? "pl-11" : "pl-3"}  
         ${className}   
         autofill:!bg-inputBg

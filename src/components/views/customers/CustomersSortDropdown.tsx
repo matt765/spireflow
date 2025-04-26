@@ -51,7 +51,7 @@ export const CustomersSortDropdown = ({
           {options.map((option) => (
             <div
               key={option.value}
-              className={`flex justify-between cursor-pointer px-4 hover:bg-dropdownBgHover px-4 py-2 ${
+              className={`flex text-sm 3xl:text-base justify-between cursor-pointer px-4 hover:bg-dropdownBgHover px-4 py-2 ${
                 selectedSort === option.value && "bg-dropdownBgHover"
               } `}
               onClick={() => handleSortClick(option.value)}
@@ -65,19 +65,19 @@ export const CustomersSortDropdown = ({
             </div>
           ))}
           <div
-            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer border-t border-mainBorder"
+            className="text-sm 3xl:text-base px-4 py-2 hover:bg-dropdownBgHover cursor-pointer border-t border-mainBorder"
             onClick={() => handleDirectionClick(false)}
           >
             {t("button.ascending")}
           </div>
           <div
-            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
+            className=" text-sm 3xl:text-base px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => handleDirectionClick(true)}
           >
             {t("button.descending")}
           </div>
           <div
-            className="px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
+            className="text-sm 3xl:text-base px-4 py-2 hover:bg-dropdownBgHover cursor-pointer"
             onClick={() => {
               setSelectedSort(null);
               setSorting([]);
