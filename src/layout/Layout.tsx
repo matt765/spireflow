@@ -1,13 +1,12 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 import { Navbar } from "./navbar/Navbar";
 import { SideMenu } from "./sideMenu/SideMenu";
 import { useAppStore } from "../store/appStore";
 import { FullScreenLoader } from "../components/common/FullScreenLoader";
-import { useSession } from "../hooks/auth/useSession";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,18 +14,9 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const { isMobileMenuOpen, toggleMobileMenu } = useAppStore();
-  const [isLoadingScreenDisplayed, setIsLoadingScreenDisplayed] =
-    useState(true);
-
-  const { session } = useSession();
-
-  useEffect(() => {
-    if (session !== null) {
-      setTimeout(() => {
-        setIsLoadingScreenDisplayed(false);
-      }, 300);
-    }
-  }, [session]);
+  const [showLoader, setShowLoader] = useState(true);
+  const loaderTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const loaderInitializedRef = useRef(false);
 
   const currentPathname = usePathname();
 
@@ -37,10 +27,26 @@ export const Layout = ({ children }: LayoutProps) => {
     "/pl/register",
   ];
 
+  useEffect(() => {
+    if (!loaderInitializedRef.current) {
+      loaderInitializedRef.current = true;
+
+      loaderTimeoutRef.current = setTimeout(() => {
+        setShowLoader(false);
+      }, 1000);
+    }
+
+    return () => {
+      if (loaderTimeoutRef.current) {
+        clearTimeout(loaderTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <div className="flex h-full w-full bg-secondaryBg overflow-x-hidden">
-        {isLoadingScreenDisplayed && <FullScreenLoader />}
+        {showLoader && <FullScreenLoader key="static-loader-key" />}
         {!pathsWithNoLayout.includes(currentPathname) && (
           <>
             <SideMenu />
