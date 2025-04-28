@@ -7,6 +7,7 @@ import { Navbar } from "./navbar/Navbar";
 import { SideMenu } from "./sideMenu/SideMenu";
 import { useAppStore } from "../store/appStore";
 import { FullScreenLoader } from "../components/common/FullScreenLoader";
+import { useTheme } from "next-themes";
 
 interface LayoutProps {
   children: ReactNode;
@@ -27,6 +28,18 @@ export const Layout = ({ children }: LayoutProps) => {
     "/pl/register",
   ];
 
+  const { setTheme, themes } = useTheme();
+
+  // Set Obsidian as theme if theme is not recognized
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+
+    if (storedTheme && !themes.includes(storedTheme)) {
+      setTheme("obsidian");
+    }
+  }, [setTheme, themes]);
+
+  // Show loader screen for 1 second on first render
   useEffect(() => {
     if (!loaderInitializedRef.current) {
       loaderInitializedRef.current = true;
