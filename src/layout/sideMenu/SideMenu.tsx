@@ -37,15 +37,14 @@ export const SideMenu = () => {
         }   
         `}
       >
-        <Link
-          href="/"
+        <div
           className={`flex -mb-5 3xl:-mb-4 pt-1 justify-center pr-2     ${
             !isSideMenuOpen && "xl:!w-[4.5rem] xl:pr-1 pl-2"
           }     
                 `}
         >
           <Logo />
-        </Link>
+        </div>
         <MenuCategory title={t("pages")} />
         <MenuItem title={t("dashboard")} icon={<DashboardIcon />} path="/" />
         <MenuItem title={t("orders")} icon={<OrdersIcon />} path="/orders" />
