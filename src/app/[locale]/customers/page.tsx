@@ -6,7 +6,7 @@ const Customers = async () => {
   const customersData = await getData("customers");
 
   return (
-    <PageWrapper className="flex-col">
+    <PageWrapper className="flex-col" pageName="Customers">
       <CustomersView customers={customersData} />
     </PageWrapper>
   );

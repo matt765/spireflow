@@ -1,5 +1,5 @@
 # Spireflow
-Open source and free e-commerce dashboard template, written in NextJS 14 and TypeScript. It is connected to NodeJS backend with PostgreSQL database containing AI generated data for fictional electronic store.
+Open source and free dashboard template, written in NextJS 14 and TypeScript. It is connected to NodeJS backend with PostgreSQL database containing AI generated data for fictional electronic store.
 
 ## Tech stack
 React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest, Storybook

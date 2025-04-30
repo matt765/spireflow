@@ -6,7 +6,7 @@ const Home = async () => {
   const homepageData = await getData("homepage");
 
   return (
-    <PageWrapper hidePaper className="pt-32">
+    <PageWrapper hidePaper className="pt-32" pageName="Dashboard">
       <HomepageView homepageData={homepageData} />
     </PageWrapper>
   );

@@ -6,7 +6,7 @@ const Orders = async () => {
   const orders = await getData("orders");
 
   return (
-    <PageWrapper>
+    <PageWrapper pageName="Orders">
       <OrdersView ordersData={orders} />
     </PageWrapper>
   );

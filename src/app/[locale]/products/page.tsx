@@ -6,7 +6,7 @@ const Products = async () => {
   const productsData = await getData("products");
 
   return (
-    <PageWrapper className="px-0">
+    <PageWrapper className="px-0" pageName="Products">
       <ProductsView products={productsData} />
     </PageWrapper>
   );
