@@ -4,7 +4,13 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
 import "../../styles/globals.css";
-import { inter, nunito, plusJakartaSans, publicSans } from "../../styles/fonts";
+import {
+  inter,
+  nunito,
+  plusJakartaSans,
+  publicSans,
+  poppins,
+} from "../../styles/fonts";
 import { Providers } from "../../services/providers";
 import { locales } from "../../i18n/navigation";
 
@@ -20,10 +26,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
-      <body
-        className={`${publicSans.className}`}
-        suppressHydrationWarning={true}
-      >
+      <body className={`${poppins.className}`} suppressHydrationWarning={true}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
