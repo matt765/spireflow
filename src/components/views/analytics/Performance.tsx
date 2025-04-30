@@ -13,7 +13,6 @@ import {
 import { useTheme } from "next-themes";
 
 import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import {
   PerformanceCustomLegendProps,
@@ -120,13 +119,11 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
     windowWidth > 500 ? performanceData.slice(-9) : performanceData.slice(-4);
 
   return (
-    <Card className="performanceCard" id="performance">
-      <div className="-mb-2 1xl:mb-0">
-        <BlockTitle title={t("title")} />
-        <p className="text-sm hidden sm:block text-secondaryText">
+    <Card className="performanceCard" id="performance" title={t("title")}>
+      {/* <p className="text-sm hidden sm:block text-secondaryText">
           {t("subtitle")}
-        </p>
-      </div>
+        </p> */}
+
       <div className="h-[16rem] 1xl:h-[21rem] 3xl:h-[24rem]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart

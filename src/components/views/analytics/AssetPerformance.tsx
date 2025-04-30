@@ -14,8 +14,6 @@ import { useTranslations } from "next-intl";
 
 import { AssetPerformanceProps } from "./types";
 import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
-import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 export const AssetPerformance = ({
   assetPerformanceData,
@@ -26,12 +24,11 @@ export const AssetPerformance = ({
     `${Intl.NumberFormat("us").format(number).toString()} $`;
 
   return (
-    <Card className="assetPerformanceCard h-full" id="assetPerformance">
-      <div>
-        <Flex className="space-x-4" justifyContent="start" alignItems="center">
-          <BlockTitle title={t("title")} />
-        </Flex>
-      </div>
+    <Card
+      className="assetPerformanceCard h-full"
+      id="assetPerformance"
+      title={t("title")}
+    >
       <Grid numItemsLg={3} className="mt-2 1xl:mt-4 3xl:mt-8 gap-x-10 gap-y-10">
         <Flex>
           <DonutChart

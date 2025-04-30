@@ -13,7 +13,6 @@ import {
 import { useTheme } from "next-themes";
 
 import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import {
   OverviewMonthData,
@@ -133,9 +132,8 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
   const { width: windowWidth } = useWindowDimensions();
 
   return (
-    <Card className="h-full" id="yearOverview">
-      <BlockTitle title={t("title")} />
-      <div className="flex gap-8">
+    <Card className="h-full" id="yearOverview" title={t("title")}>
+      <div className="flex gap-8 pt-4">
         <div className="w-full lg:w-3/4 h-[19rem] 1xl:h-[22rem] 3xl:h-[24rem]">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart

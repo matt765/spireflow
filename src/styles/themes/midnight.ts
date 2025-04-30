@@ -12,7 +12,8 @@ export const midnightTheme = {
   greenBadgeText: "rgb(110, 231, 183)",
   redBadgeText: "rgb(253, 164, 175)",
   orangeBadgeText: "rgb(253, 186, 116)",
-
+  logoBasicText: "rgb(255,255,255)",
+  
   // Icons
   grayIcon: "rgb(255,255,255,0.6)",
   navItemIconActive: "white",
@@ -63,7 +64,6 @@ export const midnightTheme = {
   inputBorderHover: "rgb(255,255,255,0.2)",
   calendarBorder: "rgb(255,255,255,0.1)",
 
-  // Other
   tremor: {
     brand: {
       faint: "rgb(47, 55, 70)",

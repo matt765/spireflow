@@ -12,7 +12,6 @@ import {
 import { useTranslations } from "next-intl";
 
 import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { MarketMetricsProps, MarketMetricsTooltipProps } from "./types";
 import { useChartColors } from "../../../hooks/useChartColors";
@@ -107,9 +106,12 @@ export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
   );
 
   return (
-    <Card className="hidden lg:block h-full" id="marketMetrics">
-      <BlockTitle title={t("title")} />
-      <div className="w-full h-[19rem] lg:h-[21rem] 3x:h-[24rem]">
+    <Card
+      className="hidden lg:block h-full"
+      id="marketMetrics"
+      title={t("title")}
+    >
+      <div className="w-full h-[19rem] lg:h-[21rem] 3x:h-[24rem] mt-6">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart
             cx="50%"

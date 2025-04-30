@@ -12,6 +12,7 @@ export const snowlightTheme = {
   greenBadgeText: "rgb(35, 140, 99)",
   redBadgeText: "rgb(213, 61, 79)",
   orangeBadgeText: "rgb(151, 96, 39)",
+  logoBasicText: "black",
 
   // Icons
   grayIcon: "rgb(0,0,0,0.6)",

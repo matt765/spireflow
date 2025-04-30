@@ -12,6 +12,7 @@ export const charcoalTheme = {
   greenBadgeText: "rgb(110, 231, 183)",
   redBadgeText: "rgb(253, 164, 175)",
   orangeBadgeText: "rgb(253, 186, 116)",
+  logoBasicText: "rgb(255,255,255)",
 
   // Icons
   grayIcon: "rgb(160, 165, 170)",

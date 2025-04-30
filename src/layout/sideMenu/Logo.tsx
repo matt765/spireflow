@@ -20,7 +20,7 @@ export const Logo = () => {
 
       {(isSideMenuOpen || !isDesktop) && (
         <>
-          <div className="ml-[0.7rem] text-primaryText mr-[1px] tracking-wider">
+          <div className="ml-[0.7rem] text-logoBasicText mr-[1px] tracking-wider">
             Spire
           </div>
           <div className="text-mainColor tracking-wider">flow</div>

@@ -12,16 +12,17 @@ export const obsidianTheme = {
   greenBadgeText: "rgb(110, 231, 183)",
   redBadgeText: "rgb(253, 164, 175)",
   orangeBadgeText: "rgb(253, 186, 116)",
-
+  logoBasicText: "rgb(255,255,255)",
+  
   // Icons
   grayIcon: "rgb(160, 165, 170)",
   navItemIconActive: "rgb(61, 185, 133)",
 
   // Backgrounds
-  primaryBg: "rgb(51, 55, 62)",
-  secondaryBg: "rgb(43, 47, 53)",
+  primaryBg: "rgb(36, 40, 45)",
+  secondaryBg: "rgb(31, 34, 38)",
   mainColor: "rgb(61, 185, 133)",
-  navigationBg: "rgb(51, 55, 62)",
+  navigationBg: "rgb(36, 40, 45)",
   navItemBg: "rgb(12, 18, 24, 0)",
   navItemBgHover: "rgb(255,255,255,0.04)",
   navItemActiveBg: "rgb(255,255,255,0.07)",

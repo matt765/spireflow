@@ -29,6 +29,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
     <Card
       className="w-full h-full recharts-tooltip-stable todaySalesContainer"
       id="todaysSales"
+      customHeader
     >
       <Text>{t("title")}</Text>
       <Metric className="mt-1 text-xl 1xl:text-2xl 3xl:text-3xl">$ 2276</Metric>
@@ -51,7 +52,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-6 3xl:mt-4 h-52 lg:h-36 1xl:h-44 3xl:h-56"
+              className="mt-6 3xl:mt-6 h-52 lg:h-36 1xl:h-44 3xl:h-[16rem]"
             />
             <Flex justifyContent="end">
               <Legend
@@ -70,7 +71,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-6 3xl:mt-4 h-52 lg:h-36 1xl:h-44 3xl:h-56"
+              className="mt-6 3xl:mt-6 h-52 lg:h-36 1xl:h-44 3xl:h-[16rem]"
             />
             <Flex justifyContent="end">
               <Legend

@@ -19,7 +19,6 @@ import {
   BestSellingProductsProps,
   TranslatedProduct,
 } from "./types";
-import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import { useChartColors } from "../../../hooks/useChartColors";
 import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
@@ -30,7 +29,7 @@ const BestSellingCustomLegend = ({
   payload?: Array<{ value: string; color?: string }>;
 }) => {
   return (
-    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6">
+    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6 mt-2">
       {payload?.map((entry, index) => (
         <div key={`legend-${index}`} className="flex items-center">
           <div
@@ -106,16 +105,15 @@ export const BestSellingProducts = ({
   const { width: windowWidth } = useWindowDimensions();
 
   const getBarSize = () => {
-    if (windowWidth  > 1400) return 25;
-    if (windowWidth  > 1024) return 20;
-    if (windowWidth  > 720) return 20;
-    if (windowWidth  > 640) return 15
+    if (windowWidth > 1400) return 25;
+    if (windowWidth > 1024) return 20;
+    if (windowWidth > 720) return 20;
+    if (windowWidth > 640) return 15;
     return 25;
   };
 
   return (
-    <Card className="h-full" id="bestsellingProducts">
-      <BlockTitle title={t("title")} />
+    <Card className="h-full" id="bestsellingProducts" title={t("title")}>
       <div className="h-[17.5rem] 1xl:h-[19.5rem] 3xl:h-[21.8rem] relative mt-2 3xl:mt-0">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart

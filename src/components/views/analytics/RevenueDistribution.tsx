@@ -11,7 +11,6 @@ import {
 import { useTranslations } from "next-intl";
 
 import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
 import { BaseTooltip } from "../../common/BaseTooltip";
 import {
   RevenueDistributionProps,
@@ -76,9 +75,8 @@ export const RevenueDistribution = ({
   const { width: windowWidth } = useWindowDimensions();
 
   return (
-    <Card className="h-full" id="revenueDistribution">
-      <BlockTitle title={t("title")} />
-      <div className="w-full h-[19rem] 3xl:h-[20rem] mt-4 1xl:mt-8 -ml-4">
+    <Card className="h-full" id="revenueDistribution" title={t("title")}>
+      <div className="w-full h-[19rem] 3xl:h-[22rem] mt-4 1xl:mt-4 -ml-4">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={translatedData}

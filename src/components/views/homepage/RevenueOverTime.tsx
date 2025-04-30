@@ -13,7 +13,7 @@ import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 
 import { Card } from "../../common/Card";
-import { BlockTitle } from "../../common/BlockTitle";
+
 import {
   RevenueOverTimeCustomLegendProps,
   RevenueOverTimeProps,
@@ -113,11 +113,8 @@ export const RevenueOverTime = ({
   const { width: windowWidth } = useWindowDimensions();
 
   return (
-    <Card className="h-full" id="revenueOverTime">
-      <div className="p-1">
-        <BlockTitle title={t("title")} />
-      </div>
-      <div className="h-[17rem] 1xl:h-[18.8rem] 3xl:h-[20rem] w-full mt-0 3xl:mt-4">
+    <Card className="h-full" id="revenueOverTime" title={t("title")}>
+      <div className="h-[17rem] 1xl:h-[18.8rem] 3xl:h-[21rem] w-full mt-0 3xl:mt-4">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={translatedData}

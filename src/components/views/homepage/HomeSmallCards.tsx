@@ -35,7 +35,7 @@ export const HomeSmallCards = ({ homeSmallCardsData }: HomeSmallCardsProps) => {
             <div className="flex small-box max-[420px]:-ml-3 flex-col sm:flex-row justify-between md:justify-normal">
               <div className="flex flex-col w-full sm:w-1/2 mt-[0.35rem] lg:mt-0 lg:gap-1 pl-1 sm:pl-0">
                 <div className="flex flex-row lg:flex-col items-center lg:items-start">
-                  <div className="text-[#a3aed0] font-medium text-md sm:text-md lg:text-xs 1xl:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
+                  <div className="text-primaryText font-medium text-md sm:text-md lg:text-xs 1xl:text-sm tracking-tight flex sm:block items-center lg:mr-0 mr-2 mb-1">
                     {item.title}
                   </div>
                   <div className="pb-1 lg:pb-0 text-[1.1rem] lg:text-[1.2rem] lg:text-md 1xl:text-[1.15rem] 3xl:text-xl font-semibold text-primaryText flex">

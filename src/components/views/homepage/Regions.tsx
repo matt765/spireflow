@@ -3,7 +3,6 @@ import { BadgeDelta, DonutChart, Flex, List, ListItem } from "@tremor/react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
-import { BlockTitle } from "../../common/BlockTitle";
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { RegionData, RegionsProps } from "./types";
 import { Card } from "../../common/Card";
@@ -31,7 +30,7 @@ const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
   };
 
   return (
-    <div className="flex flex-row justify-start gap-8 text-white w-full mb-6 1xl:mb-8 mt-4 1xl:mt-5 3xl:mb-12 3xl:mt-8 text-xs">
+    <div className="flex flex-row justify-start gap-8 text-white w-full mb-6 1xl:mb-8 mt-4 1xl:mt-5 3xl:mb-12 3xl:mt-6 text-xs">
       {data.map((item, index) => (
         <div key={index} className="flex items-center">
           {isMounted ? (
@@ -71,10 +70,7 @@ export const Regions = ({ regionsData }: RegionsProps) => {
   const translatedData = useTranslateData(processedData, translations);
 
   return (
-    <Card className="regionsCard" id="regions">
-      <Flex className="space-x-8" justifyContent="start" alignItems="center">
-        <BlockTitle title={t("title")} />
-      </Flex>
+    <Card className="regionsCard" id="regions" title={t("title")}>
       <CustomRegionsLegend data={translatedData} />
       <DonutChart
         data={translatedData}

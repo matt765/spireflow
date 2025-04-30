@@ -1,7 +1,7 @@
 import { ScatterChart } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
-import { BlockTitle } from "../../common/BlockTitle";
+
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { CustomerSatisfactionProps } from "./types";
 import { Card } from "../../common/Card";
@@ -28,10 +28,10 @@ export const CustomerSatisfaction = ({
     <Card
       className="max-w-full h-full max-h-full flex flex-col"
       id="customerSatisfaction"
+      title={t("title")}
     >
-      <BlockTitle title={t("title")} />
       <ScatterChart
-        className="h-[16rem] 1xl:h-[17.5rem] 3xl:h-full mt-8"
+        className="h-[16rem] 1xl:h-[17.5rem] 3xl:h-[19.5rem] mt-10"
         yAxisWidth={50}
         data={translatedData}
         category="brandName"

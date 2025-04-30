@@ -6,7 +6,6 @@ import "react-tooltip/dist/react-tooltip.css";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
-import { BlockTitle } from "../../common/BlockTitle";
 import { EnglishIcon } from "../../../assets/icons/EnglishIcon";
 import { PolishIcon } from "../../../assets/icons/PolishIcon";
 import { UnitedStatesIcon } from "../../../assets/icons/UnitedStatesIcon";
@@ -68,10 +67,10 @@ export const RevenuePerCountry = ({
     <Card
       className="h-full relative overflow-hidden flex flex-col"
       id="revenuePerCountry"
+      title={t("title")}
     >
-      <BlockTitle title={t("title")} />
       <div className="flex justify-between">
-        <div className="w-[65%] worldMap flex items-center justify-center h-[25rem]">
+        <div className="w-[65%] worldMap flex items-center justify-center h-[28rem]">
           <Suspense
             fallback={
               <div className="w-full flex items-center justify-center pb-10">
@@ -127,7 +126,7 @@ export const RevenuePerCountry = ({
             </ComposableMapLazy>
           </Suspense>
         </div>
-        <div className="w-[35%] flex  overflow-auto pt-[1rem] items-start justify-start ">
+        <div className="w-[35%] flex  overflow-auto pt-[3rem] items-start justify-start ">
           <div className="flex flex-col w-full pl-[10%] pr-[20%]">
             <div className="w-full flex justify-between mb-[0.5rem] text-[14px] 3xl:text-[16px]">
               <h3 className="font-semibold text-primaryText">{t("country")}</h3>
