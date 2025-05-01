@@ -6,7 +6,6 @@ import {
   List,
   ListItem,
   Text,
-  Title,
   Bold,
   Grid,
 } from "@tremor/react";

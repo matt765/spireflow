@@ -7,7 +7,7 @@ import { defaultSession, sessionOptions } from "../../../../services/ironSession
 import { SessionData } from "../../../../services/ironSessionConfig";
 
 export async function POST(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
 
   const formData = await request.formData();
 
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
 
 export async function GET(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
 
   const action = new URL(request.url).searchParams.get("action");
 

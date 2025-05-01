@@ -32,7 +32,6 @@ export const OrdersTable = ({
   table,
   currentPage,
   itemsPerPage,
-  loading,
 }: OrdersTableProps) => {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState<OrderType | null>(null);

@@ -1,28 +1,30 @@
 import "dotenv/config";
 import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { setRequestLocale, getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
 
 import "../../styles/globals.css";
-import {
-  inter,
-  nunito,
-  plusJakartaSans,
-  publicSans,
-  poppins,
-} from "../../styles/fonts";
+import { poppins } from "../../styles/fonts";
 import { Providers } from "../../services/providers";
-import { locales } from "../../i18n/navigation";
+import { Locale, locales } from "../../i18n/navigation";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  unstable_setRequestLocale(locale);
-  const messages = useMessages();
+  const { locale } = await params;
+
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
@@ -38,7 +40,7 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: "Spireflow",
   description:
-    "Open source and free e-commerce dashboard template, written in NextJS and Tailwind",
+    "Open source and free dashboard template, written in NextJS and Tailwind",
 };
 
 export function generateStaticParams() {

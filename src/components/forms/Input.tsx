@@ -15,19 +15,22 @@ interface InputProps {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({
-    icon,
-    type,
-    placeholder,
-    value,
-    onChange,
-    onInput,
-    id,
-    name,
-    className,
-    autoComplete,
-    ariaLabel,
-  }) => {
+  (
+    {
+      icon,
+      type,
+      placeholder,
+      value,
+      onChange,
+      onInput,
+      id,
+      name,
+      className,
+      autoComplete,
+      ariaLabel,
+    },
+    ref
+  ) => {
     return (
       <div className="relative w-full h-full">
         <div className="absolute stroke-grayIcon fill-grayIcon top-[0.5rem] xl:top-[0.55rem] 2xl:top-[0.65rem] left-3">
@@ -40,6 +43,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         autofill:!bg-inputBg
         shadow-none
         `}
+          ref={ref}
           type={type}
           placeholder={placeholder}
           value={value}
@@ -50,7 +54,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           autoComplete={autoComplete}
           aria-label={ariaLabel || placeholder}
         />
-        <style jsx>{``}</style>
       </div>
     );
   }

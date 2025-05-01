@@ -74,15 +74,17 @@ interface ChartProps {
 }
 
 const Chart = ({ color, chartData }: ChartProps) => (
-  <BarChart
-    data={chartData}
-    index={Object.keys(chartData[0])[0]}
-    categories={["metric"]}
-    colors={[color]}
-    showLegend={false}
-    className="h-14 1xl:h-16"
-    showTooltip={false}
-    showXAxis={false}
-    showYAxis={false}
-  />
+  <div className="w-full h-full">
+    <BarChart
+      data={chartData}
+      index={Object.keys(chartData[0])[0]}
+      categories={["metric"]}
+      colors={[color]}
+      showLegend={false}
+      className="h-14 1xl:h-16"
+      showTooltip={false}
+      showXAxis={false}
+      showYAxis={false}
+    />
+  </div>
 );

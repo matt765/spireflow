@@ -10,8 +10,7 @@ import { useTooltip } from "../../hooks/useTooltip";
 import { Tooltip } from "../../components/common/Tooltip";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 import { MenuItemProps } from "./types";
-import { useWindowDimensions } from "../../hooks/useWindowDimensions";
-import { poppins, publicSans } from "../../styles/fonts";
+import { poppins } from "../../styles/fonts";
 
 export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
@@ -26,9 +25,6 @@ export const MenuItem = ({ title, icon, path }: MenuItemProps) => {
       toggleMobileMenu();
     }
   };
-  const { width: windowWidth, height: windowHeight } = useWindowDimensions();
-  const isLaptop1600x900 =
-    windowHeight < 820 && windowWidth < 1700 && windowWidth > 1536;
 
   useEffect(() => {
     // Handling active path is inside useEffect, because otherwise it won't work if it's prerendered as static HTML (SSG)

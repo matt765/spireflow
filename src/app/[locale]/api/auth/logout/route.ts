@@ -28,7 +28,10 @@ try {
 const auth = firebase.auth(firebaseApp);
 
 export async function POST() {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getIronSession<SessionData>(
+    await cookies(),
+    sessionOptions
+  );
 
   try {
     await auth.signOut();

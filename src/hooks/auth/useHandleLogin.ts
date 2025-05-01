@@ -44,8 +44,12 @@ export const useHandleLogin = () => {
         throw new Error("Authentication failed");
       }
 
-      currentPathname === "/pl/login" && router.push("/pl");
-      currentPathname === "/login" && router.push("/");
+      if (currentPathname === "/pl/login") {
+        router.push("/pl");
+      }
+      if (currentPathname === "/login") {
+        router.push("/");
+      }
       if (currentPathname !== "/login" && currentPathname !== "/pl/login") {
         location.reload();
       }

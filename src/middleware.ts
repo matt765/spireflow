@@ -3,7 +3,7 @@ import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
 
 import createMiddleware from "next-intl/middleware";
-import { locales, localePrefix } from "./i18n/navigation";
+import { locales, localePrefix, defaultLocale } from "./i18n/navigation";
 import { sessionOptions } from "./services/ironSessionConfig";
 
 interface SessionData {
@@ -39,23 +39,20 @@ export async function middleware(req: NextRequest) {
   //     return NextResponse.redirect(url);
   //   }
   // }
-
-  const i18nResponse = createMiddleware({
+  const handleI18nRouting = createMiddleware({
     localePrefix,
     locales,
-    defaultLocale: "en",
+    defaultLocale: defaultLocale,
     localeDetection: false,
-  })(req);
+  });
 
-  if (i18nResponse instanceof NextResponse) {
-    return i18nResponse;
-  }
+  const response = handleI18nRouting(req);
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
-  matcher: ["/", "/(pl|en)/:path*", "/((?!_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!_next|_vercel|.*\\..*).*)"],
 };
 
 const protectedRoutes = [

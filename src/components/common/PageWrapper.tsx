@@ -2,7 +2,6 @@
 
 import { ReactNode } from "react";
 import { Breadcrumbs } from "./Breadcrumbs";
-import { OutlinedButton } from "./OutlinedButton";
 import { DownloadIcon } from "../../assets/icons/DownloadIcon";
 
 interface PageWrapperProps {

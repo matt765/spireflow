@@ -7,7 +7,6 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/i18n.ts");
 const nextConfig = {
     reactStrictMode: false,
     transpilePackages: ["@react-pdf/renderer"],
-    swcMinify: true,
     typescript: {
         ignoreBuildErrors: true,
     },

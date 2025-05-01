@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { DateSelectArg, EventClickArg, EventDropArg } from "@fullcalendar/core";
+import { DateSelectArg, EventClickArg } from "@fullcalendar/core";
 import { EventResizeDoneArg } from "@fullcalendar/interaction";
 import { EventImpl } from "@fullcalendar/core/internal";
 import { useTranslations } from "next-intl";

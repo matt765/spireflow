@@ -29,7 +29,10 @@ try {
 const auth = firebase.auth(firebaseApp);
 
 export async function POST(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getIronSession<SessionData>(
+    await cookies(),
+    sessionOptions
+  );
   const data = await request.json();
   const { email, password } = data;
 

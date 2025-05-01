@@ -26,7 +26,6 @@ export const SideMenuMobile = ({
 }: SideMenuMobileProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
   const { session } = useSession();
-  const { theme } = useTheme();
 
   const locale = useLocale();
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BadgeDelta, DonutChart, Flex, List, ListItem } from "@tremor/react";
+import { BadgeDelta, DonutChart, List, ListItem } from "@tremor/react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 

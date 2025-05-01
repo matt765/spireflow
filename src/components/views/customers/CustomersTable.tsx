@@ -28,7 +28,7 @@ const SortingArrow = ({ isSortedDesc }: { isSortedDesc: boolean }) => {
   );
 };
 
-export const CustomersTable = ({ table, loading }: CustomersTableProps) => {
+export const CustomersTable = ({ table }: CustomersTableProps) => {
   const [isCustomerModalOpen, setIsCustomerModalOpen] = useState(false);
   const [selectedCustomer, setSelectedCustomer] =
     useState<CustomerColumns | null>(null);

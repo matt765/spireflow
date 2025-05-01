@@ -13,7 +13,6 @@ import { ScatterIcon } from "../../assets/icons/ScatterIcon";
 import { useAppStore } from "../../store/appStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
-import { Link } from "../../i18n/navigation";
 import { Logo } from "./Logo";
 import { ArrowLeftIcon } from "../../assets/icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "../../assets/icons/ArrowRightIcon";
