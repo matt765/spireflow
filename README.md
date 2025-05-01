@@ -2,7 +2,7 @@
 Open source and free dashboard template, written in NextJS 14 and TypeScript. It is connected to NodeJS backend with PostgreSQL database containing AI generated data for fictional electronic store.
 
 ## Tech stack
-React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest, Storybook
+React, NextJS, TypeScript, Tailwind, Zustand, Apollo Client, Iron Session, Jest
 
 ## Features
 - 14 data charts (Recharts, Tremor.so)
@@ -22,8 +22,6 @@ https://github.com/matt765/spireflow/assets/63603595/08a28c0f-525e-4250-a664-a34
 ## Links
 Live (dashboard) [https://spireflow.vercel.app/](https://spireflow.vercel.app/)
 
-Live (Storybook) [https://spireflow-storybook.vercel.app/](https://spireflow-storybook.vercel.app/)
-
 ## Backend
 Application is connected to NodeJS backend, which is also open source and available on my Github
 
@@ -40,9 +38,7 @@ Application is connected to NodeJS backend, which is also open source and availa
 │   ├── components
 │   │   ├── auth
 │   │   ├── common
-│   │   │   └── stories
 │   │   ├── forms
-│   │   │   └── stories
 │   │   └── views
 │   │       ├── analytics
 │   │       ├── calendar

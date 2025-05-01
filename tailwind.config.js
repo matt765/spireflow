@@ -14,14 +14,12 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
     './public/**/*.html',
-    './src/**/*.{js,jsx,ts,tsx,vue}',
-    "./.storybook/**/*.{html,js,ts,jsx,tsx}",
-    './src/components/common/stories/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx,vue}'
   ],
   theme: {
     transparent: "transparent",
     current: "currentColor",
-    extend: {   
+    extend: {
       fontFamily: {
         inter: ["var(--inter-font)", ...fontFamily.sans],
         nunito: ["var(--nunito-font)", ...fontFamily.sans],
@@ -104,8 +102,8 @@ module.exports = {
     },
   ],
   plugins: [createThemes({
-    snowlight: snowlightTheme, 
-    midnight: midnightTheme,   
+    snowlight: snowlightTheme,
+    midnight: midnightTheme,
     charcoal: charcoalTheme,
     obsidian: obsidianTheme
   })

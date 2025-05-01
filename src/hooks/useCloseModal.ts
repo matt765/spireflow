@@ -1,7 +1,7 @@
 import { RefObject, useEffect } from "react";
 
 export const useCloseModal = (
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   onClose: () => void
 ) => {
   useEffect(() => {

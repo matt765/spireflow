@@ -41,9 +41,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
               </p>
               <p className="text-left w-full mt-4 text-xl">Tech stack:</p>
               <div className="mt-4">
-                <p className="text-secondaryText mb-2">
-                  Front-End:
-                </p>
+                <p className="text-secondaryText mb-2">Front-End:</p>
               </div>
               <ul className="list-disc list-inside mb-4 pl-3 text-primaryText">
                 <li>NextJS</li>
@@ -54,9 +52,7 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                 <li>Iron Session</li>
               </ul>
               <div>
-                <p className="text-secondaryText mb-2">
-                  Back-End:
-                </p>
+                <p className="text-secondaryText mb-2">Back-End:</p>
               </div>
               <ul className="list-disc list-inside pl-3">
                 <li>NodeJS</li>
@@ -83,13 +79,6 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                 target="_blank"
               >
                 <OutlinedButton text="Back-end repository" />
-              </Link>
-              <Link
-                href="https://spireflow-storybook.vercel.app/"
-                className="text-primaryText"
-                target="_blank"
-              >
-                <OutlinedButton text="Storybook" />
               </Link>
             </div>
             <p className="text-left w-full mt-4 text-xl text-primaryText px-8 md:px-0">
