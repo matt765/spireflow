@@ -1,6 +1,13 @@
-import { renderHook } from "@testing-library/react-hooks";
+// Import waitFor from @testing-library/react
+import { renderHook, waitFor } from "@testing-library/react";
 
 import { useSession } from "../../hooks/auth/useSession";
+
+// Define the Session type based on your hook (if not exported)
+interface Session {
+  username?: string;
+  isLoggedIn?: boolean;
+}
 
 describe("useSession", () => {
   beforeEach(() => {
@@ -8,7 +15,7 @@ describe("useSession", () => {
   });
 
   it("should fetch session data successfully", async () => {
-    const mockSession = { username: "testuser", isLoggedIn: true };
+    const mockSession: Session = { username: "testuser", isLoggedIn: true };
     global.fetch = jest.fn(() =>
       Promise.resolve({
         ok: true,
@@ -16,16 +23,21 @@ describe("useSession", () => {
       })
     ) as jest.Mock;
 
-    const { result, waitForNextUpdate } = renderHook(() => useSession());
+    // Remove waitForNextUpdate from destructuring
+    const { result } = renderHook(() => useSession());
 
-    // Initial state
+    // Initial state check (optional but good)
     expect(result.current.loading).toBe(true);
     expect(result.current.session).toBeNull();
     expect(result.current.error).toBeNull();
 
-    await waitForNextUpdate();
+    // Replace waitForNextUpdate with waitFor
+    // Wait until loading is false, indicating the fetch completed
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
 
-    // After fetching session data
+    // Now assert the final state
     expect(result.current.loading).toBe(false);
     expect(result.current.session).toEqual(mockSession);
     expect(result.current.error).toBeNull();
@@ -38,16 +50,20 @@ describe("useSession", () => {
       })
     ) as jest.Mock;
 
-    const { result, waitForNextUpdate } = renderHook(() => useSession());
+    // Remove waitForNextUpdate
+    const { result } = renderHook(() => useSession());
 
     // Initial state
     expect(result.current.loading).toBe(true);
     expect(result.current.session).toBeNull();
     expect(result.current.error).toBeNull();
 
-    await waitForNextUpdate();
+    // Replace waitForNextUpdate with waitFor
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
 
-    // After failing to fetch session data
+    // Assert final state
     expect(result.current.loading).toBe(false);
     expect(result.current.session).toBeNull();
     expect(result.current.error).toBe("Failed to fetch session data");
@@ -57,16 +73,20 @@ describe("useSession", () => {
     const mockError = new Error("Network error");
     global.fetch = jest.fn(() => Promise.reject(mockError)) as jest.Mock;
 
-    const { result, waitForNextUpdate } = renderHook(() => useSession());
+    // Remove waitForNextUpdate
+    const { result } = renderHook(() => useSession());
 
     // Initial state
     expect(result.current.loading).toBe(true);
     expect(result.current.session).toBeNull();
     expect(result.current.error).toBeNull();
 
-    await waitForNextUpdate();
+    // Replace waitForNextUpdate with waitFor
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
 
-    // After network error
+    // Assert final state
     expect(result.current.loading).toBe(false);
     expect(result.current.session).toBeNull();
     expect(result.current.error).toBe(mockError.message);

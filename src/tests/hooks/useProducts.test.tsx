@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import { useTranslations } from "next-intl";
 
 import { useModal } from "../../hooks/useModal";
