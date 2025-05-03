@@ -114,7 +114,7 @@ export const RevenueOverTime = ({
 
   return (
     <Card className="h-full" id="revenueOverTime" title={t("title")}>
-      <div className="h-[17rem] 1xl:h-[18.8rem] 3xl:h-[21rem] w-full mt-0 3xl:mt-4">
+      <div className="h-[17rem] 1xl:h-[18.8rem] 3xl:h-[21rem] w-full mt-[0.6rem] 3xl:mt-4">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={translatedData}

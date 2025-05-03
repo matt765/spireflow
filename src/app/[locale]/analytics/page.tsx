@@ -10,6 +10,7 @@ const Analytics = async () => {
       className="px-4 pt-28 pb-4 xl:p-0"
       hidePaper
       pageName="Analytics"
+      dataForExport={analyticsData}
     >
       <AnalyticsView analyticsData={analyticsData} />
     </PageWrapper>

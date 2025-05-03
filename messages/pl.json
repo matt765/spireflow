@@ -489,5 +489,14 @@
         "Products": "Produkty"
       }
     }
+  },
+  "breadcrumbs": {
+    "firstPart": "Spireflow",
+    "dashboard": "Panel główny",
+    "orders": "Zamówienia",
+    "customers": "Klienci",
+    "products": "Produkty",
+    "analytics": "Analityka",
+    "calendar": "Kalendarz"
   }
 }

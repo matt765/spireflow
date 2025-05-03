@@ -52,7 +52,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-6 3xl:mt-6 h-52 lg:h-36 1xl:h-44 3xl:h-[16rem]"
+              className="mt-6 3xl:mt-6 h-52 lg:h-36 1xl:h-[11.5rem] 3xl:h-[16rem]"
             />
             <Flex justifyContent="end">
               <Legend
@@ -71,7 +71,7 @@ export const TodaySales = ({ todaySalesData }: TodaySalesProps) => {
               showYAxis
               showLegend={false}
               valueFormatter={valueFormatter}
-              className="mt-6 3xl:mt-6 h-52 lg:h-36 1xl:h-44 3xl:h-[16rem]"
+              className="mt-6 3xl:mt-6 h-52 lg:h-36 1xl:h-[11.5rem] 3xl:h-[16rem]"
             />
             <Flex justifyContent="end">
               <Legend

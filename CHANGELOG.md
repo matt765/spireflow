@@ -114,3 +114,12 @@
 - rewrite dark theme implementation
 - extract types from components
 - reorganize themes
+
+## 1.0.14 (03-05-2025)
+
+- redesign navbar and side menu
+- change main font
+- add breadcrumbs
+- redesign card header
+- update all packages
+- add CSV export for 6 main pages

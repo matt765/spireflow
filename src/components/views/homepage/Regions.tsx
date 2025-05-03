@@ -30,7 +30,7 @@ const CustomRegionsLegend = ({ data }: { data: RegionData[] }) => {
   };
 
   return (
-    <div className="flex flex-row justify-start gap-8 text-white w-full mb-6 1xl:mb-8 mt-4 1xl:mt-5 3xl:mb-12 3xl:mt-6 text-xs">
+    <div className="flex flex-row justify-start gap-8 text-white w-full mb-6 1xl:mb-8 mt-5 1xl:mt-5 3xl:mb-12 3xl:mt-6 text-xs">
       {data.map((item, index) => (
         <div key={index} className="flex items-center">
           {isMounted ? (

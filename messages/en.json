@@ -490,5 +490,14 @@
         "Products": "Products"
       }
     }
+  },
+  "breadcrumbs": {
+    "firstPart": "Home",
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "customers": "Customers",
+    "products": "Products",
+    "analytics": "Analytics",
+    "calendar": "Calendar"
   }
 }

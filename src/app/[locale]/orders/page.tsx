@@ -3,11 +3,11 @@ import { OrdersView } from "../../../components/views/orders/OrdersView";
 import { getData } from "../../../services/getData";
 
 const Orders = async () => {
-  const orders = await getData("orders");
+  const ordersData = await getData("orders");
 
   return (
-    <PageWrapper pageName="Orders">
-      <OrdersView ordersData={orders} />
+    <PageWrapper pageName="Orders" dataForExport={ordersData}>
+      <OrdersView ordersData={ordersData} />
     </PageWrapper>
   );
 };

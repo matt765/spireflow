@@ -114,7 +114,7 @@ export const BestSellingProducts = ({
 
   return (
     <Card className="h-full" id="bestsellingProducts" title={t("title")}>
-      <div className="h-[17.5rem] 1xl:h-[19.5rem] 3xl:h-[21.8rem] relative mt-2 3xl:mt-0">
+      <div className="h-[18.5rem] 1xl:h-[20rem] 3xl:h-[21.8rem] relative mt-1 3xl:mt-0">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={chartData}
