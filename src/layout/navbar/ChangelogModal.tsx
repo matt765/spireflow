@@ -27,7 +27,7 @@ export const ChangelogModal = ({ closeModal }: ChangelogModalProps) => {
           >
             <CloseIcon />
           </button>
-          <div className="md:max-h-[60vh] md:min-h-[60vh] h-full w-full md:h-[60vh] -mr-4 overflow-auto pr-4 max-w-full md:max-w-[50vw] min-w-[32.7vw]">
+          <div className="md:max-h-[60vh] md:min-h-[60vh] h-full w-full py-12 md:py-0 md:h-[60vh] -mr-4 overflow-auto pr-4 max-w-full md:max-w-[50vw] min-w-[32.7vw]">
             <div className="text-primaryText text-base w-full h-full -mt-4 text-left px-8 md:px-0">
               {isLoading ? (
                 <div className="flex justify-center items-center py-10 w-full h-full">
@@ -40,6 +40,7 @@ export const ChangelogModal = ({ closeModal }: ChangelogModalProps) => {
                   dangerouslySetInnerHTML={{
                     __html: formatMarkdown(changelogContent),
                   }}
+                  className="pb-6 md:pb-0"
                 />
               )}
             </div>

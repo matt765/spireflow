@@ -11,7 +11,7 @@ export interface DropdownProps {
   toggle: () => void;
   close: () => void;
   open: () => void;
-  ref: React.RefObject<HTMLDivElement>;
+  ref: React.RefObject<HTMLDivElement | null>;
 }
 
 export interface AboutModalProps {
@@ -50,7 +50,7 @@ export interface ThemeButtonProps {
 }
 
 export interface UserButtonProps {
-  userIconBtnRef: RefObject<HTMLButtonElement>;
+  userIconBtnRef: RefObject<HTMLButtonElement | null>;
   closeMobileMenu: () => void;
   userDropdown: DropdownProps;
   themeDropdown: DropdownProps;
