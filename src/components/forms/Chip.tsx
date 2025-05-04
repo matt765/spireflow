@@ -6,7 +6,7 @@ interface ChipProps {
 export const Chip = ({ label, onDelete }: ChipProps) => {
   return (
     <div
-      className="inline-flex items-center bg-gray-200 rounded-full px-2 pl-4 py-1 text-xs sm:text-sm font-semibold !text-tableCellText !text-secondaryText mr-2 mb-2 h-8 pb-2 pt-1.5 border border-inputBorder bg-inputBg text-primaryText placeholder-secondaryText hover:!border-inputBorderHover transition hover:bg-inputBgHover hover:bg-outlinedButtonBgHover"
+      className="inline-flex items-center bg-gray-200 rounded-full px-2 pl-4 py-1 text-xs sm:text-xs font-semibold !text-tableCellText !text-secondaryText mr-2 mb-2 h-8 pb-2 pt-1.5 border border-inputBorder bg-inputBg text-primaryText placeholder-secondaryText hover:!border-inputBorderHover transition hover:bg-inputBgHover hover:bg-outlinedButtonBgHover"
       aria-label={`Chip with label ${label}`}
     >
       {label}

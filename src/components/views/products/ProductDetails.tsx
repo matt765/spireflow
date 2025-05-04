@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import Lightbox, { ThumbnailsRef } from "yet-another-react-lightbox";
@@ -39,6 +39,11 @@ export const ProductDetails = ({
 
   const thumbnailsRef = useRef<ThumbnailsRef>(null);
   const profit = activeProduct.price * 0.12;
+
+  const pdfDocument = useMemo(
+    () => <ProductPDF product={activeProduct} />,
+    [activeProduct]
+  );
 
   return (
     <div className="w-full lg:w-3/4 2xl:p-4 2xl:pt-2">
@@ -188,7 +193,7 @@ export const ProductDetails = ({
         </div>
         <div className="hidden sm:flex w-[15rem] h-12 items-center justify-end">
           <DynamicPDFDownloadLink
-            document={<ProductPDF product={activeProduct} />}
+            document={pdfDocument}
             fileName={`${activeProduct.name}.pdf`}
           >
             {({ loading }) =>
@@ -213,7 +218,7 @@ export const ProductDetails = ({
         </div>
         <div className="flex sm:hidden w-1/2">
           <DynamicPDFDownloadLink
-            document={<ProductPDF product={activeProduct} />}
+            document={pdfDocument}
             fileName={`${activeProduct.name}.pdf`}
             style={{ width: "100%" }}
           >

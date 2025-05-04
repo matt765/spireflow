@@ -82,7 +82,7 @@ const Line = () => {
         {dragonPopulationInWesteros.map((item, index) => (
           <div
             key={index}
-            className="text-xs text-primaryText px-2"
+            className="text-[12px] text-primaryText px-2"
           >
             {item.title}
           </div>

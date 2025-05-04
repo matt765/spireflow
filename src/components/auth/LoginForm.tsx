@@ -146,7 +146,7 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
                 t("sampleAccount")
               )}
             </ContainedButton>
-            <div className="w-full text-xs 1xl:text-sm flex justify-center gap-2 mt-8 1xl:mt-10">
+            <div className="w-full text-[12px] 1xl:text-[12px] flex justify-center gap-2 mt-8 1xl:mt-10">
               <div className="text-primaryText">
                 {t("noAccount")}
               </div>
