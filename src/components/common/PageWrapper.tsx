@@ -53,21 +53,21 @@ export const PageWrapper = ({
       }
       ${
         hidePaper &&
-        "pt-[4rem] md:!pt-[5.5rem] xl:!pt-[5.5rem] 3xl:!pt-[6rem] md:px-6 xl:px-0 pb-0 md:!pb-8 xl:pb-8"
+        "pt-[4rem] md:!pt-[5.5rem] xl:!pt-[5.5rem] 3xl:!pt-[6rem] md:px-8 xl:px-0 pb-0 md:!pb-8 xl:pb-8"
       }
       `}
       role="main"
     >
       <div className="flex flex-col max-w-full w-full min-h-full lg:h-unset">
         {!hidePaper && (
-          <div className="px-8 xl:px-0 w-full flex justify-between items-center">
+          <div className="px-6 xsm:px-8 xl:px-0 w-full flex justify-between items-center">
             <Breadcrumbs pageName={pageName} />
             {csvButton}
           </div>
         )}
         {hidePaper ? (
           <div
-            className="flex flex-col w-full max-w-full h-full p-4 pt-6 sm:p-6 md:p-0"
+            className="flex flex-col w-full max-w-full h-full py-4 px-6 pt-6 sm:py-6 xsm:px-8 md:p-0"
             aria-hidden="true"
           >
             <div className="w-full flex justify-between items-center">
@@ -79,7 +79,7 @@ export const PageWrapper = ({
             </div>
           </div>
         ) : (
-          <div className="mt-3 flex w-full max-w-full p-8 1xl:p-10 bg-primaryBg xl:rounded-[10px] shadow-lg border-t xl:border border-mainBorder min-h-[100vh] xl:min-h-unset xl:rounded-[12px] xl:border">
+          <div className="mt-3 flex w-full max-w-full px-6 py-8 xsm:p-8 1xl:p-10 bg-primaryBg xl:rounded-[10px] shadow-lg border-t xl:border border-mainBorder min-h-[100vh] xl:min-h-unset xl:rounded-[12px] xl:border">
             {children}
           </div>
         )}

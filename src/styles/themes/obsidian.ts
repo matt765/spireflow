@@ -51,7 +51,7 @@ export const obsidianTheme = {
   galleryBg: "rgb(0,0,0,0.5)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.01)",
   datepickerHeaderBg: "rgb(41, 43, 48)",
-  tooltipBg: "rgb(53, 58, 66)",
+  tooltipBg: "rgb(44, 49, 55)",
   scrollbarBg: "#22252a",
   activeProductBg: "rgb(255,255,255,0.07)",
   calendarMainColor: "rgb(61, 142, 108)",
@@ -76,7 +76,7 @@ export const obsidianTheme = {
     background: {
       muted: "rgb(41, 43, 48, 0.6)",
       subtle: "rgb(41, 43, 48, 0.5)",
-      DEFAULT: "rgb(51, 55, 62)",
+      DEFAULT: "rgb(44, 49, 55)",
       emphasis: "#d1d5db",
     },
     border: {

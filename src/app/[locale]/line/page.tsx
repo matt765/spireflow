@@ -5,43 +5,46 @@ import { useTranslations } from "next-intl";
 
 import { CenteredPageWrapper } from "../../../components/common/CenteredPageWrapper";
 import { useTheme } from "next-themes";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 const Line = () => {
   const t = useTranslations("singleCharts.line");
 
+  const { width: windowWidth } = useWindowDimensions();
+
   const dragonPopulationInWesteros = [
     {
-      year: "0 AC",
+      year: windowWidth > 600 ? "0 AC" : "0 AC",
       title: t("aegonsConquest"),
       [t("houseTargaryen")]: 3,
       [t("houseVelaryon")]: 0,
     },
     {
-      year: "60 AC",
+      year: windowWidth > 600 ? "60 AC" : "60",
       title: t("theLongReignOfJaehaerysI"),
       [t("houseTargaryen")]: 19,
       [t("houseVelaryon")]: 2,
     },
     {
-      year: "120 AC",
+      year: windowWidth > 600 ? "120 AC" : "120",
       title: t("houseOfTheDragonSeries"),
       [t("houseTargaryen")]: 15,
       [t("houseVelaryon")]: 3,
     },
     {
-      year: "180 AC",
+      year: windowWidth > 600 ? "180 AC" : "180",
       title: t("theConquestOfDorne"),
       [t("houseTargaryen")]: 4,
       [t("houseVelaryon")]: 0,
     },
     {
-      year: "240 AC",
+      year: windowWidth > 600 ? "240 AC" : "240",
       title: t("theBlackfyreRebellions"),
       [t("houseTargaryen")]: 0,
       [t("houseVelaryon")]: 0,
     },
     {
-      year: "300 AC",
+      year: windowWidth > 600 ? "300 AC" : "300",
       title: t("timeOfTheShowBooksStart"),
       [t("houseTargaryen")]: 3,
       [t("houseVelaryon")]: 0,
@@ -80,10 +83,7 @@ const Line = () => {
       />
       <div className="w-full hidden sm:flex justify-between mx-auto mt-6 1xl:mt-8 ml-8">
         {dragonPopulationInWesteros.map((item, index) => (
-          <div
-            key={index}
-            className="text-[12px] text-primaryText px-2"
-          >
+          <div key={index} className="text-[12px] lg:text-[13px] text-primaryText px-2">
             {item.title}
           </div>
         ))}

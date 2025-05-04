@@ -80,7 +80,7 @@ export const Navbar = () => {
           `}
         >
           <div className="flex items-center gap-10">
-            <div className="flex sm:pl-2  xl:hidden">
+            <div className="flex xsm:pl-2  xl:hidden">
               <Logo />
             </div>
             <SearchInput
@@ -96,7 +96,7 @@ export const Navbar = () => {
               }}
             />
           </div>
-          <div className="flex items-center gap-3 md:gap-2 xl:gap-7 z-[99]">
+          <div className="flex items-center gap-[0.5rem] md:gap-2 xl:gap-7 z-[99]">
             <ThemeButton
               theme={theme}
               isMobileMenuOpen={isMobileMenuOpen}

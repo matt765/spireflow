@@ -51,7 +51,7 @@ export const midnightTheme = {
   galleryBg: "rgb(0,0,0,0.5)",
   galleryThumbnailBg: "rgb(255, 255, 255, 0.02)",
   datepickerHeaderBg: "rgb(52, 60, 74)",
-  tooltipBg: "rgb(57, 64, 77)",
+  tooltipBg: "rgb(48, 52, 62)",
   scrollbarBg: "#17191c",
   activeProductBg: "rgb(68, 74, 87, 0.5)",
   calendarMainColor: "rgb(35,125,140)",

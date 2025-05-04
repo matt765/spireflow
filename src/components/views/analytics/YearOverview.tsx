@@ -140,8 +140,8 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
               data={translatedData}
               margin={{
                 top: 20,
-                right: windowWidth > 400 ? 30 : 15,
-                left: windowWidth > 400 ? 20 : 10,
+                right: windowWidth > 500 ? 30 : 15,
+                left: windowWidth > 500 ? 20 : 7,
                 bottom: 5,
               }}
             >
