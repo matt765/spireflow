@@ -46,13 +46,15 @@ export const PageWrapper = ({
 
   return (
     <main
-      className={`flex pb-0 flex-col min-h-screen max-w-full h-full w-full  pb-0 md:pb-0 xl:pb-8 items-center
+      className={`flex pb-0 flex-col min-h-screen max-w-full h-full w-full  pb-0 md:pb-0 xl:pb-8 items-center      
       ${
         !hidePaper &&
+        // Spacing for Orders, Customers, Products and Calendar pages
         "pt-[5.5rem] md:pt-[5.5rem] xl:pt-[5.5rem] 1xl:pt-[5.5rem] 3xl:pt-[6rem]"
       }
       ${
         hidePaper &&
+        // Spacing for Home and Analytics pages
         "pt-[4rem] md:!pt-[5.5rem] xl:!pt-[5.5rem] 3xl:!pt-[6rem] md:px-8 xl:px-0 pb-0 md:!pb-8 xl:pb-8"
       }
       `}
@@ -60,6 +62,7 @@ export const PageWrapper = ({
     >
       <div className="flex flex-col max-w-full w-full min-h-full lg:h-unset">
         {!hidePaper && (
+          // Breadcrumbs for Orders, Customers, Products and Calendar pages
           <div className="px-6 xsm:px-8 xl:px-0 w-full flex justify-between items-center">
             <Breadcrumbs pageName={pageName} />
             {csvButton}
@@ -71,15 +74,18 @@ export const PageWrapper = ({
             aria-hidden="true"
           >
             <div className="w-full flex justify-between items-center">
+              {/* Breadcrumbs for Home and Analytics pages */}
               <Breadcrumbs pageName={pageName} />
               {csvButton}
             </div>
             <div className="flex flex-col w-full gap-y-4 1xl:gap-y-6 max-w-full h-full pt-3">
+              {/* Content for Home and Analytics pages */}
               {children}
             </div>
           </div>
         ) : (
           <div className="mt-3 flex w-full max-w-full px-6 py-8 xsm:p-8 1xl:p-10 bg-primaryBg xl:rounded-[10px] shadow-lg border-t xl:border border-mainBorder min-h-[100vh] xl:min-h-unset xl:rounded-[12px] xl:border">
+            {/* Content for Orders, Customers, Products and Calendar pages */}
             {children}
           </div>
         )}

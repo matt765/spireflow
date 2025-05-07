@@ -147,12 +147,12 @@ export const LoginForm = ({ switchToSignUp }: LoginFormProps) => {
               )}
             </ContainedButton>
             <div className="w-full text-[12px] 1xl:text-[12px] flex justify-center gap-2 mt-8 1xl:mt-10">
-              <div className="text-primaryText">
+              <div className="text-primaryText text-nowrap">
                 {t("noAccount")}
               </div>
               <div
                 onClick={switchToSignUp}
-                className="text-coloredText text-semibold cursor-pointer hover:text-coloredTextHover ignore-error-hide"
+                className="text-coloredText text-semibold cursor-pointer hover:text-coloredTextHover ignore-error-hide text-nowrap"
               >
                 {t("registerHere")}
               </div>

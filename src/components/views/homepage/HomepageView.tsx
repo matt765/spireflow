@@ -64,7 +64,7 @@ export const HomepageView = ({ homepageData }: HomepageViewProps) => {
         </Col>
       </Grid>
       {/* Fourth row */}
-      <div className="hidden md:flex w-full 1xl:w-full">
+      <div className="hidden lg:flex w-full 1xl:w-full">
         <RevenuePerCountry
           revenuePerCountryData={homepageData.revenuePerCountry}
         />

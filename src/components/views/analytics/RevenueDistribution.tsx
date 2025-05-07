@@ -116,6 +116,7 @@ export const RevenueDistribution = ({
               fill="rgb(83,133,198)"
               radius={[0, 4, 4, 0]}
               barSize={30}
+              isAnimationActive={false}
             />
             <Bar
               dataKey="online"
@@ -124,6 +125,7 @@ export const RevenueDistribution = ({
               fill="rgb(86,92,101)"
               radius={[0, 4, 4, 0]}
               barSize={30}
+              isAnimationActive={false}
             />
           </BarChart>
         </ResponsiveContainer>

@@ -126,13 +126,17 @@ export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
               tick={{ fill: "rgba(255,255,255,0.65)", fontSize: 12 }}
               tickFormatter={translateMetric}
             />
-            <Tooltip content={<MarketMetricsTooltip />} />
+            <Tooltip
+              content={<MarketMetricsTooltip />}
+              isAnimationActive={false}
+            />
             <Radar
               name="profitMargin"
               dataKey="phones"
               stroke="rgb(83,133,198)"
               fill="rgb(83,133,198)"
               fillOpacity={0.3}
+              isAnimationActive={false}
             />
             <Radar
               name="salesVolume"
@@ -140,6 +144,7 @@ export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
               stroke={chartColors.primary.stroke}
               fill={chartColors.primary.stroke}
               fillOpacity={0.3}
+              isAnimationActive={false}
             />
             <Legend
               verticalAlign="top"

@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Spireflow project. I appreciate y
 
 If you would like to support the ongoing development and maintenance of this project, you can do so through the GitHub Sponsors program. Your sponsorship helps me dedicate more time and resources to this project. To become a sponsor, you can click the "Sponsor" button on my profile.
 
-For some time, I will hold off on accepting external merge requests. While I greatly appreciate your willingness to contribute code, I am currently focused on managing the project's development internally. This may change in the future.
+Feel free to fork the repository and submit a merge requests. If you’ve spotted something that can be improved or fixed, your input is more than welcome.
 
 Thank you once again for your interest and support!
 

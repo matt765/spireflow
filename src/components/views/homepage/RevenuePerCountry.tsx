@@ -70,7 +70,7 @@ export const RevenuePerCountry = ({
       title={t("title")}
     >
       <div className="flex justify-between">
-        <div className="w-[65%] worldMap flex items-center justify-center h-[28rem]">
+        <div className="w-[65%] worldMap flex items-center justify-center md:h-[21rem] lg:h-[23rem] xl:h-[25rem] 1xl:h-[27rem] 2xl:h-[30rem] 3xl:h-[33rem] -mb-6">
           <Suspense
             fallback={
               <div className="w-full flex items-center justify-center pb-10">
@@ -79,9 +79,11 @@ export const RevenuePerCountry = ({
             }
           >
             <ComposableMapLazy
-              width={1100}
-              height={500}
+              style={{ width: "100%", height: "100%", marginLeft: "-4rem", marginTop: "3rem" }}
               stroke="rgb(255,255,255, 0.1)"
+              projectionConfig={{
+                scale: 200,
+              }}
             >
               <Geographies geography="/geographies.json">
                 {({ geographies }) =>
@@ -126,7 +128,7 @@ export const RevenuePerCountry = ({
             </ComposableMapLazy>
           </Suspense>
         </div>
-        <div className="w-[35%] flex  overflow-auto pt-[3rem] items-start justify-start ">
+        <div className="w-[35%] flex  overflow-auto pt-[2rem] xl:pt-[3rem] 2xl:pt-[4rem] 3xl:pt-[5rem] items-start justify-start ">
           <div className="flex flex-col w-full pl-[10%] pr-[20%]">
             <div className="w-full flex justify-between mb-[0.5rem] text-[14px] 3xl:text-[16px]">
               <h3 className="font-semibold text-primaryText">{t("country")}</h3>

@@ -24,7 +24,7 @@ export const obsidianTheme = {
   mainColor: "rgb(61, 185, 133)",
   navigationBg: "rgb(36, 40, 45)",
   navItemBg: "rgb(12, 18, 24, 0)",
-  navItemBgHover: "rgb(255,255,255,0.04)",
+  navItemBgHover: "rgb(255,255,255,0.03)",
   navItemActiveBg: "rgb(255,255,255,0.07)",
   navItemActiveBgHover: "rgb(255,255,255,0.1)",
   inputBg: "rgb(255, 255, 255, 0.05)",

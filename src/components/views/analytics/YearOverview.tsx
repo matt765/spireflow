@@ -208,6 +208,7 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
                 strokeWidth={2}
                 fillOpacity={1}
                 fill="url(#colorPhones)"
+                isAnimationActive={false}
               />
               <Area
                 name="laptops"
@@ -217,6 +218,7 @@ export const YearOverview = ({ yearOverviewData }: YearOverviewProps) => {
                 strokeWidth={2}
                 fillOpacity={1}
                 fill="url(#colorLaptops)"
+                isAnimationActive={false}
               />
             </AreaChart>
           </ResponsiveContainer>
