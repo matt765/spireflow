@@ -424,7 +424,10 @@
     "area": "Area",
     "bars": "Bars",
     "scatter": "Scatter",
-    "line": "Line"
+    "line": "Line",
+    "signIn": "Sign In",
+    "language": "Language",
+    "githubRepository": "GitHub Repository"
   },
   "navbar": {
     "signIn": "Sign in",

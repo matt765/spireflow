@@ -18,9 +18,9 @@
       "dec": "Gru"
     },
     "homeSmallCards": {
-      "sales": "Sprzedaż",
+      "sales": "Obrót",
       "profit": "Zysk",
-      "traffic": "Wyświetlenia",
+      "traffic": "Ruch",
       "customers": "Klienci",
       "Last 3 weeks": "3 tygodnie",
       "Last month": "30 dni",
@@ -423,7 +423,10 @@
     "area": "Obszar",
     "bars": "Słupki",
     "scatter": "Rozrzut",
-    "line": "Linia"
+    "line": "Linia",
+    "signIn": "Zaloguj się",
+    "language": "Język",
+    "githubRepository": "GitHub"
   },
   "navbar": {
     "signIn": "Zaloguj się",
@@ -464,9 +467,9 @@
         "bestsellingProducts": "Bestsellery",
         "customerSatisfaction": "Zadowolenie klientów",
         "revenuePerCountry": "Przychód według kraju",
-        "salesCard": "Sprzedaż",
+        "salesCard": "Obrót",
         "profitCard": "Zysk",
-        "trafficCard": "Wyświetlenia",
+        "trafficCard": "Ruch",
         "customersCard": "Klienci",
         "assetPerformance": "Wydajność aktywów",
         "todaysSales": "Dzisiejsza sprzedaż",

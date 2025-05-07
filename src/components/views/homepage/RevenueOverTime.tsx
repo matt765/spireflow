@@ -73,7 +73,7 @@ const RevenueOverTimeTooltip = ({
 
 const CustomLegend = ({ payload }: RevenueOverTimeCustomLegendProps) => {
   return (
-    <div className="flex flex-row justify-end gap-8 text-white w-full mb-6 1xl:mb-6">
+    <div className="flex flex-row justify-end gap-8 text-white w-full mb-8 lg:mb-6 1xl:mb-6">
       {payload?.map(
         (entry: { value: string; color?: string }, index: number) => (
           <div key={`legend-${index}`} className="flex items-center">
@@ -114,7 +114,7 @@ export const RevenueOverTime = ({
 
   return (
     <Card className="h-full" id="revenueOverTime" title={t("title")}>
-      <div className="h-[17rem] 1xl:h-[18.8rem] 3xl:h-[21rem] w-full mt-[1rem] md:mt-[0.6rem] 3xl:mt-4">
+      <div className="h-[18rem] 1xl:h-[18.8rem] 3xl:h-[21rem] w-full mt-[1rem] md:mt-[0.6rem] 3xl:mt-4">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={translatedData}

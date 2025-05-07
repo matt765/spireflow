@@ -1,5 +1,4 @@
-import { useTheme } from "next-themes";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { AnalyticsIcon } from "../../assets/icons/AnalyticsIcon";
 import { AreaIcon } from "../../assets/icons/AreaIcon";
@@ -26,7 +25,7 @@ export const SideMenuMobile = ({
 }: SideMenuMobileProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
   const { session } = useSession();
-
+  const t = useTranslations("sideMenu");
   const locale = useLocale();
 
   // First render check needed to prevent hydration mismatch errors
@@ -41,26 +40,34 @@ export const SideMenuMobile = ({
       style={{ height: "calc(100% - 4.5rem)" }}
     >
       <div className="px-4 xl:px-6 pt-0 pr-6 transition w-[16rem] pb-2">
-        <MenuCategory title="Pages" />
-        <MenuItem title="Dashboard" icon={<DashboardIcon />} path="/" />
-        <MenuItem title="Orders" icon={<OrdersIcon />} path="/orders" />
+        <MenuCategory title={t("pages")} />
+        <MenuItem title={t("dashboard")} icon={<DashboardIcon />} path="/" />
+        <MenuItem title={t("orders")} icon={<OrdersIcon />} path="/orders" />
         <MenuItem
-          title="Customers"
+          title={t("customers")}
           icon={<CustomersIcon />}
           path="/customers"
         />
-        <MenuItem title="Products" icon={<ProductsIcon />} path="/products" />
         <MenuItem
-          title="Analytics"
+          title={t("products")}
+          icon={<ProductsIcon />}
+          path="/products"
+        />
+        <MenuItem
+          title={t("analytics")}
           icon={<AnalyticsIcon />}
           path="/analytics"
         />
-        <MenuItem title="Calendar" icon={<CalendarIcon />} path="/calendar" />
-        <MenuCategory title="Single charts" />
-        <MenuItem title="Area" icon={<AreaIcon />} path="/area" />
-        <MenuItem title="Bars" icon={<BarsIcon />} path="/bars" />
-        <MenuItem title="Scatter" icon={<ScatterIcon />} path="/scatter" />
-        <MenuItem title="Line" icon={<LineIcon />} path="/line" />
+        <MenuItem
+          title={t("calendar")}
+          icon={<CalendarIcon />}
+          path="/calendar"
+        />
+        <MenuCategory title={t("singleCharts")} />
+        <MenuItem title={t("area")} icon={<AreaIcon />} path="/area" />
+        <MenuItem title={t("bars")} icon={<BarsIcon />} path="/bars" />
+        <MenuItem title={t("scatter")} icon={<ScatterIcon />} path="/scatter" />
+        <MenuItem title={t("line")} icon={<LineIcon />} path="/line" />
       </div>
       <div className="w-full">
         <div className="w-full border-t-0 border-mainBorder px-4 pt-8 mb-6">
@@ -72,11 +79,11 @@ export const SideMenuMobile = ({
               }}
               className="block hover:bg-navbarButtonBgHover xl:hidden mt-auto mb-8 rounded-xl w-full h-10 flex justify-center items-center font-medium border border-mainColor text-primaryText bg-[rgb(255,255,255,0.02)] hover:bg-[rgb(255,255,255,0.06)] mt-12"
             >
-              Sign In
+              {t("signIn")}
             </button>
           )}
           <div className="flex xl:hidden justify-center gap-2 items-center mx-2">
-            <label className="mr-2 text-primaryText">Language:</label>
+            <label className="mr-2 text-primaryText">{t("language")}:</label>
             <div className="flex border border-mainBorder rounded-md">
               <Link
                 href="/"
@@ -110,7 +117,7 @@ export const SideMenuMobile = ({
           className="cursor-pointer hover:bg-navbarButtonBgHover min-h-[3.6rem] max-h-[3.6rem] w-full border-t-2 border-mainBorder text-center flex justify-center items-center gap-2 stroke-grayIcon fill-grayIcon"
         >
           <GithubIcon />
-          <div className="text-primaryText">GitHub Repository</div>
+          <div className="text-primaryText">{t("githubRepository")}</div>
         </a>
       </div>
     </div>
