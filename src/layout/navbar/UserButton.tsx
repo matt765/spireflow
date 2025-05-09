@@ -59,14 +59,13 @@ export const UserButton = ({
         </div>
       )}
     {userDropdown.isOpen && (
-      <div className="absolute right-[0.5rem] text-sm 1xl:text-sm 2xl:text-base xl:right-0 top-10 xl:top-11 mt-2 w-[13rem] border border-inputBorder bg-dropdownBg text-primaryText placeholder-secondaryText rounded-md shadow">
+      <div className="absolute right-[0.5rem] text-sm 1xl:text-sm 2xl:text-base xl:right-0 top-10 xl:top-11 mt-2 w-[13.5rem] border border-inputBorder bg-dropdownBg text-primaryText placeholder-secondaryText rounded-md shadow">
         <div className="px-4 pr-5 py-2 text-sm 1xl:text-sm  2xl:text-base pl-[0.9rem] border-b border-mainBorder flex hover:bg-dropdownBgHover bg-rgb(0,0,0,0.05)">
           <div className="w-6 flex justify-center items-center mr-3 stroke-grayIcon fill-grayIcon">
             <MailIcon />
           </div>
           {session?.username || "Email"}
         </div>
-
         <div
           className="px-4 py-2 pr-5 pl-[1rem] flex hover:bg-dropdownBgHover cursor-pointer"
           onClick={() => {

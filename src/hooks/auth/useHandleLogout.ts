@@ -1,35 +1,22 @@
 import { useState } from "react";
+import { useClerk } from "@clerk/nextjs";
+
+import { useAppStore } from "../../store/appStore";
 
 export const useHandleLogout = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const destroySession = async () => {
-    try {
-      const response = await fetch("/api/session?action=logout", {
-        method: "GET",
-        credentials: "include",
-      });
-      if (!response.ok) throw new Error("Failed to destroy session");
-    } catch (err) {
-      console.error("Failed to destroy session:", err);
-      setError("Failed to log out");
-    }
-  };
+  const { signOut } = useClerk();
+  const setIsLoggingOut = useAppStore((state) => state.setIsLoggingOut);
 
   const handleLogout = async () => {
     setLoading(true);
+    setIsLoggingOut(true);
+
     try {
-      const response = await fetch("/api/auth/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      await signOut();
 
-      if (!response.ok) {
-        throw new Error("Logout failed");
-      }
-
-      await destroySession();
+      window.location.reload();
     } catch (err) {
       console.error("Logout error:", err);
       if (err instanceof Error) {
@@ -37,8 +24,8 @@ export const useHandleLogout = () => {
       } else {
         setError("Logout failed due to an unknown error");
       }
-    } finally {
-      location.reload();
+      setIsLoggingOut(false);
+      setLoading(false);
     }
   };
 

@@ -34,7 +34,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
   const t = useTranslations("navbar");
 
   return (
-    <div className="min-w-full md:min-w-[18.5rem] 1xl:min-w-[20rem] flex flex-col items-center mb-2">
+    <div className="w-full md:w-[18.5rem] 1xl:w-[20rem] flex flex-col items-center mb-2">
       <h1 className="text-3xl 1xl:text-4xl font-bold mb-12 1xl:mb-16 mt-2 1xl:mt-4 text-primaryText">
         {t("signUp")}
       </h1>
@@ -60,7 +60,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
         {errors.email && showEmailError && (
           <div className="hidden md:block absolute left-[22.2rem] 1xl:left-[23.5rem] top-[9.4rem] 1xl:top-[11rem] z-50 min-w-[20rem] w-auto">
             <div className="relative">
-              <div className="bg-secondaryBg bg-inputBg text-white inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md">
+              <div className="bg-secondaryBg bg-inputBg text-primaryText inline text-xs rounded p-2 px-4 w-full right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.email.message}
                 <svg
                   className="absolute text-inputBg h-0 left-0 ml-3 top-[1.9rem]"
@@ -95,7 +95,7 @@ export const SignUpForm = ({ switchToSignIn }: SignUpFormProps) => {
         {errors.password && showPasswordError && (
           <div className="absolute hidden md:block left-[22.2rem] 1xl:left-[23.5rem] top-[13rem] 1xl:top-[14.5rem] 1xl:top-[14.9rem] z-50 min-w-[20rem] w-auto">
             <div className="relative mb-8">
-              <div className="bg-secondaryBg bg-inputBg text-white text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md">
+              <div className="bg-secondaryBg bg-inputBg text-primaryText text-xs rounded p-2 px-4 inline right-0 bottom-full border border-inputBorder rounded-md">
                 {errors.password.message}
                 <svg
                   className="absolute text-inputBg h-0 left-0 ml-3 top-[1.9rem]"

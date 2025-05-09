@@ -1,6 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
+import { useUser } from "@clerk/nextjs";
 
 import { LoginModal } from "../../components/auth/LoginModal";
 import { SignUpModal } from "../../components/auth/SignUpModal";
@@ -17,9 +19,20 @@ import { useNavbarModals } from "./hooks/useNavbarModals";
 import { useNavbarTooltips } from "./hooks/useNavbarTooltips";
 import { SearchInput } from "./SearchInput";
 import { Logo } from "../sideMenu/Logo";
+import { useAppStore } from "../../store/appStore";
 
 export const Navbar = () => {
   const t = useTranslations("navbar");
+  const { isLoaded } = useUser();
+  const isLoggingOut = useAppStore((state) => state.isLoggingOut);
+  const isLoggingIn = useAppStore((state) => state.isLoggingIn);
+  const setIsLoggingOut = useAppStore((state) => state.setIsLoggingOut);
+  const setIsLoggingIn = useAppStore((state) => state.setIsLoggingIn);
+
+  useEffect(() => {
+    setIsLoggingOut(false);
+    setIsLoggingIn(false);
+  }, []);
 
   const {
     theme,
@@ -124,7 +137,8 @@ export const Navbar = () => {
               />
             </div>
             <div className="mr-1 2xl:-mr-unset">
-              {session && session.username ? (
+              {(isLoaded && session && session.username && !isLoggingIn) ||
+              isLoggingOut ? (
                 <UserButton
                   userIconBtnRef={userIconBtnRef}
                   closeMobileMenu={closeMobileMenu}

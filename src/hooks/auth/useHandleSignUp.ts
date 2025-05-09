@@ -2,40 +2,42 @@ import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { useSignUp } from "@clerk/nextjs";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { SignUpData } from "../../components/auth/SignUpForm";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 export const useHandleSignUp = () => {
   const [loading, setLoading] = useState(false);
   const [showEmailError, setShowEmailError] = useState(false);
   const [showPasswordError, setShowPasswordError] = useState(false);
+  const { isLoaded, signUp, setActive } = useSignUp();
+  const router = useRouter();
   const t = useTranslations("navbar");
 
   const handleSignUp = async (data: SignUpData) => {
+    if (!isLoaded || !signUp) {
+      return;
+    }
+
     try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password,
-        }),
-        credentials: "include",
+      const result = await signUp.create({
+        emailAddress: data.email,
+        password: data.password,
       });
 
-      if (!response.ok) {
-        throw new Error("Signup failed");
-      }
+      if (result.status === "complete") {
+        await setActive({ session: result.createdSessionId });
 
-      const result = await response.json();
-      if (result.success) {
+        router.push("/");
+
         console.log("Successfully signed up");
+      } else {
+        console.log("Signup process status:", result.status);
       }
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("An error occurred during signup:", error);
     }
   };
 

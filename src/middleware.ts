@@ -1,78 +1,43 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getIronSession } from "iron-session";
-import { cookies } from "next/headers";
-
+import type { NextFetchEvent, NextRequest } from "next/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import createMiddleware from "next-intl/middleware";
+
 import { locales, localePrefix, defaultLocale } from "./i18n/navigation";
-import { sessionOptions } from "./services/ironSessionConfig";
 
-interface SessionData {
-  isLoggedIn: boolean;
-}
+const handleI18nRouting = createMiddleware({
+  locales,
+  defaultLocale,
+  localePrefix,
+  localeDetection: false,
+});
 
-export async function middleware(req: NextRequest) {
-  // Middleware that uses iron-session to protect routes is disabled for demo purposes
-  // Uncomment the following code to enable it
+const isPublicRoute = createRouteMatcher([
+  "/login(.*)",
+  "/register(.*)",
+  "/:locale/login(.*)",
+  "/:locale/register(.*)",
+]);
 
-  // if (
-  //   req.nextUrl.pathname === "/" ||
-  //   req.nextUrl.pathname === "/pl" ||
-  //   protectedRoutes.some((route) => req.nextUrl.pathname.startsWith(route))
-  // ) {
-  //   console.log(
-  //     "[Middleware] Accessing protected route:",
-  //     req.nextUrl.pathname
-  //   );
+export default async function middleware(
+  request: NextRequest,
+  event: NextFetchEvent
+) {
+  return clerkMiddleware(async (auth, req) => {
+    // Uncomment this code if you want to protect all routes except the public ones
+    // I commented it out for demo purposes
 
-  //   const session = (await getIronSession(
-  //     cookies(),
-  //     sessionOptions
-  //   )) as unknown as SessionData;
-  //   console.log("[Middleware] Session state:", session);
+    // if (!isPublicRoute(req)) {
+    //   const locale = req.nextUrl.pathname.match(/^\/([a-z]{2})\//)?.at(1) || "";
+    //   const signInUrl = new URL(`/${locale ? locale + "/" : ""}login`, req.url);
+    //   await auth.protect({
+    //     unauthenticatedUrl: signInUrl.toString(),
+    //   });
+    // }
 
-  //   if (!session.isLoggedIn) {
-  //     console.log(
-  //       "[Middleware] Redirecting to login due to lack of authentication."
-  //     );
-  //     const url = req.nextUrl.clone();
-  //     url.pathname = "/login";
-  //     return NextResponse.redirect(url);
-  //   }
-  // }
-  const handleI18nRouting = createMiddleware({
-    localePrefix,
-    locales,
-    defaultLocale: defaultLocale,
-    localeDetection: false,
-  });
-
-  const response = handleI18nRouting(req);
-
-  return response;
+    return handleI18nRouting(request);
+  })(request, event);
 }
 
 export const config = {
-  matcher: ["/((?!_next|_vercel|.*\\..*).*)"],
+  matcher: "/((?!_next|_vercel|api|trpc|.*\\..*).*)",
 };
-
-const protectedRoutes = [
-  "/pl",
-  "/orders",
-  "pl/orders",
-  "customers",
-  "pl/customers",
-  "/products",
-  "/pl/products",
-  "/analytics",
-  "/pl/analytics",
-  "/calendar",
-  "/pl/calendar",
-  "/area",
-  "/pl/area",
-  "/bars",
-  "/pl/bars",
-  "/scatter",
-  "/pl/scatter",
-  "/line",
-  "/pl/line",
-];

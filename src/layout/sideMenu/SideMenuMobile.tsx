@@ -1,4 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
+import { useUser } from "@clerk/nextjs";
 
 import { AnalyticsIcon } from "../../assets/icons/AnalyticsIcon";
 import { AreaIcon } from "../../assets/icons/AreaIcon";
@@ -14,7 +15,6 @@ import { useAppStore } from "../../store/appStore";
 import { MenuCategory } from "./MenuCategory";
 import { MenuItem } from "./MenuItem";
 import { ProductsIcon } from "../../assets/icons/ProductsIcon";
-import { useSession } from "../../hooks/auth/useSession";
 import { Link } from "../../i18n/navigation";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 import { SideMenuMobileProps } from "./types";
@@ -24,7 +24,7 @@ export const SideMenuMobile = ({
   onLoginButtonClick,
 }: SideMenuMobileProps) => {
   const toggleMobileMenu = useAppStore((state) => state.toggleMobileMenu);
-  const { session } = useSession();
+  const { isSignedIn, isLoaded } = useUser();
   const t = useTranslations("sideMenu");
   const locale = useLocale();
 
@@ -71,7 +71,7 @@ export const SideMenuMobile = ({
       </div>
       <div className="w-full">
         <div className="w-full border-t-0 border-mainBorder px-4 pt-8 mb-6">
-          {!session?.isLoggedIn && (
+          {isLoaded && !isSignedIn && (
             <button
               onClick={() => {
                 onLoginButtonClick();
@@ -106,7 +106,7 @@ export const SideMenuMobile = ({
                 } text-primaryText h-10 cursor-pointer px-4 hover:bg-dropdownBgHover py-2 flex justify-between`}
               >
                 PL
-              </Link>{" "}
+              </Link>
             </div>
           </div>
         </div>

@@ -459,6 +459,13 @@
     "logoutModalDesc": "Click yes to sign out from application",
     "logoutModalCancelButton": "Cancel",
     "logoutModalConfirmButton": "Yes",
+    "authErrors": {
+      "session_exists": "Already signed in",
+      "form_identifier_not_found": "Email not found",
+      "form_password_incorrect": "Incorrect password",
+      "user_locked": "Account locked, try again later",
+      "defaultError": "Sign in error"
+    },
     "search": {
       "placeholder": "Search...",
       "noResults": "No results found",

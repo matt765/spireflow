@@ -1,24 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
-
 import { useAppStore } from "../../../store/appStore";
-import { useSession } from "../../../hooks/auth/useSession";
 import { useDropdown } from "../../../hooks/useDropdown";
+import { useUser } from "@clerk/nextjs";
 
 export const useNavbar = () => {
   const { theme, setTheme } = useTheme();
   const [currentLanguage, setCurrentLanguage] = useState("en");
   const { isMobileMenuOpen, toggleMobileMenu, isSideMenuOpen } = useAppStore();
   const t = useTranslations("navbar");
+  const { user, isLoaded } = useUser();
+
+  const session = isLoaded
+    ? {
+        username: user?.primaryEmailAddress?.emailAddress || null,
+        isLoggedIn: !!user,
+      }
+    : null;
 
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
       toggleMobileMenu();
     }
   };
-
-  const { session } = useSession();
 
   const themes = ["snowlight", "midnight", "charcoal", "obsidian"];
   const themesDisplayNames = ["Snowlight", "Midnight", "Charcoal", "Obsidian"];
@@ -32,7 +37,6 @@ export const useNavbar = () => {
   }, []);
 
   const userIconBtnRef = useRef<HTMLButtonElement | null>(null);
-
   const themeDropdown = useDropdown();
   const userDropdown = useDropdown();
   const languageDropdown = useDropdown();
@@ -46,7 +50,6 @@ export const useNavbar = () => {
       }
       return "en";
     };
-
     setCurrentLanguage(getCurrentLanguage());
   }, []);
 
@@ -91,6 +94,6 @@ export const useNavbar = () => {
     selectTheme,
     cycleThemeUp,
     cycleThemeDown,
-    searchDropdown
+    searchDropdown,
   };
 };

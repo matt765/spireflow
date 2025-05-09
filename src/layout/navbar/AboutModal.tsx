@@ -44,12 +44,15 @@ export const AboutModal = ({ closeModal }: AboutModalProps) => {
                 <p className="text-secondaryText mb-2">Front-End:</p>
               </div>
               <ul className="list-disc list-inside mb-4 pl-3 text-primaryText">
+                <li>ReactJS</li>
                 <li>NextJS</li>
                 <li>TypeScript</li>
-                <li>TailwindCSS</li>
+                <li>Tailwind</li>
                 <li>Zustand</li>
                 <li>Apollo Client</li>
-                <li>Iron Session</li>
+                <li>Recharts</li>
+                <li>Clerk</li>
+                <li>Jest</li>
               </ul>
               <div>
                 <p className="text-secondaryText mb-2">Back-End:</p>

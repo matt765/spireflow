@@ -4,8 +4,10 @@ import * as Yup from "yup";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useSignIn } from "@clerk/nextjs";
 
 import { LoginData } from "../../components/auth/LoginForm";
+import { useAppStore } from "../../store/appStore";
 
 export interface HandleLoginProps extends LoginData {
   isDemo?: boolean;
@@ -13,52 +15,81 @@ export interface HandleLoginProps extends LoginData {
 
 export const useHandleLogin = () => {
   const [authError, setAuthError] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+
   const router = useRouter();
   const [showEmailError, setShowEmailError] = useState(false);
   const [showPasswordError, setShowPasswordError] = useState(false);
   const [authErrorDisplayed, setAuthErrorDisplayed] = useState("");
   const t = useTranslations("navbar");
+  const { isLoaded, signIn, setActive } = useSignIn();
 
+  const setIsLoggingIn = useAppStore((state) => state.setIsLoggingIn);
   const clearAuthError = () => setAuthError("");
-
   const currentPathname = usePathname();
 
   const handleLogin = async (data: HandleLoginProps) => {
-    setLoading(true);
+    if (!isLoaded || !signIn) {
+      return;
+    }
+
+    setIsLoggingIn(true);
+
     const { email, password, isDemo } = data;
 
+    // Handle demo account
+    const loginEmail = isDemo
+      ? process.env.NEXT_PUBLIC_SAMPLE_ACCOUNT_EMAIL || ""
+      : email;
+    const loginPassword = isDemo
+      ? process.env.NEXT_PUBLIC_SAMPLE_ACCOUNT_PASSWORD || ""
+      : password;
+
     try {
-      const response = await fetch("/api/auth/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          password,
-          isDemo: isDemo || false,
-        }),
-        credentials: "include",
+      const result = await signIn.create({
+        identifier: loginEmail,
+        password: loginPassword,
       });
 
-      if (!response.ok) {
-        throw new Error("Authentication failed");
-      }
+      if (result.status === "complete") {
+        await setActive({ session: result.createdSessionId });
 
-      if (currentPathname === "/pl/login") {
-        router.push("/pl");
-      }
-      if (currentPathname === "/login") {
-        router.push("/");
-      }
-      if (currentPathname !== "/login" && currentPathname !== "/pl/login") {
-        location.reload();
+        if (currentPathname === "/pl/login") {
+          router.push("/pl");
+        } else if (currentPathname === "/login") {
+          router.push("/");
+        } else {
+          location.reload();
+        }
       }
     } catch (error) {
-      console.error("Firebase login error:", error);
-      setAuthError("Invalid email or password.");
-    } finally {
-      if (authError) {
-        setLoading(false);
+      console.log("Clerk login error:", error);
+
+      const clerkError = error as {
+        errors?: {
+          message?: string;
+          code?: string;
+          meta?: any;
+        }[];
+      };
+
+      if (clerkError.errors && clerkError.errors.length > 0) {
+        const firstError = clerkError.errors[0];
+
+        if (firstError.code) {
+          const translatedError =
+            t.raw(`authErrors.${firstError.code}`) !==
+            `authErrors.${firstError.code}`
+              ? t(`authErrors.${firstError.code}`)
+              : firstError.message || t("authErrors.defaultError");
+
+          setAuthError(translatedError);
+        } else if (firstError.message) {
+          setAuthError(firstError.message);
+        } else {
+          setAuthError(t("authErrors.defaultError"));
+        }
+      } else {
+        setAuthError(t("authErrors.defaultError"));
       }
     }
   };
@@ -121,7 +152,7 @@ export const useHandleLogin = () => {
     if (authError) {
       setTimeout(() => {
         setAuthErrorDisplayed(authError);
-        setLoading(false);
+        setIsLoggingIn(false);
       }, 700);
     } else {
       setAuthErrorDisplayed("");
@@ -129,14 +160,11 @@ export const useHandleLogin = () => {
   }, [authError]);
 
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
-    setLoading(true);
-
     try {
       await handleLogin(data);
     } catch (error) {
       console.error("Login process error:", error);
-    } finally {
-      setTimeout(() => setLoading(false), 700);
+      setIsLoggingIn(false);
     }
   };
 
@@ -145,8 +173,6 @@ export const useHandleLogin = () => {
     authError,
     clearAuthError,
     validationSchema,
-    loading,
-    setLoading,
     showEmailError,
     setShowEmailError,
     showPasswordError,

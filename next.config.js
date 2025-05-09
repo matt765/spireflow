@@ -35,7 +35,7 @@ const securityHeaders = [
         // limiting potential vectors for cross-site scripting (XSS) attacks
         // by explicitly whitelisting trusted sources for various content types
         key: 'Content-Security-Policy',
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com; font-src 'self' data:; connect-src 'self' https://* data:; frame-ancestors 'none'"
+        value: "default-src 'self'; worker-src blob: 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.clerk.accounts.dev https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.clerk.accounts.dev; img-src 'self' data: https://res.cloudinary.com https://*.clerk.accounts.dev; font-src 'self' data: https://*.clerk.accounts.dev; connect-src 'self' https://* data: https://*.clerk.accounts.dev; frame-ancestors 'none'; frame-src https://*.clerk.accounts.dev"
     },
     {
         // X-Frame-Options prevents our application from being embedded within iframes
@@ -50,14 +50,7 @@ const securityHeaders = [
         // that rely on MIME type confusion, such as serving executable content disguised as images
         key: 'X-Content-Type-Options',
         value: 'nosniff'
-    },
-    {
-        // Referrer-Policy controls how much information is included in the Referer header
-        // when making requests, limiting potential information leakage while still
-        // providing useful referrer data for analytics and functionality
-        key: 'Referrer-Policy',
-        value: 'origin-when-cross-origin'
-    },
+    },   
     {
         // Permissions-Policy restricts which browser features and APIs the application
         // can use, reducing the attack surface by explicitly disabling unnecessary

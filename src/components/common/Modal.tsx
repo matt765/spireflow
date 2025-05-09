@@ -23,7 +23,10 @@ export const Modal = ({
 
   return (
     <>
-      <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0 backdrop-blur-md z-[999]" />
+      <div className="fixed w-[99.5vw] h-screen top-0 left-0 z-[9998] backdrop-blur-md" />
+      {/* I used here double overlay with 99.5vw blur and 100vw dark background to fix scrollbar shadow issue on Firefox
+      If you don't want backdrop blur, one 100vw overlay is enough */}
+      <div className="fixed w-screen h-screen bg-[rgb(0,0,0,0.3)] top-0 left-0 z-[9997]" />
       <div className="fixed w-screen h-screen flex justify-center items-center top-0 left-0 z-[9999]">
         <div
           ref={modalRef}

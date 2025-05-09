@@ -5,8 +5,10 @@ interface AppStore {
   isSideMenuOpen: boolean;
   toggleMobileMenu: () => void;
   toggleSideMenu: () => void;
-  isLoading: boolean;
-  setLoading: (loading: boolean) => void;
+  isLoggingOut: boolean;
+  setIsLoggingOut: (isLoggingOut: boolean) => void;
+  isLoggingIn: boolean;
+  setIsLoggingIn: (isLoggingIn: boolean) => void;
 }
 
 const determineInitialState = () => {
@@ -41,6 +43,8 @@ export const useAppStore = create<AppStore>((set) => ({
         : determineInitialState().isSideMenuOpen,
     }));
   },
-  isLoading: true,
-  setLoading: (loading) => set(() => ({ isLoading: loading })),
+  isLoggingOut: false,
+  setIsLoggingOut: (isLoggingOut) => set(() => ({ isLoggingOut })),
+  isLoggingIn: false,
+  setIsLoggingIn: (isLoggingIn) => set(() => ({ isLoggingIn })),
 }));

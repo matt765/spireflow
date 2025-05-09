@@ -458,6 +458,13 @@
     "logoutModalDesc": "Kliknij \"tak\" aby wylogować się z aplikacji",
     "logoutModalCancelButton": "Anuluj",
     "logoutModalConfirmButton": "Tak",
+    "authErrors": {
+      "session_exists": "Jesteś już zalogowany",
+      "form_identifier_not_found": "Email nie znaleziony",
+      "form_password_incorrect": "Nieprawidłowe hasło",
+      "user_locked": "Konto czasowo zablokowane. Spróbuj później",
+      "defaultError": "Błąd logowania"
+    },
     "search": {
       "placeholder": "Szukaj...",
       "noResults": "Nie znaleziono wyników",
