@@ -22,9 +22,6 @@ export const PageWrapper = ({
   pageName,
   dataForExport,
 }: PageWrapperProps) => {
-  const csvTooltip = useTooltip();
-  const t = useTranslations();
-
   const handleExportToCSV = () => {
     if (dataForExport) {
       const exportName = pageName?.toLowerCase() || "export";

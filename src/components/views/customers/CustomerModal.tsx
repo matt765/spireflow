@@ -22,7 +22,6 @@ export const CustomerModal = ({
     { label: t("phone"), value: customerData.col5 },
     { label: t("email"), value: "customer@mail.com" },
     { label: t("returns"), value: Math.floor(Math.random() * 5 + 1) },
-    ,
     { label: t("loyaltyPoints"), value: Math.floor(Math.random() * 300 + 150) },
   ];
 
@@ -55,7 +54,7 @@ export const CustomerModal = ({
           </div>
           <div className="text-primaryText text-base w-full text-left mt-5 flex flex-wrap justify-between">
             {customerDetails.map((customer) => (
-              <p
+              <div
                 key={customer?.label}
                 className="border-b border-mainBorder w-[47%] my-[0.6rem] pb-2 flex text-nowrap"
               >
@@ -63,7 +62,7 @@ export const CustomerModal = ({
                   {customer?.label}:
                 </div>
                 {customer?.value}
-              </p>
+              </div>
             ))}
           </div>
         </div>

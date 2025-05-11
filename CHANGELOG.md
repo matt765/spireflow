@@ -123,3 +123,12 @@
 - redesign card header
 - update all packages
 - add CSV export for 6 main pages
+
+## 1.0.15 (12-05-2025)
+
+- add tests for common components
+- fix mobile menu translations
+- migrate auth to Clerk
+- add Prettier config
+- add Husky
+- improve light theme

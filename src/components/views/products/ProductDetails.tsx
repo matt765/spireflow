@@ -46,7 +46,7 @@ export const ProductDetails = ({
   );
 
   return (
-    <div className="w-full lg:w-3/4 2xl:p-4 2xl:pt-2">
+    <div className="w-full lg:w-3/4 ">
       <div className="flex flex-col">
         <div className="flex gap-6 md:gap-8 items-center justify-start mb-16">
           <div
