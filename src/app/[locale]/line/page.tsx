@@ -83,7 +83,10 @@ const Line = () => {
       />
       <div className="w-full hidden sm:flex justify-between mx-auto mt-6 1xl:mt-8 ml-8">
         {dragonPopulationInWesteros.map((item, index) => (
-          <div key={index} className="text-[12px] lg:text-[13px] text-primaryText px-2">
+          <div
+            key={index}
+            className="text-[12px] lg:text-[13px] text-primaryText px-2"
+          >
             {item.title}
           </div>
         ))}

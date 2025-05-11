@@ -46,9 +46,9 @@ export const OrderSelects = ({
         filters.priceRange.min === 0 && filters.priceRange.max === 5000
           ? "" // Treat the initial state as equivalent to having no selection.
           : typeof filters.priceRange.min === "undefined" ||
-            typeof filters.priceRange.max === "undefined"
-          ? ""
-          : `${filters.priceRange.min}-${filters.priceRange.max}`,
+              typeof filters.priceRange.max === "undefined"
+            ? ""
+            : `${filters.priceRange.min}-${filters.priceRange.max}`,
       setFilterKey: "priceRange",
       placeholder: t("selectPlaceholder.anyPrice"),
       options: ["0-100", "100-500", "500-1000", "1000-5000"],

@@ -95,8 +95,8 @@ export const ProductDetails = ({
                   activeProduct.type === "Telefon"
                     ? "/phone.png"
                     : activeProduct.type === "Tablet"
-                    ? "/tablet.png"
-                    : "/laptop.png",
+                      ? "/tablet.png"
+                      : "/laptop.png",
               },
               {
                 src:
@@ -104,8 +104,8 @@ export const ProductDetails = ({
                   activeProduct.type === "Telefon"
                     ? "/tablet.png"
                     : activeProduct.type === "Tablet"
-                    ? "/laptop.png"
-                    : "/phone.png",
+                      ? "/laptop.png"
+                      : "/phone.png",
               },
               {
                 src:
@@ -113,8 +113,8 @@ export const ProductDetails = ({
                   activeProduct.type === "Telefon"
                     ? "/laptop.png"
                     : activeProduct.type === "Tablet"
-                    ? "/phone.png"
-                    : "/tablet.png",
+                      ? "/phone.png"
+                      : "/tablet.png",
               },
             ]}
             counter={{ container: { style: { top: "unset", bottom: 0 } } }}

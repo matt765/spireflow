@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react"
+import { renderHook, act } from "@testing-library/react";
 import { SortingState } from "@tanstack/react-table";
 
 import { useTable } from "../../hooks/useTable";

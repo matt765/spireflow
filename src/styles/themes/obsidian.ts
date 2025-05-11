@@ -13,7 +13,7 @@ export const obsidianTheme = {
   redBadgeText: "rgb(253, 164, 175)",
   orangeBadgeText: "rgb(253, 186, 116)",
   logoBasicText: "rgb(255,255,255)",
-  
+
   // Icons
   grayIcon: "rgb(160, 165, 170)",
   navItemIconActive: "rgb(61, 185, 133)",

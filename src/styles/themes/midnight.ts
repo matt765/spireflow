@@ -13,7 +13,7 @@ export const midnightTheme = {
   redBadgeText: "rgb(253, 164, 175)",
   orangeBadgeText: "rgb(253, 186, 116)",
   logoBasicText: "rgb(255,255,255)",
-  
+
   // Icons
   grayIcon: "rgb(255,255,255,0.6)",
   navItemIconActive: "white",

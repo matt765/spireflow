@@ -6,12 +6,10 @@ export const BarsIcon = () => (
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="chartIconTitle"
-   
     strokeWidth="1"
     strokeLinecap="square"
     strokeLinejoin="miter"
     fill="none"
-  
   >
     <title id="chartIconTitle">Chart</title>{" "}
     <polygon points="2 12 2 21 6 21 6 12" />{" "}

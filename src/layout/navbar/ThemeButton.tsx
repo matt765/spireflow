@@ -21,7 +21,7 @@ export const ThemeButton = ({
   themes,
   themesDisplayNames,
   t,
-  searchClose
+  searchClose,
 }: ThemeButtonProps) => (
   <div
     className="relative"

@@ -5,7 +5,6 @@ export const ProductsIcon = () => (
     height="20"
     viewBox="0 0 24 24"
     strokeWidth="1.5"
-    
     fill="none"
     strokeLinecap="round"
     strokeLinejoin="round"

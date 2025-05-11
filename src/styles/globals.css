@@ -311,11 +311,11 @@ a {
 }
 
 .menuItemIcon svg {
-  @apply w-[20px] h-[20px] 3xl:w-[22px] 3xl:h-[22px]
+  @apply w-[20px] h-[20px] 3xl:w-[22px] 3xl:h-[22px];
 }
 
 .menuItemLogo svg {
-  @apply w-[22px] h-[22px] 3xl:w-[25px] 3xl:h-[25px]
+  @apply w-[22px] h-[22px] 3xl:w-[25px] 3xl:h-[25px];
 }
 
 /* Hide unnecessary grid lines in Tremor bar charts */

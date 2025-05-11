@@ -8,7 +8,6 @@ export const OrdersIcon = () => (
     <title>List</title>
     <path
       fill="red"
-   
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="32"
@@ -19,7 +18,6 @@ export const OrdersIcon = () => (
       cy="144"
       r="16"
       fill="none"
-    
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="32"
@@ -29,7 +27,6 @@ export const OrdersIcon = () => (
       cy="256"
       r="16"
       fill="none"
-    
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="32"
@@ -39,7 +36,6 @@ export const OrdersIcon = () => (
       cy="368"
       r="16"
       fill="none"
- 
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="32"

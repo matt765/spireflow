@@ -24,5 +24,3 @@ export const useModal = () => {
 
   return { isOpen, toggle, close, ref };
 };
-
-

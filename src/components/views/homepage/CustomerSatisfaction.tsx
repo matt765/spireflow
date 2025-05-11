@@ -1,7 +1,6 @@
 import { ScatterChart } from "@tremor/react";
 import { useTranslations } from "next-intl";
 
-
 import { useTranslateData } from "../../../hooks/useTranslateData";
 import { CustomerSatisfactionProps } from "./types";
 import { Card } from "../../common/Card";

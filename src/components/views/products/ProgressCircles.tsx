@@ -18,7 +18,7 @@ export const ProgressCircles = ({ metrics }: ProgressCirclesProps) => {
     t("orderFullfillment"),
     t("conversionRate"),
   ];
-  
+
   const { width: windowWidth } = useWindowDimensions();
 
   const getCircleSize = () => {

@@ -12,8 +12,6 @@ export const SignUpModal = ({
   closeModal,
   switchToSignIn,
 }: SignUpModalProps) => {
-
-
   return (
     <Modal onClose={closeModal}>
       <SignUpForm switchToSignIn={switchToSignIn} />

@@ -79,7 +79,12 @@ export const RevenuePerCountry = ({
             }
           >
             <ComposableMapLazy
-              style={{ width: "100%", height: "100%", marginLeft: "-4rem", marginTop: "3rem" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                marginLeft: "-4rem",
+                marginTop: "3rem",
+              }}
               stroke="rgb(255,255,255, 0.1)"
               projectionConfig={{
                 scale: 200,
@@ -111,8 +116,8 @@ export const RevenuePerCountry = ({
                             countryData
                               ? HIGHLIGHT_COLOR
                               : theme === "snowlight"
-                              ? "rgb(0,0,0,0.13)"
-                              : "rgba(255, 255, 255, 0.1)"
+                                ? "rgb(0,0,0,0.13)"
+                                : "rgba(255, 255, 255, 0.1)"
                           }
                           style={{
                             default: { outline: "none" },
