@@ -22,6 +22,16 @@ export default async function middleware(
   request: NextRequest,
   event: NextFetchEvent
 ) {
+  // Check if Clerk environment variables are present
+  const hasClerkEnvs =
+    process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
+    process.env.CLERK_SECRET_KEY;
+
+  // If Clerk envs are missing, skip Clerk middleware and just handle i18n
+  if (!hasClerkEnvs) {
+    return handleI18nRouting(request);
+  }
+
   return clerkMiddleware(async (auth, req) => {
     // Uncomment this code if you want to protect all routes except the public ones
     // I commented it out for demo purposes

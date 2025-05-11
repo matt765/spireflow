@@ -47,7 +47,7 @@ export const CalendarView = ({ calendarEvents }: CalendarViewProps) => {
   const locale = useLocale();
 
   return (
-    <div className="w-full h-full px-0 py-2 md:p-2 1xl:p-6 pt-2 1xl:pt-5 alternativeScrollbar">
+    <div className="w-full h-full alternativeScrollbar">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin]}
         initialView="dayGridMonth"

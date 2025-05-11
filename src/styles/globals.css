@@ -66,7 +66,7 @@ a {
   @apply hover:!bg-[rgb(255,255,255,0.02)] transition;
 }
 .fc-day-disabled {
-  @apply !bg-[rgb(255,255,255,0.05)];
+  @apply !bg-[rgb(255,255,255,0.03)];
 }
 .fc-daygrid-day-number {
   font-size: 1.5rem;
@@ -153,6 +153,8 @@ a {
 @media (max-width: 768px) {
   .fc-media-screen {
     max-height: 100vh !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -259,6 +261,14 @@ a {
 .tremor-TableCell-root .text-emerald-600,
 .tremor-ListItem-root .text-emerald-600 {
   @apply text-greenBadgeText;
+}
+
+/* Fix for "Invalid prop `wrapperStyle`" error specific for Tremor library */
+#salesCard,
+#profitCard,
+#trafficCard,
+#customersCard * {
+  pointer-events: none;
 }
 
 /* Chart backgrounds for dots in Tremor legend/tooltip components */
