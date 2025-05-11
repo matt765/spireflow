@@ -120,7 +120,7 @@ export const MarketMetrics = ({ marketMetricsData }: MarketMetricsProps) => {
             data={marketMetricsData}
             className="pt-4 mt-[1rem] lg:mt-0"
           >
-            <PolarGrid stroke="rgba(255,255,255,0.1)" />
+            <PolarGrid stroke={chartColors.primary.grid} />
             <PolarAngleAxis
               dataKey="metric"
               tick={{ fill: "rgba(255,255,255,0.65)", fontSize: 12 }}

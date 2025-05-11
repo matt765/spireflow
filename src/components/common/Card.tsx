@@ -18,7 +18,7 @@ export const Card = ({
   return (
     <div
       id={id}
-      className={`border border-mainBorder rounded-[8px] !border-mainBorder bg-primaryBg
+      className={`border snowlight:shadow-lg border-mainBorder rounded-[8px] !border-mainBorder bg-primaryBg
                 relative w-full text-left h-full pt-5  
                 ${className} `}
     >

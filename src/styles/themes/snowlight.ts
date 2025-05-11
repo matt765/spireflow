@@ -1,12 +1,12 @@
 export const snowlightTheme = {
   // Texts
-  primaryText: "black",
+  primaryText: "rgb(22, 40, 74)",
   secondaryText: "rgb(0,0,0,0.6)",
   secondaryTextHover: "rgb(0,0,0,0.8)",
   coloredText: "rgb(0, 96, 255)",
   coloredTextHover: "rgb(76, 144, 255)",
-  navItemText: "rgba(0,0,0,0.85)",
-  navItemTextActive: "rgb(101, 150, 231)",
+  navItemText: "rgba(0,0,0,0.9)",
+  navItemTextActive: "rgb(0, 96, 255)",
   navSectionTitle: "black",
   tableCellText: "rgb(68, 68, 68)",
   greenBadgeText: "rgb(35, 140, 99)",
@@ -20,7 +20,7 @@ export const snowlightTheme = {
 
   // Backgrounds
   primaryBg: "white",
-  secondaryBg: "rgb(249, 249, 251)",
+  secondaryBg: "rgb(247, 247, 247)",
   mainColor: "rgb(118, 167, 247)",
   navigationBg: "white",
   navItemBg: "rgb(0,0,0,0)",

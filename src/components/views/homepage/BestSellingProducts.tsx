@@ -130,7 +130,10 @@ export const BestSellingProducts = ({
               align="center"
               content={<BestSellingCustomLegend />}
             />
-            <CartesianGrid strokeDasharray="0" stroke="rgba(255,255,255,0.1)" />
+            <CartesianGrid
+              strokeDasharray="0"
+              stroke={chartColors.primary.grid}
+            />
             <XAxis
               dataKey="name"
               tick={{ fill: "white", fontSize: "0.8rem" }}

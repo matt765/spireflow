@@ -17,6 +17,8 @@ import {
   RevenueDistributionTooltipProps,
 } from "./types";
 import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
+import { useChartColors } from "../../../hooks/useChartColors";
+import { useTheme } from "next-themes";
 
 const RevenueDistributionTooltip = ({
   active,
@@ -74,6 +76,12 @@ export const RevenueDistribution = ({
 
   const { width: windowWidth } = useWindowDimensions();
 
+  const { theme } = useTheme();
+
+  const chartColors = useChartColors(
+    theme as "charcoal" | "midnight" | "obsidian" | "snowlight"
+  );
+
   return (
     <Card className="h-full" id="revenueDistribution" title={t("title")}>
       <div className="w-full h-[19.5rem] 3xl:h-[22rem] mt-4 1xl:mt-4 -ml-4">
@@ -90,7 +98,7 @@ export const RevenueDistribution = ({
           >
             <CartesianGrid
               strokeDasharray="0"
-              stroke="rgba(255,255,255,0.1)"
+              stroke={chartColors.primary.grid}
               horizontal={false}
             />
             <XAxis

@@ -135,7 +135,10 @@ export const Performance = ({ performanceData }: PerformanceProps) => {
               bottom: 5,
             }}
           >
-            <CartesianGrid strokeDasharray="0" stroke="rgba(255,255,255,0.1)" />
+            <CartesianGrid
+              strokeDasharray="0"
+              stroke={chartColors.primary.grid}
+            />
             <XAxis dataKey="month" tick={<CustomXAxisTick />} />
             <YAxis
               tick={{ fill: "white", fontSize: "0.8rem" }}
